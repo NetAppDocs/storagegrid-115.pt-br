@@ -1,0 +1,21 @@
+---
+permalink: audit/audit-message-overview.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, log, structure, content 
+summary: Estas instruções contêm informações sobre a estrutura e o conteúdo das mensagens de auditoria e registos de auditoria do StorageGRID. Você pode usar essas informações para ler e analisar a trilha de auditoria da atividade do sistema. 
+---
+= Visão geral da mensagem de auditoria
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Estas instruções contêm informações sobre a estrutura e o conteúdo das mensagens de auditoria e registos de auditoria do StorageGRID. Você pode usar essas informações para ler e analisar a trilha de auditoria da atividade do sistema.
+
+Estas instruções destinam-se aos administradores responsáveis pela produção de relatórios de atividade e utilização do sistema que exijam a análise das mensagens de auditoria do sistema StorageGRID.
+
+Presume-se que você tenha uma boa compreensão da natureza das atividades auditadas dentro do sistema StorageGRID. Para usar o arquivo de log de texto, você deve ter acesso ao compartilhamento de auditoria configurado no nó Admin.
+
+.Informações relacionadas
+link:../admin/index.html["Administrar o StorageGRID"]

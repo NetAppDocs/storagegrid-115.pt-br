@@ -1,0 +1,30 @@
+---
+permalink: maintain/recovering-from-primary-admin-node-failures.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, primary admin node failure 
+summary: 'Você deve concluir um conjunto específico de tarefas para recuperar de uma falha de nó de administrador principal. O nó de administração principal hospeda o serviço do nó de gerenciamento de configuração (CMN) para a grade.' 
+---
+= Recuperando-se de falhas do nó de administração principal
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve concluir um conjunto específico de tarefas para recuperar de uma falha de nó de administrador principal. O nó de administração principal hospeda o serviço do nó de gerenciamento de configuração (CMN) para a grade.
+
+.Sobre esta tarefa
+Um nó de administração principal com falha deve ser substituído imediatamente. O serviço CMN (Configuration Management Node) no nó Admin primário é responsável pela emissão de blocos de identificadores de objetos para a grade. Esses identificadores são atribuídos a objetos à medida que são ingeridos. Novos objetos não podem ser ingeridos a menos que existam identificadores disponíveis. A ingestão de objetos pode continuar enquanto o CMN não estiver disponível porque o fornecimento de identificadores de aproximadamente um mês é armazenado em cache na grade. No entanto, depois que os identificadores armazenados em cache são esgotados, nenhum novo objeto pode ser adicionado.
+
+
+IMPORTANT: Você deve reparar ou substituir um nó de administração principal com falha em aproximadamente um mês ou a grade pode perder sua capacidade de ingerir novos objetos. O período de tempo exato depende da sua taxa de ingestão de objetos: Se você precisar de uma avaliação mais precisa do período de tempo para sua grade, entre em Contato com o suporte técnico.
+
+.Passos
+* link:copying-audit-logs-from-failed-primary-admin-node.html["Copiar registos de auditoria a partir do nó de administração principal avariado"]
+* link:replacing-primary-admin-node.html["Substituindo o nó de administração principal"]
+* link:configuring-replacement-primary-admin-node.html["Configurar o nó de administração principal de substituição"]
+* link:restoring-audit-log-on-recovered-primary-admin-node.html["Restaurando o log de auditoria no nó de administração primário recuperado"]
+* link:resetting-preferred-sender-on-recovered-primary-admin-node.html["Redefinindo o remetente preferido no nó de administração principal recuperado"]
+* link:restoring-admin-node-database-primary-admin-node.html["Restaurando o banco de dados Admin Node ao recuperar um Admin Node primário"]
+* link:restoring-prometheus-metrics-primary-admin-node.html["Restaurando métricas Prometheus ao recuperar um nó Admin primário"]
+

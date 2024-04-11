@@ -1,0 +1,64 @@
+---
+permalink: maintain/shutting-down-grid-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, node shutdown, shut down node, node shut down 
+summary: Você pode encerrar um nó de grade a partir do shell de comando do nó. 
+---
+= Fechando um nó de grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode encerrar um nó de grade a partir do shell de comando do nó.
+
+.O que você vai precisar
+* Tem de ter o `Passwords.txt` ficheiro.
+
+
+.Sobre esta tarefa
+Antes de executar este procedimento, reveja estas considerações:
+
+* Em geral, você não deve encerrar mais de um nó de cada vez para evitar interrupções.
+* Não encerre um nó durante um procedimento de manutenção, a menos que seja explicitamente instruído a fazê-lo pela documentação ou pelo suporte técnico.
+* O processo de desligamento é baseado em onde o nó é instalado, como segue:
++
+** Desligar um nó da VMware desliga a máquina virtual.
+** Desligar um nó Linux desliga o contentor.
+** Desligar um nó de dispositivo StorageGRID desliga o controlador de computação.
+
+
+* Se você planeja encerrar os nós de storage, observe o seguinte:
++
+** Se uma regra ILM especificar um comportamento de ingestão de confirmação dupla ou a regra especificar balanceado e não for possível criar imediatamente todas as cópias necessárias, o StorageGRID enviará imediatamente quaisquer objetos recém-ingeridos a dois nós de armazenamento no mesmo local e avaliará o ILM posteriormente. Se você quiser encerrar dois ou mais nós de storage em um determinado local, talvez não consiga acessar esses objetos durante o encerramento.
+** Para garantir que você possa acessar todos os objetos quando um nó de armazenamento for desligado, pare de ingerir objetos em um local por aproximadamente uma hora antes de desligar o nó.
+
+
+
+
+.Passos
+. Faça login no nó da grade:
++
+.. Introduza o seguinte comando: `ssh admin@_grid_node_IP_`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+
+
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+. Parar todos os serviços: `service servermanager stop`
++
+Os serviços podem levar até 15 minutos para serem encerrados, e você pode querer fazer login no sistema remotamente para monitorar o processo de desligamento.
+
+. Faça logout do shell de comando: `exit`
+
+
+Depois de ser desligado, você pode desligar o nó da grade.
+
+link:powering-down-host.html["Desligar um host"]
+
+.Informações relacionadas
+link:../admin/index.html["Administrar o StorageGRID"]

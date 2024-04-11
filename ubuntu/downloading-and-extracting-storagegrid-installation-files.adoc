@@ -1,0 +1,125 @@
+---
+permalink: ubuntu/downloading-and-extracting-storagegrid-installation-files.html 
+sidebar: sidebar 
+keywords: storagegrid, ubuntu, debian, download installation files, downloading installation files 
+summary: Você deve baixar o arquivo de instalação do StorageGRID e extrair os arquivos necessários. 
+---
+= Transferir e extrair os ficheiros de instalação do StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve baixar o arquivo de instalação do StorageGRID e extrair os arquivos necessários.
+
+.Passos
+. Vá para a página de downloads do NetApp para StorageGRID.
++
+https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["NetApp Downloads: StorageGRID"^]
+
+. Selecione o botão para baixar a versão mais recente ou selecione outra versão no menu suspenso e selecione *Go*.
+. Inicie sessão com o nome de utilizador e a palavra-passe da sua conta NetApp.
+. Se aparecer uma instrução Caution/MustRead, leia-a e marque a caixa de seleção.
++
+Você deve aplicar os hotfixes necessários depois de instalar a versão do StorageGRID. Para obter mais informações, consulte o procedimento de correção nas instruções de recuperação e manutenção.
+
+. Leia o Contrato de Licença de Usuário final, marque a caixa de seleção e selecione *aceitar e continuar*.
++
+É apresentada a página de transferências para a versão selecionada. A página contém três colunas:
+
+. Na coluna *Instalar StorageGRID*, selecione o software apropriado.
++
+Selecione o `.tgz` arquivo ou `.zip` archive para sua plataforma.
+
++
+** `StorageGRID-Webscale-version-DEB-uniqueID.zip`
+** `StorageGRID-Webscale-version-DEB-uniqueID.tgz`
++
+Os arquivos compatados contêm os arquivos DEB e scripts para Ubuntu ou Debian.
+
+
+
++
+
+NOTE: Use o `.zip` arquivo se você estiver executando o Windows no laptop de serviço.
+
+. Salve e extraia o arquivo de arquivo.
+. Escolha os arquivos que você precisa na lista a seguir.
++
+O conjunto de arquivos de que você precisa depende da topologia de grade planejada e de como você implantará sua grade StorageGRID.
+
++
+
+NOTE: Os caminhos listados na tabela são relativos ao diretório de nível superior instalado pelo arquivo de instalação extraído.
+
+
+
+[cols="1a,2a"]
+|===
+| Caminho e nome do arquivo | Descrição 
+
+
+| ./debs/README  a| 
+Um arquivo de texto que descreve todos os arquivos contidos no arquivo de download do StorageGRID.
+
+
+
+| ./debs/NLF000000.txt  a| 
+Um arquivo de licença do NetApp que não é de produção que pode ser usado para testes e implantações de prova de conceito.
+
+
+
+| ./debs/StorageGRID-webscale-images-version-SHA.deb  a| 
+Pacote DEB para instalar as imagens do nó StorageGRID em hosts Ubuntu ou Debian.
+
+
+
+| ./debs/StorageGRID-webscale-images-version-SHA.deb.md5  a| 
+MD5 checksum para o arquivo `/debs/storagegrid-webscale-images-version-SHA.deb`.
+
+
+
+| ./debs/StorageGRID-webscale-service-version-SHA.deb  a| 
+Pacote DEB para instalar o serviço host StorageGRID em hosts Ubuntu ou Debian.
+
+
+
+ a| 
+*Ferramenta de script de implantação*
+ a| 
+*Descrição*
+
+
+
+| ./debs/configure-StorageGRID.py  a| 
+Um script Python usado para automatizar a configuração de um sistema StorageGRID.
+
+
+
+| ./debs/configure-sga.py  a| 
+Um script Python usado para automatizar a configuração de dispositivos StorageGRID.
+
+
+
+| ./debs/StorageGRID-ssoauth.py  a| 
+Um exemplo de script Python que você pode usar para fazer login na API de Gerenciamento de Grade quando o logon único estiver ativado.
+
+
+
+| ./debs/configure-StorageGRID.sample.json  a| 
+Um arquivo de configuração de exemplo para uso com o `configure-storagegrid.py` script.
+
+
+
+| ./debs/configure-StorageGRID.blank.json  a| 
+Um arquivo de configuração em branco para uso com o `configure-storagegrid.py` script.
+
+
+
+| ./debs/extras/ansible  a| 
+Exemplo Ansible role e playbook para configurar hosts Ubuntu ou Debian para a implantação de contentores StorageGRID. Você pode personalizar a função ou o manual de estratégia conforme necessário.
+
+|===
+.Informações relacionadas
+link:../maintain/index.html["Manter  recuperar"]

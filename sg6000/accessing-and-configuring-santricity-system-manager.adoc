@@ -1,0 +1,20 @@
+---
+permalink: sg6000/accessing-and-configuring-santricity-system-manager.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, SANtricity System Manager, SANtricity, System Manager, configure, configuring, setup, set up, setting up, access, accessing, E-Series AutoSupport, autosupport 
+summary: Você pode usar o Gerenciador de sistemas do SANtricity para monitorar o status das controladoras de storage, discos de storage e outros componentes de hardware no compartimento de controladora de storage. Você também pode configurar um proxy para o e-Series AutoSupport que permite enviar mensagens AutoSupport do dispositivo sem o uso da porta de gerenciamento. 
+---
+= Acessando e configurando o Gerenciador do sistema do SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o Gerenciador de sistemas do SANtricity para monitorar o status das controladoras de storage, discos de storage e outros componentes de hardware no compartimento de controladora de storage. Você também pode configurar um proxy para o e-Series AutoSupport que permite enviar mensagens AutoSupport do dispositivo sem o uso da porta de gerenciamento.
+
+.Passos
+* link:setting-up-and-accessing-santricity-system-manager.html["Configuração e acesso ao Gerenciador de sistema do SANtricity"]
+* link:reviewing-hardware-status-in-santricity-system-manager.html["Analisando o status do hardware no Gerenciador do sistema do SANtricity"]
+* link:setting-ip-addresses-for-storage-controllers-using-storagegrid-appliance-installer.html["Definir os endereços IP dos controladores de armazenamento utilizando o Instalador de dispositivos StorageGRID"]
+

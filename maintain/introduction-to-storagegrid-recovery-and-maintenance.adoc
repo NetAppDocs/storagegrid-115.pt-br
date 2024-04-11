@@ -1,0 +1,42 @@
+---
+permalink: maintain/introduction-to-storagegrid-recovery-and-maintenance.html 
+sidebar: sidebar 
+keywords: storagegrid, recovery, maintenance 
+summary: Os procedimentos de recuperação e manutenção do StorageGRID incluem a aplicação de um hotfix de software, a recuperação de nós de grade, a recuperação de um site com falha, a desativação de nós de grade ou um site inteiro, a execução de manutenção de rede, a execução de procedimentos de manutenção de middleware e nível de host e a execução de procedimentos de nó de grade. 
+---
+= Introdução à recuperação e manutenção do StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os procedimentos de recuperação e manutenção do StorageGRID incluem a aplicação de um hotfix de software, a recuperação de nós de grade, a recuperação de um site com falha, a desativação de nós de grade ou um site inteiro, a execução de manutenção de rede, a execução de procedimentos de manutenção de middleware e nível de host e a execução de procedimentos de nó de grade.
+
+Todas as atividades de recuperação e manutenção exigem uma ampla compreensão do sistema StorageGRID. Você deve revisar a topologia do sistema StorageGRID para garantir que você entenda a configuração da grade.
+
+Você deve seguir todas as instruções exatamente e atender a todos os avisos.
+
+Os procedimentos de manutenção não descritos não são suportados nem requerem um envolvimento dos serviços.
+
+Para obter os procedimentos de hardware, consulte as instruções de instalação e manutenção do seu dispositivo StorageGRID.
+
+
+NOTE: "Linux" refere-se a uma implantação Red Hat Enterprise Linux, Ubuntu, CentOS ou Debian. Use a ferramenta Matriz de interoperabilidade do NetApp para obter uma lista de versões suportadas.
+
+.Informações relacionadas
+link:../primer/index.html["Primário de grelha"]
+
+link:../network/index.html["Diretrizes de rede"]
+
+link:../admin/index.html["Administrar o StorageGRID"]
+
+link:../sg100-1000/index.html["Aparelhos de serviços SG100  SG1000"]
+
+link:../sg6000/index.html["SG6000 dispositivos de armazenamento"]
+
+link:../sg5700/index.html["SG5700 dispositivos de armazenamento"]
+
+link:../sg5600/index.html["SG5600 dispositivos de armazenamento"]
+
+https://mysupport.netapp.com/matrix["Ferramenta de Matriz de interoperabilidade do NetApp"]

@@ -1,0 +1,36 @@
+---
+permalink: admin/kms-adding-upload-server-certificate.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Na Etapa 2 (carregar certificado do servidor) do assistente Adicionar um servidor de gerenciamento de chaves, você carrega o certificado do servidor (ou pacote de certificados) para o KMS. O certificado do servidor permite que o KMS externo se autentique no StorageGRID.' 
+---
+= Passo 2: Carregar certificado de servidor
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Na Etapa 2 (carregar certificado do servidor) do assistente Adicionar um servidor de gerenciamento de chaves, você carrega o certificado do servidor (ou pacote de certificados) para o KMS. O certificado do servidor permite que o KMS externo se autentique no StorageGRID.
+
+.Passos
+. A partir de *passo 2 (carregar certificado do servidor)*, navegue até a localização do certificado ou pacote de certificados do servidor guardado.
++
+image::../media/kms_step_2_upload_server_certificate.png[KMS passo 2 carregar certificado de servidor]
+
+. Carregue o ficheiro de certificado.
++
+Os metadados do certificado do servidor são exibidos.
+
++
+image::../media/kms_step_2_server_certificate_metadata.png[Metadados do certificado do servidor]
+
++
+
+NOTE: Se você carregou um pacote de certificados, os metadados de cada certificado serão exibidos em sua própria guia.
+
+. Selecione *seguinte*.
++
+A etapa 3 (carregar certificados de cliente) do assistente Adicionar um servidor de gerenciamento de chaves é exibida.
+
+

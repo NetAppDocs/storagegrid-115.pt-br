@@ -1,0 +1,22 @@
+---
+permalink: admin/controlling-administrator-access-to-storagegrid.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode controlar o acesso do administrador ao sistema StorageGRID abrindo ou fechando portas de firewall, gerenciando grupos de administração e usuários, configurando logon único e fornecendo certificados de cliente para permitir acesso externo seguro às métricas do StorageGRID. 
+---
+= Controlar o acesso do administrador ao StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode controlar o acesso do administrador ao sistema StorageGRID abrindo ou fechando portas de firewall, gerenciando grupos de administração e usuários, configurando logon único (SSO) e fornecendo certificados de cliente para permitir acesso externo seguro às métricas do StorageGRID.
+
+* link:controlling-access-through-firewalls.html["Controlar o acesso através de firewalls"]
+* link:using-identity-federation.html["Usando a federação de identidade"]
+* link:managing-admin-groups.html["Gerenciando grupos de administradores"]
+* link:managing-local-users.html["Gerenciamento de usuários locais"]
+* link:using-single-sign-on.html["Usando logon único (SSO) para StorageGRID"]
+* link:configuring-administrator-client-certificates.html["Configurando certificados de cliente de administrador"]
+

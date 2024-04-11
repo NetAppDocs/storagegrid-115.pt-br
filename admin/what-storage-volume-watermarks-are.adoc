@@ -1,0 +1,59 @@
+---
+permalink: admin/what-storage-volume-watermarks-are.html 
+sidebar: sidebar 
+keywords:  
+summary: 'O StorageGRID usa marcas d"água de volume de storage para permitir que você monitore a quantidade de espaço utilizável disponível nos nós de storage. Se a quantidade de espaço disponível em um nó for menor do que uma configuração de marca d"água configurada, o alarme de Status do armazenamento (SSTS) será acionado para que você possa determinar se precisa adicionar nós de armazenamento.' 
+---
+= Quais são as marcas d'água do volume de armazenamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O StorageGRID usa marcas d'água de volume de storage para permitir que você monitore a quantidade de espaço utilizável disponível nos nós de storage. Se a quantidade de espaço disponível em um nó for menor do que uma configuração de marca d'água configurada, o alarme de Status do armazenamento (SSTS) será acionado para que você possa determinar se precisa adicionar nós de armazenamento.
+
+Para ver as definições atuais das marcas de água do volume de armazenamento, selecione *Configuração* > *Opções de armazenamento* > *Visão geral*.
+
+image::../media/storage_watermarks.png[Marcas d'água]
+
+A figura a seguir representa um nó de armazenamento que tem três volumes e mostra a posição relativa das três marcas d'água do volume de armazenamento. Em cada nó de storage, o StorageGRID reserva espaço no volume 0 para metadados de objetos. Qualquer espaço restante nesse volume é usado para dados de objetos. Todos os outros volumes são usados exclusivamente para dados de objetos, o que inclui cópias replicadas e fragmentos codificados por apagamento.
+
+image::../media/storage_volume_watermarks.png[Diagrama de marcas d'água]
+
+As marcas de água do volume de armazenamento são padrões de todo o sistema que indicam a quantidade mínima de espaço livre necessária em cada volume no nó de armazenamento para evitar que o StorageGRID altere o comportamento de leitura e gravação do nó ou acione um alarme. Observe que todos os volumes devem alcançar a marca d'água antes que o StorageGRID tome medidas. Se alguns volumes tiverem mais do que a quantidade mínima necessária de espaço livre, o alarme não será acionado e o comportamento de leitura e gravação do nó não será alterado.
+
+
+
+== Marca d'água suave apenas de leitura (VHWM)
+
+A marca d'água somente leitura suave do volume de armazenamento é a primeira marca d'água a indicar que o espaço utilizável de um nó para dados de objeto está se tornando cheio. Essa marca d'água representa quanto espaço livre deve existir em cada volume em um nó de armazenamento para impedir que o nó entre no "modo somente leitura fácil". O modo somente leitura suave significa que o nó de armazenamento anuncia serviços somente leitura para o resto do sistema StorageGRID, mas atende a todas as solicitações de gravação pendentes.
+
+Se a quantidade de espaço livre em cada volume for inferior à definição desta marca d'água, o alarme de Estado de armazenamento (SSTS) é acionado no nível de aviso e o nó de armazenamento passa para o modo apenas leitura suave.
+
+Por exemplo, suponha que o volume de armazenamento Soft Read-Only Watermark esteja definido como 10 GB, que é o valor padrão. Se menos de 10 GB de espaço livre permanecer em cada volume no nó de armazenamento, o alarme SSTS é acionado no nível de aviso e o nó de armazenamento passa para o modo apenas leitura suave.
+
+
+
+== Marca d'água apenas de leitura (VROM)
+
+A marca d'água somente leitura de volume de armazenamento é a próxima marca d'água para indicar que o espaço utilizável de um nó para dados de objeto está se tornando cheio. Essa marca d'água representa quanto espaço livre deve existir em cada volume em um nó de armazenamento para impedir que o nó entre no modo somente leitura." o modo somente leitura dura significa que o nó de armazenamento é somente leitura e não aceita mais solicitações de gravação.
+
+Se a quantidade de espaço livre em cada volume em um nó de armazenamento for menor do que a configuração desta marca d'água, o alarme de Status de armazenamento (SSTS) será acionado no nível principal e o nó de armazenamento será transferido para o modo somente leitura.
+
+Por exemplo, suponha que o volume de armazenamento Hard Read-Only Watermark esteja definido como 5 GB, que é o seu valor padrão. Se menos de 5 GB de espaço livre permanecer em cada volume de armazenamento no nó de armazenamento, o alarme SSTS é acionado no nível principal e o nó de armazenamento passa para o modo apenas de leitura difícil.
+
+O valor da marca de água de apenas leitura de volume de armazenamento tem de ser inferior ao valor da marca de água de apenas leitura suave do volume de armazenamento.
+
+
+
+== Marca d'água de leitura-escrita do volume de armazenamento (VLWM)
+
+A marca d'água de leitura e gravação do volume de armazenamento aplica-se apenas a nós de armazenamento que tenham sido transferidos para o modo somente leitura. Essa marca d'água determina quando o nó de armazenamento pode ser lido e gravado novamente.
+
+Por exemplo, suponha que um nó de armazenamento tenha sido transferido para o modo somente leitura difícil. Se a marca de água de leitura e gravação do volume de armazenamento estiver definida como 30 GB (padrão), o espaço livre em cada volume de armazenamento no nó de armazenamento deve aumentar de 5 GB para 30 GB antes que o nó possa ser lido e gravado novamente.
+
+O valor da marca de água de leitura-escrita do volume de armazenamento deve ser superior ao valor da marca de água de leitura suave do volume de armazenamento.
+
+.Informações relacionadas
+link:managing-full-storage-nodes.html["Gerenciamento de nós de storage completos"]

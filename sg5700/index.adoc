@@ -1,0 +1,27 @@
+---
+permalink: sg5700/index.html 
+sidebar: sidebar 
+keywords: storagegrid, sg5700, storage node, storage appliance 
+summary: Saiba como instalar e manter dispositivos StorageGRID SG5712 e SG5760. 
+---
+= SG5700 dispositivos de armazenamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Saiba como instalar e manter dispositivos StorageGRID SG5712 e SG5760.
+
+* link:storagegrid-appliance-overview.html["Visão geral do dispositivo StorageGRID"]
+* link:installation-and-deployment-overview.html["Visão geral da instalação e implantação"]
+* link:preparing-for-installation.html["Preparando-se para a instalação"]
+* link:installing-hardware.html["Instalar o hardware"]
+* link:configuring-hardware-sg5712-60.html["Configurar o hardware"]
+* link:deploying-appliance-storage-node.html["Implantando um nó de storage de dispositivos"]
+* link:monitoring-storage-appliance-installation.html["Monitorização da instalação do dispositivo de armazenamento"]
+* link:automating-appliance-installation-and-configuration.html["Automatizando a instalação e a configuração do dispositivo"]
+* link:overview-of-installation-rest-apis.html["Visão geral das APIs REST de instalação"]
+* link:troubleshooting-hardware-installation.html["Solução de problemas da instalação do hardware"]
+* link:maintaining-sg5700-appliance.html["Manutenção do aparelho SG5700"]
+

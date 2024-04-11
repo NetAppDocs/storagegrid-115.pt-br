@@ -1,0 +1,42 @@
+---
+permalink: ilm/how-objects-are-ingested.html 
+sidebar: sidebar 
+keywords:  
+summary: O StorageGRID protege os objetos durante a ingestão, executando o posicionamento síncrono ou executando commit duplo, conforme especificado na regra ILM que corresponde aos objetos. 
+---
+= Como os objetos são ingeridos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O StorageGRID protege os objetos durante a ingestão, executando o posicionamento síncrono ou executando commit duplo, conforme especificado na regra ILM que corresponde aos objetos.
+
+Quando um cliente S3 ou Swift armazena um objeto na grade, o StorageGRID ingere o objeto usando um destes dois métodos:
+
+* *Colocação síncrona*: O StorageGRID cria imediatamente todas as cópias de objetos necessárias para atender aos requisitos do ILM. O StorageGRID envia uma mensagem de "ingestão bem-sucedida" ao cliente quando todas as cópias são criadas.
++
+Se o StorageGRID não puder criar imediatamente todas as cópias de objeto (por exemplo, porque um local necessário está temporariamente indisponível), ele enviará uma mensagem "'ingest failed'" para o cliente, ou se recairá a criar cópias de objeto provisórias e avaliar o ILM mais tarde, dependendo da escolha feita quando você criou a regra ILM.
+
+* * Commit duplo*: O StorageGRID cria imediatamente duas cópias provisórias do objeto, cada uma em um nó de armazenamento diferente, e envia uma mensagem "'ingest successful'" ao cliente. O StorageGRID então coloca o objeto em fila para avaliação do ILM.
++
+Quando o StorageGRID executa a avaliação ILM, ele primeiro verifica se as cópias provisórias satisfazem as instruções de colocação na regra ILM. Por exemplo, as duas cópias provisórias podem satisfazer as instruções em uma regra ILM de duas cópias, mas elas não satisfazem as instruções em uma regra de codificação de apagamento. Se as cópias provisórias não satisfizerem as instruções do ILM, o StorageGRID criará novas cópias de objeto e excluirá quaisquer cópias provisórias que não sejam necessárias.
+
++
+Se o StorageGRID não puder criar duas cópias provisórias (por exemplo, se um problema de rede impedir que a segunda cópia seja feita), o StorageGRID não tentará novamente. A ingestão falha.
+
++
+
+NOTE: Os clientes S3 ou Swift podem especificar que o StorageGRID crie uma única cópia provisória na ingestão especificando `REDUCED_REDUNDANCY` para a classe de armazenamento. Consulte as instruções para implementar um cliente S3 ou Swift para obter mais informações.
+
+
+
+Por padrão, o StorageGRID usa o posicionamento síncrono para proteger objetos durante a ingestão.
+
+.Informações relacionadas
+link:data-protection-options-for-ingest.html["Opções de proteção de dados para ingestão"]
+
+link:../s3/index.html["Use S3"]
+
+link:../swift/index.html["Use Swift"]

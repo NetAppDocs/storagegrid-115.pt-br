@@ -1,0 +1,20 @@
+---
+permalink: tenant/index.html 
+sidebar: sidebar 
+keywords:  
+summary: Saiba como usar uma conta de locatário do StorageGRID. 
+---
+= Use uma conta de locatário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Saiba como usar uma conta de locatário do StorageGRID.
+
+* link:using-tenant-manager.html["Usando o Gerenciador do Locatário"]
+* link:managing-system-access-for-tenant-users.html["Gerenciamento do acesso do sistema para usuários de locatários"]
+* link:managing-s3-tenant-accounts.html["Gerenciamento de contas de locatários do S3"]
+* link:managing-s3-platform-services.html["Gerenciamento de serviços da plataforma S3"]
+

@@ -1,0 +1,98 @@
+---
+permalink: primer/configuring-network-settings.html 
+sidebar: sidebar 
+keywords: network settings, configure, configuring, configuration, domain name, virtual hosted-style requests 
+summary: Você pode configurar várias configurações de rede do Gerenciador de Grade para ajustar a operação do sistema StorageGRID. 
+---
+= Configurar definições de rede
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode configurar várias configurações de rede do Gerenciador de Grade para ajustar a operação do sistema StorageGRID.
+
+
+
+== Nomes de domínio
+
+Se você planeja oferecer suporte a S3 solicitações virtuais de estilo hospedado, você deve configurar a lista de nomes de domínio de endpoint aos quais os clientes S3 se conetam. Exemplos incluem s3.example.com, s3.example.co.uk e s3-east.example.com.
+
+
+NOTE: Os certificados de servidor configurados devem corresponder aos nomes de domínio de endpoint.
+
+
+
+== Grupos de alta disponibilidade
+
+Os grupos de alta disponibilidade usam endereços IP virtuais (VIPs) para fornecer acesso de backup ativo aos serviços do nó de gateway ou nó de administrador. Um grupo de HA consiste em uma ou mais interfaces de rede em nós de administração e nós de gateway. Ao criar um grupo HA, você seleciona interfaces de rede pertencentes à rede Grid (eth0) ou à rede Client (eth2).
+
+
+NOTE: A rede de administração não suporta VIPs HA.
+
+Um grupo de HA mantém um ou mais endereços IP virtuais que são adicionados à interface ativa no grupo. Se a interface ativa ficar indisponível, os endereços IP virtuais serão movidos para outra interface. Esse processo de failover geralmente leva apenas alguns segundos e é rápido o suficiente para que os aplicativos clientes tenham pouco impactos e possam confiar em comportamentos normais de repetição para continuar a operação.
+
+Você pode querer usar grupos de alta disponibilidade (HA) por vários motivos.
+
+* Um grupo de HA pode fornecer conexões administrativas altamente disponíveis ao Gerenciador de Grade ou ao Gerente do Locatário.
+* Um grupo HA pode fornecer conexões de dados altamente disponíveis para clientes S3 e Swift.
+* Um grupo de HA que contém apenas uma interface permite fornecer muitos endereços VIP e definir explicitamente endereços IPv6.
+
+
+
+
+== Vincular custos
+
+Você pode ajustar os custos de link para refletir a latência entre sites. Quando existem dois ou mais locais de data center, os custos de link priorizam qual local de data center deve fornecer um serviço solicitado.
+
+
+
+== Pontos de extremidade do balanceador de carga
+
+Você pode usar um balanceador de carga para lidar com cargas de trabalho de ingestão e recuperação de clientes S3 e Swift. O balanceamento de carga maximiza a velocidade e a capacidade de conexão distribuindo cargas de trabalho e conexões entre vários nós de storage.
+
+Se você quiser usar o serviço balanceador de carga do StorageGRID, que está incluído em nós de administração e nós de gateway, configure um ou mais pontos de extremidade do balanceador de carga. Cada endpoint define uma porta de nó de gateway ou nó de administrador para solicitações S3 e Swift para nós de storage.
+
+
+
+== Configurações de proxy
+
+Se você estiver usando serviços de plataforma S3 ou pools de storage em nuvem, poderá configurar um servidor proxy não transparente entre nós de storage e os pontos de extremidade externos do S3. Se você enviar mensagens AutoSupport usando HTTPS ou HTTP, poderá configurar um servidor proxy não transparente entre nós de administração e suporte técnico.
+
+image::../media/proxy_settings_menu_storage.png[Menu Configurações de proxy - armazenamento]
+
+
+
+== Certificados de servidor
+
+Você pode carregar dois tipos de certificados de servidor:
+
+* Certificado do servidor de interface de gerenciamento, que é o certificado usado para acessar a interface de gerenciamento.
+* Object Storage API Service Endpoints Server Certificate, que protege os endpoints S3 e Swift para conexões diretamente aos nós de armazenamento ou ao usar o serviço CLB em um nó de gateway.
++
+
+NOTE: O serviço CLB está obsoleto.
+
+
+
+Os certificados do balanceador de carga são configurados na página pontos finais do balanceador de carga. Os certificados do servidor de gerenciamento de chaves (KMS) são configurados na página servidor de gerenciamento de chaves.
+
+
+
+== Políticas de classificação de tráfego
+
+As políticas de classificação de tráfego permitem criar regras para identificar e lidar com diferentes tipos de tráfego de rede, incluindo tráfego relacionado a buckets específicos, locatários, sub-redes de clientes ou pontos de extremidade do balanceador de carga. Essas políticas podem ajudar na limitação e monitoramento de tráfego.
+
+
+
+== Redes de clientes não confiáveis
+
+Se você estiver usando uma rede cliente, você pode ajudar a proteger o StorageGRID contra ataques hostis especificando que a rede cliente em cada nó não é confiável. Se a rede de cliente de um nó não for confiável, o nó só aceita conexões de entrada em portas explicitamente configuradas como pontos de extremidade do balanceador de carga.
+
+Por exemplo, você pode querer que um nó de gateway recuse todo o tráfego de entrada na rede cliente, exceto para solicitações HTTPS S3. Ou, talvez você queira habilitar o tráfego de serviço de plataforma S3 de saída de um nó de armazenamento, ao mesmo tempo em que evita conexões de entrada para esse nó de armazenamento na rede do cliente.
+
+.Informações relacionadas
+link:../admin/index.html["Administrar o StorageGRID"]
+
+link:managing-tenants-and-client-connections.html["Gerenciamento de locatários e conexões de clientes"]

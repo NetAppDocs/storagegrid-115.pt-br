@@ -1,0 +1,30 @@
+---
+permalink: maintain/recovering-from-storage-volume-failure-where-system-drive-is-intact.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, storage volume failure, volume failure, system drive intact 
+summary: Você deve concluir uma série de tarefas para recuperar um nó de storage baseado em software em que um ou mais volumes de armazenamento no nó de armazenamento falharam, mas a unidade do sistema está intacta. Se apenas os volumes de armazenamento tiverem falhado, o nó de armazenamento ainda estará disponível para o sistema StorageGRID. 
+---
+= Recuperando-se de uma falha do volume de storage em que a unidade do sistema está intacta
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve concluir uma série de tarefas para recuperar um nó de storage baseado em software em que um ou mais volumes de armazenamento no nó de armazenamento falharam, mas a unidade do sistema está intacta. Se apenas os volumes de armazenamento tiverem falhado, o nó de armazenamento ainda estará disponível para o sistema StorageGRID.
+
+.Sobre esta tarefa
+Este procedimento de recuperação aplica-se apenas a nós de storage baseados em software. Se os volumes de storage tiverem falhado em um nó de storage de dispositivo, use o procedimento para "'recuperar um nó de storage de dispositivos StorageGRID".
+
+image::../media/storage_node_recovery_storage_vol_only.gif[visão geral do fluxograma da recuperação do volume de armazenamento]
+
+.Informações relacionadas
+link:recovering-storagegrid-appliance-storage-node.html["Recuperando um nó de storage de dispositivo StorageGRID"]
+
+.Passos
+* link:reviewing-warnings-about-storage-volume-recovery.html["Rever avisos sobre a recuperação do volume de armazenamento"]
+* link:identifying-and-unmounting-failed-storage-volumes.html["Identificação e desinstalação de volumes de armazenamento com falha"]
+* link:recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html["Recuperação de volumes de armazenamento com falha e reconstrução do banco de dados Cassandra"]
+* link:restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["Restaurar dados de objetos para um volume de armazenamento em que a unidade do sistema está intacta"]
+* link:checking-storage-state-after-recovering-storage-volumes.html["Verificando o estado de armazenamento após recuperar volumes de armazenamento"]
+

@@ -1,0 +1,49 @@
+---
+permalink: admin/creating-tenant-account.html 
+sidebar: sidebar 
+keywords:  
+summary: Você deve criar pelo menos uma conta de locatário para controlar o acesso ao storage no sistema StorageGRID. 
+---
+= Criando uma conta de locatário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve criar pelo menos uma conta de locatário para controlar o acesso ao storage no sistema StorageGRID.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+
+
+.Passos
+. Selecione *tenants*.
++
+A página Contas do locatário é exibida e lista todas as contas de locatário existentes.
+
++
+image::../media/tenant_accounts_page_blank.png[Página de Contas de inquilino - em branco]
+
+. Selecione *criar*.
++
+A página criar conta de locatário é exibida. Os campos incluídos na página dependem se o logon único (SSO) foi ativado para o sistema StorageGRID.
+
++
+** Se o SSO não estiver sendo usado, a página criar conta do locatário será assim.
++
+image::../media/create_tenant_account_no_sso.gif[Criar conta de locatário SSO desativado]
+
+** Se o SSO estiver ativado, a página criar conta do locatário será assim.
++
+image::../media/create_tenant_account_sso.gif[Criar SSO da conta do locatário ativado]
+
+
+
+
+
+.Informações relacionadas
+link:using-identity-federation.html["Usando a federação de identidade"]
+
+link:configuring-sso.html["Configurando logon único"]

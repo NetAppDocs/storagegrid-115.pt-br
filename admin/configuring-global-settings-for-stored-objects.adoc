@@ -1,0 +1,19 @@
+---
+permalink: admin/configuring-global-settings-for-stored-objects.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode usar Opções de Grade para configurar as configurações de todos os objetos armazenados no seu sistema StorageGRID, incluindo compactação de objetos armazenados, criptografia de objetos armazenados e hash de objetos armazenados. 
+---
+= Configuração de configurações globais para objetos armazenados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar Opções de Grade para configurar as configurações de todos os objetos armazenados no seu sistema StorageGRID, incluindo compactação de objetos armazenados, criptografia de objetos armazenados e hash de objetos armazenados.
+
+* link:configuring-stored-object-compression.html["Configurando a compactação de objetos armazenados"]
+* link:configuring-stored-object-encryption.html["Configurando a criptografia de objeto armazenado"]
+* link:configuring-stored-object-hashing.html["Configurando hash de objeto armazenado"]
+

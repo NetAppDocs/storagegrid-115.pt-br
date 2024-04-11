@@ -1,0 +1,42 @@
+---
+permalink: admin/enabling-single-sign-on.html 
+sidebar: sidebar 
+keywords:  
+summary: Depois de usar o modo sandbox para testar todas as suas trusts de confiança do StorageGRID, você está pronto para ativar o logon único. 
+---
+= Ativar o início de sessão único
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de usar o modo sandbox para testar todas as suas trusts de terceiros dependentes do StorageGRID, você está pronto para ativar o logon único (SSO).
+
+.O que você vai precisar
+* Você deve ter importado pelo menos um grupo federado da origem da identidade e atribuído permissões de gerenciamento de acesso raiz ao grupo. Você deve confirmar que pelo menos um usuário federado tem permissão de acesso root ao Gerenciador de Grade e ao Gerente do locatário para quaisquer contas de locatário existentes.
+* Você deve ter testado todas as confianças de parte que dependem usando o modo sandbox.
+
+
+.Passos
+. Selecione *Configuração* > *Controle de Acesso* > *Início de sessão único*.
++
+A página Single Sign-On (Início de sessão único) aparece com *Sandbox Mode* selecionado.
+
+. Altere o Status SSO para *Enabled*.
+. Clique em *Salvar*.
++
+É apresentada uma mensagem de aviso.
+
++
+image::../media/sso_status_enabled_warning.gif[Mensagem de aviso para ativar SSO]
+
+. Reveja o aviso e clique em *OK*.
++
+O início de sessão único está agora ativado.
+
++
+
+IMPORTANT: Todos os usuários devem usar o SSO para acessar o Gerenciador de Grade, o Gerenciador de Tenant, a API de gerenciamento de grade e a API de gerenciamento de locatário. Os usuários locais não podem mais acessar o StorageGRID.
+
+

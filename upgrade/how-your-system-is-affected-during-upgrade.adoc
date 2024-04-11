@@ -1,0 +1,77 @@
+---
+permalink: upgrade/how-your-system-is-affected-during-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, firmware, appliance, alert 
+summary: Você deve entender como seu sistema StorageGRID será afetado durante a atualização. 
+---
+= Como seu sistema é afetado durante a atualização
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve entender como seu sistema StorageGRID será afetado durante a atualização.
+
+
+
+== As atualizações do StorageGRID não causam interrupções
+
+O sistema StorageGRID pode obter e recuperar dados de aplicativos clientes durante todo o processo de atualização. Os nós de grade são derrubados um de cada vez durante a atualização, portanto, não há um momento em que todos os nós de grade estão indisponíveis.
+
+Para permitir disponibilidade contínua, você deve garantir que os objetos sejam armazenados de forma redundante usando as políticas de ILM apropriadas. Você também deve garantir que todos os clientes externos S3 ou Swift estejam configurados para enviar solicitações para um dos seguintes:
+
+* Um endpoint StorageGRID configurado como um grupo de alta disponibilidade (HA)
+* Um balanceador de carga de terceiros de alta disponibilidade
+* Vários nós de gateway para cada cliente
+* Vários nós de storage para cada cliente
+
+
+
+
+== O firmware do dispositivo foi atualizado
+
+Durante a atualização do StorageGRID 11,5:
+
+* Todos os nós do dispositivo StorageGRID são atualizados automaticamente para a versão 3,5 do firmware do instalador do StorageGRID Appliance.
+* Os dispositivos SG6060 e SGF6024 são atualizados automaticamente para a versão 3B03.EX do firmware do BIOS e para a versão do firmware do BMC BMC 3.90.07.
+* Os dispositivos SG100 e SG1000 são atualizados automaticamente para a versão 3B08.EC do firmware do BIOS e para a versão 4.64.07 do firmware do BMC.
+
+
+
+
+== Os alertas podem ser acionados
+
+Os alertas podem ser acionados quando os serviços começam e param e quando o sistema StorageGRID está operando como um ambiente de versão mista (alguns nós de grade executando uma versão anterior, enquanto outros foram atualizados para uma versão posterior). Por exemplo, você pode ver o alerta *não é possível se comunicar com o nó* quando os serviços são interrompidos, ou você pode ver o alerta *erro de comunicação do Cassandra* quando alguns nós foram atualizados para o StorageGRID 11,5, mas outros nós ainda estão executando o StorageGRID 11,4.
+
+Em geral, esses alertas serão apagados quando a atualização for concluída.
+
+Após a conclusão da atualização, você pode revisar qualquer alerta relacionado a atualização selecionando *alertas resolvidos recentemente* no Painel do Gerenciador de Grade.
+
+
+NOTE: Durante a atualização para o StorageGRID 11,5, o alerta *posicionamento ILM inalcançável* pode ser acionado quando os nós de storage são interrompidos. Este alerta pode persistir por 1 dia após a atualização ser concluída com sucesso.
+
+
+
+== Muitas notificações SNMP são geradas
+
+Esteja ciente de que um grande número de notificações SNMP pode ser gerado quando os nós de grade são interrompidos e reiniciados durante a atualização. Para evitar notificações excessivas, desmarque a caixa de seleção *Ativar notificações de agente SNMP* (*Configuração* *Monitoramento* *Agente SNMP*) para desativar as notificações SNMP antes de iniciar a atualização. Em seguida, reative as notificações após a atualização estar concluída.
+
+
+
+== As alterações de configuração são restritas
+
+Até que a tarefa *Ativar novo recurso* seja concluída:
+
+* Não faça alterações na configuração da grade.
+* Não altere a configuração do nível de auditoria.
+* Não ative ou desative nenhum novo recurso.
+* Não atualize a configuração do ILM. Caso contrário, você pode experimentar comportamento inconsistente e inesperado de ILM.
+* Não aplique um hotfix ou recupere um nó de grade.
+
+
+Até que a tarefa *etapas de atualização final* seja concluída:
+
+* Não execute um procedimento de expansão.
+* Não efetue um procedimento de desativação.
+

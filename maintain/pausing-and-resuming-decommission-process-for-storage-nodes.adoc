@@ -1,0 +1,43 @@
+---
+permalink: maintain/pausing-and-resuming-decommission-process-for-storage-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, decommission, storage node 
+summary: Se necessário, você pode pausar o procedimento de desativação de um nó de armazenamento durante determinados estágios. Você deve pausar a desativação em um nó de storage antes de iniciar um segundo procedimento de manutenção. Depois que o outro procedimento for concluído, você pode retomar a desativação. 
+---
+= Pausar e retomar o processo de desativação dos nós de storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se necessário, você pode pausar o procedimento de desativação de um nó de armazenamento durante determinados estágios. Você deve pausar a desativação em um nó de storage antes de iniciar um segundo procedimento de manutenção. Depois que o outro procedimento for concluído, você pode retomar a desativação.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Tem de ter a permissão Manutenção ou Acesso root.
+
+
+.Passos
+. Selecione *Manutenção* > *tarefas de Manutenção* > *Desmontagem*.
++
+A página Decommission é exibida.
+
+. Clique em *Decommission Nodes*.
++
+A página Decommission Nodes (nós de desintegração) é exibida. Quando o procedimento de desativação atinge uma das seguintes etapas, o botão *Pausa* é ativado.
+
++
+** Avaliando o ILM
+** Desativação de dados codificados de apagamento
+
+
+. Clique em *Pausa* para suspender o procedimento.
++
+O estágio atual é pausado e o botão *Resume* está ativado.
+
++
+image::../media/decommission_nodes_procedure_paused.png[Procedimento de desativação dos nós em pausa]
+
+. Depois que o outro procedimento de manutenção estiver concluído, clique em *Resume* para prosseguir com a desativação.
+

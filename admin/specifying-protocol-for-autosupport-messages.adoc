@@ -1,0 +1,60 @@
+---
+permalink: admin/specifying-protocol-for-autosupport-messages.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode usar um dos três protocolos para enviar mensagens AutoSupport. 
+---
+= Especificando o protocolo para mensagens AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar um dos três protocolos para enviar mensagens AutoSupport.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter a permissão de Acesso root ou outra Configuração de Grade.
+* Se você usar o protocolo HTTPS ou HTTP para enviar mensagens AutoSupport, você deve ter fornecido acesso de saída à Internet para o nó de administração principal, diretamente ou usando um servidor proxy (conexões de entrada não necessárias).
+* Se utilizar o protocolo HTTPS ou HTTP e pretender utilizar um servidor proxy, tem de ter configurado um servidor proxy Admin.
+* Se utilizar SMTP como protocolo para mensagens AutoSupport, tem de ter configurado um servidor de correio SMTP. A mesma configuração do servidor de e-mail é usada para notificações de e-mail de alarme (sistema legado).
+
+
+.Sobre esta tarefa
+As mensagens AutoSupport podem ser enviadas usando qualquer um dos seguintes protocolos:
+
+* *HTTPS*: Esta é a configuração padrão e recomendada para novas instalações. O protocolo HTTPS utiliza a porta 443. Se pretender ativar a funcionalidade AutoSupport On Demand, tem de utilizar o protocolo HTTPS.
+* *HTTP*: Este protocolo não é seguro, a menos que seja usado em um ambiente confiável onde o servidor proxy converte para HTTPS ao enviar dados pela Internet. O protocolo HTTP usa a porta 80.
+* *SMTP*: Use esta opção se quiser que as mensagens do AutoSupport sejam enviadas por e-mail. Se utilizar SMTP como protocolo para mensagens AutoSupport, tem de configurar um servidor de correio SMTP na página Configuração de e-mail legado (*suporte* > *Alarmes (legado)* > *Configuração de e-mail legado*).
++
+
+NOTE: O SMTP era o único protocolo disponível para mensagens AutoSupport antes do lançamento do StorageGRID 11,2. Se você instalou uma versão anterior do StorageGRID inicialmente, o SMTP pode ser o protocolo selecionado.
+
+
+
+O protocolo definido é utilizado para enviar todos os tipos de mensagens AutoSupport.
+
+.Passos
+. Selecione *suporte* > *Ferramentas* > *AutoSupport*.
++
+A página AutoSupport é exibida e a guia *Configurações* é selecionada.
+
+. Selecione o protocolo que pretende utilizar para enviar mensagens AutoSupport.
++
+image::../media/autosupport_protocol.png[Protocolo AutoSupport]
+
+. Selecione sua escolha para *Validação de certificado de suporte NetApp*.
++
+** Use o certificado de suporte NetApp (padrão): A validação do certificado garante que a transmissão de mensagens AutoSupport seja segura. O certificado de suporte do NetApp já está instalado com o software StorageGRID.
+** Não verificar certificado: Selecione esta opção apenas quando tiver um bom motivo para não utilizar a validação do certificado, como por exemplo, quando houver um problema temporário com um certificado.
+
+
+. Selecione *Guardar*.
++
+Todas as mensagens semanais, acionadas pelo utilizador e acionadas por eventos são enviadas utilizando o protocolo selecionado.
+
+
+
+.Informações relacionadas
+link:configuring-admin-proxy-settings.html["Configurando as configurações de proxy Admin"]

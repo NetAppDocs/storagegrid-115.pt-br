@@ -1,0 +1,26 @@
+---
+permalink: network/deployment-specific-networking-requirements.html 
+sidebar: sidebar 
+keywords:  
+summary: Dependendo das plataformas de implantação que você usa, você pode ter considerações adicionais sobre o design da rede StorageGRID. 
+---
+= Considerações de rede específicas da implantação
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dependendo das plataformas de implantação que você usa, você pode ter considerações adicionais sobre o design da rede StorageGRID.
+
+Os nós de grade podem ser implantados como:
+
+* Nós de grade baseados em software implantados como máquinas virtuais no VMware vSphere Web Client
+* Nós de grade baseados em software implantados em contentores Docker em hosts Linux
+* Nós baseados no dispositivo
+
+
+Para obter informações adicionais sobre nós de grade, consulte _Grid primer_.
+
+.Informações relacionadas
+link:../primer/index.html["Primário de grelha"]

@@ -1,0 +1,25 @@
+---
+permalink: admin/configuring-archive-node-connections-to-archival-storage.html 
+sidebar: sidebar 
+keywords:  
+summary: Ao configurar um nó de arquivo para se conetar a um arquivo externo, você deve selecionar o tipo de destino. 
+---
+= Configurando conexões de nó de arquivo para armazenamento de arquivamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ao configurar um nó de arquivo para se conetar a um arquivo externo, você deve selecionar o tipo de destino.
+
+O sistema StorageGRID suporta o arquivamento de dados de objetos para a nuvem através de uma interface S3 ou fita através do middleware Tivoli Storage Manager (TSM).
+
+
+NOTE: Uma vez configurado o tipo de destino de arquivo para um nó de arquivo, o tipo de destino não pode ser alterado.
+
+* link:archiving-to-cloud-through-s3-api.html["Arquivamento na nuvem por meio da API S3"]
+* link:archiving-to-tape-through-tsm-middleware.html["Arquivamento para fita através do middleware TSM"]
+* link:configuring-archive-node-retrieve-settings.html["Configurar as definições de recuperação do nó de arquivo"]
+* link:configuring-archive-node-replication.html["Configurando a replicação do Archive Node"]
+

@@ -1,0 +1,18 @@
+---
+permalink: admin/managing-storage-options.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Você pode exibir e configurar Opções de armazenamento usando o menu Configuração no Gerenciador de Grade. As opções de armazenamento incluem as definições de segmentação de objetos e os valores atuais para marcas d"água de armazenamento. Você também pode exibir as portas S3 e Swift usadas pelo serviço CLB obsoleto em nós de Gateway e pelo serviço LDR em nós de armazenamento.' 
+---
+= Gerenciando Opções de armazenamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode exibir e configurar Opções de armazenamento usando o menu Configuração no Gerenciador de Grade. As opções de armazenamento incluem as definições de segmentação de objetos e os valores atuais para marcas d'água de armazenamento. Você também pode exibir as portas S3 e Swift usadas pelo serviço CLB obsoleto em nós de Gateway e pelo serviço LDR em nós de armazenamento.
+
+Para obter informações sobre atribuições de portas, link:summary-ip-addresses-and-ports-for-client-connections.html["Resumo: Endereços IP e portas para conexões de clientes"]consulte .
+
+image::../media/storage_options.gif[Opções de armazenamento]

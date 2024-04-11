@@ -1,0 +1,25 @@
+---
+permalink: ilm/using-cloud-storage-pools.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode usar o Cloud Storage Pools para mover objetos do StorageGRID para um local de storage externo, como o S3 Glacier ou o storage Microsoft Azure Blob. Mover objetos para fora da grade permite que você aproveite uma camada de storage de baixo custo para arquivamento de longo prazo. 
+---
+= Usando Cloud Storage Pools
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o Cloud Storage Pools para mover objetos do StorageGRID para um local de storage externo, como o S3 Glacier ou o storage Microsoft Azure Blob. Mover objetos para fora da grade permite que você aproveite uma camada de storage de baixo custo para arquivamento de longo prazo.
+
+* link:what-cloud-storage-pool-is.html["O que é um Cloud Storage Pool"]
+* link:lifecycle-of-cloud-storage-pool-object.html["Ciclo de vida de um objeto Cloud Storage Pool"]
+* link:when-to-use-cloud-storage-pools.html["Quando usar Cloud Storage Pools"]
+* link:considerations-for-cloud-storage-pools.html["Considerações para pools de storage em nuvem"]
+* link:comparing-cloud-storage-pools-to-cloudmirror-replication.html["Comparação do Cloud Storage Pools e da replicação do CloudMirror"]
+* link:creating-cloud-storage-pool.html["Criando um pool de armazenamento em nuvem"]
+* link:editing-cloud-storage-pool.html["Editando um pool de armazenamento em nuvem"]
+* link:removing-cloud-storage-pool.html["Removendo um pool de armazenamento em nuvem"]
+* link:troubleshooting-cloud-storage-pools.html["Solução de problemas de Cloud Storage Pools"]
+

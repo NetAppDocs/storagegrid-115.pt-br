@@ -1,0 +1,55 @@
+---
+permalink: admin/requirements-for-sso.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Antes de ativar o logon único (SSO) para um sistema StorageGRID, revise os requisitos nesta seção.' 
+---
+= Requisitos para o uso de logon único
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de ativar o logon único (SSO) para um sistema StorageGRID, revise os requisitos nesta seção.
+
+
+IMPORTANT: O logon único (SSO) não está disponível nas portas do Gerenciador de Grade restrito ou do Gerenciador de locatário. Você deve usar a porta HTTPS padrão (443) se quiser que os usuários se autentiquem com logon único.
+
+
+
+== Requisitos do provedor de identidade
+
+O provedor de identidade (IDP) para SSO deve atender aos seguintes requisitos:
+
+* Uma das seguintes versões do ative Directory Federation Service (AD FS):
++
+** AD FS 4,0, incluído no Windows Server 2016
++
+
+NOTE: O Windows Server 2016 deve estar usando o https://support.microsoft.com/en-us/help/3201845/cumulative-update-for-windows-10-version-1607-and-windows-server-2016["Atualização do KB3201845"^], ou superior.
+
+** AD FS 3,0, incluído na atualização do Windows Server 2012 R2 ou superior.
+
+
+* Transport Layer Security (TLS) 1,2 ou 1,3
+* Microsoft .NET Framework, versão 3.5.1 ou superior
+
+
+
+
+== Requisitos de certificado do servidor
+
+O StorageGRID usa um certificado de servidor de interface de gerenciamento em cada nó de administrador para proteger o acesso ao Gerenciador de grade, ao Gerenciador de locatário, à API de gerenciamento de grade e à API de gerenciamento de locatário. Quando você configura as confianças de parte confiáveis SSO para o StorageGRID no AD FS, você usa o certificado do servidor como o certificado de assinatura para solicitações do StorageGRID para o AD FS.
+
+Se você ainda não tiver instalado um certificado de servidor personalizado para a interface de gerenciamento, você deve fazê-lo agora. Quando você instala um certificado de servidor personalizado, ele é usado para todos os nós de administração e você pode usá-lo em todos os trusts de terceiros dependentes do StorageGRID.
+
+
+NOTE: O uso do certificado de servidor padrão de um nó Admin na confiança de parte dependente do AD FS não é recomendado. Se o nó falhar e você o recuperar, um novo certificado de servidor padrão será gerado. Antes de poder iniciar sessão no nó recuperado, tem de atualizar a confiança da parte dependente no AD FS com o novo certificado.
+
+Você pode acessar o certificado de servidor de um nó de administrador fazendo login no shell de comando do nó e indo para `/var/local/mgmt-api` o diretório. Um certificado de servidor personalizado é `custom-server.crt` nomeado . O certificado de servidor padrão do nó é `server.crt` nomeado .
+
+.Informações relacionadas
+link:controlling-access-through-firewalls.html["Controlar o acesso através de firewalls"]
+
+link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["Configurando um certificado de servidor personalizado para o Gerenciador de Grade e o Gerenciador de locatário"]

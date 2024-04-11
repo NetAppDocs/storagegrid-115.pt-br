@@ -1,0 +1,22 @@
+---
+permalink: swift/index.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Use Swift
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Saiba como os aplicativos clientes podem usar a API OpenStack Swift para fazer interface com o sistema StorageGRID.
+
+* link:openstack-swift-api-support-in-storagegrid.html["Suporte à API OpenStack Swift no StorageGRID"]
+* link:configuring-tenant-accounts-and-connections.html["Configurando contas de locatário e conexões"]
+* link:swift-rest-api-supported-operations.html["Operações suportadas pela API REST Swift"]
+* link:storagegrid-swift-rest-api-operations.html["Operações da API REST do StorageGRID Swift"]
+* link:configuring-security-for-rest-api.html["Configurando a segurança para a API REST"]
+* link:monitoring-and-auditing-operations.html["Operações de monitoramento e auditoria"]
+

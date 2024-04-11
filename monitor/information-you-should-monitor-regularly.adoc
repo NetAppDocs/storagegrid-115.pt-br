@@ -1,0 +1,91 @@
+---
+permalink: monitor/information-you-should-monitor-regularly.html 
+sidebar: sidebar 
+keywords: monitor, monitoring, StorageGRID, 
+summary: O StorageGRID é um sistema de storage distribuído e tolerante a falhas que foi projetado para continuar operando mesmo quando ocorrem erros ou quando nós ou sites não estão disponíveis. Você precisa monitorar proativamente a integridade do sistema, os workloads e as estatísticas de uso, para que você possa agir para resolver possíveis problemas antes que eles afetem a eficiência ou a disponibilidade da grade. 
+---
+= Informações que você deve monitorar regularmente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O StorageGRID é um sistema de storage distribuído e tolerante a falhas que foi projetado para continuar operando mesmo quando ocorrem erros ou quando nós ou sites não estão disponíveis. Você precisa monitorar proativamente a integridade do sistema, os workloads e as estatísticas de uso, para que você possa agir para solucionar possíveis problemas antes que eles afetem a eficiência ou a disponibilidade da grade.
+
+Um sistema ocupado gera grandes quantidades de informações. Esta secção fornece orientações sobre as informações mais importantes a monitorizar de forma contínua. Esta secção contém as seguintes subsecções:
+
+* link:monitoring-system-health.html["Monitoramento da integridade do sistema"]
+* link:monitoring-storage-capacity.html["Monitoramento da capacidade de armazenamento"]
+* link:monitoring-information-lifecycle-management.html["Monitoramento do gerenciamento do ciclo de vida das informações"]
+* link:monitoring-performance-networking-and-system-resources.html["Monitoramento de desempenho, rede e recursos do sistema"]
+* link:monitoring-tenant-activity.html["Monitorar a atividade do locatário"]
+* link:monitoring-archival-capacity.html["Monitoramento da capacidade de arquivamento"]
+* link:monitoring-load-balancing-operations.html["Monitoramento de operações de balanceamento de carga"]
+* link:applying-hotfixes-or-upgrading-software-if-necessary.html["Aplicar hotfixes ou atualizar software, se necessário"]
+
+
+|===
+| O que monitorar | Frequência 
+
+
+ a| 
+Os dados de integridade do sistema mostrados no painel do Grid Manager DashboardNote se alguma coisa mudou do dia anterior.
+ a| 
+Diariamente
+
+
+
+ a| 
+Taxa à qual a capacidade de metadados e objetos do nó de storage está sendo consumida
+ a| 
+Semanalmente
+
+
+
+ a| 
+Operações de gerenciamento do ciclo de vida das informações
+ a| 
+Semanalmente
+
+
+
+ a| 
+Desempenho, rede e recursos do sistema:
+
+* Latência da consulta
+* Conetividade e rede
+* Recursos em nível de nó
+
+ a| 
+Semanalmente
+
+
+
+ a| 
+Atividade do locatário
+ a| 
+Semanalmente
+
+
+
+ a| 
+Capacidade do sistema de armazenamento de arquivos externo
+ a| 
+Semanalmente
+
+
+
+ a| 
+Operações de balanceamento de carga
+ a| 
+Após a configuração inicial e após quaisquer alterações de configuração
+
+
+
+ a| 
+Disponibilidade de hotfixes de software e atualizações de software
+ a| 
+Mensalmente
+
+|===

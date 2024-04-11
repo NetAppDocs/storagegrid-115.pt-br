@@ -1,0 +1,50 @@
+---
+permalink: upgrade/checking-systems-condition-before-upgrading-software.html 
+sidebar: sidebar 
+keywords: upgrade, firewall, ports 
+summary: Antes de atualizar um sistema StorageGRID, você deve verificar se o sistema está pronto para acomodar a atualização. Você deve garantir que o sistema esteja funcionando normalmente e que todos os nós de grade estejam operacionais. 
+---
+= Verificar o estado do sistema antes de atualizar o software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de atualizar um sistema StorageGRID, você deve verificar se o sistema está pronto para acomodar a atualização. Você deve garantir que o sistema esteja funcionando normalmente e que todos os nós de grade estejam operacionais.
+
+.Passos
+. Faça login no Gerenciador de Grade usando um navegador compatível.
+. Verifique e resolva quaisquer alertas ativos.
++
+Para obter informações sobre alertas específicos, consulte as instruções de monitoramento e solução de problemas.
+
+. Confirme se não há tarefas de grade conflitantes ativas ou pendentes.
++
+.. Selecione *Support* > *Tools* > *Grid Topology*.
+.. Selecione *_site_* *_Main Admin Node_* *CMN* *Grid Tasks* *Configuration*.
++
+As tarefas de avaliação de gerenciamento do ciclo de vida das informações (ILME) são as únicas tarefas de grade que podem ser executadas simultaneamente com a atualização do software.
+
+.. Se quaisquer outras tarefas de grade estiverem ativas ou pendentes, aguarde até que elas terminem ou liberem seu bloqueio.
++
+
+NOTE: Contacte o suporte técnico se uma tarefa não terminar ou libertar o respetivo bloqueio.
+
+
+
+. Consulte as listas de portas internas e externas na versão 11,5 das diretrizes de rede e certifique-se de que todas as portas necessárias sejam abertas antes de atualizar.
++
+
+IMPORTANT: Se tiver aberto quaisquer portas de firewall personalizadas, será notificado durante a pré-verificação da atualização. Você deve entrar em Contato com o suporte técnico antes de prosseguir com a atualização.
+
+
+
+.Informações relacionadas
+link:../monitor/index.html["Monitorizar  Resolução de problemas"]
+
+link:../admin/index.html["Administrar o StorageGRID"]
+
+link:../maintain/index.html["Manter  recuperar"]
+
+link:../network/index.html["Diretrizes de rede"]

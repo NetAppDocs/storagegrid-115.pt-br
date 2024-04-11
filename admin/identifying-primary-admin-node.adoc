@@ -1,0 +1,28 @@
+---
+permalink: admin/identifying-primary-admin-node.html 
+sidebar: sidebar 
+keywords:  
+summary: O nó de administração principal hospeda o serviço CMN. Alguns procedimentos de manutenção só podem ser executados usando o nó de administração principal. 
+---
+= Identificando o nó de administração principal
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O nó de administração principal hospeda o serviço CMN. Alguns procedimentos de manutenção só podem ser executados usando o nó de administração principal.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+
+
+.Passos
+. Selecione *Support* > *Tools* > *Grid Topology*.
+. Selecione *_site_* > *Admin Node* e, em seguida, clique image:../media/icon_plus_sign_black_on_white.gif["sinal de adição"] para expandir a árvore de topologia e mostrar os serviços hospedados neste Admin Node.
++
+O nó de administração principal hospeda o serviço CMN.
+
+. Se este nó Admin não hospedar o serviço CMN, verifique os outros nós Admin.
+

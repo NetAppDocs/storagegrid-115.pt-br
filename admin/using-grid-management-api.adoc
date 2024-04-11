@@ -1,0 +1,32 @@
+---
+permalink: admin/using-grid-management-api.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode executar tarefas de gerenciamento do sistema usando a API REST do Grid Management em vez da interface de usuário do Grid Manager. Por exemplo, você pode querer usar a API para automatizar operações ou criar várias entidades, como usuários, mais rapidamente. 
+---
+= Usando a API de gerenciamento de grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode executar tarefas de gerenciamento do sistema usando a API REST do Grid Management em vez da interface de usuário do Grid Manager. Por exemplo, você pode querer usar a API para automatizar operações ou criar várias entidades, como usuários, mais rapidamente.
+
+A API de gerenciamento de grade usa a plataforma de API de código aberto Swagger. O Swagger fornece uma interface de usuário intuitiva que permite que desenvolvedores e não desenvolvedores realizem operações em tempo real no StorageGRID com a API.
+
+
+
+== Recursos de nível superior
+
+A API de gerenciamento de grade fornece os seguintes recursos de nível superior:
+
+* `/grid`: O acesso é restrito aos usuários do Grid Manager e é baseado nas permissões de grupo configuradas.
+* `/org`: O acesso é restrito a usuários que pertencem a um grupo LDAP local ou federado para uma conta de locatário. Para obter detalhes, consulte as informações sobre como usar contas de locatário.
+* `/private`: O acesso é restrito aos usuários do Grid Manager e é baseado nas permissões de grupo configuradas. Essas APIs são destinadas apenas para uso interno e não são documentadas publicamente. Essas APIs também estão sujeitas a alterações sem aviso prévio.
+
+
+.Informações relacionadas
+link:../tenant/index.html["Use uma conta de locatário"]
+
+https://prometheus.io/docs/querying/basics/["Prometheus: Noções básicas de consulta"^]

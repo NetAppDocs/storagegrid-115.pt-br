@@ -1,0 +1,39 @@
+---
+permalink: sg6000/maintaining-sg6000-appliance.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, maintain, maintaining, hardware, procedures, tasks 
+summary: Poderá ser necessário efetuar procedimentos de manutenção no aparelho SG6000. Os procedimentos nesta seção pressupõem que o dispositivo já foi implantado como nó de storage em um sistema StorageGRID. 
+---
+= Manutenção do aparelho SG6000
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Poderá ser necessário efetuar procedimentos de manutenção no aparelho SG6000. Os procedimentos nesta seção pressupõem que o dispositivo já foi implantado como nó de storage em um sistema StorageGRID.
+
+.Passos
+* link:placing-appliance-into-maintenance-mode.html["Colocar um aparelho no modo de manutenção"]
+* link:upgrading-santricity-os-on-storage-controllers.html["Atualizando o SANtricity os nas controladoras de storage"]
+* link:upgrading-drive-firmware-using-santricity-system-manager.html["Atualizando o firmware da unidade usando o Gerenciador de sistema do SANtricity"]
+* link:adding-expansion-shelf-to-deployed-sg6060.html["Adição de um compartimento de expansão a um SG6060 implantado"]
+* link:turning-controller-identify-led-on-and-off.html["Ligar e desligar o LED de identificação do controlador"]
+* link:locating-controller-in-data-center.html["Localizar o controlador em um data center"]
+* link:replacing-storage-controller-sg6000.html["Substituição de um controlador de armazenamento"]
+* link:replacing-hardware-components-in-storage-controller-shelf.html["Substituição de componentes de hardware na gaveta do controlador de storage"]
+* link:replacing-hardware-components-in-optional-60-drive-expansion-shelf.html["Substituição de componentes de hardware no compartimento de expansão de 60 unidades opcional"]
+* link:shutting-down-sg6000-cn-controller.html["Encerrar o controlador SG6000-CN"]
+* link:powering-on-sg6000-cn-controller-and-verifying-operation.html["Ligar o controlador SG6000-CN e verificar a operação"]
+* link:replacing-sg6000-cn-controller.html["Substituição do controlador SG6000-CN"]
+* link:replacing-power-supply-in-sg6000-cn-controller.html["Substituição de uma fonte de alimentação no controlador SG6000-CN"]
+* link:removing-sg6000-cn-controller-from-cabinet-or-rack.html["Remover o controlador SG6000-CN de um gabinete ou rack"]
+* link:reinstalling-sg6000-cn-controller-into-cabinet-or-rack.html["Reinstalar o controlador SG6000-CN em um gabinete ou rack"]
+* link:removing-sg6000-cn-controller-cover.html["Retirar a tampa do controlador SG6000-CN"]
+* link:reinstalling-sg6000-cn-controller-cover.html["Voltar a instalar a tampa do controlador SG6000-CN"]
+* link:replacing-fibre-channel-hba-in-sg6000-cn-controller.html["Substituição do HBA Fibre Channel no controlador SG6000-CN"]
+* link:changing-link-configuration-of-sg6000-cn-controller.html["Alterar a configuração do link do controlador SG6000-CN"]
+* link:changing-mtu-setting.html["Alterar a definição MTU"]
+* link:checking-dns-server-configuration.html["Verificar a configuração do servidor DNS"]
+* link:monitoring-node-encryption-in-maintenance-mode.html["Monitorização da encriptação do nó no modo de manutenção"]
+

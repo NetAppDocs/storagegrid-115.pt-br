@@ -1,0 +1,31 @@
+---
+permalink: vmware/virtual-machine-resource-reservation-requires-adjustment.html 
+sidebar: sidebar 
+keywords:  
+summary: Os arquivos OVF incluem uma reserva de recursos projetada para garantir que cada nó de grade tenha RAM e CPU suficientes para operar com eficiência. Se você criar máquinas virtuais implantando esses arquivos OVF no VMware e o número predefinido de recursos não estiver disponível, as máquinas virtuais não serão iniciadas. 
+---
+= A reserva de recursos da máquina virtual requer ajuste
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os arquivos OVF incluem uma reserva de recursos projetada para garantir que cada nó de grade tenha RAM e CPU suficientes para operar com eficiência. Se você criar máquinas virtuais implantando esses arquivos OVF no VMware e o número predefinido de recursos não estiver disponível, as máquinas virtuais não serão iniciadas.
+
+.Sobre esta tarefa
+Se você tiver certeza de que o host da VM tem recursos suficientes para cada nó de grade, ajuste manualmente os recursos alocados para cada máquina virtual e tente iniciar as máquinas virtuais.
+
+.Passos
+. Na árvore cliente do VMware vSphere Hypervisor, selecione a máquina virtual que não foi iniciada.
+. Clique com o botão direito do rato na máquina virtual e selecione *Edit Settings* (Editar definições).
+. Na janela Propriedades de máquinas virtuais, selecione a guia *recursos*.
+. Ajuste os recursos alocados à máquina virtual:
++
+.. Selecione *CPU* e, em seguida, use o controle deslizante de reserva para ajustar o MHz reservado para esta máquina virtual.
+.. Selecione *memória* e, em seguida, use o controle deslizante reserva para ajustar o MB reservado para esta máquina virtual.
+
+
+. Clique em *OK*.
+. Repita conforme necessário para outras máquinas virtuais hospedadas no mesmo host da VM.
+

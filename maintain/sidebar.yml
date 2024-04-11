@@ -1,0 +1,365 @@
+---
+section: maintain
+title: Manter a recuperação
+url: "/maintain/index.html"
+entries:
+- title: Introdução à recuperação e manutenção do StorageGRID
+  url: "/maintain/introduction-to-storagegrid-recovery-and-maintenance.html"
+  entries:
+  - title: Requisitos do navegador da Web
+    url: "/maintain/web-browser-requirements.html"
+  - title: Transferir o pacote de recuperação
+    url: "/maintain/downloading-recovery-package.html"
+- title: Procedimento de correção do StorageGRID
+  url: "/maintain/storagegrid-hotfix-procedure.html"
+  entries:
+  - title: Considerações para aplicar um hotfix
+    url: "/maintain/considerations-for-applying-hotfix.html"
+  - title: Como seu sistema é afetado quando você aplica um hotfix
+    url: "/maintain/how-your-system-is-affected-when-you-apply-hotfix.html"
+  - title: Obter os materiais necessários para um hotfix
+    url: "/maintain/obtaining-required-materials-for-hotfix.html"
+  - title: Transferir o ficheiro de correção
+    url: "/maintain/downloading-hotfix-file.html"
+  - title: Verificar a condição do sistema antes de aplicar um hotfix
+    url: "/maintain/checking-systems-condition-before-applying-hotfix.html"
+  - title: Aplicando o hotfix
+    url: "/maintain/applying-hotfix.html"
+- title: Procedimentos de recuperação do nó de grade
+  url: "/maintain/grid-node-recovery-procedures.html"
+  entries:
+  - title: Avisos e considerações para a recuperação do nó da grade
+    url: "/maintain/warnings-and-considerations-for-grid-node-recovery.html"
+  - title: Recolha de materiais necessários para a recuperação do nó da grelha
+    url: "/maintain/gathering-required-materials-for-grid-node-recovery.html"
+    entries:
+    - title: Transferir e extrair os ficheiros de instalação do StorageGRID
+      url: "/maintain/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: Selecionando um procedimento de recuperação de nó
+    url: "/maintain/selecting-node-recovery-procedure.html"
+  - title: Recuperando-se de falhas no nó de storage
+    url: "/maintain/recovering-from-storage-node-failures.html"
+    entries:
+    - title: Recuperando um nó de storage inativo mais de 15 dias
+      url: "/maintain/recovering-storage-node-that-has-been-down-more-than-15-days.html"
+    - title: Recuperando um nó de storage de dispositivo StorageGRID
+      url: "/maintain/recovering-storagegrid-appliance-storage-node.html"
+      entries:
+      - title: Preparando um nó de armazenamento de dispositivo para reinstalação
+        url: "/maintain/preparing-appliance-storage-node-for-reinstallation.html"
+      - title: Iniciar a instalação do dispositivo StorageGRID
+        url: "/maintain/starting-storagegrid-appliance-installation.html"
+      - title: Monitoramento da instalação do dispositivo StorageGRID
+        url: "/maintain/monitoring-storagegrid-appliance-installation-sn.html"
+      - title: Selecione Iniciar recuperação para configurar um nó de armazenamento
+          de dispositivo
+        url: "/maintain/selecting-start-recovery-to-configure-appliance-storage-node.html"
+      - title: Remontar e reformatar os volumes de armazenamento do dispositivo ("etapas
+          manuais")
+        url: "/maintain/remounting-and-reformatting-appliance-storage-volumes.html"
+      - title: Restaurar dados de objetos para um volume de armazenamento de um dispositivo
+        url: "/maintain/restoring-object-data-to-storage-volume-for-appliance.html"
+      - title: Verificar o estado de armazenamento após recuperar um nó de armazenamento
+          de dispositivo
+        url: "/maintain/checking-storage-state-after-recovering-sga.html"
+    - title: Recuperando-se de uma falha do volume de storage em que a unidade do
+        sistema está intacta
+      url: "/maintain/recovering-from-storage-volume-failure-where-system-drive-is-intact.html"
+      entries:
+      - title: Rever avisos sobre a recuperação do volume de armazenamento
+        url: "/maintain/reviewing-warnings-about-storage-volume-recovery.html"
+      - title: Identificação e desinstalação de volumes de armazenamento com falha
+        url: "/maintain/identifying-and-unmounting-failed-storage-volumes.html"
+      - title: Recuperação de volumes de armazenamento com falha e reconstrução do
+          banco de dados Cassandra
+        url: "/maintain/recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html"
+      - title: Restaurar dados de objetos para um volume de armazenamento em que a
+          unidade do sistema está intacta
+        url: "/maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html"
+      - title: Verificando o estado de armazenamento após recuperar volumes de armazenamento
+        url: "/maintain/checking-storage-state-after-recovering-storage-volumes.html"
+    - title: Recuperando-se da falha da unidade do sistema
+      url: "/maintain/recovering-from-system-drive-failure.html"
+      entries:
+      - title: Rever avisos para recuperação da unidade do sistema Storage Node
+        url: "/maintain/reviewing-warnings-for-system-drive-recovery.html"
+      - title: Substituindo o nó de storage
+        url: "/maintain/replacing-storage-node.html"
+      - title: Selecionando Iniciar recuperação para configurar um nó de armazenamento
+        url: "/maintain/selecting-start-recovery-to-configure-storage-node.html"
+      - title: Remontar e reformatar volumes de armazenamento ("etapas manuais")
+        url: "/maintain/remounting-and-reformatting-storage-volumes-manual-steps.html"
+      - title: Restaurar dados de objetos para um volume de armazenamento, se necessário
+        url: "/maintain/restoring-object-data-to-storage-volume-if-required.html"
+      - title: Verificar o estado de armazenamento após recuperar uma unidade de sistema
+          Storage Node
+        url: "/maintain/checking-storage-state-after-recovering-storage-node-system-drive.html"
+  - title: Recuperando-se de falhas do nó de administrador
+    url: "/maintain/recovering-from-admin-node-failures.html"
+    entries:
+    - title: Recuperando-se de falhas do nó de administração principal
+      url: "/maintain/recovering-from-primary-admin-node-failures.html"
+      entries:
+      - title: Copiar registos de auditoria a partir do nó de administração principal
+          avariado
+        url: "/maintain/copying-audit-logs-from-failed-primary-admin-node.html"
+      - title: Substituindo o nó de administração principal
+        url: "/maintain/replacing-primary-admin-node.html"
+      - title: Configurar o nó de administração principal de substituição
+        url: "/maintain/configuring-replacement-primary-admin-node.html"
+      - title: Restaurando o log de auditoria no nó de administração primário recuperado
+        url: "/maintain/restoring-audit-log-on-recovered-primary-admin-node.html"
+      - title: Redefinindo o remetente preferido no nó de administração principal
+          recuperado
+        url: "/maintain/resetting-preferred-sender-on-recovered-primary-admin-node.html"
+      - title: Restaurando o banco de dados Admin Node ao recuperar um Admin Node
+          primário
+        url: "/maintain/restoring-admin-node-database-primary-admin-node.html"
+      - title: Restaurando métricas Prometheus ao recuperar um nó Admin primário
+        url: "/maintain/restoring-prometheus-metrics-primary-admin-node.html"
+    - title: Recuperando-se de falhas no nó de administração não primário
+      url: "/maintain/recovering-from-non-primary-admin-node-failures.html"
+      entries:
+      - title: Copiar registos de auditoria a partir do nó de administração não primário
+          com falha
+        url: "/maintain/copying-audit-logs-from-failed-non-primary-admin-node.html"
+      - title: Substituindo um nó de administração não primário
+        url: "/maintain/replacing-non-primary-admin-node.html"
+      - title: Selecionando Iniciar recuperação para configurar um nó de administração
+          não primário
+        url: "/maintain/selecting-start-recovery-to-configure-non-primary-admin-node.html"
+      - title: Restaurando o log de auditoria no nó de administração não primário
+          recuperado
+        url: "/maintain/restoring-audit-log-on-recovered-non-primary-admin-node.html"
+      - title: Redefinir o remetente preferido no nó de administração não primário
+          recuperado
+        url: "/maintain/resetting-preferred-sender-on-recovered-non-primary-admin-node.html"
+      - title: Restaurando o banco de dados Admin Node ao recuperar um Admin Node
+          não primário
+        url: "/maintain/restoring-admin-node-database-non-primary-admin-node.html"
+      - title: Restaurando métricas Prometheus ao recuperar um nó Admin não primário
+        url: "/maintain/restoring-prometheus-metrics-non-primary-admin-node.html"
+  - title: Recuperando-se de falhas do Gateway Node
+    url: "/maintain/recovering-from-gateway-node-failures.html"
+    entries:
+    - title: Substituindo um nó de gateway
+      url: "/maintain/replacing-gateway-node.html"
+    - title: Selecione Iniciar recuperação para configurar um nó de gateway
+      url: "/maintain/selecting-start-recovery-to-configure-gateway-node.html"
+  - title: Recuperando-se de falhas do nó de arquivamento
+    url: "/maintain/recovering-from-archive-node-failures.html"
+    entries:
+    - title: Substituindo um nó de arquivo
+      url: "/maintain/replacing-archive-node.html"
+    - title: Selecionar Iniciar recuperação para configurar um nó de arquivo
+      url: "/maintain/selecting-start-recovery-to-configure-archive-node.html"
+    - title: Redefinir a conexão do Archive Node à nuvem
+      url: "/maintain/resetting-archive-node-connection-to-cloud.html"
+  - title: 'Todos os tipos de nós de grade: Substituindo um nó VMware'
+    url: "/maintain/all-node-types-replacing-vmware-node.html"
+  - title: 'Todos os tipos de nó de grade: Substituindo um nó Linux'
+    url: "/maintain/all-node-types-replacing-linux-node.html"
+    entries:
+    - title: Implantando novos hosts Linux
+      url: "/maintain/deploying-new-linux-hosts.html"
+    - title: Restaurando nós de grade para o host
+      url: "/maintain/restoring-existing-nodes.html"
+      entries:
+      - title: Restauração e validação de nós de grade
+        url: "/maintain/restoring-and-validating-grid-nodes.html"
+        entries:
+        - title: Correção de erros de interface de rede em falta
+          url: "/maintain/fixing-mssing-network-interface-errors.html"
+        - title: Correção de erros de dispositivo de bloco em falta
+          url: "/maintain/fixing-missing-block-device-errors.html"
+      - title: Iniciando o serviço de host do StorageGRID
+        url: "/maintain/starting-storagegrid-host-service.html"
+      - title: Recuperando nós que não iniciam normalmente
+        url: "/maintain/recovering-nodes-that-fail-to-start-normally.html"
+    - title: 'O que vem a seguir: Executar etapas adicionais de recuperação, se necessário'
+      url: "/maintain/whats-next-performing-additional-recovery-steps-if-required.html"
+  - title: Substituindo um nó com falha por um dispositivo de serviços
+    url: "/maintain/replacing-failed-node-with-services-appliance.html"
+    entries:
+    - title: Instalar um dispositivo de serviços (apenas mudança de plataforma)
+      url: "/maintain/installing-services-appliance-platform-change-only.html"
+    - title: Preparação de um aparelho para reinstalação (apenas substituição da plataforma)
+      url: "/maintain/preparing-appliance-for-reinstallation-platform-replacement-only.html"
+    - title: Iniciar a instalação de software em um dispositivo de serviços
+      url: "/maintain/starting-software-installation-on-services-appliance-recovery.html"
+    - title: Instalação do dispositivo de serviços de monitoramento
+      url: "/maintain/monitoring-services-appliance-installation.html"
+- title: Como a recuperação do local é realizada pelo suporte técnico
+  url: "/maintain/how-site-recovery-is-performed-by-technical-support.html"
+- title: Procedimento de desativação
+  url: "/maintain/decommission-procedure.html"
+  entries:
+  - title: Desativação do nó de grade
+    url: "/maintain/grid-node-decommissioning.html"
+    entries:
+    - title: Preparando-se para desativar os nós de grade
+      url: "/maintain/preparing-to-decommission-grid-nodes.html"
+      entries:
+      - title: Considerações para a desativação de nós de grade
+        url: "/maintain/considerations-for-decommissioning-grid-nodes.html"
+        entries:
+        - title: Considerações para a desativação de nós de administração ou de um
+            nó de gateway
+          url: "/maintain/considerations-for-decommissioning-admin-or-gateway-nodes.html"
+        - title: Considerações para a desativação de nós de storage
+          url: "/maintain/considerations-for-decommissioning-storage-nodes.html"
+          entries:
+          - title: Entendendo o quórum de ADC
+            url: "/maintain/understanding-adc-service-quorum.html"
+          - title: Rever a política de ILM e a configuração de armazenamento
+            url: "/maintain/reviewing-ilm-policy-and-storage-configuration.html"
+          - title: Desativação de nós de storage desconetados
+            url: "/maintain/decommissioning-disconnected-storage-nodes.html"
+          - title: Consolidação de nós de storage
+            url: "/maintain/consolidating-storage-nodes.html"
+          - title: Desativação de vários nós de storage
+            url: "/maintain/decommissioning-multiple-storage-nodes.html"
+      - title: Verificação de trabalhos de reparação de dados
+        url: "/maintain/checking-data-repair-jobs.html"
+    - title: Recolha de materiais necessários
+      url: "/maintain/gathering-required-materials-node-decom.html"
+    - title: Acessando a página Decommission Nodes
+      url: "/maintain/accessing-decommission-nodes-page.html"
+    - title: Desativação de nós de grade desconetados
+      url: "/maintain/decommissioning-disconnected-grid-nodes.html"
+    - title: Desativação de nós de grade conetados
+      url: "/maintain/decommissioning-connected-grid-nodes.html"
+    - title: Pausar e retomar o processo de desativação dos nós de storage
+      url: "/maintain/pausing-and-resuming-decommission-process-for-storage-nodes.html"
+    - title: Solução de problemas de desativação do nó
+      url: "/maintain/troubleshooting-node-decommissioning.html"
+  - title: Desativação do local
+    url: "/maintain/site-decommissioning.html"
+    entries:
+    - title: Considerações para remover um site
+      url: "/maintain/considerations-for-removing-site.html"
+    - title: Recolha de materiais necessários
+      url: "/maintain/gathering-required-materials-site-decom.html"
+    - title: 'Passo 1: Selecione Site'
+      url: "/maintain/step-1-select-site.html"
+    - title: 'Passo 2: Ver detalhes'
+      url: "/maintain/step-2-view-details.html"
+    - title: 'Passo 3: Revise a Política de ILM'
+      url: "/maintain/step-3-revise-ilm-policy.html"
+    - title: 'Passo 4: Remover referências ILM'
+      url: "/maintain/step-4-remove-ilm-references.html"
+    - title: 'Etapa 5: Resolver conflitos de nó (e iniciar a desativação)'
+      url: "/maintain/step-5-resolve-node-conflicts.html"
+    - title: 'Passo 6: Monitorar a desintegração'
+      url: "/maintain/step-6-monitor-decommission.html"
+- title: Procedimentos de manutenção da rede
+  url: "/maintain/network-maintenance-procedures.html"
+  entries:
+  - title: Atualizando sub-redes para a rede de Grade
+    url: "/maintain/updating-subnets-for-grid-network.html"
+  - title: Configurando endereços IP
+    url: "/maintain/configuring-ip-addresses.html"
+    entries:
+    - title: Alterando a configuração de rede de um nó
+      url: "/maintain/changing-nodes-network-configuration.html"
+    - title: Adicionar ou alterar listas de sub-rede na rede Admin
+      url: "/maintain/adding-to-or-changing-subnet-lists-on-admin-network.html"
+    - title: Adicionar ou alterar listas de sub-rede na rede de Grade
+      url: "/maintain/adding-to-or-changing-subnet-lists-on-grid-network.html"
+    - title: 'Linux: Adicionando interfaces a um nó existente'
+      url: "/maintain/linux-adding-interfaces-to-existing-node.html"
+    - title: Alterar endereços IP para todos os nós na grade
+      url: "/maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html"
+  - title: Configurando servidores DNS
+    url: "/maintain/configuring-dns-servers.html"
+    entries:
+    - title: Modificação da configuração DNS para um único nó de grade
+      url: "/maintain/modifying-dns-configuration-for-single-grid-node.html"
+  - title: Configurando servidores NTP
+    url: "/maintain/configuring-ntp-servers.html"
+  - title: Restaurar a conetividade de rede para nós isolados
+    url: "/maintain/restoring-network-connectivity-for-isolated-nodes.html"
+- title: Procedimentos de nível de host e middleware
+  url: "/maintain/host-level-and-middleware-procedures.html"
+  entries:
+  - title: 'Linux: Migrando um nó de grade para um novo host'
+    url: "/maintain/linux-migrating-grid-node-to-new-host.html"
+    entries:
+    - title: 'Linux: Exportando o nó do host de origem'
+      url: "/maintain/linux-exporting-node-from-source-host.html"
+    - title: 'Linux: Importando o nó no host de destino'
+      url: "/maintain/linux-importing-node-on-target-host.html"
+    - title: 'Linux: Iniciando o nó migrado'
+      url: "/maintain/linux-starting-migrated-node.html"
+  - title: Manutenção do Archive Node para middleware TSM
+    url: "/maintain/archive-node-maintenance-for-tsm-middleware.html"
+  - title: 'VMware: Configurando uma máquina virtual para reinicialização automática'
+    url: "/maintain/wmware-configuring-virtual-machine-for-automatic-restart.html"
+- title: Procedimentos do nó de grade
+  url: "/maintain/grid-node-procedures.html"
+  entries:
+  - title: Exibindo o status e a versão do Server Manager
+    url: "/maintain/viewing-server-manager-status-and-version.html"
+  - title: Exibindo o status atual de todos os serviços
+    url: "/maintain/viewing-current-status-of-all-services.html"
+  - title: Iniciando o Server Manager e todos os serviços
+    url: "/maintain/starting-server-manager-and-all-services.html"
+  - title: Reiniciando o Gerenciador de servidores e todos os serviços
+    url: "/maintain/restarting-server-manager-and-all-services.html"
+  - title: Parar o Gerenciador de servidores e todos os serviços
+    url: "/maintain/stopping-server-manager-and-all-services.html"
+  - title: Exibindo o status atual de um serviço
+    url: "/maintain/viewing-current-status-of-service.html"
+  - title: Parar um serviço
+    url: "/maintain/stopping-service.html"
+  - title: Colocar um aparelho no modo de manutenção
+    url: "/maintain/placing-appliance-into-maintenance-mode.html"
+  - title: Forçar a cessação de um serviço
+    url: "/maintain/forcing-service-to-terminate.html"
+  - title: Iniciar ou reiniciar um serviço
+    url: "/maintain/starting-or-restarting-service.html"
+  - title: Removendo remapas de portas
+    url: "/maintain/removing-port-remaps.html"
+  - title: Remoção de remapas de portas em hosts bare metal
+    url: "/maintain/removing-port-remaps-on-bare-metal-hosts.html"
+  - title: Reinicializando um nó de grade
+    url: "/maintain/rebooting-grid-node.html"
+    entries:
+    - title: Reiniciar um nó de grade a partir do Gerenciador de Grade
+      url: "/maintain/rebooting-grid-node-from-grid-manager.html"
+    - title: Reinicializando um nó de grade a partir do shell de comando
+      url: "/maintain/rebooting-grid-node-from-command-shell.html"
+  - title: Fechando um nó de grade
+    url: "/maintain/shutting-down-grid-node.html"
+  - title: Desligar um host
+    url: "/maintain/powering-down-host.html"
+  - title: Desligar e ligar todos os nós na grade
+    url: "/maintain/powering-off-and-on-all-nodes-in-grid.html"
+    entries:
+    - title: Interrompendo serviços e desligando nós de grade
+      url: "/maintain/stopping-services-and-shutting-down-grid-nodes.html"
+    - title: Iniciando os nós da grade
+      url: "/maintain/powering-on-grid-nodes.html"
+  - title: Usando um arquivo DoNotStart
+    url: "/maintain/using-donotstart-file.html"
+    entries:
+    - title: Adicionando um arquivo DoNotStart para um serviço
+      url: "/maintain/adding-donotstart-file-for-service.html"
+    - title: Removendo um arquivo DoNotStart para um serviço
+      url: "/maintain/removing-donotstart-file-for-service.html"
+  - title: Solução de problemas do Server Manager
+    url: "/maintain/troubleshooting-server-manager.html"
+    entries:
+    - title: Aceder ao ficheiro de registo do Gestor de servidor
+      url: "/maintain/accessing-server-manager-log-file.html"
+    - title: Serviço com um estado de erro
+      url: "/maintain/service-with-error-state.html"
+- title: Clonagem do nó do dispositivo
+  url: "/maintain/appliance-node-cloning.html"
+  entries:
+  - title: Como funciona a clonagem de nós do dispositivo
+    url: "/maintain/how-appliance-node-cloning-works.html"
+  - title: Considerações e requisitos para clonagem de nós do dispositivo
+    url: "/maintain/considerations-and-requirements-for-appliance-node-cloning.html"
+  - title: Procedimento de clonagem do nó do dispositivo
+    url: "/maintain/appliance-node-cloning-procedure.html"

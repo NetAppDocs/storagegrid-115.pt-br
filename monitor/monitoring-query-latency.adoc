@@ -1,0 +1,42 @@
+---
+permalink: monitor/monitoring-query-latency.html 
+sidebar: sidebar 
+keywords: monitoring, query latency 
+summary: Ações do cliente, como armazenar, recuperar ou excluir objetos, criam consultas para o banco de dados distribuído da grade de metadados de objetos. Você deve monitorar tendências na latência da consulta para garantir que os recursos da grade sejam adequados para a carga atual. 
+---
+= Monitoramento da latência da consulta
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ações do cliente, como armazenar, recuperar ou excluir objetos, criam consultas para o banco de dados distribuído da grade de metadados de objetos. Você deve monitorar tendências na latência da consulta para garantir que os recursos da grade sejam adequados para a carga atual.
+
+.O que você vai precisar
+Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+
+.Sobre esta tarefa
+Aumentos temporários na latência de consulta são normais e podem ser causados por um aumento súbito nas solicitações de ingestão. As consultas falhadas também são normais e podem resultar de problemas de rede transitórios ou de nós que estão temporariamente indisponíveis. No entanto, se o tempo médio para realizar uma consulta aumentar, o desempenho geral da grade diminui.
+
+Se você notar que a latência da consulta está aumentando com o tempo, considere adicionar nós de storage adicionais em um procedimento de expansão para atender a futuras cargas de trabalho.
+
+O alerta *alta latência para consultas de metadados* é acionado se o tempo médio para consultas for muito longo.
+
+.Passos
+. Selecione *nós* *_Storage Node_* *Objects*.
+. Role para baixo até a tabela consultas e exiba o valor da latência média.
++
+image::../media/queries_table.png[Tabela de consultas]
+
+. Clique no ícone do gráfico image:../media/icon_chart_new.gif["Ícone de carta"]para traçar o valor ao longo do tempo.
++
+image::../media/average_query_latency_chart.png[Gráfico de latência média da consulta]
+
++
+O gráfico de exemplo mostra picos na latência da consulta durante a operação normal da grade.
+
+
+
+.Informações relacionadas
+link:../expand/index.html["Expanda sua grade"]

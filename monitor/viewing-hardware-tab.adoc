@@ -1,0 +1,31 @@
+---
+permalink: monitor/viewing-hardware-tab.html 
+sidebar: sidebar 
+keywords: hardware tab 
+summary: A guia hardware exibe a utilização da CPU e o uso da memória para cada nó e informações adicionais de hardware sobre dispositivos. 
+---
+= Exibindo a guia hardware
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A guia hardware exibe a utilização da CPU e o uso da memória para cada nó e informações adicionais de hardware sobre dispositivos.
+
+A guia hardware é exibida para todos os nós.
+
+image::../media/nodes_page_hardware_tab_graphs.png[Guia hardware da página de nós]
+
+Para exibir um intervalo de tempo diferente, selecione um dos controles acima do gráfico ou gráfico. Você pode exibir as informações disponíveis para intervalos de 1 hora, 1 dia, 1 semana ou 1 mês. Você também pode definir um intervalo personalizado, que permite especificar intervalos de data e hora.
+
+Para ver detalhes sobre a utilização da CPU e o uso da memória, passe o cursor sobre cada gráfico.
+
+image::../media/nodes_page_memory_usage_details.png[Detalhes de uso da memória do hardware da página de nós]
+
+Se o nó for um nó de dispositivo, essa guia também inclui uma seção com mais informações sobre o hardware do dispositivo.
+
+.Informações relacionadas
+link:viewing-information-about-appliance-storage-nodes.html["Exibição de informações sobre os nós de storage do dispositivo"]
+
+link:viewing-information-about-appliance-admin-nodes-and-gateway-nodes.html["Exibindo informações sobre nós de administração do dispositivo e nós de gateway"]

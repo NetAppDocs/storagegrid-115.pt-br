@@ -1,0 +1,21 @@
+---
+permalink: ilm/creating-storage-grades-storage-pools-ec-profiles-regions.html 
+sidebar: sidebar 
+keywords:  
+summary: Antes de criar as regras de ILM para o seu sistema StorageGRID, você deve definir locais de storage de objetos, determinar os tipos de cópias desejadas e, opcionalmente, configurar regiões S3. 
+---
+= Criação de categorias de storage, pools de storage, perfis de EC e regiões
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de criar as regras de ILM para o seu sistema StorageGRID, você deve definir locais de storage de objetos, determinar os tipos de cópias desejadas e, opcionalmente, configurar regiões S3.
+
+* link:creating-and-assigning-storage-grades.html["Criação e atribuição de notas de armazenamento"]
+* link:configuring-storage-pools.html["Configurando pools de armazenamento"]
+* link:using-cloud-storage-pools.html["Usando Cloud Storage Pools"]
+* link:configuring-erasure-coding-profiles.html["Configurando perfis de codificação de apagamento"]
+* link:configuring-regions-optional-and-s3-only.html["Configurar regiões (opcional e apenas S3)"]
+

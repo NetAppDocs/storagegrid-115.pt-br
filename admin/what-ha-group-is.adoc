@@ -1,0 +1,38 @@
+---
+permalink: admin/what-ha-group-is.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Os grupos de alta disponibilidade usam endereços IP virtuais (VIPs) para fornecer acesso de backup ativo aos serviços Gateway Node ou Admin Node.' 
+---
+= O que é um grupo HA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os grupos de alta disponibilidade usam endereços IP virtuais (VIPs) para fornecer acesso de backup ativo aos serviços do nó de gateway ou nó de administrador.
+
+Um grupo de HA consiste em uma ou mais interfaces de rede em nós de administração e nós de gateway. Ao criar um grupo HA, você seleciona interfaces de rede pertencentes à rede Grid (eth0) ou à rede Client (eth2). Todas as interfaces de um grupo HA devem estar dentro da mesma sub-rede de rede.
+
+Um grupo de HA mantém um ou mais endereços IP virtuais que são adicionados à interface ativa no grupo. Se a interface ativa ficar indisponível, os endereços IP virtuais serão movidos para outra interface. Esse processo de failover geralmente leva apenas alguns segundos e é rápido o suficiente para que os aplicativos clientes tenham pouco impactos e possam confiar em comportamentos normais de repetição para continuar a operação.
+
+A interface ativa em um grupo HA é designada como Master. Todas as outras interfaces são designadas como Backup. Para visualizar estas designações, selecione *nodes* > *_node_* > *Overview*.
+
+image::../media/ha_group_master_interface.png[Interface Principal do Grupo HA]
+
+Ao criar um grupo HA, você especifica uma interface para ser o mestre preferido. O Master preferencial é a interface ativa, a menos que ocorra uma falha que faça com que os endereços VIP sejam reatribuídos a uma interface de backup. Quando a falha é resolvida, os endereços VIP são automaticamente movidos de volta para o Master preferido.
+
+O failover pode ser acionado por qualquer um destes motivos:
+
+* O nó no qual a interface está configurada é desativado.
+* O nó no qual a interface está configurada perde a conetividade com todos os outros nós por pelo menos 2 minutos
+* A interface ativa desce.
+* O serviço Load Balancer pára.
+* O serviço de alta disponibilidade pára.
+
+
+
+NOTE: O failover pode não ser acionado por falhas de rede externas ao nó que hospeda a interface ativa. Da mesma forma, o failover não é acionado pela falha do serviço CLB (obsoleto) ou serviços para o Gerenciador de Grade ou o Gerenciador de Tenant.
+
+Se o grupo de HA incluir interfaces de mais de dois nós, a interface ativa poderá ser movida para a interface de qualquer outro nó durante o failover.

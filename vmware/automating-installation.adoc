@@ -1,0 +1,18 @@
+---
+permalink: vmware/automating-installation.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode automatizar a implantação de nós de grade virtual VMware, a configuração de nós de grade e a configuração de dispositivos StorageGRID. 
+---
+= Automatizando a instalação
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode automatizar a implantação de nós de grade virtual VMware, a configuração de nós de grade e a configuração de dispositivos StorageGRID.
+
+* link:automating-grid-node-deployment-in-vmware-vsphere.html["Automatizando a implantação de nó de grade no VMware vSphere"]
+* link:automating-configuration-of-storagegrid.html["Automatizando a configuração do StorageGRID"]
+

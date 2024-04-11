@@ -1,0 +1,24 @@
+---
+permalink: maintain/recovering-from-gateway-node-failures.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, gateway node failure 
+summary:  
+---
+= Recuperando-se de falhas do Gateway Node
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve concluir uma sequência de tarefas na ordem exata para recuperar de uma falha do Gateway Node.
+
+image::../media/overview_api_gateway_node_recovery.png[Visão geral do fluxograma da recuperação do Gateway Node]
+
+.Informações relacionadas
+link:../sg100-1000/index.html["Aparelhos de serviços SG100  SG1000"]
+
+.Passos
+* link:replacing-gateway-node.html["Substituindo um nó de gateway"]
+* link:selecting-start-recovery-to-configure-gateway-node.html["Selecione Iniciar recuperação para configurar um nó de gateway"]
+

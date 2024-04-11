@@ -1,0 +1,20 @@
+---
+permalink: primer/monitoring-storagegrid-operations.html 
+sidebar: sidebar 
+keywords:  
+summary: O Gerenciador de Grade fornece informações para monitorar as atividades diárias do seu sistema StorageGRID, incluindo sua integridade. 
+---
+= Monitoramento das operações do StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O Gerenciador de Grade fornece informações para monitorar as atividades diárias do seu sistema StorageGRID, incluindo sua integridade.
+
+* link:viewing-nodes-page.html["Exibindo a página de nós"]
+* link:monitoring-and-managing-alerts.html["Monitoramento e gerenciamento de alertas"]
+* link:using-snmp-monitoring.html["Utilizar a monitorização SNMP"]
+* link:reviewing-audit-messages.html["Rever mensagens de auditoria"]
+

@@ -1,0 +1,25 @@
+---
+permalink: upgrade/upgrade-planning-and-preparation.html 
+sidebar: sidebar 
+keywords:  
+summary: Você deve Planejar a atualização do seu sistema StorageGRID para garantir que o sistema esteja pronto para a atualização e que a atualização possa ser concluída com interrupção mínima. 
+---
+= Planejamento e preparação de atualização
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve Planejar a atualização do seu sistema StorageGRID para garantir que o sistema esteja pronto para a atualização e que a atualização possa ser concluída com interrupção mínima.
+
+.Passos
+. link:estimating-time-to-complete-upgrade.html["Estimando o tempo para concluir uma atualização"]
+. link:how-your-system-is-affected-during-upgrade.html["Como seu sistema é afetado durante a atualização"]
+. link:impact-of-upgrade-on-groups-and-user-accounts.html["Impacto de uma atualização em grupos e contas de usuários"]
+. link:verifying-installed-version-of-storagegrid.html["Verificando a versão instalada do StorageGRID"]
+. link:obtaining-required-materials-for-software-upgrade.html["Obtenção dos materiais necessários para uma atualização de software"]
+. link:downloading-storagegrid-upgrade-files.html["Transferir os ficheiros de atualização do StorageGRID"]
+. link:downloading-recovery-package.html["Transferir o pacote de recuperação"]
+. link:checking-systems-condition-before-upgrading-software.html["Verificar o estado do sistema antes de atualizar o software"]
+

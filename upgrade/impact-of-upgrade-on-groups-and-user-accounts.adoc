@@ -1,0 +1,41 @@
+---
+permalink: upgrade/impact-of-upgrade-on-groups-and-user-accounts.html 
+sidebar: sidebar 
+keywords: upgrade, permissions 
+summary: Você deve entender o impactos da atualização do StorageGRID para que possa atualizar grupos e contas de usuário adequadamente após a conclusão da atualização. 
+---
+= Impacto de uma atualização em grupos e contas de usuários
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve entender o impactos da atualização do StorageGRID para que possa atualizar grupos e contas de usuário adequadamente após a conclusão da atualização.
+
+
+
+== Alterações nas permissões e opções de grupo
+
+Depois de atualizar para o StorageGRID 11,5, opcionalmente selecione as novas permissões e opções a seguir (*Configuração* *Controle de Acesso* *grupos de administradores*).
+
+[cols="1a,2a"]
+|===
+| Permissão ou opção | Descrição 
+
+
+ a| 
+Administrador do dispositivo de armazenamento
+ a| 
+Necessário para acessar a interface de usuário do Gerenciador de sistema do SANtricity a partir do Gerenciador de Grade.
+
+
+
+ a| 
+Modo de acesso
+ a| 
+Ao gerenciar grupos, você pode selecionar *somente leitura* para esta nova opção para impedir que os usuários alterem as configurações e os recursos selecionados para o grupo. Os usuários em grupos com modo de acesso somente leitura podem exibir as configurações, mas não podem alterá-las.
+
+|===
+.Informações relacionadas
+link:../admin/index.html["Administrar o StorageGRID"]

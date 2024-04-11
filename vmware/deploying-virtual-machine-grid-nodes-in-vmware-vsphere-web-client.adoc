@@ -1,0 +1,28 @@
+---
+permalink: vmware/deploying-virtual-machine-grid-nodes-in-vmware-vsphere-web-client.html 
+sidebar: sidebar 
+keywords: storagegrid, deploying grid nodes, deploy grid nodes, vsphere, vsphere web client 
+summary: Você usa o VMware vSphere Web Client para implantar cada nó de grade como uma máquina virtual. Durante a implantação, cada nó de grade é criado e conetado a uma ou mais redes. Se você precisar implantar qualquer nó de storage do dispositivo StorageGRID, consulte as instruções de instalação e manutenção do dispositivo depois de implantar todos os nós de grade da máquina virtual. 
+---
+= Implantação de nós de grade de máquina virtual no VMware vSphere Web Client
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você usa o VMware vSphere Web Client para implantar cada nó de grade como uma máquina virtual. Durante a implantação, cada nó de grade é criado e conetado a uma ou mais redes. Se você precisar implantar qualquer nó de storage do dispositivo StorageGRID, consulte as instruções de instalação e manutenção do dispositivo depois de implantar todos os nós de grade da máquina virtual.
+
+* link:collecting-information-about-your-deployment-environment.html["Coletando informações sobre seu ambiente de implantação"]
+* link:how-grid-nodes-discover-primary-admin-node.html["Como os nós de grade descobrem o nó de administração principal"]
+* link:deploying-storagegrid-node-as-virtual-machine.html["Implantando um nó StorageGRID como uma máquina virtual"]
+
+
+.Informações relacionadas
+link:../sg100-1000/index.html["Aparelhos de serviços SG100  SG1000"]
+
+link:../sg5600/index.html["SG5600 dispositivos de armazenamento"]
+
+link:../sg5700/index.html["SG5700 dispositivos de armazenamento"]
+
+link:../sg6000/index.html["SG6000 dispositivos de armazenamento"]

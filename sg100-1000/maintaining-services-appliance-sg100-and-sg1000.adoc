@@ -1,0 +1,28 @@
+---
+permalink: sg100-1000/maintaining-services-appliance-sg100-and-sg1000.html 
+sidebar: sidebar 
+keywords: storagegrid, sg100, sg1000, service appliance, services appliance, gateway Node, admin node, maintain, maintaining, hardware, procedures, tasks 
+summary: Poderá ser necessário efetuar procedimentos de manutenção no aparelho. Os procedimentos nesta seção pressupõem que o dispositivo já foi implantado como um nó de gateway ou um nó de administrador em um sistema StorageGRID. 
+---
+= Manutenção do aparelho
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Poderá ser necessário efetuar procedimentos de manutenção no aparelho. Os procedimentos nesta seção pressupõem que o dispositivo já foi implantado como um nó de gateway ou um nó de administrador em um sistema StorageGRID.
+
+.Passos
+* link:placing-appliance-into-maintenance-mode.html["Colocar um aparelho no modo de manutenção"]
+* link:turning-controller-identify-led-on-and-off.html["Ligar e desligar o LED de identificação do controlador"]
+* link:locating-controller-in-data-center.html["Localizar o controlador em um data center"]
+* link:replacing-services-appliance.html["Substituir o dispositivo de serviços"]
+* link:replacing-power-supply-in-services-appliance.html["Substituir uma fonte de alimentação no dispositivo de serviços"]
+* link:replacing-fan-in-services-appliance.html["Substituir uma ventoinha no dispositivo de serviços"]
+* link:replacing-drive-in-services-appliance.html["Substituir uma unidade no dispositivo de serviços"]
+* link:changing-link-configuration-of-services-appliance.html["Alterar a configuração do link do dispositivo de serviços"]
+* link:changing-mtu-setting.html["Alterar a definição MTU"]
+* link:checking-dns-server-configuration.html["Verificar a configuração do servidor DNS"]
+* link:monitoring-node-encryption-in-maintenance-mode.html["Monitorização da encriptação do nó no modo de manutenção"]
+

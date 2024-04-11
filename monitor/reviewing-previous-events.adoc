@@ -1,0 +1,31 @@
+---
+permalink: monitor/reviewing-previous-events.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode gerar uma lista de mensagens de eventos anteriores para ajudar a isolar problemas que ocorreram no passado. 
+---
+= Rever eventos anteriores
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode gerar uma lista de mensagens de eventos anteriores para ajudar a isolar problemas que ocorreram no passado.
+
+. Selecione *Support* > *Tools* > *Grid Topology*.
+. Selecione *_site_* *_grid node_* *SSM* *Eventos* *relatórios*.
+. Selecione *texto*.
++
+O atributo *último evento* não é mostrado na visualização gráficos.
+
+. Altere *Atributo* para *último evento*.
+. Opcionalmente, selecione um período de tempo para *consulta rápida*.
+. Clique em *Atualizar*.
++
+image::../media/events_report.gif[Página de eventos]
+
+
+
+.Informações relacionadas
+link:using-charts-and-reports.html["Usando gráficos e relatórios"]

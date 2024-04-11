@@ -1,0 +1,25 @@
+---
+permalink: maintain/index.html 
+sidebar: sidebar 
+keywords:  
+summary: Saiba como aplicar um hotfix; recuperar um nó de grade com falha; desativar nós de grade e sites; e recuperar objetos em caso de falha do sistema. 
+---
+= Manter a recuperação
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Saiba como aplicar um hotfix; recuperar um nó de grade com falha; desativar nós de grade e sites; e recuperar objetos em caso de falha do sistema.
+
+* link:introduction-to-storagegrid-recovery-and-maintenance.html["Introdução à recuperação e manutenção do StorageGRID"]
+* link:storagegrid-hotfix-procedure.html["Procedimento de correção do StorageGRID"]
+* link:grid-node-recovery-procedures.html["Procedimentos de recuperação do nó de grade"]
+* link:how-site-recovery-is-performed-by-technical-support.html["Como a recuperação do local é realizada pelo suporte técnico"]
+* link:decommission-procedure.html["Procedimento de desativação"]
+* link:network-maintenance-procedures.html["Procedimentos de manutenção da rede"]
+* link:host-level-and-middleware-procedures.html["Procedimentos de nível de host e middleware"]
+* link:grid-node-procedures.html["Procedimentos do nó de grade"]
+* link:appliance-node-cloning.html["Clonagem do nó do dispositivo"]
+

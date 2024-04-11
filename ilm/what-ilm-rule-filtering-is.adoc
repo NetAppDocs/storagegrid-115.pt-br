@@ -1,0 +1,37 @@
+---
+permalink: ilm/what-ilm-rule-filtering-is.html 
+sidebar: sidebar 
+keywords:  
+summary: Quando você cria uma regra ILM, você especifica filtros para identificar quais objetos a regra se aplica. 
+---
+= O que é a filtragem de regras ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando você cria uma regra ILM, você especifica filtros para identificar quais objetos a regra se aplica.
+
+No caso mais simples, uma regra pode não usar nenhum filtro. Qualquer regra que não use filtros se aplica a todos os objetos, portanto, deve ser a última regra (padrão) em uma política ILM. A regra padrão fornece instruções de armazenamento para objetos que não correspondem aos filtros em outra regra.
+
+Os filtros básicos permitem que você aplique regras diferentes a grupos grandes e distintos de objetos. Os filtros básicos na página Definir noções básicas do assistente criar regra ILM permitem aplicar uma regra a contas de locatário específicas, buckets específicos do S3 ou contentores Swift, ou ambos.
+
+image::../media/ilm_create_ilm_rule_wizard_1.png[Assistente ILM: Passo 1 de 3]
+
+Esses filtros básicos oferecem uma maneira simples de aplicar regras diferentes a um grande número de objetos. Por exemplo, os Registros financeiros da sua empresa podem precisar ser armazenados para atender aos requisitos regulatórios, enquanto os dados do departamento de marketing podem precisar ser armazenados para facilitar as operações diárias. Depois de criar contas de inquilino separadas para cada departamento ou depois de segregar dados dos diferentes departamentos em intervalos separados do S3, você pode facilmente criar uma regra que se aplica a todos os Registros financeiros e uma segunda regra que se aplica a todos os dados de marketing.
+
+A página *Advanced Filtering* do assistente Create ILM Rule fornece controle granular. Você pode criar filtros para selecionar objetos com base nas seguintes propriedades do objeto:
+
+* Tempo de ingestão
+* Último tempo de acesso
+* Todo ou parte do nome do objeto (chave)
+* S3 região do balde (restrição de localização)
+* Tamanho do objeto
+* Metadados do usuário
+* S3 tags de objeto
+
+
+Você pode filtrar objetos em critérios muito específicos. Por exemplo, os objetos armazenados pelo departamento de imagiologia de um hospital podem ser utilizados frequentemente quando têm menos de 30 dias de idade e pouco depois, enquanto os objetos que contêm informações sobre a visita do paciente podem precisar de ser copiados para o departamento de faturação na sede da rede de saúde. Você pode criar filtros que identificam cada tipo de objeto com base no nome, tamanho, tags de objeto S3D ou qualquer outro critério relevante e, em seguida, criar regras separadas para armazenar cada conjunto de objetos adequadamente.
+
+Você também pode combinar filtros básicos e avançados conforme necessário em uma única regra. Por exemplo, o departamento de marketing pode querer armazenar arquivos de imagem grandes de forma diferente dos Registros de seus fornecedores, enquanto o departamento de recursos humanos pode precisar armazenar Registros de pessoal em uma geografia específica e informações de políticas centralmente. Nesse caso, você pode criar regras que filtram por conta de locatário para segregar os Registros de cada departamento, enquanto usa filtros avançados em cada regra para identificar o tipo específico de objetos aos quais a regra se aplica.

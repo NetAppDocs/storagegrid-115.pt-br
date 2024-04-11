@@ -1,0 +1,36 @@
+---
+permalink: expand/overview-of-expansion-procedure.html 
+sidebar: sidebar 
+keywords: expand, expansion, overview 
+summary: 'As etapas básicas para executar uma expansão do StorageGRID variam para os diferentes tipos de expansão: Adicionar volumes de storage a um nó de storage, adicionar novos nós a um site existente ou adicionar um novo local. Em todos os casos, você pode realizar expansões sem interromper a operação do seu sistema atual.' 
+---
+= Visão geral do procedimento de expansão
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+As etapas básicas para executar uma expansão do StorageGRID variam para os diferentes tipos de expansão: Adicionar volumes de storage a um nó de storage, adicionar novos nós a um site existente ou adicionar um novo local. Em todos os casos, você pode realizar expansões sem interromper a operação do seu sistema atual.
+
+O tipo de nó que você está adicionando à grade ou o motivo pelo qual você está adicionando nós não afeta o procedimento básico de expansão. Mas, como mostrado no diagrama de fluxo de trabalho abaixo, as etapas para adicionar nós variam ligeiramente dependendo se você está adicionando dispositivos StorageGRID ou hosts executando VMware ou Linux.
+
+
+NOTE: Arquivos de disco de máquina virtual fornecidos pela NetApp e scripts para novas instalações ou expansões do StorageGRID no OpenStack não são mais compatíveis. Para expandir uma implantação existente no OpenStack, consulte as etapas para sua distribuição Linux.
+
+
+NOTE: "Linux" refere-se a uma implantação Red Hat Enterprise Linux, Ubuntu, CentOS ou Debian. Use a ferramenta Matriz de interoperabilidade do NetApp para obter uma lista de versões suportadas.
+
+image::../media/expansion_workflow.png[fluxograma mostrando a visão geral do processo de expansão]
+
+*Informações relacionadas*
+
+https://mysupport.netapp.com/matrix["Ferramenta de Matriz de interoperabilidade do NetApp"^]
+
+link:planning-expansion.html["Planejando uma expansão do StorageGRID"]
+
+link:preparing-for-expansion.html["Preparando-se para uma expansão"]
+
+link:adding-storage-volumes-to-storage-nodes.html["Adição de volumes de storage aos nós de storage"]
+
+link:adding-grid-nodes-to-existing-site-or-adding-new-site.html["Adicionar nós de grade a um site existente ou adicionar um novo site"]

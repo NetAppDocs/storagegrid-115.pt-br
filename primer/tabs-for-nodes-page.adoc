@@ -1,0 +1,128 @@
+---
+permalink: primer/tabs-for-nodes-page.html 
+sidebar: sidebar 
+keywords: nodes page, hardware tab, network tab, storage tab, events tab, objects tab, ilm tab, load balancer tab, platform services tab, santricity system manager tab 
+summary: As guias na parte superior da página nós são baseadas no que você seleciona na árvore à esquerda. 
+---
+= Guias para a página nós
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+As guias na parte superior da página nós são baseadas no que você seleciona na árvore à esquerda.
+
+[cols="1a,2a,1a"]
+|===
+| Nome do separador | Descrição | Incluído para 
+
+
+ a| 
+Visão geral
+ a| 
+* Fornece informações básicas sobre cada nó.
+* Mostra todos os alarmes atuais e não reconhecidos que afetam o nó.
+
+ a| 
+Todos os nós
+
+
+
+ a| 
+Hardware
+ a| 
+* Exibe a utilização da CPU e o uso da memória para cada nó
+* Para nós do dispositivo, fornece informações adicionais de hardware.
+
+ a| 
+Todos os nós
+
+
+
+ a| 
+Rede
+ a| 
+Exibe um gráfico mostrando o tráfego de rede recebido e enviado através das interfaces de rede.
+ a| 
+Todos os nós, cada local e toda a grade
+
+
+
+ a| 
+Armazenamento
+ a| 
+* Fornece detalhes para os dispositivos de disco e volumes em cada nó.
+* Para nós de storage, cada local e toda a grade incluem gráficos que mostram o storage de dados de objetos e o storage de metadados usados ao longo do tempo.
+
+ a| 
+Todos os nós, cada local e toda a grade
+
+
+
+ a| 
+Eventos
+ a| 
+Exibe uma contagem de qualquer erro de sistema ou evento de falha, incluindo erros como erros de rede.
+ a| 
+Todos os nós
+
+
+
+ a| 
+Objetos
+ a| 
+* Fornece informações sobre as taxas de ingestão e recuperação S3 e Swift.
+* Para nós de storage, fornece contagens de objetos e informações sobre consultas de armazenamento de metadados e verificação em segundo plano.
+
+ a| 
+Nós de storage, cada local e toda a grade
+
+
+
+ a| 
+ILM
+ a| 
+Fornece informações sobre as operações do Information Lifecycle Management (ILM).
+
+* Para nós de storage, fornece detalhes sobre a avaliação do ILM e a verificação em segundo plano para objetos codificados de apagamento.
+* Para cada local e toda a grade, mostra um gráfico da fila ILM ao longo do tempo.
+* Para toda a grade, fornece o tempo estimado para concluir uma varredura ILM completa de todos os objetos.
+
+ a| 
+Nós de storage, cada local e toda a grade
+
+
+
+ a| 
+Balanceador de carga
+ a| 
+Inclui gráficos de desempenho e diagnóstico relacionados com o serviço Load Balancer.
+
+* Para cada site, fornece um resumo agregado das estatísticas de todos os nós nesse site.
+* Para toda a grade, fornece um resumo agregado das estatísticas para todos os sites.
+
+ a| 
+Nós de administração e nós de gateway, cada local e toda a grade
+
+
+
+ a| 
+Serviços de plataforma
+ a| 
+Fornece informações sobre qualquer operação de serviço da plataforma S3 em um site.
+ a| 
+Cada local
+
+
+
+ a| 
+Gerente do sistema da SANtricity
+ a| 
+Fornece acesso ao Gerenciador do sistema do SANtricity. No SANtricity System Manager, você pode revisar as informações ambientais e de diagnóstico de hardware para o controlador de armazenamento, bem como os problemas relacionados às unidades.
+ a| 
+Nós de dispositivos de storage
+
+*Nota:* a guia Gerenciador de sistema do SANtricity não aparecerá se o firmware do controlador no dispositivo de armazenamento for inferior a 8,70.
+
+|===

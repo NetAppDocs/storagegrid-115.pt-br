@@ -1,0 +1,24 @@
+---
+permalink: admin/restoring-default-server-certificates-for-s3-swift-api-endpoints.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode reverter para o uso dos certificados de servidor padrão para os endpoints da API REST S3 e Swift. 
+---
+= Restaurando os certificados de servidor padrão para os endpoints S3 e Swift REST API
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode reverter para o uso dos certificados de servidor padrão para os endpoints da API REST S3 e Swift.
+
+.Passos
+. Selecione *Configuração* > *Configurações de rede* > *certificados de servidor*.
+. Na seção Object Storage API Service Endpoints Server Certificate (certificado do servidor de Endpoints), clique em *Use Default Certificates* (usar certificados padrão).
+. Clique em *OK* na caixa de diálogo de confirmação.
++
+Quando você restaura os certificados de servidor padrão para os endpoints da API de armazenamento de objetos, os arquivos de certificado de servidor personalizado configurados são excluídos e não podem ser recuperados do sistema. Os certificados de servidor padrão são usados para todas as novas conexões de cliente API subsequentes.
+
+. Atualize a página para garantir que o navegador da Web seja atualizado.
+

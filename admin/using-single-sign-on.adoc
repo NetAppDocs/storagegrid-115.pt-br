@@ -1,0 +1,19 @@
+---
+permalink: admin/using-single-sign-on.html 
+sidebar: sidebar 
+keywords:  
+summary: 'O sistema StorageGRID suporta logon único usando o padrão Security Assertion Markup Language 2,0 (SAML 2,0). Quando o SSO está ativado, todos os usuários devem ser autenticados por um provedor de identidade externo antes que possam acessar o Gerenciador de Grade, o Gerenciador de Locatário, a API de Gerenciamento de Grade ou a API de Gerenciamento de Locatário. Os utilizadores locais não podem iniciar sessão no StorageGRID.' 
+---
+= Usando logon único (SSO) para StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O sistema StorageGRID suporta logon único (SSO) usando o padrão de linguagem de marcação de asserção de Segurança 2,0 (SAML 2,0). Quando o SSO está ativado, todos os usuários devem ser autenticados por um provedor de identidade externo antes que possam acessar o Gerenciador de Grade, o Gerenciador de Locatário, a API de Gerenciamento de Grade ou a API de Gerenciamento de Locatário. Os utilizadores locais não podem iniciar sessão no StorageGRID.
+
+* link:how-sso-works.html["Como o single sign-on funciona"]
+* link:requirements-for-sso.html["Requisitos para o uso de logon único"]
+* link:configuring-sso.html["Configurando logon único"]
+

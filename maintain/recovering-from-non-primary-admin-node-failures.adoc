@@ -1,0 +1,27 @@
+---
+permalink: maintain/recovering-from-non-primary-admin-node-failures.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, non-primary admin node failure 
+summary: 'Você deve concluir as tarefas a seguir para se recuperar de uma falha não primária do Admin Node. Um nó de administração hospeda o serviço do nó de gerenciamento de configuração (CMN) e é conhecido como nó de administração principal. Embora você possa ter vários nós de administração, cada sistema StorageGRID inclui apenas um nó de administração principal. Todos os outros nós de administração são nós de administração não primários.' 
+---
+= Recuperando-se de falhas no nó de administração não primário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve concluir as tarefas a seguir para se recuperar de uma falha não primária do Admin Node. Um nó de administração hospeda o serviço CMN (Configuration Management Node) e é conhecido como nó de administração principal. Embora você possa ter vários nós de administração, cada sistema StorageGRID inclui apenas um nó de administração principal. Todos os outros nós de administração são nós de administração não primários.
+
+.Informações relacionadas
+link:../sg100-1000/index.html["Aparelhos de serviços SG100  SG1000"]
+
+.Passos
+* link:copying-audit-logs-from-failed-non-primary-admin-node.html["Copiar registos de auditoria a partir do nó de administração não primário com falha"]
+* link:replacing-non-primary-admin-node.html["Substituindo um nó de administração não primário"]
+* link:selecting-start-recovery-to-configure-non-primary-admin-node.html["Selecionando Iniciar recuperação para configurar um nó de administração não primário"]
+* link:restoring-audit-log-on-recovered-non-primary-admin-node.html["Restaurando o log de auditoria no nó de administração não primário recuperado"]
+* link:resetting-preferred-sender-on-recovered-non-primary-admin-node.html["Redefinir o remetente preferido no nó de administração não primário recuperado"]
+* link:restoring-admin-node-database-non-primary-admin-node.html["Restaurando o banco de dados Admin Node ao recuperar um Admin Node não primário"]
+* link:restoring-prometheus-metrics-non-primary-admin-node.html["Restaurando métricas Prometheus ao recuperar um nó Admin não primário"]
+

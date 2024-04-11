@@ -1,0 +1,36 @@
+---
+permalink: monitor/exporting-text-reports.html 
+sidebar: sidebar 
+keywords: reports, text, export text, report 
+summary: Os relatórios de texto exportados abrem uma nova guia do navegador, que permite selecionar e copiar os dados. 
+---
+= Exportar relatórios de texto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os relatórios de texto exportados abrem uma nova guia do navegador, que permite selecionar e copiar os dados.
+
+.Sobre esta tarefa
+Os dados copiados podem então ser salvos em um novo documento (por exemplo, uma Planilha) e usados para analisar o desempenho do sistema StorageGRID.
+
+.Passos
+. Selecione *Support* > *Tools* > *Grid Topology*.
+. Crie um relatório de texto.
+. Clique em *Exportar*image:../media/icon_export.gif["ícone de exportação"].
++
+image::../media/export_text_report.gif[captura de tela descrita pelo texto circundante]
+
++
+A janela Exportar relatório de texto abre-se exibindo o relatório.
+
++
+image::../media/export_text_report_data.gif[captura de tela mostrando o relatório de texto de amostra]
+
+. Selecione e copie o conteúdo da janela Exportar Relatório de texto.
++
+Esses dados podem agora ser colados em um documento de terceiros, como uma Planilha.
+
+

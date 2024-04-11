@@ -1,0 +1,68 @@
+---
+permalink: admin/generating-self-signed-certificate-for-management-interface.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode usar um script para gerar um certificado de servidor auto-assinado para clientes de API de gerenciamento que exigem validação estrita do nome de host. 
+---
+= Gerando um certificado de servidor autoassinado para a interface de gerenciamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar um script para gerar um certificado de servidor auto-assinado para clientes de API de gerenciamento que exigem validação estrita do nome de host.
+
+.O que você vai precisar
+* Você deve ter permissões de acesso específicas.
+* Tem de ter o `Passwords.txt` ficheiro.
+
+
+.Sobre esta tarefa
+Em ambientes de produção, você deve usar um certificado assinado por uma autoridade de certificação (CA) conhecida. Os certificados assinados por uma CA podem ser girados sem interrupções. Eles também são mais seguros porque fornecem melhor proteção contra ataques do homem no meio.
+
+.Passos
+. Obtenha o nome de domínio totalmente qualificado (FQDN) de cada nó Admin.
+. Faça login no nó de administração principal:
++
+.. Introduza o seguinte comando: `ssh admin@primary_Admin_Node_IP`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+.. Digite o seguinte comando para mudar para root: `su -`
+.. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
++
+Quando você estiver conetado como root, o prompt mudará de `$` para `#`.
+
+
+
+. Configure o StorageGRID com um novo certificado autoassinado.
++
+`$ sudo make-certificate --domains _wildcard-admin-node-fqdn_ --type management`
+
++
+** Para `--domains`, use curingas para representar os nomes de domínio totalmente qualificados de todos os nós de administração. Por exemplo, `*.ui.storagegrid.example.com` usa o caractere curinga * para representar `admin1.ui.storagegrid.example.com` e `admin2.ui.storagegrid.example.com`.
+** Defina `--type` como `management` para configurar o certificado usado pelo Gerenciador de Grade e pelo Gerenciador de Tenant.
+** Por padrão, os certificados gerados são válidos por um ano (365 dias) e devem ser recriados antes de expirarem. Você pode usar o `--days` argumento para substituir o período de validade padrão.
++
+
+NOTE: O período de validade de um certificado começa quando `make-certificate` é executado. Você deve garantir que o cliente da API de gerenciamento esteja sincronizado com a mesma fonte de tempo que o StorageGRID; caso contrário, o cliente poderá rejeitar o certificado.
+
++
+ $ sudo make-certificate --domains *.ui.storagegrid.example.com --type management --days 365
++
+A saída resultante contém o certificado público necessário pelo cliente da API de gerenciamento.
+
+
+
+. Selecione e copie o certificado.
++
+Inclua as tags DE INÍCIO e FIM em sua seleção.
+
+. Faça logout do shell de comando. `$ exit`
+. Confirme se o certificado foi configurado:
++
+.. Acesse o Gerenciador de Grade.
+.. Selecione *Configuração* > *certificados de servidor* > *certificado de servidor de interface de gerenciamento*.
+
+
+. Configure seu cliente de API de gerenciamento para usar o certificado público que você copiou. Inclua as tags DE INÍCIO e FIM.
+

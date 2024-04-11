@@ -1,0 +1,19 @@
+---
+permalink: primer/how-storagegrid-manages-data.html 
+sidebar: sidebar 
+keywords:  
+summary: À medida que você começa a trabalhar com o sistema StorageGRID, é útil entender como o sistema StorageGRID gerencia os dados. 
+---
+= Como o StorageGRID gerencia dados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+À medida que você começa a trabalhar com o sistema StorageGRID, é útil entender como o sistema StorageGRID gerencia os dados.
+
+* link:what-object-is.html["O que é um objeto"]
+* link:how-object-data-is-protected.html["Como os dados do objeto são protegidos"]
+* link:life-of-object.html["A vida de um objeto"]
+

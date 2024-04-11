@@ -1,0 +1,45 @@
+---
+permalink: admin/enabling-http-for-client-communications.html 
+sidebar: sidebar 
+keywords:  
+summary: Por padrão, os aplicativos clientes usam o protocolo de rede HTTPS para todas as conexões com nós de armazenamento ou para o serviço CLB obsoleto em nós de gateway. Opcionalmente, você pode ativar o HTTP para essas conexões, por exemplo, ao testar uma grade que não seja de produção. 
+---
+= Ativar HTTP para comunicações cliente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Por padrão, os aplicativos clientes usam o protocolo de rede HTTPS para todas as conexões com nós de armazenamento ou para o serviço CLB obsoleto em nós de gateway. Opcionalmente, você pode ativar o HTTP para essas conexões, por exemplo, ao testar uma grade que não seja de produção.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+
+
+.Sobre esta tarefa
+Conclua esta tarefa somente se os clientes S3 e Swift precisarem fazer conexões HTTP diretamente aos nós de armazenamento ou ao serviço CLB obsoleto nos nós de Gateway.
+
+Não é necessário concluir essa tarefa para clientes que usam somente conexões HTTPS ou para clientes que se conetam ao serviço Load Balancer (porque você pode configurar cada ponto de extremidade do Load Balancer para usar HTTP ou HTTPS). Consulte as informações sobre como configurar pontos de extremidade do balanceador de carga para obter mais informações.
+
+link:summary-ip-addresses-and-ports-for-client-connections.html["Resumo: Endereços IP e portas para conexões de clientes"]Consulte para saber quais portas S3 e clientes Swift usam ao se conetar a nós de armazenamento ou ao serviço CLB obsoleto usando HTTP ou HTTPS
+
+
+IMPORTANT: Tenha cuidado ao ativar o HTTP para uma grade de produção porque as solicitações serão enviadas sem criptografia.
+
+.Passos
+. Selecione *Configuração* > *Configurações do sistema* > *Opções de grade*.
+. Na seção Opções de rede, marque a caixa de seleção *Ativar conexão HTTP* .
++
+image::../media/http_enabled.png[Ativar a ligação HTTP]
+
+. Clique em *Salvar*.
+
+
+.Informações relacionadas
+link:configuring-load-balancer-endpoints.html["Configuração dos pontos de extremidade do balanceador de carga"]
+
+link:../s3/index.html["Use S3"]
+
+link:../swift/index.html["Use Swift"]

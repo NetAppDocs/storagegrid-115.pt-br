@@ -1,0 +1,37 @@
+---
+permalink: admin/disabling-event-triggered-autosupport-messages.html 
+sidebar: sidebar 
+keywords:  
+summary: Por padrão, o sistema StorageGRID é configurado para enviar uma mensagem AutoSupport para o suporte da NetApp quando ocorre um alerta importante ou outro evento significativo do sistema. 
+---
+= Desativando mensagens AutoSupport acionadas por eventos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Por padrão, o sistema StorageGRID é configurado para enviar uma mensagem AutoSupport para o suporte da NetApp quando ocorre um alerta importante ou outro evento significativo do sistema.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter a permissão de Acesso root ou outra Configuração de Grade.
+
+
+.Sobre esta tarefa
+Você pode desativar as mensagens AutoSupport acionadas por eventos a qualquer momento.
+
+
+NOTE: As mensagens AutoSupport acionadas por eventos também são suprimidas quando você suprime as notificações por e-mail em todo o sistema. (Selecione *Configuração* > *Configurações do sistema* > *Opções de exibição*. Em seguida, selecione *notificação suprimir tudo*.)
+
+.Passos
+. Selecione *suporte* > *Ferramentas* > *AutoSupport*.
++
+A página AutoSupport é exibida com a guia *Configurações* selecionada.
+
+. Desmarque a caixa de seleção *Enable Event-Triggered* (Ativar AutoSupport acionado por evento*).
++
+image::../media/autosupport_event_triggered_disabled.png[AutoSupport acionado por evento]
+
+. Selecione *Guardar*.
+

@@ -1,0 +1,14 @@
+---
+permalink: tenant/managing-s3-buckets.html 
+sidebar: sidebar 
+keywords: StorageGRID, tenant, tenant manager, s3 bucket 
+summary: 'Se você estiver usando um locatário S3 com as permissões apropriadas, você pode criar, exibir e excluir buckets S3, atualizar configurações de nível de consistência, configurar o Compartilhamento de recursos de origem cruzada (CORS), ativar e desativar as configurações de atualização da última hora de acesso e gerenciar os serviços da plataforma S3.' 
+---
+= Gerenciamento de buckets do S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você estiver usando um locatário S3 com as permissões apropriadas, você poderá criar, exibir e excluir buckets do S3, atualizar configurações de nível de consistência, configurar o Compartilhamento de recursos entre origens (CORS), ativar e desativar as configurações de atualização da última hora de acesso e gerenciar os serviços da plataforma S3.

@@ -1,0 +1,22 @@
+---
+permalink: harden/index.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Endurecimento do sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Conheça as configurações do sistema, as práticas recomendadas e as recomendações para proteger um sistema StorageGRID contra ameaças à segurança.
+
+* link:hardening-storagegrid-system.html["Endurecimento de um sistema StorageGRID"]
+* link:hardening-guidelines-for-software-upgrades.html["Diretrizes de fortalecimento para atualizações de software"]
+* link:hardening-guidelines-for-storagegrid-networks.html["Diretrizes de fortalecimento para redes StorageGRID"]
+* link:hardening-guidelines-for-storagegrid-nodes.html["Diretrizes de fortalecimento para nós de StorageGRID"]
+* link:hardening-guideline-for-server-certificates.html["Diretrizes de fortalecimento para certificados de servidor"]
+* link:other-hardening-guidelines.html["Outras diretrizes de endurecimento"]]
+

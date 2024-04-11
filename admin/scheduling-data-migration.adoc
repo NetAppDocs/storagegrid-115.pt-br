@@ -1,0 +1,19 @@
+---
+permalink: admin/scheduling-data-migration.html 
+sidebar: sidebar 
+keywords:  
+summary: Evite migrar dados durante o horário operacional principal. Limite a migração de dados para noites, fins de semana e outras ocasiões em que o uso do sistema é baixo. 
+---
+= Agendamento da migração de dados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Evite migrar dados durante o horário operacional principal. Limite a migração de dados para noites, fins de semana e outras ocasiões em que o uso do sistema é baixo.
+
+Se possível, não programe a migração de dados durante períodos de alta atividade. No entanto, se não for prático evitar completamente o período de atividade elevada, é seguro prosseguir desde que monitorize de perto os atributos relevantes e tome medidas se excederem os valores aceitáveis.
+
+.Informações relacionadas
+link:monitoring-data-migration.html["Monitoramento da migração de dados"]

@@ -1,0 +1,26 @@
+---
+permalink: monitor/resetting-count-of-custom-events-to-zero.html 
+sidebar: sidebar 
+keywords:  
+summary: Se você quiser redefinir o contador apenas para eventos personalizados, use a página topologia de grade no menu suporte. 
+---
+= Redefinir a contagem de eventos personalizados para zero
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você quiser redefinir o contador apenas para eventos personalizados, use a página topologia de grade no menu suporte.
+
+.Sobre esta tarefa
+A reposição de um contador faz com que o alarme seja acionado pelo próximo evento. Em contraste, quando você reconhece um alarme, esse alarme só é reacionado se o próximo nível de limiar for atingido.
+
+. Selecione *Support* > *Tools* > *Grid Topology*.
+. Selecione *_grid node_* *SSM* *Eventos* *Configuração* *Principal*.
+. Marque a caixa de seleção *Reset* para Eventos personalizados.
++
+image::../media/custom_events_reset.gif[Captura de tela em SSM Events Configuration Main]
+
+. Clique em *aplicar alterações*.
+

@@ -1,0 +1,19 @@
+---
+permalink: maintain/preparing-to-decommission-grid-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission 
+summary: Você deve analisar as considerações para remover nós de grade e confirmar que nenhum trabalho de reparo está ativo para dados codificados de apagamento. 
+---
+= Preparando-se para desativar os nós de grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve analisar as considerações para remover nós de grade e confirmar que nenhum trabalho de reparo está ativo para dados codificados de apagamento.
+
+.Passos
+* link:considerations-for-decommissioning-storage-nodes.html["Considerações para a desativação de nós de storage"]
+* link:checking-data-repair-jobs.html["Verificação de trabalhos de reparação de dados"]
+

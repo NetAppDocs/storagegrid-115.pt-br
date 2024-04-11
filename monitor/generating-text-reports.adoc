@@ -1,0 +1,50 @@
+---
+permalink: monitor/generating-text-reports.html 
+sidebar: sidebar 
+keywords: reports, text 
+summary: Os relatórios de texto exibem uma representação textual dos valores de dados de atributos que foram processados pelo serviço NMS. Você pode gerar relatórios em um local de data center, nó de grade, componente ou serviço. 
+---
+= Gerando relatórios de texto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os relatórios de texto exibem uma representação textual dos valores de dados de atributos que foram processados pelo serviço NMS. Você pode gerar relatórios em um local de data center, nó de grade, componente ou serviço.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+
+
+.Sobre esta tarefa
+Para dados de atributos que se espera que estejam mudando continuamente, esses dados de atributo são amostrados pelo serviço NMS (na origem) em intervalos regulares. Para dados de atributos que mudam com pouca frequência (por exemplo, dados baseados em eventos como alterações de estado ou status), um valor de atributo é enviado ao serviço NMS quando o valor muda.
+
+O tipo de relatório apresentado depende do período de tempo configurado. Por padrão, relatórios de texto agregados são gerados para períodos de tempo superiores a uma semana.
+
+Texto cinza indica que o serviço foi desativado administrativamente durante o período de amostragem. Texto azul indica que o serviço estava em um estado desconhecido.
+
+.Passos
+. Selecione *Support* > *Tools* > *Grid Topology*.
+. Selecione *_grid node_* *_component ou Service_* *Reports* *Text*.
+. Selecione o atributo para relatar na lista suspensa *Atributo*.
+. Selecione o número de resultados por página na lista suspensa *resultados por página*.
+. Para arredondar valores para um máximo de três casas decimais (por exemplo, para atributos reportados como porcentagens), desmarque a caixa de seleção *dados brutos*.
+. Selecione o período de tempo para relatar na lista suspensa *consulta rápida*.
++
+Selecione a opção consulta personalizada para selecionar um intervalo de tempo específico.
+
++
+O relatório aparece após alguns momentos. Aguarde vários minutos para a tabulação de longos intervalos de tempo.
+
+. Se você selecionou consulta personalizada, você precisa personalizar o período de tempo para relatar inserindo *Data de início* e *Data de término*.
++
+Utilize o formato `YYYY/MM/DDHH:MM:SS` na hora local. Zeros à esquerda são necessários para corresponder ao formato. Por exemplo, 2017/4/6 7:30:00 falha na validação. O formato correto é: 2017/04/06 07:30:00.
+
+. Clique em *Atualizar*.
++
+Um relatório de texto é gerado após alguns momentos. Aguarde vários minutos para a tabulação de longos intervalos de tempo. Dependendo do período de tempo definido para a consulta, um relatório de texto bruto ou um relatório de texto agregado são exibidos.
+
+. Se pretender imprimir o relatório, clique com o botão direito do rato e selecione *Imprimir*, modifique as definições de impressora necessárias e clique em *Imprimir*.
+

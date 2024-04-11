@@ -1,0 +1,19 @@
+---
+permalink: monitor/using-grid-manager-for-monitoring.html 
+sidebar: sidebar 
+keywords:  
+summary: O Gerenciador de Grade é a ferramenta mais importante para monitorar seu sistema StorageGRID. Esta seção apresenta o Painel do Gerenciador de Grade e fornece informações detalhadas sobre as páginas de nós. 
+---
+= Usando o Gerenciador de Grade para monitoramento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O Gerenciador de Grade é a ferramenta mais importante para monitorar seu sistema StorageGRID. Esta seção apresenta o Painel do Gerenciador de Grade e fornece informações detalhadas sobre as páginas de nós.
+
+* link:web-browser-requirements.html["Requisitos do navegador da Web"]
+* link:viewing-dashboard.html["Visualização do Dashboard"]
+* link:viewing-nodes-page.html["Exibindo a página de nós"]
+

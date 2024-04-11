@@ -1,0 +1,39 @@
+---
+permalink: upgrade/performing-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, software upgrade 
+summary: A página Atualização de Software orienta você pelo processo de upload do arquivo necessário e atualização de todos os nós de grade em seu sistema StorageGRID. 
+---
+= Realizar a atualização
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A página Atualização de Software orienta você pelo processo de upload do arquivo necessário e atualização de todos os nós de grade em seu sistema StorageGRID.
+
+.O que você vai precisar
+Você está ciente do seguinte:
+
+* É necessário atualizar todos os nós de grade para todos os locais de data center a partir do nó Admin principal, usando o Gerenciador de Grade.
+* Para detetar e resolver problemas, você pode executar manualmente as pré-verificações de atualização antes de iniciar a atualização real. As mesmas pré-verificações são realizadas quando você inicia a atualização. As falhas de pré-verificação interromperão o processo de atualização e poderão exigir o envolvimento do suporte técnico para serem resolvidas.
+* Quando você inicia a atualização, o nó de administração principal é atualizado automaticamente.
+* Depois que o nó Admin principal tiver sido atualizado, você pode selecionar quais nós de grade atualizar em seguida.
+* É necessário atualizar todos os nós de grade em seu sistema StorageGRID para concluir a atualização, mas você pode atualizar nós de grade individuais em qualquer ordem. Você pode selecionar nós de grade individuais, grupos de nós de grade ou todos os nós de grade. Você pode repetir o processo de seleção de nós de grade quantas vezes for necessário, até que todos os nós de grade em todos os locais sejam atualizados.
+* Quando a atualização começa em um nó de grade, os serviços nesse nó são interrompidos. Mais tarde, o nó de grade é reinicializado. Não aprove a atualização para um nó de grade a menos que você tenha certeza de que o nó está pronto para ser interrompido e reinicializado.
+* Quando todos os nós de grade tiverem sido atualizados, novos recursos serão ativados e você poderá retomar as operações; no entanto, você deve esperar para executar um procedimento de desativação ou expansão até que a tarefa de segundo plano *Atualizar banco de dados* e a tarefa *etapas de atualização final* tenham sido concluídas.
+* Você deve concluir a atualização na mesma plataforma de hipervisor com a qual você começou.
+
+
+.Passos
+. link:linux-installing-rpm-or-deb-package-on-all-hosts.html["Linux: Instalando o pacote RPM ou DEB em todos os hosts"]
+. link:starting-upgrade.html["Iniciar a atualização"]
+. link:upgrading-grid-nodes-and-completing-upgrade.html["Atualizando nós de grade e completando a atualização"]
+. link:increasing-metadata-reserved-space-setting.html["Aumentando a configuração espaço reservado metadados"]
+
+
+.Informações relacionadas
+link:../admin/index.html["Administrar o StorageGRID"]
+
+link:estimating-time-to-complete-upgrade.html["Estimando o tempo para concluir uma atualização"]

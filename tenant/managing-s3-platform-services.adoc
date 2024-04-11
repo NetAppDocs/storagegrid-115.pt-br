@@ -1,0 +1,22 @@
+---
+permalink: tenant/managing-s3-platform-services.html 
+sidebar: sidebar 
+keywords:  
+summary: Se o uso de serviços de plataforma for permitido para sua conta de locatário do S3, você poderá usar os serviços de plataforma para aproveitar os serviços externos e configurar a replicação, notificações e integração de pesquisa do CloudMirror para buckets do S3. 
+---
+= Gerenciamento de serviços da plataforma S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se o uso de serviços de plataforma for permitido para sua conta de locatário do S3, você poderá usar os serviços de plataforma para aproveitar os serviços externos e configurar a replicação, notificações e integração de pesquisa do CloudMirror para buckets do S3.
+
+* link:what-platform-services-are.html["Quais são os serviços de plataforma"]
+* link:considerations-for-using-platform-services.html["Considerações sobre o uso de serviços de plataforma"]
+* link:configuring-platform-services-endpoints.html["Configurando endpoints de serviços de plataforma"]
+* link:configuring-cloudmirror-replication.html["Configurando a replicação do CloudMirror"]
+* link:configuring-event-notifications.html["Configurando notificações de eventos"]
+* link:using-search-integration-service.html["Usando o serviço de integração de pesquisa"]
+

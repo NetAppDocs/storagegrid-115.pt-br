@@ -1,0 +1,404 @@
+---
+permalink: admin/managing-admin-groups.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Gerenciando grupos de administradores
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode criar grupos de administração para gerenciar as permissões de segurança para um ou mais usuários de administração. Os usuários devem pertencer a um grupo para ter acesso ao sistema StorageGRID.
+
+
+
+== Criando grupos de administração
+
+Os grupos de administração permitem determinar quais usuários podem acessar quais recursos e operações no Gerenciador de Grade e na API de Gerenciamento de Grade.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+* Se você pretende importar um grupo federado, você deve ter a federação de identidade configurada e o grupo federado já deve existir na origem de identidade configurada.
+
+
+.Passos
+. Selecione *Configuration* > *Access Control* > *Admin Groups*.
++
+A página grupos de administração é exibida e lista todos os grupos de administração existentes.
+
++
+image::../media/groups.png[Página grupos]
+
+. Selecione *Adicionar*.
++
+A caixa de diálogo Adicionar grupo é exibida.
+
++
+image::../media/add_group.png[Adicionar grupo]
+
+. Para tipo de grupo, selecione *local* se quiser criar um grupo que será usado somente no StorageGRID ou selecione *federado* se quiser importar um grupo da origem de identidade.
+. Se você selecionou *local*, digite um nome de exibição para o grupo. O nome de exibição é o nome que aparece no Gerenciador de Grade. Por exemplo, "'usuários de Manutenção'" ou "'Administradores de ILM.'"
+. Introduza um nome exclusivo para o grupo.
++
+** *Local*: Digite o nome exclusivo que você deseja. Por exemplo, "'Administradores ILM.'"
+** *Federated*: Insira o nome do grupo exatamente como ele aparece na origem de identidade configurada.
+
+
+. Para *modo de Acesso*, selecione se os usuários do grupo podem alterar as configurações e executar operações no Gerenciador de Grade e na API de Gerenciamento de Grade ou se eles só podem exibir configurações e recursos.
++
+** *Leitura-escrita* (padrão): Os usuários podem alterar as configurações e executar as operações permitidas por suas permissões de gerenciamento.
+** *Somente leitura*: Os usuários só podem visualizar configurações e recursos. Eles não podem fazer alterações ou executar quaisquer operações no Gerenciador de Grade ou na API de Gerenciamento de Grade. Os usuários locais só de leitura podem alterar suas próprias senhas.
++
+
+NOTE: Se um usuário pertencer a vários grupos e qualquer grupo estiver definido como *somente leitura*, o usuário terá acesso somente leitura a todas as configurações e recursos selecionados.
+
+
+
+. Selecione uma ou mais permissões de gerenciamento.
++
+Você deve atribuir pelo menos uma permissão a cada grupo; caso contrário, os usuários pertencentes ao grupo não poderão entrar no StorageGRID.
+
+. Selecione *Guardar*.
++
+O novo grupo é criado. Se este for um grupo local, agora você pode adicionar um ou mais usuários. Se este for um grupo federado, a fonte de identidade gerencia quais usuários pertencem ao grupo.
+
+
+
+.Informações relacionadas
+link:managing-local-users.html["Gerenciamento de usuários locais"]
+
+
+
+== Permissões do grupo de administração
+
+Ao criar grupos de usuários admin, você seleciona uma ou mais permissões para controlar o acesso a recursos específicos do Gerenciador de Grade. Em seguida, você pode atribuir cada usuário a um ou mais desses grupos de administração para determinar quais tarefas o usuário pode executar.
+
+Você deve atribuir pelo menos uma permissão a cada grupo; caso contrário, os usuários pertencentes a esse grupo não poderão entrar no Gerenciador de Grade.
+
+Por padrão, qualquer usuário que pertença a um grupo que tenha pelo menos uma permissão pode executar as seguintes tarefas:
+
+* Faça login no Gerenciador de Grade
+* Veja o Dashboard
+* Exibir as páginas de nós
+* Monitore a topologia da grade
+* Ver alertas atuais e resolvidos
+* Visualizar alarmes atuais e históricos (sistema legado)
+* Alterar sua própria senha (somente usuários locais)
+* Visualize determinadas informações nas páginas Configuração e Manutenção
+
+
+As seções a seguir descrevem as permissões que você pode atribuir ao criar ou editar um grupo de administradores. Qualquer funcionalidade não mencionada explicitamente requer a permissão de acesso root.
+
+
+
+=== Acesso à raiz
+
+Essa permissão fornece acesso a todos os recursos de administração de grade.
+
+
+
+=== Gerenciar alertas
+
+Essa permissão fornece acesso a opções de gerenciamento de alertas. Os usuários devem ter essa permissão para gerenciar silêncios, notificações de alerta e regras de alerta.
+
+
+
+=== Reconhecer alarmes (sistema legado)
+
+Esta permissão fornece acesso para reconhecer e responder a alarmes (sistema legado). Todos os usuários conetados podem visualizar alarmes atuais e históricos.
+
+Se você quiser que um usuário monitore a topologia da grade e reconheça somente alarmes, você deve atribuir essa permissão.
+
+
+
+=== Configuração da página de topologia da grelha
+
+Esta permissão fornece acesso às seguintes opções de menu:
+
+* Guias de configuração disponíveis nas páginas em *suporte* > *Ferramentas* > *topologia de grade*.
+* *Redefinir contagens de eventos* na guia *nós* > *Eventos*.
+
+
+
+
+=== Outra Configuração de Grade
+
+Esta permissão fornece acesso a opções de configuração de grade adicionais.
+
+
+IMPORTANT: Para ver essas opções adicionais, os usuários também devem ter a permissão de Configuração de Página de topologia de Grade.
+
+* *Alarmes* (sistema legado):
++
+** Alarmes globais
+** Configuração de e-mail legado
+
+
+* *ILM*:
++
+** Pools de armazenamento
+** Classes de armazenamento
+
+
+* *Configuração* > *Configurações de rede*
++
+** Custo da ligação
+
+
+* *Configuração* > *Configurações do sistema*:
++
+** Opções de exibição
+** Opções de grelha
+** Opções de armazenamento
+
+
+* *Configuração* > *Monitoramento*:
++
+** Eventos
+
+
+* *Suporte*:
++
+** AutoSupport
+
+
+
+
+
+
+=== Contas de inquilino
+
+Esta permissão fornece acesso à página *tenants* > *Tenant Accounts*.
+
+
+NOTE: A versão 1 da API Grid Management (que foi obsoleta) usa essa permissão para gerenciar políticas de grupo de locatários, redefinir senhas de administrador Swift e gerenciar chaves de acesso S3 do usuário raiz.
+
+
+
+=== Altere a senha raiz do locatário
+
+Essa permissão fornece acesso à opção *alterar senha de root* na página Contas de locatário, permitindo que você controle quem pode alterar a senha para o usuário raiz local do locatário. Os usuários que não têm essa permissão não podem ver a opção *alterar senha de root*.
+
+
+NOTE: Você deve atribuir a permissão Contas do locatário ao grupo antes de poder atribuir essa permissão.
+
+
+
+=== Manutenção
+
+Esta permissão fornece acesso às seguintes opções de menu:
+
+* *Configuração* > *Configurações do sistema*:
++
+** Nomes de domínio*
+** Certificados de servidor*
+
+
+* *Configuração* > *Monitoramento*:
++
+** Auditoria*
+
+
+* *Configuração* > *Controle de Acesso*:
++
+** Senhas de grade
+
+
+* *Manutenção* > *tarefas de manutenção*
++
+** Descomissionar
+** Expansão
+** Recuperação
+
+
+* *Manutenção* > *rede*:
++
+** Servidores DNS*
+** Rede de rede*
+** Servidores NTP*
+
+
+* *Manutenção* > *sistema*:
++
+** Licença*
+** Pacote de recuperação
+** Atualização de software
+
+
+* *Suporte* > *Ferramentas*:
++
+** Registos
+
+
+* Os usuários que não têm a permissão Manutenção podem exibir, mas não editar, as páginas marcadas com um asterisco.
+
+
+
+
+=== Consulta de métricas
+
+Esta permissão fornece acesso à página *suporte* > *Ferramentas* > *métricas*. Essa permissão também fornece acesso a consultas de métricas personalizadas do Prometheus usando a seção *Metrics* da API Grid Management.
+
+
+
+=== ILM
+
+Esta permissão fornece acesso às seguintes opções de menu *ILM*:
+
+* *Codificação de apagamento*
+* *Regras*
+* *Políticas*
+* *Regiões*
+
+
+
+NOTE: O acesso às opções de menu *ILM* > *Storage Pools* e *ILM* > *Storage grades* é controlado pelas outras permissões de Configuração de Grade e topologia de Grade Page Configuration.
+
+
+
+=== Pesquisa de metadados de objetos
+
+Esta permissão fornece acesso à opção de menu *ILM* > *Object Metadata Lookup*.
+
+
+
+=== Administrador do dispositivo de armazenamento
+
+Essa permissão fornece acesso ao Gerenciador de sistemas do e-Series SANtricity em dispositivos de storage por meio do Gerenciador de Grade.
+
+
+
+=== Interação entre permissões e modo de acesso
+
+Para todas as permissões, a configuração modo de acesso do grupo determina se os usuários podem alterar configurações e executar operações ou se eles podem exibir somente as configurações e recursos relacionados. Se um usuário pertencer a vários grupos e qualquer grupo estiver definido como *somente leitura*, o usuário terá acesso somente leitura a todas as configurações e recursos selecionados.
+
+
+
+=== Desativando recursos da API de Gerenciamento de Grade
+
+Você pode usar a API de gerenciamento de grade para desativar completamente certos recursos no sistema StorageGRID. Quando um recurso é desativado, ninguém pode receber permissões para executar as tarefas relacionadas a esse recurso.
+
+.Sobre esta tarefa
+O sistema de funcionalidades desativadas permite-lhe impedir o acesso a determinadas funcionalidades no sistema StorageGRID. A desativação de um recurso é a única maneira de impedir que o usuário raiz ou os usuários que pertencem a grupos de administração com a permissão de acesso root possam usar esse recurso.
+
+Para entender como essa funcionalidade pode ser útil, considere o seguinte cenário:
+
+_A empresa A é um provedor de serviços que aluga a capacidade de armazenamento de seu sistema StorageGRID criando contas de inquilino. Para proteger a segurança dos objetos de seus arrendatários, a empresa A quer garantir que seus próprios funcionários nunca possam acessar qualquer conta de locatário depois que a conta tiver sido implantada._
+
+_A empresa A pode atingir esse objetivo usando o sistema Deactivate Features na API Grid Management. Ao desativar completamente o recurso *Change Tenant Root Password* no Gerenciador de Grade (tanto a UI quanto a API), a empresa A pode garantir que nenhum usuário Admin - incluindo o usuário root e usuários pertencentes a grupos com a permissão de acesso root - pode alterar a senha para o usuário root de qualquer conta de locatário._
+
+
+
+==== Reativando as funcionalidades desativadas
+
+Por padrão, você pode usar a API de Gerenciamento de Grade para reativar um recurso que foi desativado. No entanto, se você quiser impedir que os recursos desativados sejam reativados, você pode desativar o próprio recurso *activateFeatures*.
+
+
+CAUTION: O recurso *activateFeatures* não pode ser reativado. Se você decidir desativar esse recurso, esteja ciente de que você perderá permanentemente a capacidade de reativar quaisquer outros recursos desativados. Você deve entrar em Contato com o suporte técnico para restaurar qualquer funcionalidade perdida.
+
+Para obter detalhes, consulte as instruções para a implementação de aplicativos cliente S3 ou Swift.
+
+.Passos
+. Acesse a documentação do Swagger para a API de gerenciamento de grade.
+. Localize o endpoint Deactivate Features
+. Para desativar um recurso, como *alterar senha de root do locatário*, envie um corpo para a API assim:
++
+[listing]
+----
+{ "grid": {"changeTenantRootPassword": true} }
+----
++
+Quando a solicitação estiver concluída, o recurso alterar senha raiz do locatário é desativado. A permissão de gerenciamento de senha raiz do locatário de alteração não aparece mais na interface do usuário, e qualquer solicitação de API que tente alterar a senha raiz de um locatário falhará com "'403 Forbidden.'"
+
+. Para reativar todos os recursos, envie um corpo para a API assim:
++
+[listing]
+----
+{ "grid": null }
+----
++
+Quando esta solicitação estiver concluída, todos os recursos, incluindo o recurso alterar senha de root do locatário, são reativados. A permissão de gerenciamento de senha de raiz do locatário de alteração agora aparece na interface do usuário e qualquer solicitação de API que tente alterar a senha de raiz de um locatário será bem-sucedida, assumindo que o usuário tenha a permissão de gerenciamento de senha de raiz do locatário ou altere a permissão de gerenciamento de senha de raiz do locatário.
+
++
+
+NOTE: O exemplo anterior faz com que os recursos _All_ desativados sejam reativados. Se outros recursos tiverem sido desativados que devem permanecer desativados, você deverá especificá-los explicitamente na SOLICITAÇÃO PUT. Por exemplo, para reativar o recurso alterar senha de raiz do locatário e continuar a desativar o recurso de reconhecimento de alarme, envie esta SOLICITAÇÃO DE COMPRA:
+
++
+[listing]
+----
+{ "grid": { "alarmAcknowledgment": true } }
+----
+
+
+.Informações relacionadas
+link:using-grid-management-api.html["Usando a API de gerenciamento de grade"]
+
+
+
+== Modificando um grupo de administração
+
+Você pode modificar um grupo de administração para alterar as permissões associadas ao grupo. Para grupos de administração locais, também é possível atualizar o nome de exibição.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+
+
+.Passos
+. Selecione *Configuration* > *Access Control* > *Admin Groups*.
+. Selecione o grupo.
++
+Se o sistema incluir mais de 20 itens, você pode especificar quantas linhas são mostradas em cada página de uma vez. Em seguida, você pode usar o recurso Localizar do navegador para procurar um item específico nas linhas exibidas atualmente.
+
+. Clique em *Editar*.
+. Opcionalmente, para grupos locais, digite o nome do grupo que aparecerá para os usuários, por exemplo, "'usuários de Manutenção.'"
++
+Não é possível alterar o nome exclusivo, que é o nome do grupo interno.
+
+. Opcionalmente, altere o modo de acesso do grupo.
++
+** *Leitura-escrita* (padrão): Os usuários podem alterar as configurações e executar as operações permitidas por suas permissões de gerenciamento.
+** *Somente leitura*: Os usuários só podem visualizar configurações e recursos. Eles não podem fazer alterações ou executar quaisquer operações no Gerenciador de Grade ou na API de Gerenciamento de Grade. Os usuários locais só de leitura podem alterar suas próprias senhas.
++
+
+NOTE: Se um usuário pertencer a vários grupos e qualquer grupo estiver definido como *somente leitura*, o usuário terá acesso somente leitura a todas as configurações e recursos selecionados.
+
+
+
+. Opcionalmente, adicione ou remova permissões de grupo.
++
+Consulte informações sobre as permissões do grupo de administração.
+
+. Selecione *Guardar*.
+
+
+.Informações relacionadas
+<<Permissões do grupo de administração>>
+
+
+
+== Eliminar um grupo de administração
+
+Você pode excluir um grupo de administração quando quiser remover o grupo do sistema e remover todas as permissões associadas ao grupo. A exclusão de um grupo de administração remove quaisquer usuários de administrador do grupo, mas não exclui os usuários de administrador.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+
+
+.Sobre esta tarefa
+Quando você exclui um grupo, os usuários atribuídos a esse grupo perderão todos os Privileges de Acesso ao Gerenciador de Grade, a menos que sejam concedidos Privileges por um grupo diferente.
+
+.Passos
+. Selecione *Configuration* > *Access Control* > *Admin Groups*.
+. Selecione o nome do grupo.
++
+Se o sistema incluir mais de 20 itens, você pode especificar quantas linhas são mostradas em cada página de uma vez. Em seguida, você pode usar o recurso Localizar do navegador para procurar um item específico nas linhas exibidas atualmente.
+
+. Selecione *Remover*.
+. Selecione *OK*.
+

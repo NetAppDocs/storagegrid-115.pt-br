@@ -1,0 +1,27 @@
+---
+permalink: admin/how-load-balancing-works-clb-service.html 
+sidebar: sidebar 
+keywords:  
+summary: 'O serviço CLB (Connection Load Balancer) em nós de Gateway está obsoleto. O serviço Load Balancer é agora o mecanismo de balanceamento de carga recomendado.' 
+---
+= Como funciona o balanceamento de carga - serviço CLB
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O serviço CLB (Connection Load Balancer) nos nós de Gateway está obsoleto. O serviço Load Balancer é agora o mecanismo de balanceamento de carga recomendado.
+
+O serviço CLB usa o balanceamento de carga da camada 4 para distribuir conexões de rede TCP de entrada de aplicativos clientes para o nó de armazenamento ideal com base na disponibilidade, carga do sistema e custo de link configurado pelo administrador. Quando o nó de armazenamento ideal é escolhido, o serviço CLB estabelece uma conexão de rede bidirecional e encaminha o tráfego de e para o nó escolhido. O CLB não considera a configuração da rede de Grade ao direcionar conexões de rede recebidas.
+
+Para visualizar informações sobre o serviço CLB, selecione *Support* > *Tools* > *Grid Topology* e expanda um Gateway Node até selecionar *CLB* e as opções abaixo.
+
+image::../media/gateway_node.gif[API Gateway Node na árvore de topologia de Grade]
+
+Se você optar por usar o serviço CLB, considere configurar os custos de link para o seu sistema StorageGRID.
+
+.Informações relacionadas
+link:what-link-costs-are.html["Quais são os custos da ligação"]
+
+link:updating-link-costs.html["Atualizar custos de link"]

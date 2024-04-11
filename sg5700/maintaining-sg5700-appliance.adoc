@@ -1,0 +1,27 @@
+---
+permalink: sg5700/maintaining-sg5700-appliance.html 
+sidebar: sidebar 
+keywords: storagegrid, sg5700, storage node, storage appliance, maintain, maintaining, hardware, procedures, tasks 
+summary: Talvez seja necessário atualizar o software SANtricity os na controladora E2800, alterar a configuração do link Ethernet da controladora E5700SG, substituir a controladora E2800 ou a controladora E5700SG ou substituir componentes específicos. Os procedimentos nesta seção pressupõem que o dispositivo já foi implantado como nó de storage em um sistema StorageGRID. 
+---
+= Manutenção do aparelho SG5700
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Talvez seja necessário atualizar o software SANtricity os na controladora E2800, alterar a configuração do link Ethernet da controladora E5700SG, substituir a controladora E2800 ou a controladora E5700SG ou substituir componentes específicos. Os procedimentos nesta seção pressupõem que o dispositivo já foi implantado como nó de storage em um sistema StorageGRID.
+
+.Passos
+* link:placing-appliance-into-maintenance-mode.html["Colocar um aparelho no modo de manutenção"]
+* link:upgrading-santricity-os-on-storage-controller.html["Atualizando o SANtricity os no controlador de storage"]
+* link:upgrading-drive-firmware-using-santricity-system-manager.html["Atualizando o firmware da unidade usando o Gerenciador de sistema do SANtricity"]
+* link:replacing-e2800-controller.html["Substituição do controlador E2800"]
+* link:replacing-e5700sg-controller.html["Substituição do controlador E5700SG"]
+* link:replacing-other-hardware-components-sg5700.html["Substituição de outros componentes de hardware"]
+* link:changing-link-configuration-of-e5700sg-controller.html["Alterar a configuração do link do controlador E5700SG"]
+* link:changing-mtu-setting.html["Alterar a definição MTU"]
+* link:checking-dns-server-configuration.html["Verificar a configuração do servidor DNS"]
+* link:monitoring-node-encryption-in-maintenance-mode.html["Monitorização da encriptação do nó no modo de manutenção"]
+

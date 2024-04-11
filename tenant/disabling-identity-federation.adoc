@@ -1,0 +1,36 @@
+---
+permalink: tenant/disabling-identity-federation.html 
+sidebar: sidebar 
+keywords: storagegrid, tenant, disable identity federation, disabling identity federation, federated identity source 
+summary: Se você tiver configurado um serviço de federação de identidade para esse locatário, poderá desativar temporariamente ou permanentemente a federação de identidade para grupos de locatários e usuários. Quando a federação de identidade está desativada, não há comunicação entre o sistema StorageGRID e a origem da identidade. No entanto, todas as configurações que você configurou são mantidas, permitindo que você reative facilmente a federação de identidade no futuro. 
+---
+= Desativando a federação de identidade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você tiver configurado um serviço de federação de identidade para esse locatário, poderá desativar temporariamente ou permanentemente a federação de identidade para grupos de locatários e usuários. Quando a federação de identidade está desativada, não há comunicação entre o sistema StorageGRID e a origem da identidade. No entanto, todas as configurações que você configurou são mantidas, permitindo que você reative facilmente a federação de identidade no futuro.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador do Locatário usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+
+
+.Sobre esta tarefa
+Antes de desativar a federação de identidade, você deve estar ciente do seguinte:
+
+* Os utilizadores federados não poderão iniciar sessão.
+* Os usuários federados que estiverem conetados no momento manterão o acesso à conta do locatário até que sua sessão expire, mas não poderão fazer login depois que sua sessão expirar.
+* A sincronização entre o sistema StorageGRID e a fonte de identidade não ocorrerá.
+
+
+.Passos
+. Selecione *GERENCIAMENTO DE ACESSO* *federação de identidade*.
+. Desmarque a caixa de seleção *Ativar federação de identidade*.
+. Selecione *Guardar*.
+
+
+.Informações relacionadas
+link:tenant-management-permissions.html["Permissões de gerenciamento do locatário"]

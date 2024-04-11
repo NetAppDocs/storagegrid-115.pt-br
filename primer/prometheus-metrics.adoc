@@ -1,0 +1,40 @@
+---
+permalink: primer/prometheus-metrics.html 
+sidebar: sidebar 
+keywords: prometheus, metrics, grafana 
+summary: O serviço Prometheus nos Admin Nodes coleta métricas de séries temporais dos serviços em todos os nós. 
+---
+= Métricas Prometheus
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O serviço Prometheus nos Admin Nodes coleta métricas de séries temporais dos serviços em todos os nós.
+
+As métricas coletadas por Prometheus são usadas em vários locais no Gerenciador de Grade:
+
+* *Página de nós*: Os gráficos e gráficos nas guias disponíveis na página de nós usam a ferramenta de visualização Grafana para exibir as métricas de séries temporais coletadas por Prometheus. Grafana exibe dados de séries temporais em formatos gráficos e gráficos, enquanto Prometheus serve como fonte de dados de back-end.
++
+image::../media/prometheus_graph.png[Gráfico Prometheus]
+
+* *Alertas*: Os alertas são acionados em níveis específicos de gravidade quando as condições de regra de alerta que usam métricas Prometheus avaliam como verdadeiras.
+* * API de gerenciamento de grade*: Você pode usar métricas Prometheus em regras de alerta personalizadas ou com ferramentas de automação externas para monitorar seu sistema StorageGRID. Uma lista completa de métricas do Prometheus está disponível na API de Gerenciamento de Grade (*Ajuda* *Documentação da API* *métricas*). Embora mais de mil métricas estejam disponíveis, apenas um número relativamente pequeno é necessário para monitorar as operações mais críticas do StorageGRID.
++
+
+NOTE: As métricas que incluem _private_ em seus nomes são destinadas apenas para uso interno e estão sujeitas a alterações entre as versões do StorageGRID sem aviso prévio.
+
+* A página *suporte* *Ferramentas* *Diagnóstico* e a página *suporte* *Ferramentas* *métricas*: Essas páginas, que são destinadas principalmente ao uso pelo suporte técnico, fornecem uma série de ferramentas e gráficos que usam os valores das métricas Prometheus.
++
+
+NOTE: Alguns recursos e itens de menu dentro da página Metrics são intencionalmente não funcionais e estão sujeitos a alterações.
+
+
+
+.Informações relacionadas
+link:monitoring-and-managing-alerts.html["Monitoramento e gerenciamento de alertas"]
+
+link:using-storagegrid-support-options.html["Usando as opções de suporte do StorageGRID"]
+
+link:../monitor/index.html["Monitorizar  Resolução de problemas"]

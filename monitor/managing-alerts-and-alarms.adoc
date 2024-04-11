@@ -1,0 +1,49 @@
+---
+permalink: monitor/managing-alerts-and-alarms.html 
+sidebar: sidebar 
+keywords: managing, alarms, alerts 
+summary: O sistema de alerta StorageGRID foi concebido para o informar sobre problemas operacionais que requerem a sua atenção. Conforme necessário, você também pode usar o sistema de alarme legado para monitorar seu sistema. 
+---
+= Gerenciamento de alertas e alarmes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O sistema de alerta StorageGRID foi concebido para o informar sobre problemas operacionais que requerem a sua atenção. Conforme necessário, você também pode usar o sistema de alarme legado para monitorar seu sistema. Esta secção contém as seguintes subsecções:
+
+* link:comparing-alerts-and-alarms.html["Comparação de alertas e alarmes"]
+* link:managing-alerts.html["Gerenciamento de alertas"]
+* link:managing-alarms.html["Gerenciamento de alarmes (sistema legado)"]
+
+
+O StorageGRID inclui dois sistemas para informá-lo sobre problemas.
+
+
+
+== Sistema de alerta
+
+O sistema de alerta foi concebido para ser a sua principal ferramenta para monitorizar quaisquer problemas que possam ocorrer no seu sistema StorageGRID. O sistema de alerta fornece uma interface fácil de usar para detetar, avaliar e resolver problemas.
+
+Os alertas são acionados em níveis de gravidade específicos quando as condições das regras de alerta são consideradas verdadeiras. Quando um alerta é acionado, ocorrem as seguintes ações:
+
+* Um ícone de gravidade de alerta é exibido no Painel no Gerenciador de Grade e a contagem de Alertas atuais é incrementada.
+* O alerta é mostrado na guia *nodes* *_node_* *Overview*.
+* Uma notificação por e-mail é enviada, supondo que você tenha configurado um servidor SMTP e fornecido endereços de e-mail para os destinatários.
+* Uma notificação SNMP (Simple Network Management Protocol) é enviada, supondo que você tenha configurado o agente SNMP do StorageGRID.
+
+
+
+
+== Sistema de alarme legado
+
+O sistema de alarme é suportado, mas é considerado um sistema legado. Como alertas, os alarmes são acionados em níveis específicos de gravidade quando os atributos atingem valores de limite definidos. No entanto, ao contrário dos alertas, muitos alarmes são acionados para eventos que você pode ignorar com segurança, o que pode resultar em um número excessivo de notificações de e-mail ou SNMP.
+
+Quando um alarme é acionado, ocorrem as seguintes acões:
+
+* A contagem de alarmes legados no Dashboard é incrementada.
+* O alarme aparece na página *suporte* *Alarmes (legado)* *Alarmes atuais*.
+* Uma notificação por e-mail é enviada, supondo que você tenha configurado um servidor SMTP e configurado uma ou mais listas de e-mail.
+* Uma notificação SNMP pode ser enviada, supondo que você tenha configurado o agente SNMP do StorageGRID. (As notificações SNMP não são enviadas para todos os alarmes ou gravidades de alarme.)
+

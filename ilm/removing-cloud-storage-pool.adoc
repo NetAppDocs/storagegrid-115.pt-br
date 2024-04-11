@@ -1,0 +1,53 @@
+---
+permalink: ilm/removing-cloud-storage-pool.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode remover um pool de armazenamento em nuvem que não seja usado em uma regra ILM e que não contenha dados de objeto. 
+---
+= Removendo um pool de armazenamento em nuvem
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode remover um pool de armazenamento em nuvem que não seja usado em uma regra ILM e que não contenha dados de objeto.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+* Você confirmou que o bucket do S3 ou o contentor do Azure não contém nenhum objeto. Um erro ocorre se você tentar remover um pool de armazenamento em nuvem se ele contém objetos. Consulte ""solução de problemas de pools de armazenamento em nuvem"".
++
+
+NOTE: Quando você cria um pool de storage de nuvem, o StorageGRID grava um arquivo de marcador no bucket ou no contentor para identificá-lo como um pool de storage de nuvem. Não remova esse arquivo, que é `x-ntap-sgws-cloud-pool-uuid` chamado .
+
+* Você já removeu quaisquer regras ILM que possam ter usado o pool.
+
+
+.Passos
+. Selecione *ILM* > *Storage Pools*.
++
+A página conjuntos de armazenamento é exibida.
+
+. Selecione o botão de opção para um pool de armazenamento em nuvem que não é usado atualmente em uma regra ILM.
++
+Você não pode remover um pool de armazenamento em nuvem se ele for usado em uma regra ILM. O botão *Remove* está desativado.
+
++
+image::../media/cloud_storage_pool_used_in_ilm_rule.png[Cloud Storage Pool usado na regra ILM]
+
+. Clique em *Remover*.
++
+É apresentado um aviso de confirmação.
+
++
+image::../media/cloud_storage_pool_remove.gif[Pool de armazenamento em nuvem Remover]
+
+. Clique em *OK*.
++
+O pool de armazenamento em nuvem é removido.
+
+
+
+.Informações relacionadas
+link:troubleshooting-cloud-storage-pools.html["Solução de problemas de Cloud Storage Pools"]

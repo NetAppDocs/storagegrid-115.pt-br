@@ -1,0 +1,19 @@
+---
+permalink: admin/integrating-tivoli-storage-manager.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Esta seção inclui as melhores práticas e informações de configuração para a integração de um nó de arquivo com um servidor Tivoli Storage Manager (TSM), incluindo detalhes operacionais do nó de arquivo que afetam a configuração do servidor TSM.' 
+---
+= Integração do Tivoli Storage Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta seção inclui as melhores práticas e informações de configuração para integrar um nó de arquivo com um servidor Tivoli Storage Manager (TSM), incluindo detalhes operacionais do nó de arquivo que afetam a configuração do servidor TSM.
+
+* link:archive-node-configuration-and-operation.html["Configuração e operação do nó de arquivamento"]
+* link:configuration-best-practices.html["Práticas recomendadas de configuração"]
+* link:completing-archive-node-setup.html["Concluir a configuração do nó de arquivo"]
+

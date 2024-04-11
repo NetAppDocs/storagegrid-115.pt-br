@@ -1,0 +1,61 @@
+---
+section: expand
+title: Expanda sua grade
+url: "/expand/index.html"
+entries:
+- title: Planejando uma expansão do StorageGRID
+  url: "/expand/planning-expansion.html"
+  entries:
+  - title: Adição de capacidade de storage
+    url: "/expand/adding-storage-capacity.html"
+    entries:
+    - title: Diretrizes para adicionar capacidade de objeto
+      url: "/expand/guidelines-for-adding-object-capacity.html"
+    - title: Adição de capacidade de storage para objetos replicados
+      url: "/expand/adding-storage-capacity-for-replicated-objects.html"
+    - title: Adição de capacidade de storage para objetos codificados por apagamento
+      url: "/expand/adding-storage-capacity-for-erasure-coded-objects.html"
+    - title: Considerações para rebalanceamento de dados codificados por apagamento
+      url: "/expand/considerations-for-rebalancing-erasure-coded-data.html"
+  - title: Adição de capacidade de metadados
+    url: "/expand/adding-metadata-capacity.html"
+  - title: Adição de nós de grade para adicionar recursos ao seu sistema
+    url: "/expand/adding-grid-nodes-to-add-capabilities.html"
+  - title: Adicionar um novo site
+    url: "/expand/adding-new-site.html"
+- title: Preparando-se para uma expansão
+  url: "/expand/preparing-for-expansion.html"
+- title: Visão geral do procedimento de expansão
+  url: "/expand/overview-of-expansion-procedure.html"
+- title: Adição de volumes de storage aos nós de storage
+  url: "/expand/adding-storage-volumes-to-storage-nodes.html"
+  entries:
+  - title: 'VMware: Adicionando volumes de storage a um nó de storage'
+    url: "/expand/vmware-adding-storage-volumes-to-storage-node.html"
+  - title: 'Linux: Adicionando volumes de SAN ou de conexão direta a um nó de storage'
+    url: "/expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html"
+- title: Adicionar nós de grade a um site existente ou adicionar um novo site
+  url: "/expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html"
+  entries:
+  - title: Atualizando sub-redes para a rede de Grade
+    url: "/expand/updating-subnets-for-grid-network.html"
+  - title: Implantando novos nós de grade
+    url: "/expand/deploying-new-grid-nodes.html"
+  - title: Executando a expansão
+    url: "/expand/performing-expansion.html"
+- title: Configurando seu sistema StorageGRID expandido
+  url: "/expand/configuring-expanded-storagegrid-system.html"
+  entries:
+  - title: Verificando se o nó de storage está ativo
+    url: "/expand/verifying-storage-node-is-active.html"
+  - title: Copiando o banco de dados Admin Node
+    url: "/expand/copying-admin-node-database.html"
+  - title: Copiando métricas Prometheus
+    url: "/expand/copying-prometheus-metrics.html"
+  - title: Copiar registos de auditoria
+    url: "/expand/copying-audit-logs.html"
+  - title: Rebalanceamento de dados codificados por apagamento após a adição de nós
+      de storage
+    url: "/expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html"
+- title: Contactar o suporte técnico
+  url: "/expand/contacting-technical-support.html"

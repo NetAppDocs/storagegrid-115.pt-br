@@ -1,0 +1,22 @@
+---
+permalink: monitor/message-severities-in-bycast-log.html 
+sidebar: sidebar 
+keywords: bycast, log, severities 
+summary: As mensagens no bycast.log são níveis de gravidade atribuídos. 
+---
+= Severidades da mensagem em bycast.log
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+As mensagens em `bycast.log` são níveis de gravidade atribuídos.
+
+Por exemplo:
+
+* *AVISO* -- ocorreu um evento que deve ser gravado. A maioria das mensagens de log estão nesse nível.
+* *AVISO* -- ocorreu uma condição inesperada.
+* *ERROR* -- ocorreu Um erro importante que afetará as operações.
+* *CRÍTICO* -- ocorreu uma condição anormal que parou as operações normais. Você deve abordar a condição subjacente imediatamente. Mensagens críticas também são exibidas no Gerenciador de Grade. Selecione *Support* *Tools* *Grid Topology*. Em seguida, selecione *Site* *nó* *SSM* *Eventos*.
+

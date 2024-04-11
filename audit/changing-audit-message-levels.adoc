@@ -1,0 +1,105 @@
+---
+permalink: audit/changing-audit-message-levels.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, log, message level, message levels, increase messages, decrease messages, message category 
+summary: Você pode ajustar os níveis de auditoria para aumentar ou diminuir o número de mensagens de auditoria registradas no log de auditoria para cada categoria de mensagens de auditoria. 
+---
+= Alteração dos níveis de mensagens de auditoria
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode ajustar os níveis de auditoria para aumentar ou diminuir o número de mensagens de auditoria registradas no log de auditoria para cada categoria de mensagens de auditoria.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+
+
+.Sobre esta tarefa
+As mensagens de auditoria registradas no log de auditoria são filtradas com base nas configurações da página *Configuração* > *Monitoramento* > *Auditoria*.
+
+Você pode definir um nível de auditoria diferente para cada uma das seguintes categorias de mensagens:
+
+* *Sistema*: Por padrão, esse nível é definido como normal.
+* *Armazenamento*: Por padrão, esse nível é definido como erro.
+* *Gerenciamento*: Por padrão, esse nível é definido como normal.
+* *Leitura do cliente*: Por padrão, esse nível é definido como normal.
+* * Gravações do cliente*: Por padrão, esse nível é definido como normal.
+
+
+
+NOTE: Esses padrões se aplicam se você instalou inicialmente o StorageGRID usando a versão 10,3 ou posterior. Se você atualizou de uma versão anterior do StorageGRID, o padrão para todas as categorias é definido como normal.
+
+
+NOTE: Durante as atualizações, as configurações de nível de auditoria não entrarão em vigor imediatamente.
+
+.Passos
+. Selecione *Configuração* > *Monitoramento* > *Auditoria*.
++
+image::../media/default_audit_settings.gif[Captura de ecrã de Configuração > Auditoria]
+
+. Para cada categoria de mensagem de auditoria, selecione um nível de auditoria na lista suspensa:
++
+[cols="20,80"]
+|===
+| Nível de auditoria | Descrição 
+
+
+ a| 
+Desligado
+ a| 
+Nenhuma mensagem de auditoria da categoria é registrada.
+
+
+
+ a| 
+Erro
+ a| 
+Somente mensagens de erro são registradas - mensagens de auditoria para as quais o código de resultado não foi "bem-sucedido" (SUCS).
+
+
+
+ a| 
+Normal
+ a| 
+As mensagens transacionais padrão são registradas - as mensagens listadas nestas instruções para a categoria.
+
+
+
+ a| 
+Depurar
+ a| 
+Obsoleto. Este nível comporta-se da mesma forma que o nível normal de auditoria.
+
+|===
++
+As mensagens incluídas para qualquer nível particular incluem aquelas que seriam registradas nos níveis mais altos. Por exemplo, o nível normal inclui todas as mensagens de erro.
+
+. Em *Audit Protocol Headers*, insira o nome dos cabeçalhos de solicitação HTTP a serem incluídos nas mensagens de auditoria de leitura de cliente e gravação de cliente. Use um asterisco (*) como um curinga ou use a sequência de escape (*) como um asterisco literal. Clique no sinal de mais para criar uma lista de campos de nome de cabeçalho.
++
+
+NOTE: Os cabeçalhos de protocolo de auditoria aplicam-se apenas às solicitações S3 e Swift.
+
++
+Quando esses cabeçalhos HTTP são encontrados em uma solicitação, eles são incluídos na mensagem de auditoria sob o campo HTRH.
+
++
+
+NOTE: Os cabeçalhos de solicitação de protocolo de auditoria são registrados somente se o nível de auditoria para *leitura do cliente* ou *gravações do cliente* não for *desativado*.
+
+. Clique em *Salvar*.
+
+
+.Informações relacionadas
+link:system-audit-messages.html["Mensagens de auditoria do sistema"]
+
+link:object-storage-audit-messages.html["Mensagens de auditoria de armazenamento de objetos"]
+
+link:management-audit-message.html["Mensagem de auditoria de gerenciamento"]
+
+link:client-read-audit-messages.html["O cliente lê mensagens de auditoria"]
+
+link:../admin/index.html["Administrar o StorageGRID"]

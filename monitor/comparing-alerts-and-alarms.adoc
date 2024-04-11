@@ -1,0 +1,254 @@
+---
+permalink: monitor/comparing-alerts-and-alarms.html 
+sidebar: sidebar 
+keywords: alerts, alarms, comparing alerts and alarms 
+summary: Há uma série de semelhanças entre o sistema de alerta e o sistema de alarme legado, mas o sistema de alerta oferece benefícios significativos e é mais fácil de usar. 
+---
+= Comparação de alertas e alarmes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Há uma série de semelhanças entre o sistema de alerta e o sistema de alarme legado, mas o sistema de alerta oferece benefícios significativos e é mais fácil de usar.
+
+Consulte a tabela a seguir para saber como executar operações semelhantes.
+
+|===
+|  | Alertas | Alarmes (sistema legado) 
+
+
+ a| 
+Como posso ver quais alertas ou alarmes estão ativos?
+ a| 
+* Clique no link *Current alerts* (alertas atuais*) no Dashboard.
+* Clique no alerta na página *nós* *Visão geral*.
+* Selecione *Alertas* *atual*.
+
+
+link:viewing-current-alerts.html["Visualização de alertas atuais"]
+ a| 
+* Clique no link *Legacy Alarms* no Painel.
+* Selecione *suporte* *Alarmes (legado)* *Alarmes atuais*.
+
+
+link:viewing-legacy-alarms.html["Visualização de alarmes legados"]
+
+
+
+ a| 
+O que faz com que um alerta ou um alerta seja acionado?
+ a| 
+Os alertas são acionados quando uma expressão Prometheus em uma regra de alerta é avaliada como verdadeira para a condição e duração específicas do gatilho.
+
+link:managing-alerts.html["Visualizar regras de alerta"]
+ a| 
+Os alarmes são acionados quando um atributo StorageGRID atinge um valor limite.
+
+link:managing-alarms.html["Lógica de acionamento de alarme (sistema legado)"]
+
+
+
+ a| 
+Se um alerta ou alarme for acionado, como resolvo o problema subjacente?
+ a| 
+As ações recomendadas para um alerta estão incluídas nas notificações por e-mail e estão disponíveis nas páginas Alertas no Gerenciador de Grade.
+
+Conforme necessário, informações adicionais são fornecidas na documentação do StorageGRID.
+
+link:alerts-reference.html["Referência de alertas"]
+ a| 
+Você pode aprender sobre um alarme clicando no nome do atributo ou pode procurar um código de alarme na documentação do StorageGRID.
+
+link:alarms-reference.html["Referência de alarmes (sistema legado)"]
+
+
+
+ a| 
+Onde posso ver uma lista de alertas ou alarmes resolvidos?
+ a| 
+* Clique no link *alertas resolvidos recentemente* no Dashboard.
+* Selecione *Alertas* *resolvido*.
+
+
+link:viewing-resolved-alerts.html["Visualização de alertas resolvidos"]
+ a| 
+Selecione *suporte* *Alarmes (legado)* *Alarmes históricos*.
+
+link:managing-alarms.html["Revisão de alarmes históricos e frequência de alarmes (sistema legado)"]
+
+
+
+ a| 
+Onde posso gerir as definições?
+ a| 
+Selecione *Alertas*. Em seguida, use as opções no menu Alertas.
+
+link:managing-alerts.html["Gerenciamento de alertas"]
+ a| 
+Selecione *suporte*. Em seguida, use as opções na seção *Alarmes (legacy)* do menu.
+
+link:managing-alarms.html["Gerenciamento de alarmes (sistema legado)"]
+
+
+
+ a| 
+Quais permissões do grupo de usuários eu preciso?
+ a| 
+* Qualquer pessoa que possa entrar no Gerenciador de Grade pode exibir alertas atuais e resolvidos.
+* Você deve ter a permissão Gerenciar Alertas para gerenciar silêncios, notificações de alerta e regras de alerta.
+
+
+link:../admin/index.html["Administrar o StorageGRID"]
+ a| 
+* Qualquer pessoa que possa entrar no Gerenciador de Grade pode exibir alarmes legados.
+* Você deve ter a permissão reconhecer alarmes para reconhecer alarmes.
+* Você deve ter as permissões Configuração da Página de topologia de Grade e outras permissões de Configuração de Grade para gerenciar alarmes globais e notificações por e-mail.
+
+
+link:../admin/index.html["Administrar o StorageGRID"]
+
+
+
+ a| 
+Como faço para gerenciar notificações por e-mail?
+ a| 
+Selecione *Alertas* *Configuração de e-mail*.
+
+*Nota:* como os alarmes e alertas são sistemas independentes, a configuração de e-mail usada para notificações de alarme e AutoSupport não é usada para notificações de alerta. No entanto, você pode usar o mesmo servidor de e-mail para todas as notificações.
+
+link:managing-alerts.html["Gerenciando notificações de alerta"]
+ a| 
+Selecione *suporte* *Alarmes (legado)* *Configuração de e-mail legado*. link:managing-alarms.html["Configurar notificações para alarmes (sistema legado)"]
+
+
+
+ a| 
+Como faço para gerenciar notificações SNMP?
+ a| 
+Selecione *Configuração* *Monitoramento* *Agente SNMP*. link:using-snmp-monitoring.html["Utilizar a monitorização SNMP"]
+ a| 
+Selecione *Configuração* *Monitoramento* *Agente SNMP*. link:using-snmp-monitoring.html["Utilizar a monitorização SNMP"]
+
+*Nota*: As notificações SNMP não são enviadas para cada alarme ou gravidade do alarme.
+
+link:alarms-that-generate-snmp-notifications.html["Alarmes que geram notificações SNMP (sistema legado)"]
+
+
+
+ a| 
+Como posso controlar quem recebe notificações?
+ a| 
+. Selecione *Alertas* *Configuração de e-mail*.
+. Na seção *destinatários*, insira um endereço de e-mail para cada lista de e-mail ou pessoa que deve receber um e-mail quando ocorrer um alerta.
+
+
+link:managing-alerts.html["Configurar notificações por e-mail para alertas"]
+ a| 
+. Selecione *suporte* *Alarmes (legado)* *Configuração de e-mail legado*.
+. Criando uma lista de discussão.
+. Selecione *notificações*.
+. Selecione a lista de discussão.
+
+
+link:managing-alarms.html["Criando listas de discussão para notificações de alarme (sistema legado)"]
+
+link:managing-alarms.html["Configurar notificações por e-mail para alarmes (sistema legado)"]
+
+
+
+ a| 
+Quais nós de administrador enviam notificações?
+ a| 
+Um único nó Admin (o "'remetente preferido'").
+
+link:../admin/index.html["Administrar o StorageGRID"]
+ a| 
+Um único nó Admin (o "'remetente preferido'").
+
+link:../admin/index.html["Administrar o StorageGRID"]
+
+
+
+ a| 
+Como faço para suprimir algumas notificações?
+ a| 
+. Selecione *Alertas* *silêncios*.
+. Selecione a regra de alerta que deseja silenciar.
+. Especifique uma duração para o silêncio.
+. Selecione a gravidade do alerta que deseja silenciar.
+. Selecione para aplicar o silêncio a toda a grade, a um único local ou a um único nó.
+
+
+*Nota*: Se você ativou o agente SNMP, os silêncios também suprimem traps SNMP e informam.
+
+link:managing-alerts.html["Silenciar notificações de alerta"]
+ a| 
+. Selecione *suporte* *Alarmes (legado)* *Configuração de e-mail legado*.
+. Selecione *notificações*.
+. Selecione uma lista de discussão e selecione *suprimir*.
+
+
+link:managing-alarms.html["Suprimir notificações de alarme para uma lista de correio (sistema legado)"]
+
+
+
+ a| 
+Como faço para suprimir todas as notificações?
+ a| 
+Selecione *Alertas* *silêncios*.em seguida, selecione *todas as regras*.
+
+*Nota*: Se você ativou o agente SNMP, os silêncios também suprimem traps SNMP e informam.
+
+link:managing-alerts.html["Silenciar notificações de alerta"]
+ a| 
+. Selecione *Configuração* > *Configurações do sistema* > *Opções de exibição*.
+. Marque a caixa de seleção *notificação suprimir tudo*.
+
+
+*Nota*: A supressão de notificações por e-mail em todo o sistema também suprime os e-mails do AutoSupport acionados por eventos.
+
+link:managing-alarms.html["Suprimindo o sistema de notificações por e-mail"]
+
+
+
+ a| 
+Como posso personalizar as condições e os gatilhos?
+ a| 
+. Selecione *Alertas* *regras de alerta*.
+. Selecione uma regra padrão para editar ou selecione *criar regra personalizada*.
+
+
+link:managing-alerts.html["Editar uma regra de alerta"]
+
+link:managing-alerts.html["Criando regras de alerta personalizadas"]
+ a| 
+. Selecione *suporte* *Alarmes (legado)* *Alarmes globais*.
+. Crie um alarme personalizado global para substituir um alarme padrão ou para monitorar um atributo que não tenha um alarme padrão.
+
+
+link:managing-alarms.html["Criação de alarmes personalizados globais (sistema legado)"]
+
+
+
+ a| 
+Como posso desativar um alerta individual ou um alarme?
+ a| 
+. Selecione *Alertas* *regras de alerta*.
+. Selecione a regra e clique em *Editar regra*.
+. Desmarque a caixa de seleção *Enabled*.
+
+
+link:managing-alerts.html["Desativar uma regra de alerta"]
+ a| 
+. Selecione *suporte* *Alarmes (legado)* *Alarmes globais*.
+. Selecione a regra e clique no ícone Editar.
+. Desmarque a caixa de seleção *Enabled*.
+
+
+link:managing-alarms.html["Desativar um alarme predefinido (sistema legado)"]
+
+link:managing-alarms.html["Desativar alarmes personalizados globais (sistema legado)"]
+
+|===

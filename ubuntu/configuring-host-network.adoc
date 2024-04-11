@@ -1,0 +1,44 @@
+---
+permalink: ubuntu/configuring-host-network.html 
+sidebar: sidebar 
+keywords:  
+summary: Depois de concluir a instalação do Linux em seus hosts, você pode precisar executar alguma configuração adicional para preparar um conjunto de interfaces de rede em cada host que são adequadas para mapear nos nós do StorageGRID que você implantará posteriormente. 
+---
+= Configurando a rede host
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de concluir a instalação do Linux em seus hosts, você pode precisar executar alguma configuração adicional para preparar um conjunto de interfaces de rede em cada host que são adequadas para mapear nos nós do StorageGRID que você implantará posteriormente.
+
+.O que você vai precisar
+* Você revisou as diretrizes de rede do StorageGRID.
++
+link:../network/index.html["Diretrizes de rede"]
+
+* Você analisou as informações sobre os requisitos de migração de contêineres do nó.
++
+link:node-container-migration-requirements.html["Requisitos de migração de contêiner de nós"]
+
+* Se você estiver usando hosts virtuais, leia as considerações e recomendações sobre a clonagem de endereços MAC antes de configurar a rede host.
++
+link:considerations-and-recommendations-for-mac-address-cloning.html["Considerações e recomendações para clonagem de endereços MAC"]
+
+
+
+
+NOTE: Se você estiver usando VMs como hosts, selecione VMXNET 3 como o adaptador de rede virtual. O adaptador de rede VMware E1000 causou problemas de conetividade com os contentores StorageGRID implantados em determinadas distribuições do Linux.
+
+.Sobre esta tarefa
+Os nós de grade devem ser capazes de acessar a rede de grade e, opcionalmente, as redes Admin e Client. Você fornece esse acesso criando mapeamentos que associam a interface física do host às interfaces virtuais para cada nó de grade. Ao criar interfaces de host, use nomes amigáveis para facilitar a implantação em todos os hosts e habilitar a migração.
+
+A mesma interface pode ser compartilhada entre o host e um ou mais nós. Por exemplo, você pode usar a mesma interface para acesso ao host e acesso à rede de administração de nó, para facilitar a manutenção do host e do nó. Embora a mesma interface possa ser compartilhada entre o host e os nós individuais, todos devem ter endereços IP diferentes. Os endereços IP não podem ser compartilhados entre nós ou entre o host e qualquer nó.
+
+Você pode usar a mesma interface de rede de host para fornecer a interface de rede de grade para todos os nós de StorageGRID no host; você pode usar uma interface de rede de host diferente para cada nó; ou você pode fazer algo entre eles. No entanto, você normalmente não fornecerá a mesma interface de rede de host que as interfaces de rede de Grade e Admin para um único nó ou como a interface de rede de Grade para um nó e a interface de rede de Cliente para outro.
+
+Você pode concluir esta tarefa de várias maneiras. Por exemplo, se seus hosts são máquinas virtuais e você está implantando um ou dois nós de StorageGRID para cada host, você pode simplesmente criar o número correto de interfaces de rede no hypervisor e usar um mapeamento de 1 para 1. Se você estiver implantando vários nós em hosts bare metal para uso em produção, poderá aproveitar o suporte da pilha de rede Linux para VLAN e LACP para tolerância a falhas e compartilhamento de largura de banda. As seções a seguir fornecem abordagens detalhadas para ambos os exemplos. Você não precisa usar nenhum desses exemplos; você pode usar qualquer abordagem que atenda às suas necessidades.
+
+
+NOTE: Não use dispositivos bond ou bridge diretamente como a interface de rede do contentor. Isso pode impedir a inicialização do nó causada por um problema de kernel com o uso do MACVLAN com dispositivos de ligação e ponte no namespace do contentor. Em vez disso, use um dispositivo não-bond, como um par VLAN ou Ethernet virtual (vete). Especifique este dispositivo como a interface de rede no arquivo de configuração do nó.

@@ -1,0 +1,22 @@
+---
+permalink: admin/managing-archive-nodes.html 
+sidebar: sidebar 
+keywords:  
+summary: Opcionalmente, cada um dos locais de data center do seu sistema StorageGRID pode ser implantado com um nó de arquivo, o que permite que você se conete a um sistema de armazenamento de arquivos externo direcionado, como o Gerenciador de armazenamento de dados do Tivoli. 
+---
+= Gerenciando nós de arquivamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Opcionalmente, cada um dos locais de data center do seu sistema StorageGRID pode ser implantado com um nó de arquivo, que permite que você se conete a um sistema de armazenamento de arquivamento externo direcionado, como o Gerenciador de armazenamento Tivoli (TSM).
+
+Depois de configurar as ligações ao destino externo, pode configurar o nó de arquivo para otimizar o desempenho do TSM, colocar um nó de arquivo offline quando um servidor TSM estiver a aproximar-se da capacidade ou indisponível, e configurar as definições de replicação e recuperação. Também pode definir alarmes personalizados para o nó de arquivo.
+
+* link:what-archive-node-is.html["O que é um nó de arquivo"]
+* link:configuring-archive-node-connections-to-archival-storage.html["Configurando conexões de nó de arquivo para armazenamento de arquivamento"]
+* link:setting-custom-alarms-for-archive-node.html["Definir alarmes personalizados para o nó de arquivo"]
+* link:integrating-tivoli-storage-manager.html["Integração do Tivoli Storage Manager"]
+

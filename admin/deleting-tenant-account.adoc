@@ -1,0 +1,33 @@
+---
+permalink: admin/deleting-tenant-account.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode excluir uma conta de locatário se quiser remover permanentemente o acesso do locatário ao sistema. 
+---
+= Excluindo uma conta de locatário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode excluir uma conta de locatário se quiser remover permanentemente o acesso do locatário ao sistema.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+* Você deve ter removido todos os buckets (S3), contentores (Swift) e objetos associados à conta de locatário.
+
+
+.Passos
+. Selecione *tenants*.
+. Selecione a conta de locatário que deseja excluir.
++
+Se o sistema incluir mais de 20 itens, você pode especificar quantas linhas são mostradas em cada página de uma vez. Use a caixa de pesquisa para procurar uma conta de locatário por nome de exibição ou ID de locatário.
+
+. Na lista suspensa *ações*, selecione *Remover*.
+. Selecione *OK*.
+
+
+.Informações relacionadas
+link:controlling-administrator-access-to-storagegrid.html["Controlar o acesso do administrador ao StorageGRID"]

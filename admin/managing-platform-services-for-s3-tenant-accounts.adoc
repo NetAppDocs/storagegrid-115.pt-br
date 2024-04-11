@@ -1,0 +1,20 @@
+---
+permalink: admin/managing-platform-services-for-s3-tenant-accounts.html 
+sidebar: sidebar 
+keywords:  
+summary: Se você ativar os serviços de plataforma para contas de locatário do S3, configure sua grade para que os locatários possam acessar os recursos externos necessários para usar esses serviços. 
+---
+= Gerenciamento de serviços de plataforma para contas de locatários do S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você ativar os serviços de plataforma para contas de locatário do S3, configure sua grade para que os locatários possam acessar os recursos externos necessários para usar esses serviços.
+
+* link:what-platform-services-are.html["Quais são os serviços de plataforma"]
+* link:networking-and-ports-for-platform-services.html["Rede e portas para serviços de plataforma"]
+* link:per-site-delivery-of-platform-services-messages.html["Entrega por local de mensagens de serviços de plataforma"]
+* link:troubleshooting-platform-services.html["Solução de problemas de serviços da plataforma"]
+

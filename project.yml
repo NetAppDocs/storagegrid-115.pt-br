@@ -1,0 +1,58 @@
+---
+settings:
+  name: StorageGRID 11.5
+  internal:
+    pdf_enabled: false
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+    lipi_enabled: false
+  langs: pt-br,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,es-es,fr-fr,it-it
+sidebar:
+  entries:
+  - title: Documentos do StorageGRID 11,5
+    url: "/index.html"
+  - section: release-notes
+  - title: Comece agora
+    entries:
+    - section: primer
+    - section: network
+  - title: Instale e atualize o software
+    entries:
+    - section: rhel
+    - section: ubuntu
+    - section: vmware
+    - section: upgrade
+  - title: Instale e mantenha o hardware
+    entries:
+    - section: sg6000
+    - section: sg5700
+    - section: sg5600
+    - section: sg100-1000
+  - title: Configurar e gerenciar
+    entries:
+    - section: admin
+    - section: ilm
+    - section: harden
+    - section: fabricpool
+  - title: Use o StorageGRID
+    entries:
+    - section: tenant
+    - section: s3
+    - section: swift
+  - title: Monitorar e solucionar problemas
+    entries:
+    - section: monitor
+    - section: troubleshoot
+    - section: audit
+  - title: Manutenção
+    entries:
+    - section: expand
+    - section: maintain
+  - title: Outras versões
+    url: "/earlier-versions.html"
+  - title: Avisos legais
+    url: "/legal-notices.html"
+product-family:
+  name: StorageGRID documentation
+  repo: storagegrid-family

@@ -1,0 +1,173 @@
+---
+permalink: admin/creating-tenant-account-if-storagegrid-is-not-using-sso.html 
+sidebar: sidebar 
+keywords:  
+summary: Quando você cria uma conta de locatário, você especifica um nome, um protocolo de cliente e, opcionalmente, uma cota de armazenamento. Se o StorageGRID não estiver usando logon único, você também deve especificar se a conta de locatário usará sua própria origem de identidade e configurar a senha inicial para o usuário raiz local do locatário. 
+---
+= Criando uma conta de locatário se o StorageGRID não estiver usando SSO
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando você cria uma conta de locatário, você especifica um nome, um protocolo de cliente e, opcionalmente, uma cota de armazenamento. Se o StorageGRID não estiver usando logon único (SSO), você também deve especificar se a conta de locatário usará sua própria origem de identidade e configurar a senha inicial para o usuário raiz local do locatário.
+
+.Sobre esta tarefa
+Se a conta de locatário usar a origem de identidade configurada para o Gerenciador de Grade e você quiser conceder permissão de acesso raiz para a conta de locatário a um grupo federado, você deve ter importado esse grupo federado para o Gerenciador de Grade. Você não precisa atribuir nenhuma permissão do Gerenciador de Grade a esse grupo de administradores. Consulte as instruções para link:managing-admin-groups.html["gerenciando grupos de administradores"].
+
+.Passos
+. Na caixa de texto *Nome de exibição*, insira um nome de exibição para essa conta de locatário.
++
+Os nomes de exibição não precisam ser exclusivos. Quando a conta de locatário é criada, ela recebe um ID de conta numérico único.
+
+. Selecione o protocolo de cliente que será usado por esta conta de locatário, seja *S3* ou *Swift*.
+. Para contas de locatário do S3, mantenha a caixa de seleção *permitir Serviços de Plataforma* selecionada, a menos que você não queira que esse locatário use serviços de plataforma para buckets do S3.
++
+Se os serviços de plataforma estiverem ativados, um locatário poderá usar recursos, como a replicação do CloudMirror, que acessam serviços externos. Talvez você queira desativar o uso desses recursos para limitar a quantidade de largura de banda da rede ou outros recursos que um locatário consome. Consulte ""Gerenciando serviços de plataforma.""
+
+. Na caixa de texto *cota de armazenamento*, insira opcionalmente o número máximo de gigabytes, terabytes ou petabytes que você deseja disponibilizar para os objetos desse locatário. Em seguida, selecione as unidades na lista suspensa.
++
+Deixe esse campo em branco se você quiser que esse locatário tenha uma cota ilimitada.
+
++
+
+NOTE: A cota de armazenamento de um locatário representa uma quantidade lógica (tamanho do objeto), e não uma quantidade física (tamanho no disco). As cópias ILM e a codificação de apagamento não contribuem para a quantidade de cota usada. Se a cota for excedida, a conta de locatário não poderá criar novos objetos.
+
++
+
+NOTE: Para monitorar o uso de armazenamento de cada conta de locatário, selecione *uso*. As contas de locatário também podem monitorar seu próprio uso de storage no Dashboard no Gerenciador do locatário ou com a API de gerenciamento do locatário. Observe que os valores de uso de storage de um locatário podem ficar desatualizados se os nós forem isolados de outros nós na grade. Os totais serão atualizados quando a conetividade de rede for restaurada.
+
+. Se o locatário gerenciar seus próprios grupos e usuários, siga estas etapas.
++
+.. Marque a caixa de seleção *usa a própria fonte de identidade* (padrão).
++
+
+NOTE: Se esta caixa de verificação estiver selecionada e pretender utilizar a federação de identidade para grupos de inquilinos e utilizadores, o inquilino tem de configurar a sua própria origem de identidade. Consulte as instruções para usar contas de locatário.
+
+.. Especifique uma senha para o usuário raiz local do locatário.
+
+
+. Se o locatário usar os grupos e usuários configurados para o Gerenciador de Grade, siga estas etapas.
++
+.. Desmarque a caixa de seleção *usa a própria fonte de identidade*.
+.. Faça um ou ambos os procedimentos a seguir:
++
+*** No campo Grupo de Acesso raiz, selecione um grupo federado existente no Gerenciador de Grade que deve ter a permissão de acesso raiz inicial para o locatário.
++
+
+NOTE: Se você tiver permissões adequadas, os grupos federados existentes do Gerenciador de Grade serão listados quando você clicar no campo. Caso contrário, introduza o nome exclusivo do grupo.
+
+*** Especifique uma senha para o usuário raiz local do locatário.
+
+
+
+
+. Clique em *Salvar*.
++
+A conta de locatário é criada.
+
+. Opcionalmente, acesse o novo locatário. Caso contrário, vá para a etapa <<STEP_SIGN_IN_LATER,acessando o locatário mais tarde>>de .
++
+[cols="1a,2a"]
+|===
+| Se você é... | Faça isso... 
+
+
+ a| 
+Acessando o Gerenciador de Grade em uma porta restrita
+ a| 
+Clique em *restrito* para saber mais sobre como acessar essa conta de locatário.
+
+O URL do Gerenciador do Locatário tem este formato:
+
+`https://_FQDN_or_Admin_Node_IP:port_/?accountId=_20-digit-account-id_/`
+
+** `_FQDN_or_Admin_Node_IP_` É um nome de domínio totalmente qualificado ou o endereço IP de um nó de administrador
+** `_port_` é a porta somente locatário
+** `_20-digit-account-id_` É o ID exclusivo da conta do locatário
+
+
+
+
+ a| 
+Acessando o Gerenciador de Grade na porta 443, mas você não definiu uma senha para o usuário raiz local
+ a| 
+Clique em *entrar* e insira as credenciais de um usuário no grupo federado de acesso root.
+
+
+
+ a| 
+Acessando o Gerenciador de Grade na porta 443 e você define uma senha para o usuário raiz local
+ a| 
+Vá para a próxima etapa para <<STEP_SIGN_IN_AS_ROOT,faça login como root>>.
+
+|===
+. [[step_SIGN_IN_AS_root]]Faça login no locatário como root:
++
+.. Na caixa de diálogo Configurar conta de locatário, clique no botão *entrar como root*.
++
+image::../media/configure_tenant_account.gif[Captura de tela do passo 2 - Configurar conta do locatário]
+
++
+Uma marca de seleção verde aparece no botão, indicando que você agora está conetado à conta de locatário como usuário raiz.
+
++
+image::../media/step_2_sign_in_as_root.gif[Faça login como root]
+
+.. Clique nos links para configurar a conta de locatário.
++
+Cada link abre a página correspondente no Gerenciador do Locatário. Para concluir a página, consulte as instruções para usar contas de locatário.
+
+.. Clique em *Finish*.
+
+
+. [[step_SIGN_IN_LATER]]para acessar o locatário mais tarde:
++
+[cols="1a,2a"]
+|===
+| Se você estiver usando... | Faça um destes... 
+
+
+ a| 
+Porta 443
+ a| 
+** No Gerenciador de Grade, selecione *tenants* e clique em *Sign in* à direita do nome do locatário.
+** Insira o URL do locatário em um navegador da Web:
++
+`https://_FQDN_or_Admin_Node_IP_/?accountId=_20-digit-account-id_/`
+
++
+*** `_FQDN_or_Admin_Node_IP_` É um nome de domínio totalmente qualificado ou o endereço IP de um nó de administrador
+*** `_20-digit-account-id_` É o ID exclusivo da conta do locatário
+
+
+
+
+
+
+ a| 
+Uma porta restrita
+ a| 
+** No Gerenciador de Grade, selecione *tenants* e clique em *Restricted*.
+** Insira o URL do locatário em um navegador da Web:
++
+`https://_FQDN_or_Admin_Node_IP:port_/?accountId=_20-digit-account-id_`
+
++
+*** `_FQDN_or_Admin_Node_IP_` É um nome de domínio totalmente qualificado ou o endereço IP de um nó de administrador
+*** `_port_` é a porta restrita somente para locatário
+*** `_20-digit-account-id_` É o ID exclusivo da conta do locatário
+
+
+
+
+|===
+
+
+.Informações relacionadas
+link:controlling-access-through-firewalls.html["Controlar o acesso através de firewalls"]
+
+link:managing-platform-services-for-s3-tenant-accounts.html["Gerenciamento de serviços de plataforma para contas de locatários do S3"]
+
+link:../tenant/index.html["Use uma conta de locatário"]

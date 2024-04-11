@@ -1,0 +1,27 @@
+---
+permalink: sg6000/installing-hardware.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, hardware, install, installing 
+summary: A instalação de hardware implica a instalação do controlador SG6000-CN e da prateleira do controlador de armazenamento em um gabinete ou rack, conetando os cabos e aplicando energia. 
+---
+= Instalar o hardware
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A instalação de hardware implica a instalação do controlador SG6000-CN e da prateleira do controlador de armazenamento em um gabinete ou rack, conetando os cabos e aplicando energia.
+
+.Passos
+* link:registering-hardware.html["Registar o hardware"]
+* link:sg6060-installing-60-drive-shelves-into-cabinet-or-rack.html["SG6060: Instalação de compartimentos de 60 unidades em um gabinete ou rack"]
+* link:sg6060-installing-drives.html["SG6060: Instalar as unidades"]
+* link:sgf6024-installing-24-drive-shelves-into-cabinet-or-rack.html["SGF6024: Instalação de compartimentos de 24 unidades em um gabinete ou rack"]
+* link:sg6000-cn-installing-into-cabinet-or-rack.html["SG6000-CN: Instalação em um gabinete ou rack"]
+* link:cabling-appliance-sg6000.html["Cabeamento do aparelho (SG6000)"]
+* link:sg6060-cabling-optional-expansion-shelves.html["SG6060: Cabeamento das gavetas de expansão opcionais"]
+* link:connecting-power-cords-and-applying-power-sg6000.html["Conexão dos cabos de alimentação e alimentação de energia (SG6000)"]
+* link:viewing-status-indicators-and-buttons-on-sg6000-cn-controller.html["Visualizar indicadores de estado e botões no controlador SG6000-CN"]
+* link:viewing-boot-up-status-codes-for-sg6000-storage-controllers.html["Exibindo códigos de status de inicialização para os controladores de storage SG6000"]
+

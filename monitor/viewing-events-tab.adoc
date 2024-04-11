@@ -1,0 +1,34 @@
+---
+permalink: monitor/viewing-events-tab.html 
+sidebar: sidebar 
+keywords:  
+summary: A guia Eventos exibe uma contagem de qualquer erro de sistema ou eventos de falha para um nó, incluindo erros como erros de rede. 
+---
+= Visualizar o separador Eventos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A guia Eventos exibe uma contagem de qualquer erro de sistema ou eventos de falha para um nó, incluindo erros como erros de rede.
+
+A guia Eventos é exibida para todos os nós.
+
+Se você tiver problemas com um nó específico, poderá usar a guia Eventos para saber mais sobre o problema. O suporte técnico também pode usar as informações na guia Eventos para ajudar na solução de problemas.
+
+image::../media/nodes_page_events_tab.png[Guia Eventos da página de nós]
+
+Você pode executar essas tarefas na guia Eventos:
+
+* Use as informações mostradas para o campo *último evento* na parte superior da tabela para determinar qual evento ocorreu mais recentemente.
+* Clique no ícone do gráfico image:../media/icon_chart_new.gif["Ícone de carta"]para um evento específico para ver quando esse evento ocorreu ao longo do tempo.
+* Redefinir contagens de eventos para zero depois de resolver quaisquer problemas.
+
+
+.Informações relacionadas
+link:monitoring-events.html["Monitoramento de eventos"]
+
+link:displaying-charts-and-graphs.html["Apresentação de gráficos e gráficos"]
+
+link:resetting-event-counts.html["Repor contagens de eventos"]

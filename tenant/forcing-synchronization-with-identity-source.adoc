@@ -1,0 +1,38 @@
+---
+permalink: tenant/forcing-synchronization-with-identity-source.html 
+sidebar: sidebar 
+keywords: storagegrid, tenant, identity source, synchronize identity source 
+summary: O sistema StorageGRID sincroniza periodicamente grupos federados e usuários da origem da identidade. Você pode forçar o início da sincronização se quiser ativar ou restringir as permissões de usuário o mais rápido possível. 
+---
+= Forçando a sincronização com a fonte de identidade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O sistema StorageGRID sincroniza periodicamente grupos federados e usuários da origem da identidade. Você pode forçar o início da sincronização se quiser ativar ou restringir as permissões de usuário o mais rápido possível.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador do Locatário usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+* A origem de identidade guardada tem de estar ativada.
+
+
+.Passos
+. Selecione *GERENCIAMENTO DE ACESSO* *federação de identidade*.
++
+A página de federação de identidade é exibida. O botão *servidor de sincronização* está no canto superior direito da página.
+
++
+
+NOTE: Se a origem de identidade salva não estiver ativada, o botão *servidor de sincronização* não estará ativo.
+
+. Selecione *servidor de sincronização*.
++
+É apresentada uma mensagem de confirmação a indicar que a sincronização foi iniciada com êxito.
+
+
+
+.Informações relacionadas
+link:tenant-management-permissions.html["Permissões de gerenciamento do locatário"]

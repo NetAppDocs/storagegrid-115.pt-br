@@ -1,0 +1,34 @@
+---
+permalink: monitor/logs-files-reference.html 
+sidebar: sidebar 
+keywords: log, logs, log files 
+summary: As seções a seguir listam os logs usados para capturar eventos, mensagens de diagnóstico e condições de erro. Você pode ser solicitado a coletar arquivos de log e encaminhá-los para o suporte técnico para ajudar na solução de problemas. 
+---
+= Referência de ficheiros de registo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+As seções a seguir listam os logs usados para capturar eventos, mensagens de diagnóstico e condições de erro. Você pode ser solicitado a coletar arquivos de log e encaminhá-los para o suporte técnico para ajudar na solução de problemas.
+
+* link:storagegrid-software-logs.html["Registos do software StorageGRID"]
+* link:deployment-and-maintenance-logs.html["Logs de implantação e manutenção"]
+* link:logs-for-third-party-software.html["Logs para software de terceiros"]
+* link:about-bycast-log.html["Sobre o bycast.log"]
+
+
+
+IMPORTANT: As tabelas nesta seção são apenas para referência. Os registos destinam-se à resolução de problemas avançada por suporte técnico. Técnicas avançadas que envolvem a reconstrução do histórico de problemas usando os logs de auditoria e os arquivos de log do aplicativo estão além do escopo deste guia.
+
+Para acessar esses logs, você pode coletar arquivos de log e dados do sistema (*suporte* *Ferramentas* *Logs*). Ou, se o nó de administração principal não estiver disponível ou não conseguir alcançar um nó específico, você poderá acessar os logs de cada nó de grade, da seguinte forma:
+
+. Introduza o seguinte comando: `ssh admin@grid_node_IP`
+. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+. Digite o seguinte comando para mudar para root: `su -`
+. Introduza a palavra-passe listada no `Passwords.txt` ficheiro.
+
+
+.Informações relacionadas
+link:collecting-log-files-and-system-data.html["Coletando arquivos de log e dados do sistema"]

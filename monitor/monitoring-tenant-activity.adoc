@@ -1,0 +1,158 @@
+---
+permalink: monitor/monitoring-tenant-activity.html 
+sidebar: sidebar 
+keywords: monitoring, tenant activity 
+summary: Todas as atividades do cliente estão associadas a uma conta de locatário. Você pode usar o Gerenciador de Grade para monitorar o uso de storage ou o tráfego de rede de um locatário ou usar o log de auditoria ou os painéis do Grafana para coletar informações mais detalhadas sobre como os locatários estão usando o StorageGRID. 
+---
+= Monitorar a atividade do locatário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Todas as atividades do cliente estão associadas a uma conta de locatário. Você pode usar o Gerenciador de Grade para monitorar o uso de storage ou o tráfego de rede de um locatário ou usar o log de auditoria ou os painéis do Grafana para coletar informações mais detalhadas sobre como os locatários estão usando o StorageGRID.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter a permissão de acesso root ou Administrador.
+
+
+.Sobre esta tarefa
+
+IMPORTANT: Os valores espaço utilizado são estimativas. Essas estimativas são afetadas pelo timing de inests, conetividade de rede e status de nó.
+
+.Passos
+. Selecione *tenants* para analisar a quantidade de armazenamento usada por todos os inquilinos.
++
+O espaço usado, a utilização da cota, a cota e a contagem de objetos são listados para cada locatário. Se uma cota não for definida para um locatário, o campo de utilização da cota contém um traço (--) e o campo de cota indica "ilimitado".
+
++
+image::../media/tenant_accounts_page.png[Página de contas de inquilino]
+
++
+Se o sistema incluir mais de 20 itens, você pode especificar quantas linhas são mostradas em cada página de uma vez. Use a caixa de pesquisa para procurar uma conta de locatário por nome de exibição ou ID de locatário.
+
++
+Você pode entrar em uma conta de locatário selecionando o link na coluna *entrar* da tabela.
+
+. Opcionalmente, selecione *Exportar para CSV* para exibir e exportar um arquivo .csv contendo os valores de uso para todos os locatários.
++
+Você é solicitado a abrir ou salvar o `.csv` arquivo.
+
++
+O conteúdo de um arquivo .csv se parece com o seguinte exemplo:
+
++
+image::../media/tenant_accounts_example_csv.png[Exemplo de contas de inquilino .csv]
+
++
+Você pode abrir o arquivo .csv em um aplicativo de Planilha ou usá-lo em automação.
+
+. Para exibir detalhes de um locatário específico, incluindo gráficos de uso, selecione a conta do locatário na página Contas do locatário e selecione *Exibir detalhes*.
++
+A página Detalhes da conta aparece e mostra informações resumidas, um gráfico que representa a quantidade de cota usada e restante, e um gráfico que representa a quantidade de dados de objeto em buckets (S3) ou contentores (Swift).
+
++
+image::../media/tenant_usage_modal.png[Modal de uso do locatário]
+
++
+** *Quota*
++
+Se uma cota foi definida para esse locatário, o gráfico *quota* mostra quanto dessa cota esse locatário usou e quanto ainda está disponível. Se nenhuma cota foi definida, o locatário tem uma cota ilimitada e uma mensagem informativa é exibida. Se o inquilino tiver excedido a cota de armazenamento em mais de 1% e em pelo menos 1 GB, o gráfico mostrará a cota total e a quantidade excedente.
+
++
+Você pode colocar o cursor sobre o segmento de espaço usado para ver o número de objetos armazenados e o total de bytes usados. Você pode colocar o cursor sobre o segmento de espaço livre para ver quantos bytes de cota de armazenamento estão disponíveis.
+
++
+
+IMPORTANT: A utilização de quotas baseia-se em estimativas internas e pode ser ultrapassada em alguns casos. Por exemplo, o StorageGRID verifica a cota quando um locatário começa a carregar objetos e rejeita novos ingere se o locatário tiver excedido a cota. No entanto, o StorageGRID não leva em conta o tamanho do upload atual ao determinar se a cota foi excedida. Se os objetos forem excluídos, um locatário poderá ser temporariamente impedido de carregar novos objetos até que a utilização da cota seja recalculada. Os cálculos de utilização de cotas podem levar 10 minutos ou mais.
+
++
+
+NOTE: A utilização da cota de um locatário indica a quantidade total de dados de objeto que o locatário carregou para o StorageGRID (tamanho lógico). A utilização da cota não representa o espaço usado para armazenar cópias desses objetos e seus metadados (tamanho físico).
+
++
+
+NOTE: Você pode ativar o alerta *Alto uso da cota do locatário* para determinar se os locatários estão consumindo suas cotas. Se ativado, esse alerta é acionado quando um locatário usou 90% de sua cota. Para obter mais informações, consulte a referência de alertas.
+
+** *Espaço utilizado*
++
+O gráfico *espaço usado por baldes* (S3) ou *espaço usado por contentores* (Swift) mostra os maiores baldes para o inquilino. O espaço utilizado é a quantidade total de dados de objetos no intervalo. Esse valor não representa o espaço de storage necessário para cópias do ILM e metadados de objetos.
+
++
+Se o locatário tiver mais de nove buckets ou contentores, eles serão combinados em um segmento chamado outro. Alguns segmentos de gráfico podem ser muito pequenos para incluir um rótulo. Você pode colocar o cursor sobre qualquer um dos segmentos para ver o rótulo e obter mais informações, incluindo o número de objetos armazenados e o total de bytes para cada bucket ou contentor.
+
++
+image::../media/tenant_dashboard_storage_usage_segment_other.png[Segmento de uso de armazenamento - outro]
+
+
+
+. Selecione *Detalhes do balde* (S3) ou *Detalhes do contentor* (Swift) para visualizar uma lista do espaço usado e o número de objetos para cada um dos baldes ou contentores do locatário.
++
+image::../media/tenant_bucket_details.png[Detalhes do bucket do locatário]
+
+. Opcionalmente, selecione *Exportar para CSV* para exibir e exportar um arquivo .csv contendo os valores de uso para cada bucket ou contentor.
++
+Você é solicitado a abrir ou salvar o arquivo .csv.
+
++
+O conteúdo do arquivo .csv de um locatário S3 individual se parece com o seguinte exemplo:
+
++
+image::../media/tenant_bucket_details_csv.png[Exemplo de CSV de detalhes do intervalo do locatário]
+
++
+Você pode abrir o arquivo .csv em um aplicativo de Planilha ou usá-lo em automação.
+
+. Se as políticas de classificação de tráfego estiverem em vigor para um locatário, revise o tráfego de rede desse locatário.
++
+.. Selecione *Configuração* > *Configurações de rede* > *classificação de tráfego*.
++
+A página políticas de classificação de tráfego é exibida e as políticas existentes são listadas na tabela.
+
++
+image::../media/traffic_classification_policies_main_screen_w_examples.png[Política de tráfego para exemplo de gráfico]
+
+.. Revise a lista de políticas para identificar as que se aplicam a um locatário específico.
+.. Para exibir métricas associadas a uma política, selecione o botão de opção à esquerda da política e clique em *métricas*.
+.. Analise os gráficos para determinar com que frequência a política está limitando o tráfego e se você precisa ajustar a política.
++
+Para criar, editar ou excluir políticas de classificação de tráfego, consulte as instruções de administração do StorageGRID.
+
+
+
+. Opcionalmente, use o log de auditoria para monitoramento mais granular das atividades de um locatário.
++
+Por exemplo, você pode monitorar os seguintes tipos de informações:
+
++
+** Operações específicas do cliente, como COLOCAR, OBTER ou EXCLUIR
+** Tamanhos de objetos
+** A regra ILM aplicada a objetos
+** O IP de origem das solicitações do cliente
+
+
++
+Os logs de auditoria são gravados em arquivos de texto que você pode analisar usando a ferramenta de análise de log escolhida. Isso permite que você entenda melhor as atividades do cliente ou implemente modelos sofisticados de chargeback e cobrança. Consulte as instruções para entender as mensagens de auditoria para obter mais informações.
+
+. Opcionalmente, use as métricas Prometheus para relatar a atividade do locatário:
++
+** No Gerenciador de Grade, selecione *suporte* *Ferramentas* *métricas*. Você pode usar painéis existentes, como a Visão geral do S3, para analisar as atividades do cliente.
++
+
+IMPORTANT: As ferramentas disponíveis na página Metrics destinam-se principalmente ao uso pelo suporte técnico. Alguns recursos e itens de menu dentro dessas ferramentas são intencionalmente não funcionais.
+
+** Selecione *Ajuda* *Documentação da API*. Você pode usar as métricas na seção métricas da API de gerenciamento de grade para criar regras de alerta personalizadas e painéis para a atividade do locatário.
+
+
+
+
+.Informações relacionadas
+link:alerts-reference.html["Referência de alertas"]
+
+link:../audit/index.html["Rever registos de auditoria"]
+
+link:../admin/index.html["Administrar o StorageGRID"]
+
+link:reviewing-support-metrics.html["Revisão das métricas de suporte"]

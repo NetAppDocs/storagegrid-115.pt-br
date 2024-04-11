@@ -1,0 +1,32 @@
+---
+permalink: admin/setting-archive-node-to-read-only-if-tsm-middleware-reaches-capacity.html 
+sidebar: sidebar 
+keywords:  
+summary: Se o servidor de middleware TSM visado atingir a capacidade, o nó de arquivo pode ser otimizado para executar apenas recuperações. 
+---
+= Configurando o Archive Node para somente leitura se o middleware TSM atingir a capacidade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se o servidor de middleware TSM visado atingir a capacidade, o nó de arquivo pode ser otimizado para executar apenas recuperações.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+
+
+.Passos
+. Selecione *Support* > *Tools* > *Grid Topology*.
+. Selecione *_Archive Node_* > *ARC* > *Target*.
+. Selecione *Configuração* > *Principal*.
+. Altere as sessões de recuperação máxima para ser igual ao número de sessões simultâneas listadas em número de sessões.
+. Altere o máximo de sessões de armazenamento para 0.
++
+
+NOTE: Não é necessário alterar o máximo de sessões de armazenamento para 0 se o nó de arquivo for apenas leitura. As sessões de armazenamento não serão criadas.
+
+. Clique em *aplicar alterações*.
+

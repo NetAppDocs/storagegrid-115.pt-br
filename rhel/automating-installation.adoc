@@ -1,0 +1,26 @@
+---
+permalink: rhel/automating-installation.html 
+sidebar: sidebar 
+keywords: storagegrid, rhel, redhat, redhat linux, automating installation, automate installation 
+summary: É possível automatizar a instalação do serviço de host StorageGRID e a configuração de nós de grade. 
+---
+= Automatizando a instalação
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+É possível automatizar a instalação do serviço de host StorageGRID e a configuração de nós de grade.
+
+.Sobre esta tarefa
+Automatizar a implantação pode ser útil em qualquer um dos seguintes casos:
+
+* Você já usa uma estrutura de orquestração padrão, como Ansible, Puppet ou Chef, para implantar e configurar hosts físicos ou virtuais.
+* Você pretende implantar várias instâncias do StorageGRID.
+* Você está implantando uma instância grande e complexa do StorageGRID.
+
+
+O serviço de host do StorageGRID é instalado por um pacote e impulsionado por arquivos de configuração que podem ser criados interativamente durante uma instalação manual ou preparados com antecedência (ou programaticamente) para permitir a instalação automatizada usando estruturas de orquestração padrão. O StorageGRID fornece scripts Python opcionais para automatizar a configuração de dispositivos StorageGRID e todo o sistema StorageGRID (a "grade"). Você pode usar esses scripts diretamente ou inspecioná-los para saber como usar a API REST de instalação do StorageGRID nas ferramentas de implantação e configuração de grade que você mesmo desenvolve.
+
+Se você estiver interessado em automatizar toda ou parte da implantação do StorageGRID, revise ""Automatizar a instalação"" antes de iniciar o processo de instalação.

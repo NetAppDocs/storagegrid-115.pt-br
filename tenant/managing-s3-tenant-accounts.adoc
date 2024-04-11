@@ -1,0 +1,18 @@
+---
+permalink: tenant/managing-s3-tenant-accounts.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode usar o Gerenciador do Locatário para gerenciar chaves de acesso do S3 e criar e gerenciar buckets do S3. 
+---
+= Gerenciamento de contas de locatários do S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o Gerenciador do Locatário para gerenciar chaves de acesso do S3 e criar e gerenciar buckets do S3.
+
+* link:managing-s3-access-keys.html["Gerenciando chaves de acesso S3"]
+* link:managing-s3-buckets.html["Gerenciamento de buckets do S3"]
+

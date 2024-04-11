@@ -1,0 +1,61 @@
+---
+permalink: admin/configuring-custom-server-certificate-for-grid-manager-tenant-manager.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode substituir o certificado de servidor StorageGRID padrão por um único certificado de servidor personalizado que permite aos usuários acessar o Gerenciador de Grade e o Gerenciador de locatário sem encontrar avisos de segurança. 
+---
+= Configurando um certificado de servidor personalizado para o Gerenciador de Grade e o Gerenciador de locatário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode substituir o certificado de servidor StorageGRID padrão por um único certificado de servidor personalizado que permite aos usuários acessar o Gerenciador de Grade e o Gerenciador de locatário sem encontrar avisos de segurança.
+
+.Sobre esta tarefa
+Por padrão, cada nó de administrador é emitido um certificado assinado pela CA de grade. Esses certificados assinados pela CA podem ser substituídos por um único certificado de servidor personalizado comum e uma chave privada correspondente.
+
+Como um único certificado de servidor personalizado é usado para todos os nós de administração, você deve especificar o certificado como um certificado de curinga ou de vários domínios se os clientes precisarem verificar o nome do host ao se conetar ao Gerenciador de Grade e ao Gerenciador de locatário. Defina o certificado personalizado de modo que corresponda a todos os nós de administração na grade.
+
+Você precisa concluir a configuração no servidor e, dependendo da Autoridade de certificação raiz (CA) que você está usando, os usuários também podem precisar instalar o certificado de CA raiz no navegador da Web que eles usarão para acessar o Gerenciador de Grade e o Gerenciador de locatário.
+
+
+NOTE: Para garantir que as operações não sejam interrompidas por um certificado de servidor com falha, o alerta *Expiration of Server certificate for Management Interface* e o alarme legado de expiração de certificado de Interface de Gerenciamento (MCEP) são acionados quando este certificado de servidor está prestes a expirar. Conforme necessário, você pode visualizar o número de dias até que o certificado de serviço atual expire selecionando *Support* > *Tools* > *Grid Topology*. Em seguida, selecione *_Primary Admin Node_* > *CMN* > *Resources*.
+
+[NOTE]
+====
+Se você estiver acessando o Gerenciador de Grade ou o Gerenciador de locatário usando um nome de domínio em vez de um endereço IP, o navegador mostrará um erro de certificado sem uma opção para ignorar se uma das seguintes situações ocorrer:
+
+* O certificado do servidor de interface de gerenciamento personalizado expira.
+* Você reverte de um certificado de servidor de interface de gerenciamento personalizado para o certificado de servidor padrão.
+
+
+====
+.Passos
+. Selecione *Configuração* > *Configurações de rede* > *certificados de servidor*.
+. Na seção certificado do servidor de interface de gerenciamento, clique em *Instalar certificado personalizado*.
+. Carregue os ficheiros de certificado do servidor necessários:
++
+** *Certificado do servidor*: O arquivo de certificado do servidor personalizado (`.crt`).
+** *Chave privada do certificado do servidor*: O arquivo de chave privada do certificado do servidor personalizado (`.key`).
++
+
+NOTE: As chaves privadas EC devem ter 224 bits ou mais. As chaves privadas RSA devem ter 2048 bits ou mais.
+
+** *CA Bundle*: Um único arquivo contendo os certificados de cada autoridade de certificação de emissão intermediária (CA). O arquivo deve conter cada um dos arquivos de certificado CA codificados em PEM, concatenados em ordem de cadeia de certificados.
+
+
+. Clique em *Salvar*.
++
+Os certificados de servidor personalizados são usados para todas as novas conexões de cliente subsequentes.
+
++
+Selecione uma guia para exibir informações detalhadas sobre o certificado padrão do servidor StorageGRID ou um certificado assinado pela CA que foi carregado.
+
++
+
+NOTE: Depois de carregar um novo certificado, aguarde até um dia para que quaisquer alertas de expiração de certificado relacionados (ou alarmes legados) sejam apagados.
+
+. Atualize a página para garantir que o navegador da Web seja atualizado.
+

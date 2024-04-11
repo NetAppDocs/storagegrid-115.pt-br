@@ -1,0 +1,28 @@
+---
+permalink: ubuntu/deploying-virtual-grid-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, deploying grid nodes, deploy grid nodes, ubuntu, debian 
+summary: Ao implantar nós de grade em um ambiente Ubuntu ou Debian, você cria arquivos de configuração de nós para todos os nós, valida os arquivos e inicia o serviço de host StorageGRID, que inicia os nós. Se você precisar implantar qualquer nó de storage do dispositivo StorageGRID, consulte as instruções de instalação e manutenção do dispositivo depois de implantar todos os nós virtuais. 
+---
+= Implantando nós de grade virtual
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ao implantar nós de grade em um ambiente Ubuntu ou Debian, você cria arquivos de configuração de nós para todos os nós, valida os arquivos e inicia o serviço de host StorageGRID, que inicia os nós. Se você precisar implantar qualquer nó de storage do dispositivo StorageGRID, consulte as instruções de instalação e manutenção do dispositivo depois de implantar todos os nós virtuais.
+
+* link:creating-node-configuration-files.html["Criando arquivos de configuração de nó"]
+* link:validating-storagegrid-configuration.html["Validar a configuração do StorageGRID"]
+* link:starting-storagegrid-host-service.html["Iniciando o serviço de host do StorageGRID"]
+
+
+.Informações relacionadas
+link:../sg100-1000/index.html["Aparelhos de serviços SG100  SG1000"]
+
+link:../sg5600/index.html["SG5600 dispositivos de armazenamento"]
+
+link:../sg5700/index.html["SG5700 dispositivos de armazenamento"]
+
+link:../sg6000/index.html["SG6000 dispositivos de armazenamento"]

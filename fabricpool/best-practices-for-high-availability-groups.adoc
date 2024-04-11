@@ -1,0 +1,40 @@
+---
+permalink: fabricpool/best-practices-for-high-availability-groups.html 
+sidebar: sidebar 
+keywords: fabricPool, high availability group, HA group, active-active, active-backup, cloud tier, best practices 
+summary: Antes de anexar o StorageGRID como um nível de nuvem do FabricPool, use o Gerenciador de Grade do StorageGRID para configurar um grupo de alta disponibilidade. 
+---
+= Práticas recomendadas para grupos de alta disponibilidade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de anexar o StorageGRID como uma camada de nuvem do FabricPool, use o Gerenciador de Grade do StorageGRID para configurar um grupo de alta disponibilidade (HA).
+
+
+
+== O que é um grupo de alta disponibilidade (HA)
+
+Para garantir que o serviço de balanceamento de carga esteja sempre disponível para gerenciar dados do FabricPool, você pode agrupar as interfaces de rede de vários nós de administrador e gateway em uma única entidade, conhecida como um grupo de alta disponibilidade (HA). Se o nó ativo no grupo de HA falhar, outro nó no grupo poderá continuar a gerenciar a carga de trabalho.
+
+Cada grupo de HA fornece acesso altamente disponível aos serviços compartilhados nos nós associados. Por exemplo, um grupo de HA composto por todos os nós de administração fornece acesso altamente disponível a alguns serviços de gerenciamento do nó de administração e ao serviço do Load Balancer. Um grupo de HA que consiste apenas em nós de Gateway ou de nós de administração e de Gateway fornece acesso altamente disponível ao serviço de balanceador de carga compartilhado.
+
+Ao criar um grupo HA, você seleciona interfaces de rede pertencentes à rede Grid (eth0) ou à rede Client (eth2). Todas as interfaces de um grupo HA devem estar dentro da mesma sub-rede de rede.
+
+Um grupo de HA mantém um ou mais endereços IP virtuais que são adicionados à interface ativa no grupo. Se a interface ativa ficar indisponível, os endereços IP virtuais serão movidos para outra interface. Esse processo de failover geralmente leva apenas alguns segundos e é rápido o suficiente para que os aplicativos clientes tenham pouco impactos e possam confiar em comportamentos normais de repetição para continuar a operação.
+
+Se você configurar um grupo de HA de nós de balanceamento de carga, o FabricPool se conetará aos endereços IP virtuais desse grupo de HA.
+
+
+
+== Práticas recomendadas para grupos de alta disponibilidade (HA)
+
+As práticas recomendadas para a criação de um grupo de HA do StorageGRID para FabricPool dependem do workload, como a seguir:
+
+* Se você planeja usar o FabricPool com dados de workload primário, precisa criar um grupo de HA que inclua pelo menos dois nós de balanceamento de carga para evitar a interrupção da recuperação de dados.
+* Se você planeja usar a política de disposição em camadas de volume somente snapshot do FabricPool ou camadas de performance locais não principais (por exemplo, locais de recuperação de desastres ou destinos do NetApp SnapMirror), é possível configurar um grupo de HA com apenas um nó.
+
+
+Essas instruções descrevem a configuração de um grupo de HA para o ative-Backup HA (um nó está ativo e um nó é backup). No entanto, você pode preferir usar DNS Round Robin ou ative-ative HA. Para saber os benefícios dessas outras configurações de HA, link:../admin/configuration-options-for-ha-groups.html["Opções de configuração para grupos de HA"]consulte .

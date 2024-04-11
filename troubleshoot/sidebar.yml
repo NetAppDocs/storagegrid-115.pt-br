@@ -1,0 +1,34 @@
+---
+section: troubleshoot
+title: Solucionar problemas de um sistema StorageGRID
+url: "/troubleshoot/troubleshooting-storagegrid-system.html"
+entries:
+- title: Solução de problemas de objetos e storage
+  url: "/troubleshoot/troubleshooting-object-and-storage-issues.html"
+  entries:
+  - title: Verificando a integridade do objeto
+    url: "/troubleshoot/verifying-object-integrity.html"
+  - title: Solução de problemas de dados de objetos perdidos e ausentes
+    url: "/troubleshoot/troubleshooting-lost-and-missing-object-data.html"
+    entries:
+    - title: Investigando objetos perdidos
+      url: "/troubleshoot/investigating-lost-objects.html"
+    - title: Procurar e restaurar objetos potencialmente perdidos
+      url: "/troubleshoot/searching-for-and-restoring-potentially-lost-objects.html"
+    - title: Repor contagens de objetos perdidas e em falta
+      url: "/troubleshoot/resetting-lost-and-missing-object-counts.html"
+  - title: Solução de problemas do alerta de armazenamento de dados de objetos baixos
+    url: "/troubleshoot/troubleshooting-low-object-data-storage-alert.html"
+  - title: Resolução de problemas do alarme de Estado de armazenamento (SSTS)
+    url: "/troubleshoot/troubleshooting-storage-status-alarm.html"
+  - title: Solução de problemas de entrega de mensagens de serviços da plataforma
+      (alarme SMTT)
+    url: "/troubleshoot/troubleshooting-delivery-platform-services-messages.html"
+- title: Solução de problemas de metadados
+  url: "/troubleshoot/troubleshooting-metadata-issues.html"
+- title: Solução de problemas de erros de certificado
+  url: "/troubleshoot/troubleshooting-certificate-errors.html"
+- title: Solucionando problemas de nó de administração e interface do usuário
+  url: "/troubleshoot/troubleshooting-admin-node-and-user-interface-issues.html"
+- title: Solução de problemas de rede, hardware e plataforma
+  url: "/troubleshoot/troubleshooting-network-hardware-and-platform-issues.html"

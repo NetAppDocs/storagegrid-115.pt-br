@@ -1,0 +1,104 @@
+---
+permalink: ilm/simulating-ilm-policy.html 
+sidebar: sidebar 
+keywords:  
+summary: Você deve simular uma política proposta em objetos de teste antes de ativar a política e aplicá-la aos dados de produção. A janela de simulação fornece um ambiente autônomo que é seguro para políticas de teste antes de serem ativadas e aplicadas aos dados no ambiente de produção. 
+---
+= Simulando uma política ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve simular uma política proposta em objetos de teste antes de ativar a política e aplicá-la aos dados de produção. A janela de simulação fornece um ambiente autônomo que é seguro para políticas de teste antes de serem ativadas e aplicadas aos dados no ambiente de produção.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+* Você deve saber o bucket/object-key S3 ou o container/object-name Swift para cada objeto que deseja testar e você já deve ter ingerido esses objetos.
+
+
+.Sobre esta tarefa
+Você deve selecionar cuidadosamente os objetos que deseja que a política proposta teste. Para simular uma política completamente, você deve testar pelo menos um objeto para cada filtro em cada regra.
+
+Por exemplo, se uma política incluir uma regra para combinar objetos no bucket A e outra regra para corresponder objetos no bucket B, você deve selecionar pelo menos um objeto do bucket A e um objeto do bucket B para testar a política completamente. Se a política incluir uma regra padrão para colocar todos os outros objetos, você deve testar pelo menos um objeto de outro intervalo.
+
+Ao simular uma política, aplicam-se as seguintes considerações:
+
+* Depois de fazer alterações em uma política, salve a política proposta. Em seguida, simule o comportamento da política proposta salva.
+* Ao simular uma política, as regras ILM na política filtram os objetos de teste, para que você possa ver qual regra foi aplicada a cada objeto. No entanto, nenhuma cópia de objeto é feita e nenhum objeto é colocado. Executar uma simulação não modifica seus dados, regras ou política de forma alguma.
+* A página Simulação mantém os objetos testados até que você feche, navegue para longe ou atualize a página de políticas ILM.
+* Simulação retorna o nome da regra correspondente. Para determinar qual pool de armazenamento ou perfil de codificação de apagamento estão em vigor, você pode exibir o Diagrama de retenção clicando no nome da regra ou no ícone mais detalhes image:../media/icon_nms_more_details.gif["ícone mais detalhes"].
+* Se o Controle de versão S3 estiver ativado, a política só será simulada em relação à versão atual do objeto.
+
+
+.Passos
+. Selecione e organize as regras e salve a política proposta.
++
+A política neste exemplo tem três regras:
+
++
+[cols="1a,1a,1a,1a"]
+|===
+| Nome da regra | Filtro | Tipo de cópias | Retenção 
+
+
+ a| 
+X-men
+ a| 
+** Inquilino A
+** Metadados do usuário (série x-man)
+
+ a| 
+2 cópias em dois data centers
+ a| 
+2 anos
+
+
+
+ a| 
+PNGs
+ a| 
+A chave termina com .png
+ a| 
+2 cópias em dois data centers
+ a| 
+5 anos
+
+
+
+ a| 
+Duas cópias de dois data centers
+ a| 
+_Nenhum_
+ a| 
+2 cópias em dois data centers
+ a| 
+Para sempre
+
+|===
++
+image:../media/ilm_policies_viewing_proposed.png["Políticas de ILM que visualizam propostas"]
+
+. Clique em *simular*.
++
+É apresentada a caixa de diálogo Simulation ILM Policy (Política ILM de simulação).
+
+. No campo *Object*, insira o bucket/object-key S3 ou o container/object-name Swift para um objeto de teste e clique em *Simulate*.
++
+[NOTE]
+====
+Uma mensagem será exibida se você especificar um objeto que não foi ingerido.
+
+image::../media/object_not_available_for_simulation.gif[Mensagem se você especificar objeto ausente]
+
+====
+. Em *resultados da simulação*, confirme se cada objeto foi correspondido pela regra correta.
++
+No exemplo, os `Havok.png` objetos e `Warpath.jpg` foram corretamente combinados pela regra X-meN. O `Fullsteam.png` objeto, que não inclui `series=x-men` metadados do usuário, não foi correspondido pela regra X-meN, mas foi corretamente correspondido pela regra PNGs. A regra padrão não foi usada porque todos os três objetos foram correspondidos por outras regras.
+
++
+image::../media/ilm_policy_simulation_results.gif[Resultados da simulação]
+
+

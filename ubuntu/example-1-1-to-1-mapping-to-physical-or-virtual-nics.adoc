@@ -1,0 +1,22 @@
+---
+permalink: ubuntu/example-1-1-to-1-mapping-to-physical-or-virtual-nics.html 
+sidebar: sidebar 
+keywords:  
+summary: O exemplo 1 descreve um mapeamento de interface física simples que requer pouca ou nenhuma configuração do lado do host. 
+---
+= Exemplo 1: Mapeamento de 1 para 1 para NICs físicos ou virtuais
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O exemplo 1 descreve um mapeamento de interface física simples que requer pouca ou nenhuma configuração do lado do host.
+
+image::../media/rhel_install_vlan_diag_1.gif[Esta imagem é explicada pelo texto circundante.]
+
+O sistema operacional Linux cria as interfaces ensXYZ automaticamente durante a instalação ou inicialização, ou quando as interfaces são hot-added. Não é necessária nenhuma configuração além de garantir que as interfaces estejam configuradas para serem criadas automaticamente após a inicialização. Você tem que determinar qual ensXYZ corresponde a qual rede StorageGRID (Grade, Administrador ou Cliente) para que você possa fornecer os mapeamentos corretos posteriormente no processo de configuração.
+
+Observe que a figura mostra vários nós de StorageGRID; no entanto, você normalmente usaria essa configuração para VMs de nó único.
+
+Se o Switch 1 for um switch físico, você deve configurar as portas conetadas a interfaces de 10G 3 a 1 a 10G para o modo de acesso e colocá-las nas VLANs apropriadas.

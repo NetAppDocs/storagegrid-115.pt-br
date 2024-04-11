@@ -1,0 +1,22 @@
+---
+permalink: maintain/network-maintenance-procedures.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode configurar a lista de sub-redes na rede de Grade ou atualizar endereços IP, servidores DNS ou servidores NTP para o seu sistema StorageGRID. 
+---
+= Procedimentos de manutenção da rede
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode configurar a lista de sub-redes na rede de Grade ou atualizar endereços IP, servidores DNS ou servidores NTP para o seu sistema StorageGRID.
+
+.Opções
+* link:updating-subnets-for-grid-network.html["Atualizando sub-redes para a rede de Grade"]
+* link:configuring-ip-addresses.html["Configurando endereços IP"]
+* link:configuring-dns-servers.html["Configurando servidores DNS"]
+* link:configuring-ntp-servers.html["Configurando servidores NTP"]
+* link:restoring-network-connectivity-for-isolated-nodes.html["Restaurar a conetividade de rede para nós isolados"]
+

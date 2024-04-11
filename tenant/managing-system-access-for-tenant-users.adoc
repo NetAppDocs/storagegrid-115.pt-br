@@ -1,0 +1,19 @@
+---
+permalink: tenant/managing-system-access-for-tenant-users.html 
+sidebar: sidebar 
+keywords:  
+summary: Você concede aos usuários acesso a uma conta de locatário importando grupos de uma origem de identidade federada e atribuindo permissões de gerenciamento. Você também pode criar grupos de inquilinos locais e usuários, a menos que o logon único esteja em vigor para todo o sistema StorageGRID. 
+---
+= Gerenciamento do acesso do sistema para usuários de locatários
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você concede aos usuários acesso a uma conta de locatário importando grupos de uma origem de identidade federada e atribuindo permissões de gerenciamento. Você também pode criar grupos de locatários locais e usuários, a menos que o logon único (SSO) esteja em vigor para todo o sistema StorageGRID.
+
+* link:using-identity-federation.html["Usando a federação de identidade"]
+* link:managing-groups.html["Gerenciando grupos"]
+* link:managing-local-users.html["Gerenciamento de usuários locais"]
+

@@ -1,0 +1,28 @@
+---
+permalink: upgrade/changes-to-tenant-management-api.html 
+sidebar: sidebar 
+keywords: tenant management api, api, api version, swagger, rest api 
+summary: O StorageGRID 11,5 usa a versão 3 da API de gerenciamento do locatário. A versão 3 desconsidera a versão 2; no entanto, a versão 1 e a versão 2 ainda são suportadas. 
+---
+= Alterações na API de gerenciamento do locatário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O StorageGRID 11,5 usa a versão 3 da API de gerenciamento do locatário. A versão 3 desconsidera a versão 2; no entanto, a versão 1 e a versão 2 ainda são suportadas.
+
+
+IMPORTANT: Você pode continuar usando a versão 1 e a versão 2 da API de gerenciamento com o StorageGRID 11,5; no entanto, o suporte para essas versões da API será removido em uma versão futura do StorageGRID. Depois de atualizar para o StorageGRID 11,5, as APIs v1 e v2 obsoletas podem ser desativadas usando a `PUT /grid/config/management` API.
+
+
+
+== Novo parâmetro para API de uso de armazenamento de locatário
+
+A `GET /org/usage` API agora tem um `strictConsistency` parâmetro. Para impor uma consistência global forte ao recuperar informações de uso de storage entre nós de storage, defina este parâmetro como `true`. Quando esse parâmetro é definido como `false` (padrão), o StorageGRID tenta recuperar informações de uso usando consistência global forte, mas volta para consistência de site forte se a consistência global forte não puder ser atendida.
+
+.Informações relacionadas
+link:../s3/index.html["Use S3"]
+
+link:../tenant/index.html["Use uma conta de locatário"]

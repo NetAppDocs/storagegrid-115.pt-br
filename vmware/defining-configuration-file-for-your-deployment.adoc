@@ -1,0 +1,24 @@
+---
+permalink: vmware/defining-configuration-file-for-your-deployment.html 
+sidebar: sidebar 
+keywords:  
+summary: Você especifica as informações necessárias para implantar nós de grade virtual para o StorageGRID em um arquivo de configuração, que é usado pelo script Bash deploy-vsphere-ovftool.sh. Você pode modificar um arquivo de configuração de exemplo, para que você não precise criar o arquivo do zero. 
+---
+= Definindo o arquivo de configuração para sua implantação
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você especifica as informações necessárias para implantar nós de grade virtual para o StorageGRID em um arquivo de configuração, que é usado pelo `deploy-vsphere-ovftool.sh` script Bash. Você pode modificar um arquivo de configuração de exemplo, para que você não precise criar o arquivo do zero.
+
+.Passos
+. Faça uma cópia do arquivo de configuração de amostra (`deploy-vsphere-ovftool.sample.ini`). Salve o novo arquivo como `deploy-vsphere-ovftool.ini` no mesmo diretório do `deploy-vsphere-ovftool.sh`.
+. Abra `deploy-vsphere-ovftool.ini`o .
+. Insira todas as informações necessárias para implantar os nós de grade virtual da VMware.
++
+Consulte link:configuration-file-settings.html["Definições do ficheiro de configuração"] para obter informações.
+
+. Quando tiver introduzido e verificado todas as informações necessárias, guarde e feche o ficheiro.
+

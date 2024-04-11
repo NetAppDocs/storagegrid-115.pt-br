@@ -1,0 +1,152 @@
+---
+permalink: upgrade/estimating-time-to-complete-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, time estimate, duration, cassandra upgrade 
+summary: Ao Planejar uma atualização para o StorageGRID 11,5, você deve considerar quando atualizar, com base em quanto tempo a atualização pode demorar. Você também deve estar ciente de quais operações você pode e não pode executar durante cada etapa da atualização. 
+---
+= Estimando o tempo para concluir uma atualização
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ao Planejar uma atualização para o StorageGRID 11,5, você deve considerar quando atualizar, com base em quanto tempo a atualização pode demorar. Você também deve estar ciente de quais operações você pode e não pode executar durante cada etapa da atualização.
+
+.Sobre esta tarefa
+O tempo necessário para concluir uma atualização do StorageGRID depende de uma variedade de fatores, como carga do cliente e desempenho do hardware.
+
+A tabela resume as principais tarefas de atualização e lista o tempo aproximado necessário para cada tarefa. As etapas após a tabela fornecem instruções que você pode usar para estimar o tempo de atualização para o seu sistema.
+
+
+IMPORTANT: Durante a atualização do StorageGRID 11,4 para o 11,5, as tabelas do banco de dados Cassandra nos nós de armazenamento serão atualizadas. A tarefa *Atualizar banco de dados* ocorre em segundo plano, mas pode exigir uma grande quantidade de tempo para ser concluída. Enquanto o banco de dados está sendo atualizado, você pode usar com segurança novos recursos, aplicar hotfixes e executar operações de recuperação de nó. No entanto, poderá ser impedido de executar outros procedimentos de manutenção.
+
+
+NOTE: Se uma expansão for urgentemente necessária, execute a expansão antes de atualizar para 11,5.
+
+[cols="1a,1a,1a,a"]
+|===
+| Tarefa de atualização | Descrição | Tempo aproximado necessário | Durante esta tarefa 
+
+
+ a| 
+Inicie o serviço de atualização
+ a| 
+As pré-verificações de atualização são executadas, o arquivo de software é distribuído e o serviço de atualização é iniciado.
+ a| 
+3 minutos por nó de grade, a menos que erros de validação sejam relatados
+ a| 
+Conforme necessário, você pode executar as pré-verificações de atualização manualmente antes da janela de manutenção de atualização agendada.
+
+
+
+ a| 
+Atualizar nós de grade (nó de administração principal)
+ a| 
+O nó Admin principal é interrompido, atualizado e reiniciado.
+ a| 
+Até 30 minutos
+ a| 
+Não é possível acessar o nó de administração principal. Os erros de conexão são relatados, o que você pode ignorar.
+
+
+
+ a| 
+Atualizar nós de grade (todos os outros nós)
+ a| 
+O software em todos os outros nós de grade é atualizado, na ordem em que você aprova os nós. Cada nó no seu sistema será reduzido um de cada vez por vários minutos cada.
+ a| 
+De 15 a 45 minutos por nó, com os nós de storage do dispositivo que exigem mais tempo
+
+*Nota:* para nós de appliance, o Instalador de appliance StorageGRID é atualizado automaticamente para a versão mais recente.
+ a| 
+* Não altere a configuração da grade.
+* Não altere a configuração do nível de auditoria.
+* Não atualize a configuração do ILM.
+* Não execute outro procedimento de manutenção, como hotfix, desativação ou expansão.
++
+*Observação:* se você precisar executar um procedimento de recuperação, entre em Contato com o suporte técnico.
+
+
+
+
+
+ a| 
+Ativar funcionalidades
+ a| 
+As novas funcionalidades para a nova versão estão ativadas.
+ a| 
+Menos de 5 minutos
+ a| 
+* Não altere a configuração da grade.
+* Não altere a configuração do nível de auditoria.
+* Não atualize a configuração do ILM.
+* Não execute outro procedimento de manutenção.
+
+
+
+
+ a| 
+Atualizar base de dados
+ a| 
+As tabelas de banco de dados Cassandra, que existem em todos os nós de storage, são atualizadas.
+ a| 
+Horas ou dias, com base na quantidade de metadados em seu sistema
+ a| 
+Durante a tarefa *Upgrade Database*, a grade atualizada funcionará normalmente; no entanto, a atualização ainda estará em andamento. Durante esta tarefa, você pode:
+
+* Use os novos recursos na nova versão do StorageGRID.
+* Alterar a configuração do nível de auditoria.
+* Atualize a configuração do ILM.
+* Aplique um hotfix.
+* Recuperar um nó.
+
+
+*Observação:* você não pode executar um procedimento de desativação ou expansão até que as *etapas de atualização final* sejam concluídas.
+
+
+
+ a| 
+Etapas finais da atualização
+ a| 
+Os arquivos temporários são removidos e a atualização para a nova versão é concluída.
+ a| 
+5 minutos
+ a| 
+Quando a tarefa *etapas de atualização final* for concluída, você poderá executar todos os procedimentos de manutenção.
+
+|===
+.Passos
+. Estime o tempo necessário para atualizar todos os nós de grade (considere todas as tarefas de atualização, exceto *Upgrade Database*).
++
+.. Multiplique o número de nós em seu sistema StorageGRID por 30 minutos/nó (média).
+.. Adicione 1 hora a esta hora para ter em conta o tempo necessário para baixar o `.upgrade` arquivo, executar validações de pré-verificação e concluir as etapas finais de atualização.
+
+
+. Se você tiver nós do Linux, adicione 15 minutos para cada nó para ter em conta o tempo necessário para baixar e instalar o pacote RPM ou DEB.
+. Estime o tempo necessário para atualizar o banco de dados.
++
+.. No Gerenciador de Grade, selecione *nós*.
+.. Selecione a primeira entrada na árvore (grade inteira) e selecione a guia *armazenamento*.
+.. Passe o cursor sobre o gráfico *armazenamento usado - metadados de objetos* e localize o valor *usado*, que indica quantos bytes de metadados de objetos estão em sua grade.
+.. Divida o valor *usado* por 1,5 TB/dia para determinar quantos dias serão necessários para atualizar o banco de dados.
+
+
+. Calcule o tempo total estimado para a atualização adicionando os resultados das etapas 1, 2 e 3.
+
+
+
+
+== Exemplo: Estimando o tempo de atualização do StorageGRID 11,4 para o 11,5
+
+Suponha que seu sistema tenha 14 nós de grade, dos quais 8 são nós de Linux. Além disso, suponha que o valor *usado* para metadados de objetos é de 6 TB.
+
+. Multiplique 14 por 30 minutos/nó e adicione 1 hora. O tempo estimado para atualizar todos os nós é de 8 horas.
+. Vários 8 por 15 minutos/nó para contabilizar o tempo de instalação do pacote RPM ou DEB nos nós Linux. O tempo estimado para este passo é de 2 horas.
+. Divida 6 por 1,5 TB/dia. O número estimado de dias para a tarefa *Upgrade Database* é de 4 dias.
++
+
+NOTE: Enquanto a tarefa *Upgrade Database* está em execução, você pode usar com segurança novos recursos, aplicar hotfixes e executar operações de recuperação de nó.
+
+. Adicione os valores juntos. Você deve permitir 5 dias para concluir a atualização do seu sistema para o StorageGRID 11,5.0.
+

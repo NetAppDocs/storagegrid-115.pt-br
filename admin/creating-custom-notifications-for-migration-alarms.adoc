@@ -1,0 +1,34 @@
+---
+permalink: admin/creating-custom-notifications-for-migration-alarms.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode querer que o StorageGRID envie notificações de alerta ou notificações de alarme para o administrador do sistema responsável pelo monitoramento da migração se determinados valores excederem os limites recomendados. 
+---
+= Criação de notificações personalizadas para alarmes de migração
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode querer que o StorageGRID envie notificações de alerta ou notificações de alarme (sistema legado) para o administrador do sistema responsável pelo monitoramento da migração se certos valores excederem os limites recomendados.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+* Você deve ter configurado configurações de e-mail para notificações de alerta (ou alarme).
+
+
+.Passos
+. Crie uma regra de alerta personalizada ou um alarme personalizado global para cada métrica ou atributo StorageGRID do Prometheus que você deseja monitorar durante a migração de dados.
++
+Os alertas são acionados com base nos valores métricos Prometheus. Os alarmes são acionados com base em valores de atributo. Consulte as instruções para monitoramento e solução de problemas do StorageGRID para obter mais informações.
+
+. Desative a regra de alerta personalizado ou o alarme personalizado global após a conclusão da migração de dados.
++
+Observe que os alarmes personalizados globais substituem os alarmes padrão.
+
+
+
+.Informações relacionadas
+link:../monitor/index.html["Monitorizar  Resolução de problemas"]

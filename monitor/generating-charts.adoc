@@ -1,0 +1,43 @@
+---
+permalink: monitor/generating-charts.html 
+sidebar: sidebar 
+keywords: charts, generating 
+summary: Os gráficos exibem uma representação gráfica dos valores de dados de atributos. Você pode gerar relatórios em um local de data center, nó de grade, componente ou serviço. 
+---
+= Gerando gráficos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os gráficos exibem uma representação gráfica dos valores de dados de atributos. Você pode gerar relatórios em um local de data center, nó de grade, componente ou serviço.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+
+
+.Passos
+. Selecione *Support* > *Tools* > *Grid Topology*.
+. Selecione *_grid node_* *_component ou Service_* *Reports* *Charts*.
+. Selecione o atributo para relatar na lista suspensa *Atributo*.
+. Para forçar o eixo Y a iniciar em zero, desmarque a caixa de seleção *vertical Scaling*.
+. Para mostrar valores com precisão total, marque a caixa de seleção *dados brutos* ou arredondar valores para um máximo de três casas decimais (por exemplo, para atributos relatados como porcentagens), desmarque a caixa de seleção *dados brutos*.
+. Selecione o período de tempo para relatar na lista suspensa *consulta rápida*.
++
+Selecione a opção consulta personalizada para selecionar um intervalo de tempo específico.
+
++
+O gráfico aparece após alguns momentos. Aguarde vários minutos para a tabulação de longos intervalos de tempo.
+
+. Se você selecionou consulta personalizada, personalize o período de tempo para o gráfico inserindo *Data de início* e *Data de término*.
++
+Utilize o formato `_YYYY/MM/DDHH:MM:SS_` na hora local. Zeros à esquerda são necessários para corresponder ao formato. Por exemplo, 2017/4/6 7:30:00 falha na validação. O formato correto é: 2017/04/06 07:30:00.
+
+. Clique em *Atualizar*.
++
+Um gráfico é gerado após alguns momentos. Aguarde vários minutos para a tabulação de longos intervalos de tempo. Dependendo do período de tempo definido para a consulta, um relatório de texto bruto ou um relatório de texto agregado são exibidos.
+
+. Se pretender imprimir o gráfico, clique com o botão direito do rato e selecione *Imprimir*, modifique as definições de impressora necessárias e clique em *Imprimir*.
+

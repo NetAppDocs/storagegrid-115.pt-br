@@ -1,0 +1,43 @@
+---
+permalink: maintain/grid-node-procedures.html 
+sidebar: sidebar 
+keywords: storagegrid, grid node procedure 
+summary: Talvez seja necessário executar procedimentos em um nó de grade específico. Embora você possa executar alguns desses procedimentos no Gerenciador de Grade, a maioria dos procedimentos exige que você acesse o Gerenciador de servidor a partir da linha de comando do nó. 
+---
+= Procedimentos do nó de grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Talvez seja necessário executar procedimentos em um nó de grade específico. Embora você possa executar alguns desses procedimentos no Gerenciador de Grade, a maioria dos procedimentos exige que você acesse o Gerenciador de servidor a partir da linha de comando do nó.
+
+O Gerenciador de servidores é executado em cada nó de grade para supervisionar o início e a parada dos serviços e garantir que os serviços se juntem e saiam do sistema StorageGRID. O Gerenciador de servidores também monitora os serviços em cada nó de grade e tentará reiniciar automaticamente quaisquer serviços que relatem falhas.
+
+
+IMPORTANT: Você deve acessar o Server Manager somente se o suporte técnico o tiver direcionado para isso.
+
+
+NOTE: Você deve fechar a sessão de shell de comando atual e fazer logout depois de terminar com o Gerenciador de servidor. Introduza: `exit`
+
+.Opções
+* link:viewing-server-manager-status-and-version.html["Exibindo o status e a versão do Server Manager"]
+* link:viewing-current-status-of-all-services.html["Exibindo o status atual de todos os serviços"]
+* link:starting-server-manager-and-all-services.html["Iniciando o Server Manager e todos os serviços"]
+* link:restarting-server-manager-and-all-services.html["Reiniciando o Gerenciador de servidores e todos os serviços"]
+* link:stopping-server-manager-and-all-services.html["Parar o Gerenciador de servidores e todos os serviços"]
+* link:viewing-current-status-of-service.html["Exibindo o status atual de um serviço"]
+* link:stopping-service.html["Parar um serviço"]
+* link:placing-appliance-into-maintenance-mode.html["Colocar um aparelho no modo de manutenção"]
+* link:forcing-service-to-terminate.html["Forçar a cessação de um serviço"]
+* link:starting-or-restarting-service.html["Iniciar ou reiniciar um serviço"]
+* link:removing-port-remaps.html["Removendo remapas de portas"]
+* link:removing-port-remaps-on-bare-metal-hosts.html["Remoção de remapas de portas em hosts bare metal"]
+* link:rebooting-grid-node.html["Reinicializando um nó de grade"]
+* link:shutting-down-grid-node.html["Fechando um nó de grade"]
+* link:powering-down-host.html["Desligar um host"]
+* link:powering-off-and-on-all-nodes-in-grid.html["Desligar e ligar todos os nós na grade"]
+* link:using-donotstart-file.html["Usando um arquivo DoNotStart"]
+* link:troubleshooting-server-manager.html["Solução de problemas do Server Manager"]
+

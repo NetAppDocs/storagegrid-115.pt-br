@@ -1,0 +1,227 @@
+---
+permalink: upgrade/removed-or-deprecated-features.html 
+sidebar: sidebar 
+keywords: features, removed, deprecated, weak consistency, compliance 
+summary: Alguns recursos foram removidos ou obsoletos no StorageGRID 11,5. Você deve revisar esses itens para entender se você precisa atualizar aplicativos de cliente ou modificar sua configuração antes de atualizar. 
+---
+= Recursos removidos ou obsoletos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Alguns recursos foram removidos ou obsoletos no StorageGRID 11,5. Você deve revisar esses itens para entender se você precisa atualizar aplicativos de cliente ou modificar sua configuração antes de atualizar.
+
+
+
+== Comando de consistência fraca removido
+
+O controle de consistência fraca foi removido para o StorageGRID 11,5. Depois de atualizar, serão aplicados os seguintes comportamentos:
+
+* As solicitações para definir consistência fraca para um bucket S3 ou Swift serão bem-sucedidas, mas o nível de consistência será definido como disponível.
+* Os buckets e os contentores existentes que usam consistência fraca serão silenciosamente atualizados para usar a consistência disponível.
+* As solicitações que têm um cabeçalho de controle de consistência fraco realmente usarão a consistência disponível, se aplicável.
+
+
+O controle de consistência disponível comporta-se da mesma forma que o nível de consistência "read-after-new-write", mas apenas fornece consistência eventual para operações HEAD. O controle de consistência disponível oferece maior disponibilidade para OPERAÇÕES PRINCIPAIS do que "read-after-novo-write" se os nós de storage não estiverem disponíveis.
+
+
+
+== Alarme para integridade da grade obsoleta
+
+A `/grid/health/topology` API, que verifica a existência de _alarmes_ ativos em nós, está obsoleta. Em seu lugar, um novo `/grid/node-health` endpoint foi adicionado. Essa API retorna o status atual de cada nó verificando se há _alertas_ ativos em nós.
+
+
+
+== Funcionalidade de conformidade obsoleta
+
+O recurso bloqueio de objetos S3 no StorageGRID 11,5 substitui o recurso de conformidade que estava disponível nas versões anteriores do StorageGRID. Como o novo recurso de bloqueio de objetos do S3 está em conformidade com os requisitos do Amazon S3, ele deprecia o recurso proprietário de conformidade do StorageGRID, que agora é conhecido como ""conformidade legada"".
+
+Se você ativou anteriormente a configuração de conformidade global, a nova configuração global de bloqueio de objetos S3 será ativada automaticamente quando você atualizar para o StorageGRID 11,5. Os usuários do locatário não poderão mais criar novos buckets com a conformidade habilitada no StorageGRID. No entanto, conforme necessário, os usuários do locatário podem continuar a usar e gerenciar quaisquer buckets em conformidade legados existentes.
+
+No Gerenciador do Tenant, um ícone de escudo image:../media/icon_shield.png["Ícone de escudo"]indica um bucket em conformidade com o legado. Buckets em conformidade com legado também podem ter um crachá de retenção image:../media/hold_badge.png["Mantenha o emblema"]para indicar que o bucket está sob um guarda legal.
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["KB: Como gerenciar buckets em conformidade com o legado no StorageGRID 11,5"^]
+
+link:../ilm/index.html["Gerenciar objetos com ILM"]
+
+
+
+== Alerta "'S3 multipart too small" removido
+
+O alerta *S3 multipart too small* foi removido. Anterior, esse alerta foi acionado se um cliente S3 tentou concluir um upload de várias partes com peças que não atenderam aos limites de tamanho do Amazon S3. Após a atualização para o StorageGRID 11,5, quaisquer solicitações de upload de várias partes que não atendam aos seguintes limites de tamanho falharão:
+
+* Cada parte em um upload de várias partes deve estar entre 5 MIB (5.242.880 bytes) e 5 GiB (5.368.709.120 bytes).
+* A última parte pode ser menor que 5 MIB (5.242.880 bytes).
+* Em geral, os tamanhos das peças devem ser tão grandes quanto possível. Por exemplo, use tamanhos de peças de 5 GiB para um objeto de 100 GiB. Como cada peça é considerada um objeto exclusivo, o uso de tamanhos de peças grandes reduz a sobrecarga de metadados do StorageGRID.
+* Para objetos menores que 5 GiB, considere usar upload não multipart.
+
+
+
+
+== Alertas de "ligação do dispositivo para baixo na rede de grelha" removidos
+
+Os alertas a seguir foram removidos. Se a rede de Grade estiver inativa, as métricas que acionariam esses alertas não estarão acessíveis:
+
+* Link do utilitário de serviços para baixo na rede de Grade
+* Ligação do dispositivo de armazenamento na rede de grelha
+
+
+
+
+== Suporte para nome de domínio totalmente qualificado removido da configuração SNMP
+
+Ao configurar um servidor SNMP no controlador de gerenciamento de placa base (BMC) para o SG6000, SG100 ou SG1000, agora você deve especificar um endereço IP em vez de um nome de domínio totalmente qualificado. Se um nome de domínio totalmente qualificado tiver sido configurado anteriormente, altere-o para um endereço IP antes de atualizar para o StorageGRID 11,5.
+
+
+
+== Atributos legados removidos
+
+Os seguintes atributos legados foram removidos. Conforme aplicável, informações equivalentes são fornecidas pelas métricas Prometheus:
+
+[cols="1a,2a"]
+|===
+| Atributo legado | Métrica equivalente Prometheus 
+
+
+ a| 
+BREC
+ a| 
+StorageGRID_service_network_received_bytes
+
+
+
+ a| 
+BTRA
+ a| 
+StorageGRID_service_network_transmitted_bytes
+
+
+
+ a| 
+CQST
+ a| 
+StorageGRID_metadata_queries_average_latency_milésimos de segundo
+
+
+
+ a| 
+HAIS
+ a| 
+StorageGRID_http_sessions_incoming_tented
+
+
+
+ a| 
+HCCS
+ a| 
+StorageGRID_http_sessions_incoming_currently_established
+
+
+
+ a| 
+IES
+ a| 
+StorageGRID_http_sessions_incoming_failed
+
+
+
+ a| 
+HISC
+ a| 
+StorageGRID_http_sessions_incoming_successful
+
+
+
+ a| 
+LHAC
+ a| 
+_none_
+
+
+
+ a| 
+NREC
+ a| 
+_none_
+
+
+
+ a| 
+NTSO (desvio da fonte de tempo escolhido)
+ a| 
+StorageGRID_ntp_chosen_time_source_offset_milissegundos
+
+
+
+ a| 
+NTRA
+ a| 
+_none_
+
+
+
+ a| 
+SLOD
+ a| 
+StorageGRID_service_load
+
+
+
+ a| 
+SMM
+ a| 
+StorageGRID_service_memory_usage_bytes
+
+
+
+ a| 
+SUTM
+ a| 
+StorageGRID_service_cpu_seconds
+
+
+
+ a| 
+SVUT
+ a| 
+StorageGRID_service_uptime_seconds
+
+
+
+ a| 
+TRBS (total de bits por segundo recebidos)
+ a| 
+_none_
+
+
+
+ a| 
+TRXB
+ a| 
+StorageGRID_network_received_bytes
+
+
+
+ a| 
+TTBS (total de bits por segundo transmitidos)
+ a| 
+_none_
+
+
+
+ a| 
+TTXB
+ a| 
+StorageGRID_network_transmitted_bytes
+
+|===
+As seguintes alterações relacionadas também foram feitas:
+
+* As `network_received_bytes` métricas e `network_transmitted_bytes` Prometheus foram alteradas de medidores para contadores porque os valores dessas métricas só aumentam. Se você estiver usando essas métricas atualmente em consultas Prometheus, você deve começar a usar a `increase()` função na consulta.
+* A tabela recursos de rede foi removida da guia recursos para serviços do StorageGRID. (Selecione *Support* *Tools* *Grid Topology*.then, selecione *_node_* *_Service_* *Resources*.)
+* A página sessões HTTP foi removida para nós de storage. Anteriormente, você poderia acessar esta página selecionando *Support* *Tools* *Grid Topology* e, em seguida, selecionando *_Storage Node_* *LDR* *HTTP*.
+* O alarme DE HCCS (sessões de entrada atualmente estabelecidas) foi removido.
+* O alarme NTSO (desvio da fonte de tempo escolhido) foi removido.
+

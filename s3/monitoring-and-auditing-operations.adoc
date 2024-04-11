@@ -1,0 +1,18 @@
+---
+permalink: s3/monitoring-and-auditing-operations.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode monitorar workloads e eficiências das operações do cliente visualizando tendências de transações para toda a grade ou para nós específicos. Você pode usar mensagens de auditoria para monitorar operações e transações do cliente. 
+---
+= Operações de monitoramento e auditoria
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode monitorar workloads e eficiências das operações do cliente visualizando tendências de transações para toda a grade ou para nós específicos. Você pode usar mensagens de auditoria para monitorar operações e transações do cliente.
+
+* link:monitoring-object-ingest-and-retrieval-rates.html["Monitoramento de taxas de ingestão e recuperação de objetos"]
+* link:accessing-and-reviewing-audit-logs.html["Acesso e revisão de logs de auditoria"]
+

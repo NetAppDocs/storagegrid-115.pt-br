@@ -1,0 +1,14 @@
+---
+permalink: maintain/troubleshooting-server-manager.html 
+sidebar: sidebar 
+keywords:  
+summary: O suporte técnico pode direcioná-lo para tarefas de solução de problemas para determinar a origem dos problemas relacionados ao Gerenciador de servidores. 
+---
+= Solução de problemas do Server Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O suporte técnico pode direcioná-lo para tarefas de solução de problemas para determinar a origem dos problemas relacionados ao Gerenciador de servidores.

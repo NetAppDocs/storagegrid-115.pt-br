@@ -1,0 +1,40 @@
+---
+permalink: ubuntu/example-2-lacp-bond-carrying-vlans.html 
+sidebar: sidebar 
+keywords:  
+summary: O exemplo 2 assume que você está familiarizado com a ligação de interfaces de rede e com a criação de interfaces VLAN na distribuição Linux que você está usando. 
+---
+= Exemplo 2: VLANs de transporte de ligação LACP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O exemplo 2 assume que você está familiarizado com a ligação de interfaces de rede e com a criação de interfaces VLAN na distribuição Linux que você está usando.
+
+.Sobre esta tarefa
+O exemplo 2 descreve um esquema genérico, flexível e baseado em VLAN que facilita o compartilhamento de toda a largura de banda de rede disponível em todos os nós em um único host. Este exemplo é particularmente aplicável a hosts de metal nu.
+
+Para entender esse exemplo, suponha que você tenha três sub-redes separadas para redes Grid, Admin e Client em cada data center. As sub-redes estão em VLANs separadas (1001, 1002 e 1003) e são apresentadas ao host em uma porta de tronco ligada ao LACP (bond0). Você configuraria três interfaces VLAN na ligação: bond0,1001, bond0,1002 e bond0,1003.
+
+Se você precisar de VLANs e sub-redes separadas para redes de nós no mesmo host, você pode adicionar interfaces VLAN na ligação e mapeá-las no host (mostrado como bond0,1004 na ilustração).
+
+image::../media/rhel_install_vlan_diag_2.gif[Esta imagem é explicada pelo texto circundante.]
+
+.Passos
+. Agregue todas as interfaces de rede físicas que serão usadas para conetividade de rede StorageGRID em uma única ligação LACP.
++
+Use o mesmo nome para a ligação em cada host, por exemplo, bond0.
+
+. Crie interfaces VLAN que usam essa ligação como seu "'dispositivo físico associado,`" using the standard VLAN interface naming convention `physdev-name.VLAN ID` .
++
+Observe que as etapas 1 e 2 exigem a configuração apropriada nos switches de borda que terminam as outras extremidades dos links de rede. As portas do switch de borda também devem ser agregadas em um canal de porta LACP, configurado como um tronco, e ter permissão para passar todas as VLANs necessárias.
+
++
+Arquivos de configuração de interface de exemplo para este esquema de configuração de rede por host são fornecidos.
+
+
+
+.Informações relacionadas
+link:example-etc-network-interfaces.html["Exemplo /etc/network/interfaces"]

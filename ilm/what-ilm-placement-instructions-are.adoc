@@ -1,0 +1,49 @@
+---
+permalink: ilm/what-ilm-placement-instructions-are.html 
+sidebar: sidebar 
+keywords:  
+summary: As instruções de posicionamento determinam onde, quando e como os dados do objeto são armazenados. Uma regra ILM pode incluir uma ou mais instruções de colocação. Cada instrução de colocação aplica-se a um único período de tempo. 
+---
+= Quais são as instruções de colocação de regras do ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+As instruções de posicionamento determinam onde, quando e como os dados do objeto são armazenados. Uma regra ILM pode incluir uma ou mais instruções de colocação. Cada instrução de colocação aplica-se a um único período de tempo.
+
+Ao criar uma instrução de posicionamento, você especifica quando o posicionamento se aplica (o período de tempo), que tipo de cópias criar (replicadas ou codificadas para apagamento) e onde armazenar as cópias (um ou mais locais de storage). Em uma única regra, você pode especificar vários canais por um período de tempo e instruções de posicionamento por mais de um período de tempo:
+
+* Para especificar mais de um posicionamento de objeto durante um único período de tempo, clique no ícone de sinal de adição image:../media/icon_plus_sign_black_on_white.gif["Ícone de sinal Plus Preto sobre Branco"]para adicionar mais de uma linha para esse período de tempo.
+* Para especificar posicionamentos de objetos por mais de um período de tempo, clique no botão *Adicionar* para adicionar o próximo período de tempo. Em seguida, especifique uma ou mais linhas dentro do período de tempo.
+
+
+O exemplo mostra a página Definir posicionamentos do assistente criar regra ILM.
+
+image::../media/ilm_rule_multiple_placements_in_single_time_period.png[Tela de posicionamentos ILM do Gerenciador de Grade]
+
+[cols="1a,3a"]
+|===
+
+
+ a| 
+image:../media/icon_number_1.png["ícone número 1"]
+ a| 
+A primeira instrução de colocação tem duas linhas para o primeiro ano:
+
+. A primeira linha cria duas cópias de objeto replicadas em dois locais de data center.
+. A segunda linha cria uma cópia codificada por apagamento de mais de 6 3 usando três locais de data center.
+
+
+
+
+ a| 
+image:../media/icon_number_2.png["ícone número 2"]
+ a| 
+A segunda instrução de colocação cria duas cópias arquivadas após um ano e mantém essas cópias para sempre.
+
+|===
+Quando você define o conjunto de instruções de colocação para uma regra, você deve garantir que pelo menos uma instrução de colocação comece no dia 0, que não haja lacunas entre os períodos de tempo definidos e que a instrução de colocação final continue para sempre ou até que você não precise mais nenhuma cópia de objeto.
+
+À medida que cada período de tempo na regra expira, as instruções de colocação de conteúdo para o próximo período de tempo são aplicadas. Novas cópias de objetos são criadas e todas as cópias desnecessárias são excluídas.

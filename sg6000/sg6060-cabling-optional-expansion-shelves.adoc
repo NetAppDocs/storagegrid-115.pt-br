@@ -1,0 +1,104 @@
+---
+permalink: sg6000/sg6060-cabling-optional-expansion-shelves.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, cabling, cable, wiring, wire, expansion shelf, sg6060 
+summary: Se você estiver usando gavetas de expansão, será necessário conectá-los ao compartimento de controladora E2860. Você pode ter no máximo duas gavetas de expansão para cada dispositivo SG6060. 
+---
+= SG6060: Cabeamento das gavetas de expansão opcionais
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você estiver usando gavetas de expansão, será necessário conectá-los ao compartimento de controladora E2860. Você pode ter no máximo duas gavetas de expansão para cada dispositivo SG6060.
+
+.O que você vai precisar
+* Você tem os dois cabos SAS fornecidos com cada compartimento de expansão.
+* Você instalou as gavetas de expansão no gabinete ou rack que contém o compartimento de controladora E2860.
++
+link:sg6060-installing-60-drive-shelves-into-cabinet-or-rack.html["SG6060: Instalação de compartimentos de 60 unidades em um gabinete ou rack"]
+
+
+
+.Passo
+Conete cada compartimento de expansão ao compartimento de controladora E2860, conforme mostrado no diagrama.
+
+Este desenho mostra duas prateleiras de expansão. Se tiver apenas uma, ligue a IOM A ao controlador A e ligue a IOM B ao controlador B.
+
+image::../media/expansion_shelves_connections_sg6060.png[SG6060 conexões do compartimento de expansão]
+
+[cols="1a,5a"]
+|===
+|  | Descrição 
+
+
+ a| 
+1
+ a| 
+SG6000-CN
+
+
+
+ a| 
+2
+ a| 
+Compartimento do controlador de E2860 TB
+
+
+
+ a| 
+3
+ a| 
+Controlador A
+
+
+
+ a| 
+4
+ a| 
+Controlador B
+
+
+
+ a| 
+5
+ a| 
+Compartimento de expansão 1
+
+
+
+ a| 
+6
+ a| 
+IOM A para compartimento de expansão 1
+
+
+
+ a| 
+7
+ a| 
+IOM B para compartimento de expansão 1
+
+
+
+ a| 
+8
+ a| 
+Compartimento de expansão 2
+
+
+
+ a| 
+9
+ a| 
+IOM A para compartimento de expansão 2
+
+
+
+ a| 
+10
+ a| 
+IOM B para compartimento de expansão 2
+
+|===

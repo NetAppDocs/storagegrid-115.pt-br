@@ -1,0 +1,40 @@
+---
+permalink: expand/adding-grid-nodes-to-add-capabilities.html 
+sidebar: sidebar 
+keywords: grid nodes, expand, expansion, site, add 
+summary: Você pode adicionar redundância ou recursos adicionais a um sistema StorageGRID adicionando novos nós de grade a sites existentes. 
+---
+= Adição de nós de grade para adicionar recursos ao seu sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode adicionar redundância ou recursos adicionais a um sistema StorageGRID adicionando novos nós de grade a sites existentes.
+
+Por exemplo, você pode optar por adicionar nós de Gateway adicionais para suportar a criação de grupos de alta disponibilidade de nós de Gateway, ou você pode adicionar um nó de administrador em um site remoto para permitir o monitoramento usando um nó local.
+
+Você pode adicionar um ou mais dos seguintes tipos de nós a um ou mais locais existentes em uma única operação de expansão:
+
+* Nós de administração não primários
+* Nós de storage
+* Nós de gateway
+* Nós de arquivamento
+
+
+Ao se preparar para adicionar nós de grade, esteja ciente das seguintes limitações:
+
+* O nó de administração principal é implantado durante a instalação inicial. Não é possível adicionar um nó de administração principal durante uma expansão.
+* Você pode adicionar nós de storage e outros tipos de nós na mesma expansão.
+* Ao adicionar nós de storage, você deve Planejar cuidadosamente o número e o local dos novos nós.
++
+link:adding-storage-capacity.html["Adição de capacidade de storage"]
+
+* Se você estiver adicionando nós de Arquivo, observe que cada nó de Arquivo só suporta fita por meio do middleware Tivoli Storage Manager (TSM).
+* Se a opção *New Node Client Network Default* estiver definida como *unTrusted* na página redes de clientes não confiáveis, os aplicativos clientes que se conetam a nós de expansão usando a rede de cliente devem se conetar usando uma porta de endpoint do balanceador de carga (*Configuration* > *Network Settings* > *UnTrusted Client Network*). Consulte as instruções de administração do StorageGRID para alterar a configuração do novo nó e para configurar pontos de extremidade do balanceador de carga.
+
+
+*Informações relacionadas*
+
+link:../admin/index.html["Administrar o StorageGRID"]

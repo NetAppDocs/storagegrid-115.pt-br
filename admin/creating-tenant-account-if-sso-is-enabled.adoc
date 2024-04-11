@@ -1,0 +1,63 @@
+---
+permalink: admin/creating-tenant-account-if-sso-is-enabled.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Quando você cria uma conta de locatário, você especifica um nome, um protocolo de cliente e, opcionalmente, uma cota de armazenamento. Se o logon único (SSO) estiver ativado para o StorageGRID, você também especifica qual grupo federado tem permissão de acesso root para configurar a conta de locatário.' 
+---
+= Criando uma conta de locatário se o SSO estiver habilitado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando você cria uma conta de locatário, você especifica um nome, um protocolo de cliente e, opcionalmente, uma cota de armazenamento. Se o logon único (SSO) estiver ativado para o StorageGRID, você também especificará qual grupo federado tem permissão de acesso root para configurar a conta de locatário.
+
+.Passos
+. Na caixa de texto *Nome de exibição*, insira um nome de exibição para essa conta de locatário.
++
+Os nomes de exibição não precisam ser exclusivos. Quando a conta de locatário é criada, ela recebe um ID de conta numérico único.
+
+. Selecione o protocolo de cliente que será usado por esta conta de locatário, seja *S3* ou *Swift*.
+. Para contas de locatário do S3, mantenha a caixa de seleção *permitir Serviços de Plataforma* selecionada, a menos que você não queira que esse locatário use serviços de plataforma para buckets do S3.
++
+Se os serviços de plataforma estiverem ativados, um locatário poderá usar recursos, como a replicação do CloudMirror, que acessam serviços externos. Talvez você queira desativar o uso desses recursos para limitar a quantidade de largura de banda da rede ou outros recursos que um locatário consome. Consulte ""Gerenciando serviços de plataforma.""
+
+. Na caixa de texto *cota de armazenamento*, insira opcionalmente o número máximo de gigabytes, terabytes ou petabytes que você deseja disponibilizar para os objetos desse locatário. Em seguida, selecione as unidades na lista suspensa.
++
+Deixe esse campo em branco se você quiser que esse locatário tenha uma cota ilimitada.
+
++
+
+NOTE: A cota de armazenamento de um locatário representa uma quantidade lógica (tamanho do objeto), e não uma quantidade física (tamanho no disco). As cópias ILM e a codificação de apagamento não contribuem para a quantidade de cota usada. Se a cota for excedida, a conta de locatário não poderá criar novos objetos.
+
++
+
+NOTE: Para monitorar o uso de armazenamento de cada conta de locatário, selecione *uso*. As contas de locatário também podem monitorar seu próprio uso de storage no Dashboard no Gerenciador do locatário ou com a API de gerenciamento do locatário. Observe que os valores de uso de storage de um locatário podem ficar desatualizados se os nós forem isolados de outros nós na grade. Os totais serão atualizados quando a conetividade de rede for restaurada.
+
+. Observe que a caixa de seleção *usa a própria fonte de identidade* está desmarcada e desativada.
++
+Como o SSO está habilitado, o locatário deve usar a origem de identidade que foi configurada para o Gerenciador de Grade. Nenhum usuário local pode entrar.
+
+. No campo *Root Access Group*, selecione um grupo federado existente no Gerenciador de Grade para ter a permissão de acesso raiz inicial para o locatário.
++
+
+NOTE: Se você tiver permissões adequadas, os grupos federados existentes do Gerenciador de Grade serão listados quando você clicar no campo. Caso contrário, introduza o nome exclusivo do grupo.
+
+. Clique em *Salvar*.
++
+A conta de locatário é criada. A página Contas do locatário é exibida e inclui uma linha para o novo locatário.
+
+. Se você for um usuário no grupo de acesso root, opcionalmente clique no link *entrar* para que o novo locatário acesse imediatamente o Gerenciador de Locatário, onde você pode configurar o locatário. Caso contrário, forneça o URL do link *entrar* para o administrador da conta do locatário. (O URL de um locatário é o nome de domínio totalmente qualificado ou o endereço IP de qualquer nó Admin, seguido de `/?accountId=_20-digit-account-id_`.)
++
+
+NOTE: Uma mensagem de acesso negado será exibida se você clicar em *entrar*, mas você não pertencer ao grupo de acesso raiz da conta de locatário.
+
+
+
+.Informações relacionadas
+link:configuring-sso.html["Configurando logon único"]
+
+link:managing-platform-services-for-s3-tenant-accounts.html["Gerenciamento de serviços de plataforma para contas de locatários do S3"]
+
+link:../tenant/index.html["Use uma conta de locatário"]

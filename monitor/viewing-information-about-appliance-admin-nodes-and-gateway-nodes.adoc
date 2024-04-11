@@ -1,0 +1,233 @@
+---
+permalink: monitor/viewing-information-about-appliance-admin-nodes-and-gateway-nodes.html 
+sidebar: sidebar 
+keywords: appliance nodes, Gateway Nodes, Admin Nodes, viewing 
+summary: A página nós lista informações sobre a integridade do serviço e todos os recursos computacionais, de dispositivo de disco e de rede para cada dispositivo de serviços usado para um nó de administrador ou um nó de gateway. Você também pode ver memória, hardware de armazenamento, recursos de rede, interfaces de rede, endereços de rede e receber e transmitir dados. 
+---
+= Exibindo informações sobre nós de administração do dispositivo e nós de gateway
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A página nós lista informações sobre a integridade do serviço e todos os recursos computacionais, de dispositivo de disco e de rede para cada dispositivo de serviços usado para um nó de administrador ou um nó de gateway. Você também pode ver memória, hardware de armazenamento, recursos de rede, interfaces de rede, endereços de rede e receber e transmitir dados.
+
+.Passos
+. Na página nós, selecione um nó de administração do dispositivo ou um nó de gateway do dispositivo.
+. Selecione *Visão geral*.
++
+A tabela informações do nó na guia Visão geral exibe a ID e o nome do nó, o tipo de nó, a versão do software instalada e os endereços IP associados ao nó. A coluna Interface contém o nome da interface, da seguinte forma:
+
++
+** *Adllb* e *adlli*: Mostrado se a ligação ativa/backup é usada para a interface Admin Network
+** *eth*: Rede de Grade, rede Admin ou rede de cliente.
+** *Hic*: Uma das portas físicas de 10, 25 ou 100 GbE no dispositivo. Estas portas podem ser Unidas e ligadas à rede de grelha StorageGRID (eth0) e à rede de clientes (eth2).
+** *mtc*: Uma das portas físicas de 1 GbE no dispositivo, que pode ser ligada ou ligada à rede de administração do StorageGRID (eth1). image:../media/nodes_page_overview_tab_services_appliance.png["Guia Visão geral da página dos nós para o dispositivo de serviços"]
+
+
+. Selecione *hardware* para ver mais informações sobre o aparelho.
++
+.. Visualize os gráficos de utilização da CPU e memória para determinar as percentagens de utilização da CPU e da memória ao longo do tempo. Para exibir um intervalo de tempo diferente, selecione um dos controles acima do gráfico ou gráfico. Você pode exibir as informações disponíveis para intervalos de 1 hora, 1 dia, 1 semana ou 1 mês. Você também pode definir um intervalo personalizado, que permite especificar intervalos de data e hora.
++
+image::../media/nodes_page_hardware_tab_graphs_services_appliance.png[Gráficos da guia hardware da página de nós para o dispositivo de serviços]
+
+.. Role para baixo para ver a tabela de componentes do aparelho. Esta tabela contém informações como o nome do modelo, o número de série, a versão do firmware do controlador e o status de cada componente.
++
+image::../media/nodes_page_hardware_tab_services_appliance_do_not_use.png[Página nós guia hardware para o dispositivo de serviços]
+
++
+|===
+| Campo na mesa do aparelho | Descrição 
+
+
+ a| 
+Modelo do aparelho
+ a| 
+O número do modelo para este dispositivo StorageGRID.
+
+
+
+ a| 
+Falha na contagem de unidades do controlador de armazenamento
+ a| 
+O número de unidades que não são ideais.
+
+
+
+ a| 
+Tipo de unidade de dados de armazenamento
+ a| 
+O tipo de unidades no dispositivo, como HDD (unidade de disco rígido) ou SSD (unidade de estado sólido).
+
+
+
+ a| 
+Tamanho da unidade de dados de armazenamento
+ a| 
+Capacidade total, incluindo todas as unidades de dados do dispositivo.
+
+
+
+ a| 
+Modo RAID de armazenamento
+ a| 
+O modo RAID do dispositivo.
+
+
+
+ a| 
+Fonte de alimentação geral
+ a| 
+O estado de todas as fontes de alimentação no aparelho.
+
+
+
+ a| 
+IP do controlador de computação BMC
+ a| 
+O endereço IP da porta do controlador de gerenciamento de placa base (BMC) no controlador de computação. Você pode usar esse IP para se conetar à interface do BMC para monitorar e diagnosticar o hardware do dispositivo.
+
+Este campo não é apresentado para modelos de aparelhos que não contêm um BMC.
+
+
+
+ a| 
+Número de série do controlador de computação
+ a| 
+O número de série do controlador de computação.
+
+
+
+ a| 
+Hardware de computação
+ a| 
+O status do hardware do controlador de computação.
+
+
+
+ a| 
+Temperatura da CPU do controlador de computação
+ a| 
+O status da temperatura da CPU do controlador de computação.
+
+
+
+ a| 
+Temperatura do chassi do controlador de computação
+ a| 
+O status da temperatura do controlador de computação.
+
+|===
+.. Confirme se todos os Estados são ""nominais"".
++
+Se um status não for "nominal", revise os alertas atuais.
+
+
+
+. Selecione *rede* para ver as informações de cada rede.
++
+O gráfico tráfego de rede fornece um resumo do tráfego de rede geral.
+
++
+image::../media/nodes_page_network_traffic_graph.gif[Gráfico de tráfego de rede da página de nós]
+
++
+.. Reveja a secção interfaces de rede.
++
+image::../media/nodes_page_hardware_tab_network_services_appliance.png[Página de nós Guia hardware dispositivo de Serviços de rede]
+
++
+Use a tabela a seguir com os valores na coluna *velocidade* na tabela interfaces de rede para determinar se as quatro portas de rede 40/100-GbE no dispositivo foram configuradas para usar o modo ativo/backup ou o modo LACP.
+
++
+
+NOTE: Os valores mostrados na tabela assumem que todos os quatro links são usados.
+
++
+|===
+| Modo de ligação | Modo Bond | Velocidade de ligação HIC individual (hic1, hic2, hic3, hic4) | Velocidade esperada da rede do cliente/grade (eth0, eth2) 
+
+
+ a| 
+Agregado
+ a| 
+LACP
+ a| 
+100
+ a| 
+400
+
+
+
+ a| 
+Fixo
+ a| 
+LACP
+ a| 
+100
+ a| 
+200
+
+
+
+ a| 
+Fixo
+ a| 
+Ativo/Backup
+ a| 
+100
+ a| 
+100
+
+
+
+ a| 
+Agregado
+ a| 
+LACP
+ a| 
+40
+ a| 
+160
+
+
+
+ a| 
+Fixo
+ a| 
+LACP
+ a| 
+40
+ a| 
+80
+
+
+
+ a| 
+Fixo
+ a| 
+Ativo/Backup
+ a| 
+40
+ a| 
+40
+
+|===
+.. Reveja a secção Comunicação de rede.
++
+As tabelas de receção e transmissão mostram quantos bytes e pacotes foram recebidos e enviados através de cada rede, bem como outras métricas de receção e transmissão.
+
++
+image::../media/nodes_page_network_communication.gif[Comunicação de rede de Página de nós]
+
+
+
+. Selecione *armazenamento* para exibir informações sobre os dispositivos de disco e volumes no dispositivo de serviços.
++
+image::../media/nodes_page_storage_tab_services_appliance.png[Dispositivo de serviços de guia de storage da página nós]
+
+
+
+.Informações relacionadas
+link:../sg100-1000/index.html["Aparelhos de serviços SG100  SG1000"]

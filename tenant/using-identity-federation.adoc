@@ -1,0 +1,19 @@
+---
+permalink: tenant/using-identity-federation.html 
+sidebar: sidebar 
+keywords:  
+summary: O uso da federação de identidade torna a configuração de grupos de locatários e usuários mais rápida e permite que os usuários do locatário façam login na conta do locatário usando credenciais familiares. 
+---
+= Usando a federação de identidade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O uso da federação de identidade torna a configuração de grupos de locatários e usuários mais rápida e permite que os usuários do locatário façam login na conta do locatário usando credenciais familiares.
+
+* link:configuring-federated-identity-source.html["Configurando uma fonte de identidade federada"]
+* link:forcing-synchronization-with-identity-source.html["Forçando a sincronização com a fonte de identidade"]
+* link:disabling-identity-federation.html["Desativando a federação de identidade"]
+

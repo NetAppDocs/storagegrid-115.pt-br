@@ -1,0 +1,27 @@
+---
+permalink: admin/managing-storagegrid-networks-and-connections.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode usar o Gerenciador de Grade para configurar e gerenciar redes e conexões StorageGRID. 
+---
+= Gerenciamento de redes e conexões StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o Gerenciador de Grade para configurar e gerenciar redes e conexões StorageGRID.
+
+link:configuring-client-connections.html["Configurando conexões de cliente S3 e Swift"]Consulte para saber como conetar clientes S3 ou Swift.
+
+* link:guidelines-for-storagegrid-networks.html["Diretrizes para redes StorageGRID"]
+* link:viewing-ip-addresses.html["Visualização de endereços IP"]
+* link:supported-ciphers-for-outgoing-tls-connections.html["Cifras suportadas para conexões TLS de saída"]
+* link:changing-network-transfer-encryption.html["Alteração da encriptação de transferência de rede"]
+* link:configuring-server-certificates.html["Configurando certificados de servidor"]
+* link:configuring-storage-proxy-settings.html["Configurando as configurações de proxy de armazenamento"]
+* link:configuring-admin-proxy-settings.html["Configurando as configurações de proxy Admin"]
+* link:managing-traffic-classification-policies.html["Gerir políticas de classificação de tráfego"]
+* link:what-link-costs-are.html["Quais são os custos da ligação"]
+

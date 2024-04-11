@@ -1,0 +1,43 @@
+---
+permalink: admin/enabling-autosupport-on-demand.html 
+sidebar: sidebar 
+keywords:  
+summary: O AutoSupport On Demand pode ajudar a resolver problemas nos quais o suporte técnico está trabalhando ativamente. Quando você ativa o AutoSupport sob demanda, o suporte técnico pode solicitar que as mensagens do AutoSupport sejam enviadas sem a necessidade de sua intervenção. 
+---
+= Habilitando o AutoSupport sob demanda
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O AutoSupport On Demand pode ajudar a resolver problemas nos quais o suporte técnico está trabalhando ativamente. Quando você ativa o AutoSupport sob demanda, o suporte técnico pode solicitar que as mensagens do AutoSupport sejam enviadas sem a necessidade de sua intervenção.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter a permissão de Acesso root ou outra Configuração de Grade.
+* Você deve ter ativado mensagens AutoSupport semanais.
+* Tem de ter definido o protocolo de transporte como HTTPS.
+
+
+.Sobre esta tarefa
+Quando você ativa esse recurso, o suporte técnico pode solicitar que seu sistema StorageGRID envie mensagens do AutoSupport automaticamente. O suporte técnico também pode definir o intervalo de tempo de polling para consultas AutoSupport On Demand.
+
+O suporte técnico não pode ativar ou desativar o AutoSupport a pedido.
+
+.Passos
+. Selecione *suporte* > *Ferramentas* > *AutoSupport*.
++
+A página AutoSupport é exibida com a guia *Configurações* selecionada.
+
+. Selecione o botão de opção HTTPS na secção *Protocol Details* (Detalhes do protocolo) da página.
++
+image::../media/autosupport_on_demand.png[ASUP sob demanda]
+
+. Marque a caixa de seleção *Enable Weekly* (Ativar AutoSupport semanal*).
+. Marque a caixa de seleção *Enable on Demand* (Ativar AutoSupport on Demand*).
+. Selecione *Guardar*.
++
+O AutoSupport On Demand está ativado e o suporte técnico pode enviar solicitações AutoSupport On Demand para o StorageGRID.
+
+

@@ -1,0 +1,23 @@
+---
+permalink: rhel/automating-installation-and-configuration-of-storagegrid-host-service.html 
+sidebar: sidebar 
+keywords:  
+summary: É possível automatizar a instalação do serviço de host StorageGRID usando estruturas de orquestração padrão, como Ansible, Puppet, Chef, Fabric ou SaltStack. 
+---
+= Automatizando a instalação e a configuração do serviço de host StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+É possível automatizar a instalação do serviço de host StorageGRID usando estruturas de orquestração padrão, como Ansible, Puppet, Chef, Fabric ou SaltStack.
+
+O serviço de host do StorageGRID é empacotado em RPM e é conduzido por arquivos de configuração que podem ser preparados com antecedência (ou programaticamente) para habilitar a instalação automatizada. Se você já usa uma estrutura de orquestração padrão para instalar e configurar RHEL ou CentOS, adicionar StorageGRID aos seus playbooks ou receitas deve ser simples.
+
+Um exemplo de função e manual do Ansible são fornecidos com o arquivo de instalação na `/extras` pasta. O manual de estratégia do Ansible mostra como a `storagegrid` função prepara o host e instala o StorageGRID nos servidores de destino. Você pode personalizar a função ou o manual de estratégia conforme necessário.
+
+
+NOTE: O manual de estratégia de exemplo não inclui as etapas necessárias para criar dispositivos de rede antes de iniciar o serviço de host StorageGRID. Adicione estas etapas antes de finalizar e usar o manual de estratégia.
+
+Você pode automatizar todas as etapas para preparar os hosts e implantar nós de grade virtual.

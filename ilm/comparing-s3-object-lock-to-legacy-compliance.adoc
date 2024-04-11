@@ -1,0 +1,115 @@
+---
+permalink: ilm/comparing-s3-object-lock-to-legacy-compliance.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Comparação do S3 Object Lock com a conformidade legada
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O recurso bloqueio de objetos S3 no StorageGRID 11,5 substitui o recurso de conformidade que estava disponível nas versões anteriores do StorageGRID. Como o novo recurso de bloqueio de objetos do S3 está em conformidade com os requisitos do Amazon S3, ele deprecia o recurso proprietário de conformidade do StorageGRID, que agora é conhecido como ""conformidade legada"".
+
+Se você ativou anteriormente a configuração de conformidade global, a nova configuração global de bloqueio de objetos S3 será ativada automaticamente quando você atualizar para o StorageGRID 11,5. Os usuários do locatário não poderão mais criar novos buckets com a conformidade habilitada no StorageGRID 11,5. No entanto, conforme necessário, os usuários do locatário podem continuar a usar e gerenciar quaisquer buckets em conformidade legados existentes, incluindo a realização das seguintes tarefas:
+
+* Inserir novos objetos em um bucket existente que tenha a conformidade legada habilitada.
+* Aumento do período de retenção de um bucket existente que tem a conformidade legada habilitada.
+* Alterar a configuração de exclusão automática para um bucket existente que tenha conformidade legada ativada.
+* Colocar uma retenção legal em um bucket existente que tenha a conformidade legada habilitada.
+* Levantar uma retenção legal.
+
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de Conhecimento da NetApp: Como gerenciar buckets em conformidade com o legado no StorageGRID 11,5"^]
+
+Se você usou o recurso de conformidade legado em uma versão anterior do StorageGRID, consulte a tabela a seguir para saber como ele se compara ao recurso bloqueio de objetos S3 no StorageGRID.
+
+[cols="1a,1a,1a"]
+|===
+|  | S3 bloqueio de objetos (novo) | Conformidade (legado) 
+
+
+ a| 
+Como o recurso é ativado globalmente?
+ a| 
+No Gerenciador de Grade, selecione *Configuração* > *Configurações do sistema* > *bloqueio de objetos S3*.
+ a| 
+Já não é suportado.
+
+*Observação:* se você ativou previamente a configuração de conformidade global, a configuração global de bloqueio de objetos S3 será ativada automaticamente quando você atualizar para o StorageGRID 11,5.
+
+
+
+ a| 
+Como o recurso está habilitado para um bucket?
+ a| 
+Os usuários devem habilitar o bloqueio de objeto S3 ao criar um novo bucket usando o Gerenciador de locatário, a API de gerenciamento de locatário ou a API REST S3.
+ a| 
+Os usuários não podem mais criar novos buckets com a conformidade ativada. No entanto, eles podem continuar adicionando novos objetos aos buckets em conformidade existentes.
+
+
+
+ a| 
+O controle de versão do bucket é suportado?
+ a| 
+Sim. O controle de versão do bucket é necessário e é ativado automaticamente quando o bloqueio de objetos S3 é ativado para o bucket.
+ a| 
+Não. O recurso de conformidade legado não permite o controle de versão do bucket.
+
+
+
+ a| 
+Como a retenção de objetos é definida?
+ a| 
+Os usuários podem definir uma data de retenção até cada versão do objeto.
+ a| 
+Os usuários devem definir um período de retenção para todo o bucket. O período de retenção aplica-se a todos os objetos no balde.
+
+
+
+ a| 
+Um bucket pode ter configurações padrão para retenção e retenção legal?
+ a| 
+Não. Os buckets StorageGRID que têm o bloqueio de objeto S3 ativado não têm um período de retenção predefinido. Em vez disso, você pode especificar uma data de retenção até cada versão do objeto.
+ a| 
+Sim
+
+
+
+ a| 
+O período de retenção pode ser alterado?
+ a| 
+A data de retenção até uma versão de objeto pode ser aumentada, mas nunca diminuída.
+ a| 
+O período de retenção do balde pode ser aumentado, mas nunca diminuído.
+
+
+
+ a| 
+Onde é controlada a guarda legal?
+ a| 
+Os usuários podem colocar uma retenção legal ou levantar uma retenção legal para qualquer versão de objeto no bucket.
+ a| 
+Uma retenção legal é colocada no balde e afeta todos os objetos no balde.
+
+
+
+ a| 
+Quando os objetos podem ser excluídos?
+ a| 
+Uma versão de objeto pode ser excluída após a data de retenção ser alcançada, assumindo que o objeto não está sob retenção legal.
+ a| 
+Um objeto pode ser excluído após o período de retenção expirar, supondo que o intervalo não esteja sob retenção legal. Os objetos podem ser excluídos automaticamente ou manualmente.
+
+
+
+ a| 
+A configuração do ciclo de vida do bucket é suportada?
+ a| 
+Sim
+ a| 
+Não
+
+|===

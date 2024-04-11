@@ -1,0 +1,77 @@
+---
+permalink: vmware/running-bash-script.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode usar o script deploy-vsphere-ovftool.sh Bash e o arquivo de configuração deploy-vsphere-ovftool.ini modificado para automatizar a implantação de nós de grade do StorageGRID no VMware vSphere. 
+---
+= Executando o script Bash
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o `deploy-vsphere-ovftool.sh` script Bash e o arquivo de configuração deploy-vsphere-ovftool.ini modificado para automatizar a implantação de nós de grade do StorageGRID no VMware vSphere.
+
+.O que você vai precisar
+* Você criou um arquivo de configuração deploy-vsphere-ovftool.ini para o seu ambiente.
+
+
+Você pode usar a ajuda disponível com o script Bash inserindo os comandos de ajuda (`-h/--help`). Por exemplo:
+
+[listing]
+----
+./deploy-vsphere-ovftool.sh -h
+----
+ou
+
+[listing]
+----
+./deploy-vsphere-ovftool.sh --help
+----
+.Passos
+. Faça login na máquina Linux que você está usando para executar o script Bash.
+. Mude para o diretório onde você extraiu o arquivo de instalação.
++
+Por exemplo:
+
++
+[listing]
+----
+cd StorageGRID-Webscale-version/vsphere
+----
+. Para implantar todos os nós de grade, execute o script Bash com as opções apropriadas para o seu ambiente.
++
+Por exemplo:
+
++
+[listing]
+----
+./deploy-vsphere-ovftool.sh --username=user --password=pwd ./deploy-vsphere-ovftool.ini
+----
+. Se um nó de grade não conseguir implantar por causa de um erro, resolva o erro e execute novamente o script Bash apenas para esse nó.
++
+Por exemplo:
+
++
+[listing]
+----
+./deploy-vsphere-ovftool.sh --username=user --password=pwd --single-node="DC1-S3" ./deploy-vsphere-ovftool.ini
+----
+
+
+A implantação é concluída quando o status de cada nó é ""passado"".
+
+[listing]
+----
+Deployment Summary
++-----------------------------+----------+----------------------+
+| node                        | attempts | status               |
++-----------------------------+----------+----------------------+
+| DC1-ADM1                    |        1 | Passed               |
+| DC1-G1                      |        1 | Passed               |
+| DC1-S1                      |        1 | Passed               |
+| DC1-S2                      |        1 | Passed               |
+| DC1-S3                      |        1 | Passed               |
++-----------------------------+----------+----------------------+
+----

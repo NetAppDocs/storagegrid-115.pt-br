@@ -1,0 +1,377 @@
+---
+permalink: upgrade/whats-new.html 
+sidebar: sidebar 
+keywords: new features, 11.5, object lock, kmip, kms, ilm, decommission, node clone 
+summary: O StorageGRID 11,5 apresenta o bloqueio de objeto S3, suporte para criptografia KMIP de dados, melhorias de usabilidade para o ILM, uma interface de usuário do Gerenciador de locatário reprojetada, suporte para desativação de um site StorageGRID e um procedimento de clone de nó de dispositivo. 
+---
+= Novidades do StorageGRID 11,5
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O StorageGRID 11,5 apresenta o bloqueio de objeto S3, suporte para criptografia KMIP de dados, melhorias de usabilidade para o ILM, uma interface de usuário do Gerenciador de locatário reprojetada, suporte para desativação de um site StorageGRID e um procedimento de clone de nó de dispositivo.
+
+
+
+== S3 bloqueio de objetos para dados compatíveis
+
+O recurso bloqueio de objetos S3 no StorageGRID 11,5 é uma solução de proteção de objetos equivalente ao bloqueio de objetos S3 no Amazon Simple Storage Service (Amazon S3). Você pode habilitar a configuração global de bloqueio de objeto S3 para um sistema StorageGRID para permitir que as contas de locatário S3 criem buckets com o bloqueio de objeto S3 ativado. O locatário pode então usar um aplicativo cliente S3 para especificar opcionalmente as configurações de retenção e retenção legal para os objetos nesses buckets.
+
+O bloqueio de objetos S3 permite que os usuários do locatário cumpram os regulamentos que exigem que determinados objetos sejam mantidos por um período de tempo fixo ou indefinidamente.
+
+.Saiba mais
+* link:../ilm/index.html["Gerenciar objetos com ILM"]
+* link:../s3/index.html["Use S3"]
+* link:../tenant/index.html["Use uma conta de locatário"]
+
+
+
+
+== Gerenciamento de chaves de criptografia KMS
+
+Agora você pode configurar um ou mais servidores de gerenciamento de chaves externas (KMS) no Gerenciador de Grade para fornecer chaves de criptografia para serviços e dispositivos de armazenamento do StorageGRID. Cada cluster de KMS ou KMS usa o Key Management Interoperability Protocol (KMIP) para fornecer uma chave de criptografia aos nós do dispositivo no site associado do StorageGRID. Depois que os volumes do dispositivo são criptografados, você não pode acessar nenhum dado no dispositivo, a menos que o nó possa se comunicar com o KMS.
+
+
+NOTE: Se você quiser usar o gerenciamento de chaves de criptografia, use o Instalador de dispositivos StorageGRID para ativar a configuração *criptografia de nó* para o dispositivo antes de adicionar o dispositivo à grade.
+
+.Saiba mais
+* link:../admin/index.html["Administrar o StorageGRID"]
+
+
+
+
+== Melhorias de usabilidade para o gerenciamento do ciclo de vida das informações (ILM)
+
+* Agora você pode ver a capacidade total de um pool de armazenamento, incluindo a quantidade de espaço usado e livre. Você também pode ver quais nós estão incluídos em um pool de storage e quais regras de ILM e perfis de codificação de apagamento usam o pool de storage.
+* Agora você pode criar regras de ILM que se aplicam a mais de uma conta de locatário.
+* Quando você cria uma regra ILM para codificação de apagamento, agora você é lembrado de definir o filtro avançado tamanho do objeto (MB) para maior que 0,2 para garantir que objetos muito pequenos não sejam codificados para apagamento.
+* A interface de política ILM agora garante que a regra ILM padrão será sempre usada para quaisquer objetos não correspondidos por outra regra. A partir do StorageGRID 11,5, a regra padrão não pode usar nenhum filtro básico ou avançado e é automaticamente colocada como a última regra na política.
++
+
+NOTE: Se a sua política ILM atual não estiver em conformidade com os novos requisitos, você poderá continuar a usá-la depois de atualizar para o StorageGRID 11,5. No entanto, se você tentar clonar uma política não conforme após a atualização, será solicitado que você selecione uma regra padrão que não inclua filtros e você deverá colocar a regra padrão no final da política.
+
+* O pool de storage de todos os nós de storage de estoque não é mais selecionado por padrão quando você cria uma nova regra de ILM ou um novo perfil de codificação de apagamento. Além disso, agora você pode remover o pool de storage de todos os nós de storage, contanto que não seja usado em nenhuma regra.
++
+
+NOTE: O uso do pool de storage de todos os nós de storage não é recomendado porque esse pool de storage contém todos os locais. Várias cópias de um objeto podem ser colocadas no mesmo local se você usar esse pool de storage com um sistema StorageGRID que inclui mais de um local.
+
+* Agora você pode remover a 2 regra fazer cópias de estoque (que usa o pool de storage de todos os nós de storage), contanto que ela não seja usada em uma política ativa ou proposta.
+* Os objetos armazenados em um Cloud Storage Pool agora podem ser excluídos imediatamente (exclusão síncrona).
+
+
+.Saiba mais
+* link:../ilm/index.html["Gerenciar objetos com ILM"]
+
+
+
+
+== Melhorias no Gerenciador de Grade
+
+* A página de contas do locatário redesenhada facilita a visualização do uso da conta do locatário. A tabela de resumo do locatário agora inclui colunas para espaço usado, utilização de cota, cota e contagem de objetos. Um novo botão *View Details* acessa uma visão geral de cada locatário, bem como detalhes sobre os buckets do S3 ou os contentores Swift da conta. Além disso, agora você pode exportar dois `.csv` arquivos para uso do locatário: Um contendo valores de uso para todos os locatários e outro contendo detalhes sobre os buckets ou contentores de um locatário.
++
+Relacionadas a essa alteração, três novas métricas do Prometheus foram adicionadas para rastrear o uso da conta de locatário:
+
++
+** `storagegrid_tenant_usage_data_bytes`
+** `storagegrid_tenant_usage_object_count`
+** `storagegrid_tenant_usage_quota_bytes`
+
+
+* O novo campo *modo de acesso* na página grupos de administração (*Configuração* *Controle de acesso*) permite especificar se as permissões de gerenciamento para o grupo são leitura-gravação (padrão) ou somente leitura. Os usuários que pertencem a um grupo com modo de acesso de leitura e gravação podem alterar as configurações e executar operações no Gerenciador de Grade e na API de Gerenciamento de Grade. Os usuários que pertencem a um grupo com modo de acesso somente leitura só podem exibir as configurações e recursos selecionados para o grupo.
++
+
+NOTE: Ao atualizar para o StorageGRID 11,5, a opção de modo de acesso de leitura e gravação é selecionada para todos os grupos de administração existentes.
+
+* A interface de usuário do AutoSupport foi redesenhada. Agora você pode configurar mensagens AutoSupport acionadas por eventos, acionadas pelo usuário e semanais a partir de uma única página no Gerenciador de Grade. Você também pode configurar um destino adicional para mensagens AutoSupport.
++
+
+NOTE: Se o AutoSupport não tiver sido ativado, uma mensagem de lembrete será exibida no Painel de Gerenciamento de Grade.
+
+* Ao visualizar o gráfico *Storage Used - Object Data* na página nodos, agora você pode ver estimativas da quantidade de dados de objeto replicados e da quantidade de dados codificados de apagamento na grade, site ou nó de armazenamento (*nós* *_grid/site/nó de armazenamento_* *Storage*).
+* As opções de menu do Gerenciador de Grade foram reorganizadas para facilitar a localização das opções. Por exemplo, um novo submenu *Configurações de rede* foi adicionado ao menu *Configuração* e as opções nos menus *Manutenção* e *suporte* agora estão listadas em ordem alfabética.
+
+
+.Saiba mais
+* link:../admin/index.html["Administrar o StorageGRID"]
+
+
+
+
+== Melhorias para o Gerenciador do Locatário
+
+* A aparência e a organização da interface de usuário do Tenant Manager foram completamente redesenhadas para melhorar a experiência do usuário.
+* O novo painel do Tenant Manager fornece um resumo de alto nível de cada conta: Ele fornece detalhes do bucket e mostra o número de buckets ou contentores, grupos, usuários e endpoints de serviços de plataforma (se configurado).
+
+
+.Saiba mais
+* link:../tenant/index.html["Use uma conta de locatário"]
+
+
+
+
+== Certificados de cliente para exportação de métricas Prometheus
+
+Agora você pode fazer upload ou gerar certificados de cliente (*Configuração* *Controle de Acesso* *certificados de Cliente*), que podem ser usados para fornecer acesso seguro e autenticado ao banco de dados do StorageGRID Prometheus. Por exemplo, você pode usar certificados de cliente se precisar monitorar o StorageGRID externamente usando o Grafana.
+
+.Saiba mais
+* link:../admin/index.html["Administrar o StorageGRID"]
+
+
+
+
+== Melhorias no balanceador de carga
+
+* Ao lidar com solicitações de roteamento em um local, o serviço Load Balancer agora executa roteamento com reconhecimento de carga: Considera a disponibilidade da CPU dos nós de storage no mesmo local. Em alguns casos, as informações sobre a disponibilidade da CPU estão limitadas ao local onde o serviço Load Balancer está localizado.
++
+
+NOTE: O reconhecimento da CPU não será ativado até que pelo menos dois terços dos nós de storage em um local tenham sido atualizados para o StorageGRID 11,5 e estejam relatando estatísticas da CPU.
+
+* Para maior segurança, agora você pode especificar um modo de encadernação para cada ponto de extremidade do balanceador de carga. A fixação de endpoint permite restringir a acessibilidade de cada endpoint a grupos específicos de alta disponibilidade ou interfaces de nó.
+
+
+.Saiba mais
+* link:../admin/index.html["Administrar o StorageGRID"]
+
+
+
+
+== Alterações de metadados de objetos
+
+* *Nova métrica de espaço reservado real*: Para ajudá-lo a entender e monitorar o uso do espaço de metadados de objetos em cada nó de armazenamento, uma nova métrica Prometheus é mostrada no gráfico Storage Used - Object Metadata para um nó de armazenamento (*nós* *_Storage Node_* *Storage* * Storage * Storage * Storage * Storage *).
++
+[listing]
+----
+storagegrid_storage_utilization_metadata_reserved
+----
++
+A métrica *espaço reservado real* indica quanto espaço o StorageGRID reservou para metadados de objetos em um nó de armazenamento específico.
+
+* *Espaço de metadados aumentado para instalações com nós de armazenamento maiores*: A configuração espaço reservado de metadados em todo o sistema foi aumentada para sistemas StorageGRID que contêm nós de armazenamento com 128 GB ou mais de RAM, como segue:
++
+** *8 TB para novas instalações*: Se você estiver instalando um novo sistema StorageGRID 11,5 e cada nó de armazenamento na grade tiver 128 GB ou mais de RAM, a configuração de espaço reservado de metadados em todo o sistema agora será definida como 8 TB em vez de 3 TB.
+** *4 TB para atualizações*: Se você estiver atualizando para o StorageGRID 11,5 e cada nó de armazenamento em qualquer site tiver 128 GB ou mais de RAM, a configuração espaço reservado de metadados em todo o sistema agora será definida como 4 TB em vez de 3 TB.
++
+Os novos valores para a configuração espaço reservado de metadados aumentam o espaço permitido de metadados para esses nós de armazenamento maiores, até 2,64 TB, e garantem que o espaço adequado de metadados seja reservado para futuras versões de hardware e software.
+
++
+[NOTE]
+====
+Se os seus nós de armazenamento tiverem RAM suficiente e espaço suficiente no volume 0, você poderá aumentar manualmente a configuração espaço reservado de metadados até 8 TB após a atualização. A reserva de espaço adicional de metadados após a atualização do StorageGRID 11,5 simplificará futuras atualizações de hardware e software.
+
+link:increasing-metadata-reserved-space-setting.html["Aumentando a configuração espaço reservado metadados"]
+
+====
++
+
+NOTE: Se o seu sistema StorageGRID armazenar (ou é esperado que armazene) mais de 2,64 TB de metadados em qualquer nó de armazenamento, o espaço permitido de metadados pode ser aumentado em alguns casos. Se cada um dos seus nós de storage tiver espaço livre disponível no volume de storage 0 e mais de 128 GB de RAM, entre em Contato com o representante da conta do NetApp. O NetApp analisará seus requisitos e aumentará o espaço de metadados permitido para cada nó de storage, se possível.
+
+
+
+* *Limpeza automática de metadados excluídos*: Quando 20% ou mais dos metadados armazenados em um nó de storage estiverem prontos para serem removidos (porque os objetos correspondentes foram excluídos), o StorageGRID agora pode executar uma compactação automática nesse nó de storage. Esse processo de segundo plano só é executado se a carga no sistema for baixa, ou seja, quando houver CPU, espaço em disco e memória disponíveis. O novo processo de compactação remove os metadados de objetos excluídos antes das versões anteriores e ajuda a liberar espaço para que novos objetos sejam armazenados.
+
+
+.Saiba mais
+* link:../admin/index.html["Administrar o StorageGRID"]
+
+
+
+
+== Alterações ao suporte à API REST do S3
+
+* Agora você pode usar a API REST do S3 para especificar <<S3 bloqueio de objetos para dados compatíveis,S3 bloqueio de objetos>> configurações:
++
+** Para criar um bucket com o bloqueio de objetos S3 ativado, use uma solicitação DE armazenamento COLOCAR com o `x-amz-bucket-object-lock-enabled` cabeçalho.
+** Para determinar se o bloqueio de objeto S3 está ativado para um bucket, use uma solicitação DE configuração OBTER bloqueio de objeto.
+** Ao adicionar uma versão de objeto a um bucket com o bloqueio de objeto S3 ativado, use os seguintes cabeçalhos de solicitação para especificar as configurações de retenção legal e retenção: `x-amz-object-lock-mode`, `x-amz-object-lock-retain-until-date` E `x-amz-object-lock-legal-hold`.
+
+
+* Agora você pode USAR EXCLUIR vários objetos em um bucket versionado.
+* Agora você pode usar as solicitações de criptografia PUT, GET E DELETE Bucket para gerenciar a criptografia de um bucket existente do S3.
+* Uma pequena alteração foi feita para um nome de campo para o `Expiration` parâmetro. Esse parâmetro é incluído na resposta a uma solicitação PUT Object, HEAD Object ou GET Object se uma regra de expiração na configuração do ciclo de vida se aplicar a um objeto específico. O campo que indica qual regra de expiração foi correspondida foi nomeado anteriormente `rule_id` . Este campo foi renomeado para para `rule-id` corresponder à implementação da AWS.
+* Por padrão, a solicitação de uso do armazenamento S3 GET agora tenta recuperar o armazenamento usado por uma conta de locatário e seus buckets usando consistência global forte. Se a consistência global forte não puder ser alcançada, o StorageGRID tentará recuperar as informações de uso usando consistência de site forte.
+* O `Content-MD5` cabeçalho de solicitação agora é suportado corretamente.
+
+
+.Saiba mais
+* link:../s3/index.html["Use S3"]
+
+
+
+
+== O tamanho máximo para objetos CloudMirror aumentou para 5 TB
+
+O tamanho máximo para objetos que podem ser replicados para um bucket de destino pelo serviço de replicação do CloudMirror foi aumentado para 5 TB, que é o tamanho máximo de objeto suportado pelo StorageGRID.
+
+.Saiba mais
+* link:../s3/index.html["Use S3"]
+* link:../swift/index.html["Use Swift"]
+
+
+
+
+== Novos alertas adicionados
+
+Os seguintes novos alertas foram adicionados para o StorageGRID 11,5:
+
+* Erro de comunicação do Appliance BMC
+* Detectada avaria no canal de fibra do dispositivo
+* Falha na porta HBA Fibre Channel do dispositivo
+* Porta LACP do aparelho em falta
+* Erro de auto-compactador Cassandra
+* Métricas do compactador automático Cassandra desatualizadas
+* Cassandra compactions sobrecarregado
+* A e/S do disco é muito lenta
+* Expiração do certificado CA de KMS
+* Expiração do certificado do cliente KMS
+* Falha ao carregar a configuração DE KMS
+* Erro de conetividade DE KMS
+* Nome da chave de encriptação KMS não encontrado
+* Falha na rotação da chave de CRIPTOGRAFIA KMS
+* KMS não está configurado
+* A chave KMS falhou ao desencriptar um volume de aparelho
+* Expiração do certificado do servidor DE KMS
+* Baixo espaço livre para piscina de armazenamento
+* Erro de quadro de receção de rede do nó
+* Conectividade de storage do dispositivo de serviços degradada
+* Degradação da conectividade de storage do dispositivo (conectividade de storage do dispositivo anteriormente denominada degradada)
+* Uso de cota de locatário alto
+* Reinicialização inesperada do nó
+
+
+.Saiba mais
+* link:../monitor/index.html["Monitorizar  Resolução de problemas"]
+
+
+
+
+== Suporte TCP para traps SNMP
+
+Agora você pode selecionar TCP (Transmission Control Protocol) como o protocolo para destinos de intercetação SNMP. Anteriormente, apenas o protocolo UDP (User Datagram Protocol) era suportado.
+
+.Saiba mais
+* link:../monitor/index.html["Monitorizar  Resolução de problemas"]
+
+
+
+
+== Melhorias de instalação e rede
+
+* *Clonagem de endereços MAC*: Agora é possível usar a clonagem de endereços MAC para melhorar a segurança de determinados ambientes. A clonagem de endereços MAC permite que você use uma NIC virtual dedicada para rede de Grade, rede de administração e rede de cliente. Fazer com que o contentor Docker use o endereço MAC da NIC dedicada no host permite evitar o uso de configurações de rede de modo promíscuo. Três novas chaves de clonagem de endereço MAC foram adicionadas ao arquivo de configuração de nó para nós baseados em Linux (bare metal).
+* * Descoberta automática de rotas de host DNS e NTP*: Anteriormente, havia restrições em qual rede seus servidores NTP e DNS tinham que se conetar, como o requisito de que você não poderia ter todos os seus servidores NTP e DNS na rede de clientes. Agora, essas restrições são removidas.
+
+
+.Saiba mais
+* link:../rhel/index.html["Instale o Red Hat Enterprise Linux ou CentOS"]
+* link:../ubuntu/index.html["Instale Ubuntu ou Debian"]
+
+
+
+
+== Suporte para rebalanceamento de dados codificados por apagamento (EC) após a expansão do nó de storage
+
+O procedimento EC Rebalanceance é um novo script de linha de comando que pode ser necessário depois de adicionar novos nós de storage. Ao executar o procedimento, o StorageGRID redistribui fragmentos codificados de apagamento entre os nós de storage existentes e recém-expandidos em um local.
+
+
+IMPORTANT: Só deve efetuar o procedimento de reequilíbrio CE em casos limitados. Por exemplo, se você não puder adicionar o número recomendado de nós de storage em uma expansão, use o procedimento EC Rebalancement para permitir que objetos codificados de apagamento adicionais sejam armazenados.
+
+.Saiba mais
+* link:../expand/index.html["Expanda sua grade"]
+
+
+
+
+== Procedimentos de manutenção novos e revistos
+
+* *Desativação do site*: Agora você pode remover um site operacional do seu sistema StorageGRID. O procedimento de desativação do local conetado remove um local operacional e preserva os dados. O novo assistente do Decommission Site orienta-o através do processo (*Manutenção* *Decommission* *Decommission Site*).
+* * Clonagem de nó do dispositivo*: Agora você pode clonar um nó de dispositivo existente para atualizar o nó para um novo modelo de dispositivo. Por exemplo, você pode clonar um nó de dispositivo de capacidade menor para um dispositivo de capacidade maior. Você também pode clonar um nó de dispositivo para implementar novas funcionalidades, como a nova configuração *Node Encryption* necessária para a criptografia KMS.
+* * Capacidade de alterar a senha de provisionamento*: Agora você pode alterar a senha de provisionamento (*Configuração* *Controle de Acesso* *senhas de Grade*). A frase-passe é necessária para procedimentos de recuperação, expansão e manutenção.
+* * Comportamento aprimorado da senha SSH*: Para melhorar a segurança dos dispositivos StorageGRID, a senha SSH não é mais alterada quando você coloca um dispositivo no modo de manutenção. Além disso, novos certificados de host SSH e chaves de host são gerados quando você atualiza um nó para o StorageGRID 11,5.
++
+
+NOTE: Se você usar SSH para fazer login em um nó após a atualização para o StorageGRID 11,5, receberá um aviso de que a chave do host foi alterada. Esse comportamento é esperado e você pode aprovar a nova chave com segurança.
+
+
+
+.Saiba mais
+* link:../maintain/index.html["Manter  recuperar"]
+
+
+
+
+== Alterações nos dispositivos StorageGRID
+
+* *Acesso direto ao Gerenciador de sistemas SANtricity para dispositivos de armazenamento*: Agora você pode acessar a interface de usuário do Gerenciador de sistemas SANtricity do e-Series a partir do Instalador de dispositivos StorageGRID e do Gerenciador de Grade. O uso desses novos métodos permite o acesso ao Gerenciador de sistema do SANtricity sem usar a porta de gerenciamento no dispositivo. Os usuários que precisam acessar o Gerenciador de sistema do SANtricity a partir do Gerenciador de Grade devem ter a nova permissão de Administrador do dispositivo de armazenamento.
+* *Criptografia de nó*: Como parte do novo recurso de criptografia KMS, uma nova configuração *criptografia de nó* foi adicionada ao Instalador de dispositivos StorageGRID. Se você quiser usar o gerenciamento de chaves de criptografia para proteger os dados do dispositivo, ative essa configuração durante o estágio de configuração de hardware da instalação do dispositivo.
+* *Conetividade de porta UDP*: Agora você pode testar a conetividade de rede de um dispositivo StorageGRID para portas UDP, como as usadas para um servidor NFS ou DNS externo. No Instalador de dispositivos StorageGRID, selecione *Configurar rede* *Teste de conetividade de porta (nmap)*.
+* *Automatizar instalação e configuração*: Uma nova página de upload de configuração JSON foi adicionada ao Instalador de dispositivos StorageGRID (*Avançado* *Atualização de Configuração de dispositivos*). Esta página permite que você use um arquivo para configurar vários dispositivos em grandes grades. Além disso, o `configure-sga.py` script Python foi atualizado para corresponder aos recursos do Instalador de appliance StorageGRID.
+
+
+.Saiba mais
+* link:../sg100-1000/index.html["Aparelhos de serviços SG100  SG1000"]
+* link:../sg6000/index.html["SG6000 dispositivos de armazenamento"]
+* link:../sg5700/index.html["SG5700 dispositivos de armazenamento"]
+* link:../sg5600/index.html["SG5600 dispositivos de armazenamento"]
+
+
+
+
+== Alterações nas mensagens de auditoria
+
+* * Limpeza automática de objetos sobrescritos*: Anteriormente, os objetos que foram sobrescritos não foram removidos do disco em casos específicos, o que resultou em consumo adicional de espaço. Esses objetos sobrescritos, que são inacessíveis aos usuários, agora são removidos automaticamente para economizar espaço de armazenamento. Consulte a mensagem de auditoria da LKCU para obter mais informações.
+* *Novos códigos de auditoria para bloqueio de objetos S3*: Quatro novos códigos de auditoria foram adicionados à mensagem de auditoria SPUT para incluir <<S3 bloqueio de objetos para dados compatíveis,S3 bloqueio de objetos>>cabeçalhos de solicitação:
++
+** LKEN: Bloqueio de objetos ativado
+** LKLH: Bloqueio de objetos retenção legal
+** LKMD: Modo de retenção de bloqueio de objetos
+** LKRU: Data limite de retenção do bloqueio de objetos
+
+
+* *Novos campos para o tempo da última modificação e tamanho do objeto anterior*: Agora você pode rastrear quando um objeto foi substituído, bem como o tamanho do objeto original.
++
+** O campo MTME (Last Modified Time) foi adicionado às seguintes mensagens de auditoria:
++
+*** SDEL (S3 DELETE)
+*** SPUT (S3 POSTOS)
+*** WDEL (SWIFT DELETE)
+*** WPUT (Swift PUT)
+
+
+** O campo CSIZ (tamanho do objeto anterior) foi adicionado à mensagem de auditoria OVWR (Object Overwrite).
+
+
+
+
+.Saiba mais
+* link:../audit/index.html["Rever registos de auditoria"]
+
+
+
+
+== Novo arquivo nms.requestlog
+
+Um novo arquivo de log, `/var/local/log/nms.requestlog`, é mantido em todos os nós de administração. Este arquivo contém informações sobre conexões de saída da API de gerenciamento para serviços internos do StorageGRID.
+
+.Saiba mais
+* link:../monitor/index.html["Monitorizar  Resolução de problemas"]
+
+
+
+
+== Alterações na documentação do StorageGRID
+
+* Para facilitar a localização das informações e requisitos de rede e esclarecer que as informações também se aplicam aos nós de dispositivos StorageGRID, a documentação de rede foi movida dos guias de instalação baseados em software (Ubuntu/Debian e VMware) para um novo guia de rede.
++
+link:../network/index.html["Diretrizes de rede"]
+
+* Para facilitar a localização de instruções e exemplos relacionados ao ILM, a documentação para gerenciar objetos com gerenciamento do ciclo de vida das informações foi movida do _Guia do Administrador_ para um novo guia ILM.
++
+link:../ilm/index.html["Gerenciar objetos com ILM"]
+
+* Um novo guia do FabricPool fornece uma visão geral da configuração do StorageGRID como uma camada de nuvem do NetApp FabricPool e descreve as práticas recomendadas para configurar o ILM e outras opções do StorageGRID para um workload do FabricPool.
++
+link:../fabricpool/index.html["Configurar o StorageGRID para FabricPool"]
+
+* Agora você pode acessar vários vídeos instrucionais do Gerenciador de Grade. Os vídeos atuais fornecem instruções para gerenciar alertas, alertas personalizados, regras ILM e políticas ILM.
+

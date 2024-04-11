@@ -1,0 +1,86 @@
+---
+permalink: admin/how-ha-groups-are-used.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode querer usar grupos de alta disponibilidade por vários motivos. 
+---
+= Como os grupos de HA são usados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode querer usar grupos de alta disponibilidade (HA) por vários motivos.
+
+* Um grupo de HA pode fornecer conexões administrativas altamente disponíveis ao Gerenciador de Grade ou ao Gerente do Locatário.
+* Um grupo HA pode fornecer conexões de dados altamente disponíveis para clientes S3 e Swift.
+* Um grupo de HA que contém apenas uma interface permite fornecer muitos endereços VIP e definir explicitamente endereços IPv6.
+
+
+Um grupo de HA poderá fornecer alta disponibilidade somente se todos os nós incluídos no grupo oferecerem os mesmos serviços. Ao criar um grupo de HA, adicione interfaces dos tipos de nós que fornecem os serviços de que você precisa.
+
+* *Admin Nodes*: Inclua o serviço Load Balancer e habilite o acesso ao Grid Manager ou ao Tenant Manager.
+* *Gateway Nodes*: Incluem o serviço Load Balancer e o serviço CLB (obsoleto).
+
+
+[cols="1a,1a"]
+|===
+| Objetivo do grupo HA | Adicione nós desse tipo ao grupo de HA 
+
+
+ a| 
+Acesso ao Grid Manager
+ a| 
+* Nó de administração principal (*Mestre preferido*)
+* Nós de administração não primários
+
+
+*Nota:* o nó de administração principal deve ser o mestre preferido. Alguns procedimentos de manutenção só podem ser executados a partir do nó de administração principal.
+
+
+
+ a| 
+Acesso apenas ao Gestor do Locatário
+ a| 
+* Nós de administração primários ou não primários
+
+
+
+
+ a| 
+Acesso ao cliente S3 ou Swift -- Serviço de Load Balancer
+ a| 
+* Nós de administração
+* Nós de gateway
+
+
+
+
+ a| 
+Acesso ao cliente S3 ou Swift -- serviço CLB
+
+*Nota:* o serviço CLB está obsoleto.
+ a| 
+* Nós de gateway
+
+
+|===
+
+
+== Limitações do uso de grupos de HA com Grid Manager ou Tenant Manager
+
+A falha de serviços para o Gerenciador de Grade ou o Gerenciador de locatário não aciona o failover dentro do grupo de HA.
+
+Se você estiver conetado ao Gerenciador de Grade ou ao Gerenciador de Locatário quando ocorrer failover, você será desconetado e deverá fazer login novamente para retomar sua tarefa.
+
+Alguns procedimentos de manutenção não podem ser executados quando o nó de administração principal não está disponível. Durante o failover, você pode usar o Gerenciador de Grade para monitorar seu sistema StorageGRID.
+
+
+
+== Limitações do uso de grupos HA com o serviço CLB
+
+A falha do serviço CLB não aciona o failover no grupo HA.
+
+
+NOTE: O serviço CLB está obsoleto.

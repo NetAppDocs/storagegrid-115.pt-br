@@ -1,0 +1,64 @@
+---
+permalink: admin/configuring-custom-server-certificate-for-storage-node-or-clb.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Você pode substituir o certificado do servidor usado para conexões de cliente S3 ou Swift ao nó de armazenamento ou ao serviço CLB (obsoleto) no nó de gateway. O certificado de servidor personalizado de substituição é específico para a sua organização.' 
+---
+= Configurando um certificado de servidor personalizado para conexões ao nó de armazenamento ou ao serviço CLB
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode substituir o certificado do servidor usado para conexões de cliente S3 ou Swift ao nó de armazenamento ou ao serviço CLB (obsoleto) no nó de gateway. O certificado de servidor personalizado de substituição é específico para a sua organização.
+
+.Sobre esta tarefa
+Por padrão, cada nó de armazenamento é emitido um certificado de servidor X,509 assinado pela CA de grade. Esses certificados assinados pela CA podem ser substituídos por um único certificado de servidor personalizado comum e uma chave privada correspondente.
+
+Um único certificado de servidor personalizado é usado para todos os nós de armazenamento, portanto, você deve especificar o certificado como um certificado curinga ou multi-domínio se os clientes precisarem verificar o nome do host ao se conetar ao endpoint de armazenamento. Defina o certificado personalizado de modo que corresponda a todos os nós de storage na grade.
+
+Depois de concluir a configuração no servidor, os usuários também podem precisar instalar o certificado CA raiz no cliente API S3 ou Swift que eles usarão para acessar o sistema, dependendo da Autoridade de Certificação raiz (CA) que você estiver usando.
+
+
+NOTE: Para garantir que as operações não sejam interrompidas por um certificado de servidor com falha, o alerta *Expiration of Server certificate for Storage API Endpoints* e o alarme legacy Storage API Service Endpoints Certificate Expiration (SCEP) são acionados quando o certificado do servidor raiz está prestes a expirar. Conforme necessário, você pode visualizar o número de dias até que o certificado de serviço atual expire selecionando *Support* > *Tools* > *Grid Topology*. Em seguida, selecione *_Primary Admin Node_* > *CMN* > *Resources*.
+
+Os certificados personalizados só são usados se os clientes se conetarem ao StorageGRID usando o serviço CLB obsoleto nos nós do gateway ou se eles se conetarem diretamente aos nós de armazenamento. Os clientes S3 ou Swift que se conetam ao StorageGRID usando o serviço de balanceador de carga em nós de administração ou nós de gateway usam o certificado configurado para o ponto de extremidade do balanceador de carga.
+
+
+NOTE: O alerta *Expiration of load balancer endpoint certificate* é acionado para os pontos de extremidade do balanceador de carga que expirarão em breve.
+
+.Passos
+. Selecione *Configuração* > *Configurações de rede* > *certificados de servidor*.
+. Na seção Object Storage API Service Endpoints Server Certificate, clique em *Install Custom Certificate* (Instalar certificado personalizado).
+. Carregue os ficheiros de certificado do servidor necessários:
++
+** *Certificado do servidor*: O arquivo de certificado do servidor personalizado (`.crt`).
+** *Chave privada do certificado do servidor*: O arquivo de chave privada do certificado do servidor personalizado (`.key`).
++
+
+NOTE: As chaves privadas EC devem ter 224 bits ou mais. As chaves privadas RSA devem ter 2048 bits ou mais.
+
+** *CA Bundle*: Um único arquivo contendo os certificados de cada autoridade de certificação de emissão intermediária (CA). O arquivo deve conter cada um dos arquivos de certificado CA codificados em PEM, concatenados em ordem de cadeia de certificados.
+
+
+. Clique em *Salvar*.
++
+O certificado de servidor personalizado é usado para todas as novas conexões de cliente API subsequentes.
+
++
+Selecione uma guia para exibir informações detalhadas sobre o certificado padrão do servidor StorageGRID ou um certificado assinado pela CA que foi carregado.
+
++
+
+NOTE: Depois de carregar um novo certificado, aguarde até um dia para que quaisquer alertas de expiração de certificado relacionados (ou alarmes legados) sejam apagados.
+
+. Atualize a página para garantir que o navegador da Web seja atualizado.
+
+
+.Informações relacionadas
+link:../s3/index.html["Use S3"]
+
+link:../swift/index.html["Use Swift"]
+
+link:configuring-s3-api-endpoint-domain-names.html["Configurando nomes de domínio de endpoint da API S3"]

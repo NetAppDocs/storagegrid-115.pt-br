@@ -1,0 +1,109 @@
+---
+permalink: admin/managing-local-users.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Gerenciamento de usuários locais
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode criar usuários locais e atribuí-los a grupos de administração locais para determinar quais recursos do Gerenciador de Grade esses usuários podem acessar.
+
+O Gerenciador de Grade inclui um usuário local predefinido, chamado "root". Embora você possa adicionar e remover usuários locais, não é possível remover o usuário root.
+
+
+NOTE: Se o logon único (SSO) tiver sido ativado, os usuários locais não poderão fazer login no StorageGRID.
+
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+
+
+
+
+== Criando um usuário local
+
+Se tiver criado grupos de administração locais, pode criar um ou mais utilizadores locais e atribuir cada utilizador a um ou mais grupos. As permissões do grupo controlam quais recursos do Gerenciador de Grade o usuário pode acessar.
+
+.Sobre esta tarefa
+Você só pode criar usuários locais e só pode atribuir esses usuários a grupos de administração locais. Usuários federados e grupos federados são gerenciados usando a fonte de identidade externa.
+
+.Passos
+. Selecione *Configuration* > *Access Control* > *Admin Users*.
+. Clique em *criar*.
+. Introduza o nome de apresentação do utilizador, o nome exclusivo e a palavra-passe.
+. Atribua o usuário a um ou mais grupos que governam as permissões de acesso.
++
+A lista de nomes de grupos é gerada a partir da tabela grupos.
+
+. Clique em *Salvar*.
+
+
+.Informações relacionadas
+link:managing-admin-groups.html["Gerenciando grupos de administradores"]
+
+
+
+== Modificando a conta de um usuário local
+
+Você pode modificar a conta de um usuário de administrador local para atualizar o nome de exibição do usuário ou a associação de grupo. Você também pode impedir temporariamente que um usuário acesse o sistema.
+
+.Sobre esta tarefa
+Só pode editar utilizadores locais. Os detalhes do usuário federados são sincronizados automaticamente com a fonte de identidade externa.
+
+.Passos
+. Selecione *Configuration* > *Access Control* > *Admin Users*.
+. Selecione o utilizador que pretende editar.
++
+Se o sistema incluir mais de 20 itens, você pode especificar quantas linhas são mostradas em cada página de uma vez. Em seguida, você pode usar o recurso Localizar do navegador para procurar um item específico nas linhas exibidas atualmente.
+
+. Clique em *Editar*.
+. Opcionalmente, faça alterações no nome ou na associação ao grupo.
+. Opcionalmente, para impedir que o usuário acesse o sistema temporariamente, marque *Negar acesso*.
+. Clique em *Salvar*.
++
+As novas configurações são aplicadas da próxima vez que o usuário sair e, em seguida, voltar a entrar no Gerenciador de Grade.
+
+
+
+
+
+== Eliminar a conta de um utilizador local
+
+Você pode excluir contas de usuários locais que não precisam mais de acesso ao Gerenciador de Grade.
+
+.Passos
+. Selecione *Configuration* > *Access Control* > *Admin Users*.
+. Selecione o utilizador local que pretende eliminar.
++
+
+NOTE: Não é possível eliminar o utilizador local raiz predefinido.
+
++
+Se o sistema incluir mais de 20 itens, você pode especificar quantas linhas são mostradas em cada página de uma vez. Em seguida, você pode usar o recurso Localizar do navegador para procurar um item específico nas linhas exibidas atualmente.
+
+. Clique em *Remover*.
+. Clique em *OK*.
+
+
+
+
+== Alterar a palavra-passe de um utilizador local
+
+Os usuários locais podem alterar suas próprias senhas usando a opção *alterar senha* no banner do Gerenciador de Grade. Além disso, os usuários que têm acesso à página usuários administradores podem alterar senhas para outros usuários locais.
+
+.Sobre esta tarefa
+Você pode alterar senhas apenas para usuários locais. Os usuários federados devem alterar suas próprias senhas na fonte de identidade externa.
+
+.Passos
+. Selecione *Configuration* > *Access Control* > *Admin Users*.
+. Na página usuários, selecione o usuário.
++
+Se o sistema incluir mais de 20 itens, você pode especificar quantas linhas são mostradas em cada página de uma vez. Em seguida, você pode usar o recurso Localizar do navegador para procurar um item específico nas linhas exibidas atualmente.
+
+. Clique em *alterar senha*.
+. Introduza e confirme a palavra-passe e clique em *Guardar*.
+

@@ -1,0 +1,33 @@
+---
+permalink: maintain/recovering-from-system-drive-failure.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, system drive failure 
+summary: Se a unidade do sistema em um nó de storage baseado em software tiver falhado, o nó de storage não estará disponível para o sistema StorageGRID. Você deve concluir um conjunto específico de tarefas para recuperar de uma falha na unidade do sistema. 
+---
+= Recuperando-se da falha da unidade do sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se a unidade do sistema em um nó de storage baseado em software tiver falhado, o nó de storage não estará disponível para o sistema StorageGRID. Você deve concluir um conjunto específico de tarefas para recuperar de uma falha na unidade do sistema.
+
+.Sobre esta tarefa
+Use este procedimento para recuperar de uma falha na unidade do sistema em um nó de armazenamento baseado em software. Este procedimento inclui os passos a seguir se quaisquer volumes de armazenamento também falharem ou não puderem ser remontados.
+
+
+NOTE: Este procedimento aplica-se apenas a nós de storage baseados em software. Você deve seguir um procedimento diferente para recuperar um nó de storage do dispositivo.
+
+link:recovering-storagegrid-appliance-storage-node.html["Recuperando um nó de storage de dispositivo StorageGRID"]
+
+image::../media/storage_node_recovery_system_drive.gif[Etapas de recuperação para unidade de sistema com falha no nó de storage baseado em software]
+
+.Passos
+* link:reviewing-warnings-for-system-drive-recovery.html["Rever avisos para recuperação da unidade do sistema Storage Node"]
+* link:replacing-storage-node.html["Substituindo o nó de storage"]
+* link:selecting-start-recovery-to-configure-storage-node.html["Selecionando Iniciar recuperação para configurar um nó de armazenamento"]
+* link:remounting-and-reformatting-storage-volumes-manual-steps.html["Remontar e reformatar os volumes de armazenamento ("'passos manuais'")"]
+* link:restoring-object-data-to-storage-volume-if-required.html["Restaurar dados de objetos para um volume de armazenamento, se necessário"]
+* link:checking-storage-state-after-recovering-storage-node-system-drive.html["Verificar o estado de armazenamento após recuperar uma unidade de sistema Storage Node"]
+

@@ -1,0 +1,64 @@
+---
+permalink: monitor/displaying-charts-and-graphs.html 
+sidebar: sidebar 
+keywords: charts, display graphs 
+summary: A página nós contém os gráficos e gráficos que você deve acessar regularmente para monitorar atributos como capacidade de storage e taxa de transferência. Em alguns casos, especialmente ao trabalhar com suporte técnico, você pode usar a página suporte 
+---
+= Apresentação de gráficos e gráficos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A página nós contém os gráficos e gráficos que você deve acessar regularmente para monitorar atributos como capacidade de storage e taxa de transferência. Em alguns casos, especialmente ao trabalhar com suporte técnico, você pode usar a página *suporte* *Ferramentas* *topologia de grade* para acessar gráficos adicionais.
+
+.O que você vai precisar
+Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+
+.Passos
+. Selecione *nós*. Em seguida, selecione um nó, um site ou toda a grade.
+. Selecione o separador para o qual pretende ver as informações.
++
+Algumas guias incluem um ou mais gráficos Grafana, que são usados para plotar os valores das métricas de Prometheus ao longo do tempo. Por exemplo, a guia *nós* *hardware* para um nó inclui dois gráficos Grafana.
+
++
+image::../media/nodes_page_hardware_tab_graphs.png[Gráficos do separador hardware da página de nós]
+
+. Opcionalmente, passe o cursor sobre o gráfico para ver valores mais detalhados para um determinado ponto no tempo.
++
+image::../media/nodes_page_memory_usage_details.png[Detalhes de uso da memória da página de nós]
+
+. Conforme necessário, muitas vezes é possível exibir um gráfico para um atributo ou métrica específico. Na tabela na página nós, clique no ícone do gráfico image:../media/icon_chart_new.gif["Ícone de carta"]ou image:../media/icon_chart_new_for_11_5.png["Ícone de gráfico - novo para 11,5"]à direita do nome do atributo.
++
+
+NOTE: Os gráficos não estão disponíveis para todas as métricas e atributos.
+
++
+*Exemplo 1*: Na guia objetos de um nó de armazenamento, você pode clicar no ícone do gráfico image:../media/icon_chart_new.gif["Ícone de carta"]para ver a latência média de uma consulta de metadados ao longo do tempo.
+
++
+image::../media/icon_nodes_average_latency_chart.png[Ícone de gráfico de latência média dos nós]
+
++
+image::../media/charts_average_query_latency.png[Gráficos de latência média da consulta]
+
++
+*Exemplo 2*: Na guia objetos de um nó de armazenamento, você pode clicar no ícone do gráfico image:../media/icon_chart_new_for_11_5.png["Ícone de gráfico - novo para 11,5"]para ver o gráfico Grafana da contagem de objetos perdidos detetados ao longo do tempo.
+
++
+image::../media/object_count_table.png[Tabela contagem de objetos]
+
++
+image::../media/charts_lost_object_detected.png[Objetos perdidos gráficos detetados]
+
+. Para exibir gráficos para atributos que não são exibidos na página nó, selecione *suporte* *Ferramentas* *topologia de grade*.
+. Selecione *_grid node_* *_component ou Service_* *Overview* *Main*.
++
+image::../media/nms_chart.gif[captura de tela descrita pelo texto circundante]
+
+. Clique no ícone do gráfico image:../media/icon_chart_new.gif["Ícone de carta"]ao lado do atributo.
++
+O visor muda automaticamente para a página *relatórios* *gráficos*. O gráfico exibe os dados do atributo no último dia.
+
+

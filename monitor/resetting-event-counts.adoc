@@ -1,0 +1,28 @@
+---
+permalink: monitor/resetting-event-counts.html 
+sidebar: sidebar 
+keywords:  
+summary: Depois de resolver eventos do sistema, você pode redefinir as contagens de eventos para zero. 
+---
+= Repor contagens de eventos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de resolver eventos do sistema, você pode redefinir as contagens de eventos para zero.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter a permissão Configuração da Página de topologia de Grade.
+
+
+.Passos
+. Selecione *nós* *_Grid Node_* *Eventos*.
+. Certifique-se de que qualquer evento com uma contagem superior a 0 foi resolvido.
+. Clique em *Redefinir contagens de eventos*.
++
+image::../media/reset_event_counts.png[Repor contagens de eventos]
+
+

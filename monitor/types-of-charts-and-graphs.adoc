@@ -1,0 +1,64 @@
+---
+permalink: monitor/types-of-charts-and-graphs.html 
+sidebar: sidebar 
+keywords: chart,graph 
+summary: Gráficos e gráficos resumem os valores de métricas e atributos específicos do StorageGRID. 
+---
+= Tipos de gráficos e gráficos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Gráficos e gráficos resumem os valores de métricas e atributos específicos do StorageGRID.
+
+O Painel do Gerenciador de Grade inclui gráficos de pizza (rosca) para resumir o armazenamento disponível para a grade e cada local.
+
+image::../media/dashboard_available_storage_panel.png[Painel disponível Painel de armazenamento]
+
+O painel uso do armazenamento no Painel do Gerenciador do locatário exibe o seguinte:
+
+* Uma lista dos maiores baldes (S3) ou contentores (Swift) para o inquilino
+* Um gráfico de barras que representa os tamanhos relativos dos maiores baldes ou contentores
+* A quantidade total de espaço utilizado e, se for definida uma quota, a quantidade e a percentagem de espaço restante
+
+
+image::../media/tenant_dashboard_with_buckets.png[Painel do locatário]
+
+Além disso, gráficos que mostram como as métricas e atributos do StorageGRID mudam ao longo do tempo estão disponíveis na página de nós e na página *suporte* *Ferramentas* *topologia de grade*.
+
+Existem quatro tipos de gráficos:
+
+* *Gráficos Grafana*: Mostrados na página de nós, gráficos Grafana são usados para plotar os valores das métricas Prometheus ao longo do tempo. Por exemplo, a guia *nós* *Load Balancer* para um nó Admin inclui quatro gráficos Grafana.
++
+image::../media/nodes_page_load_balancer_tab.png[Guia balanceador de carga de página de nós]
+
++
+
+NOTE: Gráficos Grafana também estão incluídos nos painéis pré-construídos disponíveis na página *suporte* *Ferramentas* *métricas*.
+
+* *Gráficos de linha*: Disponíveis na página de nós e na página *suporte* *Ferramentas* *topologia de grade* (clique no ícone do gráfico image:../media/icon_chart_new.gif["Gráfico de ícones (novo)"]após um valor de dados), gráficos de linha são usados para plotar os valores de atributos StorageGRID que têm um valor unitário (como desvio de frequência NTP, em ppm). As alterações no valor são plotadas em intervalos de dados regulares (bins) ao longo do tempo.
++
+image::../media/line_graph.gif[Gráfico de linha]
+
+* *Gráficos de área*: Disponíveis na página de nós e na página *suporte* *Ferramentas* *topologia de grade* (clique no ícone do gráfico image:../media/icon_chart_new.gif["Gráfico de ícones (novo)"]após um valor de dados), os gráficos de área são usados para plotar quantidades de atributos volumétricos, como contagens de objetos ou valores de carga de serviço. Os gráficos de área são semelhantes aos gráficos de linha, mas incluem um sombreamento marrom claro abaixo da linha. As alterações no valor são plotadas em intervalos de dados regulares (bins) ao longo do tempo.
++
+image::../media/area_graph.gif[Gráfico de área]
+
+* Alguns gráficos são denotados com um tipo diferente de ícone de gráfico image:../media/icon_chart_new_for_11_5.png["Ícone de gráfico - novo para 11,5"]e têm um formato diferente:
++
+image::../media/charts_lost_object_detected.png[Objetos perdidos gráficos detetados]
+
+* *Gráfico de estado*: Disponível na página *suporte* *Ferramentas* *topologia de grade* (clique no ícone do gráfico image:../media/icon_chart_new.gif["Gráfico de ícones (novo)"]após um valor de dados), os gráficos de estado são usados para plotar valores de atributo que representam estados distintos, como um estado de serviço que pode ser on-line, em espera ou off-line. Os gráficos de estado são semelhantes aos gráficos de linha, mas a transição é descontínua, ou seja, o valor salta de um valor de estado para outro.
++
+image::../media/state_graph.gif[Gráfico de Estado]
+
+
+
+.Informações relacionadas
+link:viewing-nodes-page.html["Exibindo a página de nós"]
+
+link:viewing-grid-topology-tree.html["Visualizar a árvore de topologia de grelha"]
+
+link:reviewing-support-metrics.html["Revisão das métricas de suporte"]

@@ -1,0 +1,1065 @@
+---
+permalink: s3/storagegrid-s3-rest-api-operations.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Operações da API REST do StorageGRID S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Há operações adicionadas à API REST do S3 que são específicas do sistema StorageGRID.
+
+
+
+== OBTER pedido de consistência de balde
+
+A solicitação GET Bucket Consistency permite determinar o nível de consistência que está sendo aplicado a um determinado bucket.
+
+Os controles de consistência padrão são definidos para garantir leitura após gravação para objetos recém-criados.
+
+Você deve ter a permissão S3:GetBucketConsistency, ou ser raiz da conta, para concluir esta operação.
+
+
+
+=== Exemplo de solicitação
+
+[source, subs="specialcharacters,quotes"]
+----
+GET /bucket?x-ntap-sg-consistency HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+
+
+=== Resposta
+
+No XML de resposta `<Consistency>`, retornará um dos seguintes valores:
+
+|===
+| Controle de consistência | Descrição 
+
+
+ a| 
+tudo
+ a| 
+Todos os nós recebem os dados imediatamente, ou a solicitação falhará.
+
+
+
+ a| 
+forte-global
+ a| 
+Garante consistência de leitura após gravação para todas as solicitações de clientes em todos os sites.
+
+
+
+ a| 
+forte local
+ a| 
+Garante consistência de leitura após gravação para todas as solicitações de clientes dentro de um site.
+
+
+
+ a| 
+leitura-após-nova-gravação
+ a| 
+(Padrão) fornece consistência de leitura após gravação para novos objetos e eventual consistência para atualizações de objetos. Oferece alta disponibilidade e garantias de proteção de dados. Corresponde às garantias de consistência do Amazon S3.
+
+*Observação:* se o aplicativo usar SOLICITAÇÕES HEAD em objetos que não existem, você pode receber um número alto de erros de servidor interno 500 se um ou mais nós de armazenamento não estiverem disponíveis. Para evitar esses erros, defina o controle de consistência como "disponível", a menos que você exija garantias de consistência semelhantes ao Amazon S3.
+
+
+
+ a| 
+Disponível (eventual consistência para OPERAÇÕES DE CABEÇA)
+ a| 
+Comporta-se da mesma forma que o nível de consistência "read-after-novo-write", mas apenas fornece consistência eventual para operações HEAD. Oferece maior disponibilidade para OPERAÇÕES HEAD do que "read-after-novo-write" se os nós de storage não estiverem disponíveis. Difere das garantias de consistência do Amazon S3 apenas para operações PRINCIPAIS.
+
+|===
+
+
+=== Exemplo de resposta
+
+[listing]
+----
+HTTP/1.1 200 OK
+Date: Fri, 18 Sep 2020 01:02:18 GMT
+Connection: CLOSE
+Server: StorageGRID/11.5.0
+x-amz-request-id: 12345
+Content-Length: 127
+Content-Type: application/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Consistency xmlns="http://s3.storagegrid.com/doc/2015-02-01/">read-after-new-write</Consistency>
+----
+.Informações relacionadas
+link:consistency-controls.html["Controles de consistência"]
+
+
+
+== COLOCAR pedido consistência balde
+
+A solicitação de consistência do PUT Bucket permite especificar o nível de consistência a ser aplicado às operações realizadas em um bucket.
+
+Os controles de consistência padrão são definidos para garantir leitura após gravação para objetos recém-criados.
+
+Você deve ter a permissão S3:PutBucketConsistency, ou ser raiz da conta, para concluir esta operação.
+
+
+
+=== Pedido
+
+O `x-ntap-sg-consistency` parâmetro deve conter um dos seguintes valores:
+
+|===
+| Controle de consistência | Descrição 
+
+
+ a| 
+tudo
+ a| 
+Todos os nós recebem os dados imediatamente, ou a solicitação falhará.
+
+
+
+ a| 
+forte-global
+ a| 
+Garante consistência de leitura após gravação para todas as solicitações de clientes em todos os sites.
+
+
+
+ a| 
+forte local
+ a| 
+Garante consistência de leitura após gravação para todas as solicitações de clientes dentro de um site.
+
+
+
+ a| 
+leitura-após-nova-gravação
+ a| 
+(Padrão) fornece consistência de leitura após gravação para novos objetos e eventual consistência para atualizações de objetos. Oferece alta disponibilidade e garantias de proteção de dados. Corresponde às garantias de consistência do Amazon S3.
+
+*Observação:* se o aplicativo usar SOLICITAÇÕES HEAD em objetos que não existem, você pode receber um número alto de erros de servidor interno 500 se um ou mais nós de armazenamento não estiverem disponíveis. Para evitar esses erros, defina o controle de consistência como "disponível", a menos que você exija garantias de consistência semelhantes ao Amazon S3.
+
+
+
+ a| 
+Disponível (eventual consistência para OPERAÇÕES DE CABEÇA)
+ a| 
+Comporta-se da mesma forma que o nível de consistência "read-after-novo-write", mas apenas fornece consistência eventual para operações HEAD. Oferece maior disponibilidade para OPERAÇÕES HEAD do que "read-after-novo-write" se os nós de storage não estiverem disponíveis. Difere das garantias de consistência do Amazon S3 apenas para operações PRINCIPAIS.
+
+|===
+*Nota:* em geral, você deve usar o valor de controle de consistência "read-after-new-write". Se as solicitações não estiverem funcionando corretamente, altere o comportamento do cliente do aplicativo, se possível. Ou configure o cliente para especificar o controle de consistência para cada solicitação de API. Defina o controle de consistência no nível do balde apenas como último recurso.
+
+
+
+=== Exemplo de solicitação
+
+[source, subs="specialcharacters,quotes"]
+----
+PUT /bucket?x-ntap-sg-consistency=strong-global HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+.Informações relacionadas
+link:consistency-controls.html["Controles de consistência"]
+
+
+
+== OBTER último pedido de tempo de acesso do Bucket
+
+A solicitação de última hora de acesso do GET Bucket permite determinar se as atualizações da última hora de acesso estão ativadas ou desativadas para buckets individuais.
+
+Você deve ter a permissão S3:GetBucketLastAccessTime, ou ser raiz da conta, para concluir esta operação.
+
+
+
+=== Exemplo de solicitação
+
+[source, subs="specialcharacters,quotes"]
+----
+GET /bucket?x-ntap-sg-lastaccesstime HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+
+
+=== Exemplo de resposta
+
+Este exemplo mostra que as atualizações da última hora de acesso estão ativadas para o intervalo.
+
+[listing]
+----
+HTTP/1.1 200 OK
+Date: Sat, 29 Nov 2015 01:02:18 GMT
+Connection: CLOSE
+Server: StorageGRID/10.3.0
+x-amz-request-id: 12345
+Content-Length: 127
+Content-Type: application/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<LastAccessTime xmlns="http://s3.storagegrid.com/doc/2015-02-01/">enabled
+</LastAccessTime>
+----
+
+
+== COLOCAR o último pedido de tempo de acesso do balde
+
+A solicitação de última hora de acesso do PUT Bucket permite ativar ou desativar as atualizações da última hora de acesso para intervalos individuais. A desativação das atualizações da última hora de acesso melhora o desempenho e é a configuração padrão para todos os buckets criados com a versão 10,3.0 ou posterior.
+
+Você deve ter a permissão S3:PutBucketLastAccessTime para um bucket, ou ser raiz da conta, para concluir esta operação.
+
+
+NOTE: A partir da versão 10,3 do StorageGRID, as atualizações da última hora de acesso são desativadas por padrão para todos os novos buckets. Se você tiver buckets criados usando uma versão anterior do StorageGRID e quiser corresponder ao novo comportamento padrão, desative explicitamente as atualizações da última hora de acesso para cada um desses buckets anteriores. Você pode ativar ou desativar as atualizações para o último tempo de acesso usando a solicitação DE última hora de acesso do PUT Bucket, a caixa de seleção *S3* *Buckets* *Change Last Access Setting* no Gerenciador de locatários ou na API de Gerenciamento do locatário.
+
+Se as atualizações da última hora de acesso estiverem desativadas para um bucket, o seguinte comportamento é aplicado às operações no bucket:
+
+* OBTER Objeto, OBTER ACL Objeto, OBTER marcação Objeto e solicitações Objeto HEAD não atualizam a última hora de acesso. O objeto não é adicionado às filas para avaliação do gerenciamento do ciclo de vida das informações (ILM).
+* COLOCAR Objeto - Copiar e COLOCAR solicitações de marcação de objetos que atualizam apenas os metadados também atualizam a última hora de acesso. O objeto é adicionado às filas para avaliação ILM.
+* Se as atualizações para o último tempo de acesso estiverem desativadas para o intervalo de origem, as solicitações COLOCAR Objeto - cópia não atualizam o último tempo de acesso para o intervalo de origem. O objeto que foi copiado não é adicionado às filas para avaliação ILM para o bucket de origem. No entanto, para o destino, COLOCAR Objeto - solicitações de cópia sempre atualizam o último tempo de acesso. A cópia do objeto é adicionada às filas para avaliação ILM.
+* Concluir a atualização de pedidos de carregamento de várias peças da última vez de acesso. O objeto concluído é adicionado às filas para avaliação ILM.
+
+
+
+
+=== Exemplos de pedidos
+
+Este exemplo permite o último tempo de acesso para um bucket.
+
+[source, subs="specialcharacters,quotes"]
+----
+PUT /bucket?x-ntap-sg-lastaccesstime=enabled HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+Este exemplo desativa a última hora de acesso para um bucket.
+
+[source, subs="specialcharacters,quotes"]
+----
+PUT /bucket?x-ntap-sg-lastaccesstime=disabled HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+.Informações relacionadas
+link:../tenant/index.html["Use uma conta de locatário"]
+
+
+
+== EXCLUIR solicitação de configuração de notificação de metadados do bucket
+
+A solicitação de configuração de notificação de metadados DELETE Bucket permite desativar o serviço de integração de pesquisa para buckets individuais excluindo o XML de configuração.
+
+Você deve ter a permissão S3:DeleteBucketMetadataNotification para um bucket, ou ser raiz de conta, para concluir esta operação.
+
+
+
+=== Exemplo de solicitação
+
+Este exemplo mostra a desativação do serviço de integração de pesquisa para um bucket.
+
+[source, subs="specialcharacters,quotes"]
+----
+DELETE /test1?x-ntap-sg-metadata-notification HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+
+
+== OBTER solicitação de configuração de notificação de metadados do bucket
+
+A solicitação de configuração de notificação de metadados do GET Bucket permite recuperar o XML de configuração usado para configurar a integração de pesquisa para buckets individuais.
+
+Você deve ter a permissão S3:GetBucketMetadataNotification, ou ser raiz da conta, para concluir esta operação.
+
+
+
+=== Exemplo de solicitação
+
+Essa solicitação recupera a configuração de notificação de metadados para o bucket chamado `bucket`.
+
+[source, subs="specialcharacters,quotes"]
+----
+GET /bucket?x-ntap-sg-metadata-notification HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+
+
+=== Resposta
+
+O corpo da resposta inclui a configuração de notificação de metadados para o bucket. A configuração de notificação de metadados permite determinar como o intervalo é configurado para integração de pesquisa. Ou seja, ele permite determinar quais objetos são indexados e quais endpoints seus metadados de objeto estão sendo enviados.
+
+[listing]
+----
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Rule-1</ID>
+        <Status>rule-status</Status>
+        <Prefix>key-prefix</Prefix>
+        <Destination>
+           <Urn>arn:aws:es:_region:account-ID_:domain/_mydomain/myindex/mytype_</Urn>
+        </Destination>
+    </Rule>
+    <Rule>
+        <ID>Rule-2</ID>
+         ...
+    </Rule>
+     ...
+</MetadataNotificationConfiguration>
+----
+Cada configuração de notificação de metadados inclui uma ou mais regras. Cada regra especifica os objetos aos quais se aplica e o destino onde o StorageGRID deve enviar metadados de objeto. Os destinos devem ser especificados usando a URNA de um endpoint StorageGRID.
+
+|===
+| Nome | Descrição | Obrigatório 
+
+
+ a| 
+MetadataNotificationConfiguration
+ a| 
+Tag de contentor para regras usadas para especificar os objetos e o destino para notificações de metadados.
+
+Contém um ou mais elementos de regra.
+ a| 
+Sim
+
+
+
+ a| 
+Regra
+ a| 
+Tag container para uma regra que identifica os objetos cujos metadados devem ser adicionados a um índice especificado.
+
+Regras com prefixos sobrepostos são rejeitadas.
+
+Incluído no elemento MetadataNotificationConfiguration.
+ a| 
+Sim
+
+
+
+ a| 
+ID
+ a| 
+Identificador exclusivo para a regra.
+
+Incluído no elemento regra.
+ a| 
+Não
+
+
+
+ a| 
+Estado
+ a| 
+O estado pode ser "ativado" ou "Desativado". Nenhuma ação é tomada para regras que são desativadas.
+
+Incluído no elemento regra.
+ a| 
+Sim
+
+
+
+ a| 
+Prefixo
+ a| 
+Os objetos que correspondem ao prefixo são afetados pela regra e seus metadados são enviados para o destino especificado.
+
+Para corresponder a todos os objetos, especifique um prefixo vazio.
+
+Incluído no elemento regra.
+ a| 
+Sim
+
+
+
+ a| 
+Destino
+ a| 
+Etiqueta de contentor para o destino de uma regra.
+
+Incluído no elemento regra.
+ a| 
+Sim
+
+
+
+ a| 
+Urna
+ a| 
+URNA do destino onde os metadados do objeto são enviados. Deve ser a URNA de um endpoint StorageGRID com as seguintes propriedades:
+
+* `es` deve ser o terceiro elemento.
+* A URNA deve terminar com o índice e digitar onde os metadados são armazenados, no formulário `domain-name/myindex/mytype`.
+
+
+Os endpoints são configurados usando o Gerenciador do Locatário ou a API de Gerenciamento do Locatário. Eles assumem a seguinte forma:
+
+* `arn:aws:es:_region:account-ID_:domain/mydomain/myindex/mytype`
+* `urn:mysite:es:::mydomain/myindex/mytype`
+
+
+O endpoint deve ser configurado antes que o XML de configuração seja enviado, ou a configuração falhará com um erro 404.
+
+Urna está incluído no elemento destino.
+ a| 
+Sim
+
+|===
+
+
+=== Exemplo de resposta
+
+O XML incluído entre as  `<MetadataNotificationConfiguration></MetadataNotificationConfiguration>` tags mostra como a integração com um endpoint de integração de pesquisa é configurada para o bucket. Neste exemplo, metadados de objeto estão sendo enviados para um índice Elasticsearch nomeado `current` e tipo nomeado `2017` que está hospedado em um domínio da AWS `records` chamado .
+
+[listing]
+----
+HTTP/1.1 200 OK
+Date: Thu, 20 Jul 2017 18:24:05 GMT
+Connection: KEEP-ALIVE
+Server: StorageGRID/11.0.0
+x-amz-request-id: 3832973499
+Content-Length: 264
+Content-Type: application/xml
+
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Rule-1</ID>
+        <Status>Enabled</Status>
+        <Prefix>2017</Prefix>
+        <Destination>
+           <Urn>arn:aws:es:us-east-1:3333333:domain/records/current/2017</Urn>
+        </Destination>
+    </Rule>
+</MetadataNotificationConfiguration>
+----
+.Informações relacionadas
+link:../tenant/index.html["Use uma conta de locatário"]
+
+
+
+== COLOCAR solicitação de configuração de notificação de metadados do bucket
+
+A solicitação de configuração de notificação de metadados do PUT Bucket permite ativar o serviço de integração de pesquisa para buckets individuais. O XML de configuração de notificação de metadados que você fornece no corpo da solicitação especifica os objetos cujos metadados são enviados para o índice de pesquisa de destino.
+
+Você deve ter a permissão S3:PutBucketMetadataNotification para um bucket, ou ser raiz de conta, para concluir esta operação.
+
+
+
+=== Pedido
+
+A solicitação deve incluir a configuração de notificação de metadados no corpo da solicitação. Cada configuração de notificação de metadados inclui uma ou mais regras. Cada regra especifica os objetos aos quais se aplica e o destino ao qual o StorageGRID deve enviar metadados de objetos.
+
+Os objetos podem ser filtrados no prefixo do nome do objeto. Por exemplo, você pode enviar metadados para objetos com o prefixo `/images` para um destino e objetos com o prefixo `/videos` para outro.
+
+As configurações que têm prefixos sobrepostos não são válidas e são rejeitadas quando são enviadas. Por exemplo, uma configuração que incluía uma regra para objetos com o prefixo `test` e uma segunda regra para objetos com o prefixo `test2` não seria permitida.
+
+Os destinos devem ser especificados usando a URNA de um endpoint StorageGRID. O endpoint deve existir quando a configuração de notificação de metadados é enviada ou a solicitação falha como um `400 Bad Request`. a mensagem de erro afirma: `Unable to save the metadata notification (search) policy. The specified endpoint URN does not exist: _URN_.`
+
+[listing]
+----
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Rule-1</ID>
+        <Status>rule-status</Status>
+        <Prefix>key-prefix</Prefix>
+        <Destination>
+           <Urn>arn:aws:es:region:account-ID:domain/mydomain/myindex/mytype</Urn>
+        </Destination>
+    </Rule>
+    <Rule>
+        <ID>Rule-2</ID>
+         ...
+    </Rule>
+     ...
+</MetadataNotificationConfiguration>
+----
+A tabela descreve os elementos no XML de configuração de notificação de metadados.
+
+|===
+| Nome | Descrição | Obrigatório 
+
+
+ a| 
+MetadataNotificationConfiguration
+ a| 
+Tag de contentor para regras usadas para especificar os objetos e o destino para notificações de metadados.
+
+Contém um ou mais elementos de regra.
+ a| 
+Sim
+
+
+
+ a| 
+Regra
+ a| 
+Tag container para uma regra que identifica os objetos cujos metadados devem ser adicionados a um índice especificado.
+
+Regras com prefixos sobrepostos são rejeitadas.
+
+Incluído no elemento MetadataNotificationConfiguration.
+ a| 
+Sim
+
+
+
+ a| 
+ID
+ a| 
+Identificador exclusivo para a regra.
+
+Incluído no elemento regra.
+ a| 
+Não
+
+
+
+ a| 
+Estado
+ a| 
+O estado pode ser "ativado" ou "Desativado". Nenhuma ação é tomada para regras que são desativadas.
+
+Incluído no elemento regra.
+ a| 
+Sim
+
+
+
+ a| 
+Prefixo
+ a| 
+Os objetos que correspondem ao prefixo são afetados pela regra e seus metadados são enviados para o destino especificado.
+
+Para corresponder a todos os objetos, especifique um prefixo vazio.
+
+Incluído no elemento regra.
+ a| 
+Sim
+
+
+
+ a| 
+Destino
+ a| 
+Etiqueta de contentor para o destino de uma regra.
+
+Incluído no elemento regra.
+ a| 
+Sim
+
+
+
+ a| 
+Urna
+ a| 
+URNA do destino onde os metadados do objeto são enviados. Deve ser a URNA de um endpoint StorageGRID com as seguintes propriedades:
+
+* `es` deve ser o terceiro elemento.
+* A URNA deve terminar com o índice e digitar onde os metadados são armazenados, no formulário `domain-name/myindex/mytype`.
+
+
+Os endpoints são configurados usando o Gerenciador do Locatário ou a API de Gerenciamento do Locatário. Eles assumem a seguinte forma:
+
+* `arn:aws:es:region:account-ID:domain/mydomain/myindex/mytype`
+* `urn:mysite:es:::mydomain/myindex/mytype`
+
+
+O endpoint deve ser configurado antes que o XML de configuração seja enviado, ou a configuração falhará com um erro 404.
+
+Urna está incluído no elemento destino.
+ a| 
+Sim
+
+|===
+
+
+=== Exemplos de pedidos
+
+Este exemplo mostra a ativação da integração de pesquisa para um bucket. Neste exemplo, metadados de objetos para todos os objetos são enviados para o mesmo destino.
+
+[source, subs="specialcharacters,quotes"]
+----
+PUT /test1?x-ntap-sg-metadata-notification HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Rule-1</ID>
+        <Status>Enabled</Status>
+        <Prefix></Prefix>
+        <Destination>
+           <Urn>urn:sgws:es:::sgws-notifications/test1/all</Urn>
+        </Destination>
+    </Rule>
+</MetadataNotificationConfiguration>
+----
+Neste exemplo, metadados de objetos para objetos que correspondem ao prefixo `/images` são enviados para um destino, enquanto metadados de objetos para objetos que correspondem ao prefixo `/videos` são enviados para um segundo destino.
+
+[source, subs="specialcharacters,quotes"]
+----
+PUT /graphics?x-ntap-sg-metadata-notification HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Images-rule</ID>
+        <Status>Enabled</Status>
+        <Prefix>/images</Prefix>
+        <Destination>
+           <Urn>arn:aws:es:us-east-1:3333333:domain/es-domain/graphics/imagetype</Urn>
+        </Destination>
+    </Rule>
+    <Rule>
+        <ID>Videos-rule</ID>
+        <Status>Enabled</Status>
+        <Prefix>/videos</Prefix>
+        <Destination>
+           <Urn>arn:aws:es:us-west-1:22222222:domain/es-domain/graphics/videotype</Urn>
+        </Destination>
+    </Rule>
+</MetadataNotificationConfiguration>
+----
+.Informações relacionadas
+link:../tenant/index.html["Use uma conta de locatário"]
+
+
+
+=== JSON gerado pelo serviço de integração de pesquisa
+
+Quando você ativa o serviço de integração de pesquisa para um bucket, um documento JSON é gerado e enviado para o endpoint de destino cada vez que metadados ou tags de objeto são adicionados, atualizados ou excluídos.
+
+Este exemplo mostra um exemplo do JSON que pode ser gerado quando um objeto com a chave `SGWS/Tagging.txt` é criado em um intervalo `test` chamado . O `test` bucket não está versionado, então a `versionId` tag está vazia.
+
+[listing]
+----
+{
+  "bucket": "test",
+  "key": "SGWS/Tagging.txt",
+  "versionId": "",
+  "accountId": "86928401983529626822",
+  "size": 38,
+  "md5": "3d6c7634a85436eee06d43415012855",
+  "region":"us-east-1"
+  "metadata": {
+    "age": "25"
+  },
+  "tags": {
+    "color": "yellow"
+  }
+}
+----
+
+
+=== Metadados de objetos incluídos nas notificações de metadados
+
+A tabela lista todos os campos que estão incluídos no documento JSON que é enviado para o endpoint de destino quando a integração de pesquisa está ativada.
+
+O nome do documento inclui o nome do intervalo, o nome do objeto e a ID da versão, se presente.
+
+|===
+| Tipo | Nome do item | Descrição 
+
+
+ a| 
+Informações sobre o balde e o objeto
+ a| 
+balde
+ a| 
+Nome do balde
+
+
+
+ a| 
+Informações sobre o balde e o objeto
+ a| 
+chave
+ a| 
+Nome da chave do objeto
+
+
+
+ a| 
+Informações sobre o balde e o objeto
+ a| 
+ID de versão
+ a| 
+Versão do objeto, para objetos em buckets versionados
+
+
+
+ a| 
+Informações sobre o balde e o objeto
+ a| 
+região
+ a| 
+Região do balde, por exemplo `us-east-1`
+
+
+
+ a| 
+Metadados do sistema
+ a| 
+tamanho
+ a| 
+Tamanho do objeto (em bytes) como visível para um cliente HTTP
+
+
+
+ a| 
+Metadados do sistema
+ a| 
+md5
+ a| 
+Hash de objeto
+
+
+
+ a| 
+Metadados do usuário
+ a| 
+metadados
+`_key:value_`
+ a| 
+Todos os metadados de usuário para o objeto, como pares de chave-valor
+
+
+
+ a| 
+Tags
+ a| 
+tags
+`_key:value_`
+ a| 
+Todas as tags de objeto definidas para o objeto, como pares chave-valor
+
+|===
+*Observação:* para tags e metadados de usuários, o StorageGRID passa datas e números para o Elasticsearch como strings ou como notificações de eventos do S3. Para configurar o Elasticsearch para interpretar essas strings como datas ou números, siga as instruções do Elasticsearch para mapeamento de campos dinâmicos e para os formatos de data de mapeamento. Você deve ativar os mapeamentos de campo dinâmicos no índice antes de configurar o serviço de integração de pesquisa. Depois que um documento é indexado, você não pode editar os tipos de campo do documento no índice.
+
+
+
+== OBTER solicitação de uso de armazenamento
+
+A solicitação OBTER uso do armazenamento informa a quantidade total de armazenamento em uso por uma conta e para cada bucket associado à conta.
+
+A quantidade de armazenamento usada por uma conta e seus buckets pode ser obtida por uma solicitação GET Service modificada com o `x-ntap-sg-usage` parâmetro de consulta. O uso do armazenamento de buckets é rastreado separadamente das SOLICITAÇÕES DE PUT e DELETE processadas pelo sistema. Pode haver algum atraso antes que os valores de uso correspondam aos valores esperados com base no processamento de solicitações, especialmente se o sistema estiver sob carga pesada.
+
+Por padrão, o StorageGRID tenta recuperar informações de uso usando consistência global forte. Se a consistência global forte não puder ser alcançada, o StorageGRID tentará recuperar as informações de uso em uma consistência de site forte.
+
+Você deve ter a permissão S3:ListAllMyBuckets, ou ser root da conta, para concluir esta operação.
+
+
+
+=== Exemplo de solicitação
+
+[source, subs="specialcharacters,quotes"]
+----
+GET /?x-ntap-sg-usage HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+
+
+=== Exemplo de resposta
+
+Este exemplo mostra uma conta que tem quatro objetos e 12 bytes de dados em dois buckets. Cada bucket contém dois objetos e seis bytes de dados.
+
+[listing]
+----
+HTTP/1.1 200 OK
+Date: Sat, 29 Nov 2015 00:49:05 GMT
+Connection: KEEP-ALIVE
+Server: StorageGRID/10.2.0
+x-amz-request-id: 727237123
+Content-Length: 427
+Content-Type: application/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<UsageResult xmlns="http://s3.storagegrid.com/doc/2015-02-01">
+<CalculationTime>2014-11-19T05:30:11.000000Z</CalculationTime>
+<ObjectCount>4</ObjectCount>
+<DataBytes>12</DataBytes>
+<Buckets>
+<Bucket>
+<Name>bucket1</Name>
+<ObjectCount>2</ObjectCount>
+<DataBytes>6</DataBytes>
+</Bucket>
+<Bucket>
+<Name>bucket2</Name>
+<ObjectCount>2</ObjectCount>
+<DataBytes>6</DataBytes>
+</Bucket>
+</Buckets>
+</UsageResult>
+----
+
+
+=== Controle de versão
+
+Cada versão de objeto armazenada contribuirá para os `ObjectCount` valores e `DataBytes` na resposta. Excluir marcadores não são adicionados ao `ObjectCount` total.
+
+.Informações relacionadas
+link:consistency-controls.html["Controles de consistência"]
+
+
+
+== Solicitações de bucket obsoletas para conformidade legada
+
+Talvez seja necessário usar a API REST do StorageGRID S3 para gerenciar buckets criados com o recurso de conformidade legado.
+
+
+
+=== Funcionalidade de conformidade obsoleta
+
+O recurso de conformidade do StorageGRID que estava disponível nas versões anteriores do StorageGRID está obsoleto e foi substituído pelo bloqueio de objetos do S3.
+
+Se você ativou anteriormente a configuração de conformidade global, a configuração de bloqueio de objeto global S3 será ativada automaticamente quando você atualizar para o StorageGRID 11,5. Você não pode mais criar novos buckets com a conformidade ativada. No entanto, conforme necessário, você pode usar a API REST do StorageGRID S3 para gerenciar buckets em conformidade existentes.
+
+link:s3-rest-api-supported-operations-and-limitations.html["Usando S3 Object Lock"]
+
+link:../ilm/index.html["Gerenciar objetos com ILM"]
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de Conhecimento da NetApp: Como gerenciar buckets em conformidade com o legado no StorageGRID 11,5"]
+
+
+
+=== Obsoleto: Modificações de solicitação de Bucket para conformidade
+
+O elemento SGCompliance XML está obsoleto. Anteriormente, você poderia incluir esse elemento personalizado do StorageGRID no corpo opcional da solicitação XML de SOLICITAÇÕES PUT Bucket para criar um bucket compatível.
+
+
+IMPORTANT: O recurso de conformidade do StorageGRID que estava disponível nas versões anteriores do StorageGRID está obsoleto e foi substituído pelo bloqueio de objetos do S3.
+
+link:s3-rest-api-supported-operations-and-limitations.html["Usando S3 Object Lock"]
+
+link:../ilm/index.html["Gerenciar objetos com ILM"]
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de Conhecimento da NetApp: Como gerenciar buckets em conformidade com o legado no StorageGRID 11,5"]
+
+Você não pode mais criar novos buckets com a conformidade ativada. A seguinte mensagem de erro é retornada se você tentar usar as modificações de solicitação DE armazenamento para conformidade para criar um novo bucket compatível:
+
+[listing]
+----
+The Compliance feature is deprecated.
+Contact your StorageGRID administrator if you need to create new Compliant buckets.
+----
+.Informações relacionadas
+link:../ilm/index.html["Gerenciar objetos com ILM"]
+
+link:../tenant/index.html["Use uma conta de locatário"]
+
+
+
+=== Obsoleto: OBTER solicitação de conformidade do bucket
+
+A solicitação de conformidade GET Bucket está obsoleta. No entanto, você pode continuar usando essa solicitação para determinar as configurações de conformidade atualmente em vigor para um bucket em conformidade legado existente.
+
+
+IMPORTANT: O recurso de conformidade do StorageGRID que estava disponível nas versões anteriores do StorageGRID está obsoleto e foi substituído pelo bloqueio de objetos do S3.
+
+link:s3-rest-api-supported-operations-and-limitations.html["Usando S3 Object Lock"]
+
+link:../ilm/index.html["Gerenciar objetos com ILM"]
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de Conhecimento da NetApp: Como gerenciar buckets em conformidade com o legado no StorageGRID 11,5"]
+
+Você deve ter a permissão S3:GetBucketCompliance, ou ser raiz da conta, para concluir esta operação.
+
+
+
+==== Exemplo de solicitação
+
+Esta solicitação de exemplo permite que você determine as configurações de conformidade para o bucket chamado `mybucket`.
+
+[source, subs="specialcharacters,quotes"]
+----
+GET /mybucket/?x-ntap-sg-compliance HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+
+
+==== Exemplo de resposta
+
+No XML de resposta, `<SGCompliance>` lista as configurações de conformidade em vigor para o bucket. Este exemplo de resposta mostra as configurações de conformidade de um intervalo no qual cada objeto será retido por um ano (525.600 minutos), a partir de quando o objeto é ingerido na grade. Atualmente, não existe qualquer retenção legal neste intervalo. Cada objeto será automaticamente excluído após um ano.
+
+[source, subs="specialcharacters,quotes"]
+----
+HTTP/1.1 200 OK
+Date: _date_
+Connection: _connection_
+Server: StorageGRID/11.1.0
+x-amz-request-id: _request ID_
+Content-Length: _length_
+Content-Type: application/xml
+
+<SGCompliance>
+  <RetentionPeriodMinutes>525600</RetentionPeriodMinutes>
+  <LegalHold>false</LegalHold>
+  <AutoDelete>true</AutoDelete>
+</SGCompliance>
+----
+|===
+| Nome | Descrição 
+
+
+ a| 
+Repetição de PeriodMinutes
+ a| 
+A duração do período de retenção para objetos adicionados a este intervalo, em minutos. O período de retenção começa quando o objeto é ingerido na grade.
+
+
+
+ a| 
+LegalHod
+ a| 
+* Verdadeiro: Este balde está atualmente sob uma guarda legal. Os objetos neste bucket não podem ser excluídos até que a retenção legal seja levantada, mesmo que seu período de retenção tenha expirado.
+* Falso: Este balde não está atualmente sob um guarda legal. Os objetos neste bucket podem ser excluídos quando seu período de retenção expirar.
+
+
+
+
+ a| 
+Autodelete
+ a| 
+* Verdadeiro: Os objetos neste bucket serão excluídos automaticamente quando seu período de retenção expirar, a menos que o bucket esteja sob uma retenção legal.
+* Falso: Os objetos neste intervalo não serão excluídos automaticamente quando o período de retenção expirar. Você deve excluir esses objetos manualmente se precisar excluí-los.
+
+
+|===
+
+
+==== Respostas de erro
+
+Se o intervalo não foi criado para ser compatível, o código de status HTTP para a resposta é `404 Not Found`, com um código de erro S3 de `XNoSuchBucketCompliance`.
+
+.Informações relacionadas
+link:../ilm/index.html["Gerenciar objetos com ILM"]
+
+link:../tenant/index.html["Use uma conta de locatário"]
+
+
+
+=== Obsoleto: COLOQUE a solicitação de conformidade do bucket
+
+A solicitação de conformidade do PUT Bucket está obsoleta. No entanto, você pode continuar usando essa solicitação para modificar as configurações de conformidade de um bucket em conformidade com o legado existente. Por exemplo, você pode colocar um bucket existente em retenção legal ou aumentar seu período de retenção.
+
+
+IMPORTANT: O recurso de conformidade do StorageGRID que estava disponível nas versões anteriores do StorageGRID está obsoleto e foi substituído pelo bloqueio de objetos do S3.
+
+link:s3-rest-api-supported-operations-and-limitations.html["Usando S3 Object Lock"]
+
+link:../ilm/index.html["Gerenciar objetos com ILM"]
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de Conhecimento da NetApp: Como gerenciar buckets em conformidade com o legado no StorageGRID 11,5"]
+
+Você deve ter a permissão S3:PutBucketCompliance, ou ser root da conta, para concluir esta operação.
+
+Você deve especificar um valor para cada campo das configurações de conformidade ao emitir uma solicitação de conformidade PUT Bucket.
+
+
+
+==== Exemplo de solicitação
+
+Esta solicitação de exemplo modifica as configurações de conformidade para o bucket `mybucket` chamado . Neste exemplo, os objetos em `mybucket` agora serão retidos por dois anos (1.051.200 minutos) em vez de um ano, a partir de quando o objeto é ingerido na grade. Não há retenção legal neste balde. Cada objeto será automaticamente excluído após dois anos.
+
+[source, subs="specialcharacters,quotes"]
+----
+PUT /mybucket/?x-ntap-sg-compliance HTTP/1.1
+Date: _date_
+Authorization: _authorization name_
+Host: _host_
+Content-Length: 152
+
+<SGCompliance>
+  <RetentionPeriodMinutes>1051200</RetentionPeriodMinutes>
+  <LegalHold>false</LegalHold>
+  <AutoDelete>true</AutoDelete>
+</SGCompliance>
+----
+|===
+| Nome | Descrição 
+
+
+ a| 
+Repetição de PeriodMinutes
+ a| 
+A duração do período de retenção para objetos adicionados a este intervalo, em minutos. O período de retenção começa quando o objeto é ingerido na grade.
+
+*Atenção:* ao especificar um novo valor para RetentionPeriodMinutes, você deve especificar um valor igual ou maior que o período de retenção atual do bucket. Após o período de retenção do balde ser definido, não é possível diminuir esse valor; só é possível aumentá-lo.
+
+
+
+ a| 
+LegalHod
+ a| 
+* Verdadeiro: Este balde está atualmente sob uma guarda legal. Os objetos neste bucket não podem ser excluídos até que a retenção legal seja levantada, mesmo que seu período de retenção tenha expirado.
+* Falso: Este balde não está atualmente sob um guarda legal. Os objetos neste bucket podem ser excluídos quando seu período de retenção expirar.
+
+
+
+
+ a| 
+Autodelete
+ a| 
+* Verdadeiro: Os objetos neste bucket serão excluídos automaticamente quando seu período de retenção expirar, a menos que o bucket esteja sob uma retenção legal.
+* Falso: Os objetos neste intervalo não serão excluídos automaticamente quando o período de retenção expirar. Você deve excluir esses objetos manualmente se precisar excluí-los.
+
+
+|===
+
+
+==== Nível de consistência para configurações de conformidade
+
+Quando você atualiza as configurações de conformidade de um bucket do S3 com uma solicitação de conformidade de ARMAZENAMENTO, o StorageGRID tenta atualizar os metadados do bucket na grade. Por padrão, o StorageGRID usa o nível de consistência *strong-global* para garantir que todos os sites de data center e todos os nós de storage que contêm metadados de bucket tenham consistência de leitura após gravação para as configurações de conformidade alteradas.
+
+Se o StorageGRID não conseguir atingir o nível de consistência *strong-global* porque um site de data center ou vários nós de armazenamento em um site não estão disponíveis, o código de status HTTP para a resposta é `503 Service Unavailable.`
+
+Se você receber essa resposta, entre em Contato com o administrador da grade para garantir que os serviços de armazenamento necessários sejam disponibilizados o mais rápido possível. Se o administrador da grade não conseguir disponibilizar o suficiente dos nós de armazenamento em cada local, o suporte técnico pode direcioná-lo a tentar novamente a solicitação com falha forçando o nível de consistência *strong-site*.
+
+
+IMPORTANT: Nunca force o nível de consistência *strong-site* para a conformidade com o bucket, a menos que você tenha sido direcionado a fazê-lo por suporte técnico e a menos que você entenda as possíveis consequências de usar esse nível.
+
+Quando o nível de consistência é reduzido para *strong-site*, o StorageGRID garante que as configurações de conformidade atualizadas terão consistência de leitura após gravação apenas para solicitações de clientes dentro de um site. Isso significa que o sistema StorageGRID pode ter temporariamente várias configurações inconsistentes para esse intervalo até que todos os sites e nós de storage estejam disponíveis. As definições inconsistentes podem resultar num comportamento inesperado e indesejado. Por exemplo, se você estiver colocando um bucket sob uma retenção legal e forçar um nível de consistência inferior, as configurações de conformidade anteriores do bucket (ou seja, retenção legal) podem continuar em vigor em alguns sites de data center. Como resultado, os objetos que você acha que estão em retenção legal podem ser excluídos quando seu período de retenção expirar, seja pelo usuário ou pela exclusão automática, se ativado.
+
+Para forçar o uso do nível de consistência *strong-site*, reemita a solicitação de conformidade PUT Bucket e inclua o `Consistency-Control` cabeçalho de solicitação HTTP, da seguinte forma:
+
+[listing]
+----
+PUT /mybucket/?x-ntap-sg-compliance HTTP/1.1
+Consistency-Control: strong-site
+----
+
+
+==== Respostas de erro
+
+* Se o intervalo não foi criado para ser compatível, o código de status HTTP para a resposta é `404 Not Found`.
+* Se `RetentionPeriodMinutes` na solicitação for inferior ao período de retenção atual do bucket, o código de status HTTP será `400 Bad Request`.
+
+
+.Informações relacionadas
+link:storagegrid-s3-rest-api-operations.html["Obsoleto: Modificações de solicitação de Bucket para conformidade"]
+
+link:../tenant/index.html["Use uma conta de locatário"]
+
+link:../ilm/index.html["Gerenciar objetos com ILM"]

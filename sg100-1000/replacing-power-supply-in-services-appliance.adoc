@@ -1,0 +1,52 @@
+---
+permalink: sg100-1000/replacing-power-supply-in-services-appliance.html 
+sidebar: sidebar 
+keywords: storagegrid, sg100, sg1000, service appliance, services appliance, gateway Node, admin node, Replacing, replace, power supply, remove, removing, removal, install, installing, installation 
+summary: O dispositivo de serviços tem duas fontes de alimentação para redundância. Se uma das fontes de alimentação falhar, você deve substituí-la o mais rápido possível para garantir que o aparelho tenha alimentação redundante. 
+---
+= Substituir uma fonte de alimentação no dispositivo de serviços
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O dispositivo de serviços tem duas fontes de alimentação para redundância. Se uma das fontes de alimentação falhar, você deve substituí-la o mais rápido possível para garantir que o aparelho tenha alimentação redundante.
+
+.O que você vai precisar
+* Desembalou a fonte de alimentação de substituição.
+* Localizou fisicamente o aparelho onde está a substituir a fonte de alimentação no centro de dados.
++
+link:locating-controller-in-data-center.html["Localizar o controlador em um data center"]
+
+* Você pode confirmar que a outra fonte de alimentação está instalada e funcionando.
+
+
+.Sobre esta tarefa
+A figura mostra as duas fontes de alimentação para o SG100, que estão acessíveis a partir da parte de trás do aparelho.
+
+image::../media/sg1000_power_supplies.png[Parte traseira do SG100 com duas fontes de alimentação]
+
+
+NOTE: As fontes de alimentação para o SG1000 são idênticas.
+
+.Passos
+. Desconete o cabo de alimentação da fonte de alimentação.
+. Levante o manípulo do excêntrico.
++
+image::../media/sg6000_cn_lift_cam_handle_psu.gif[Levantar a pega do came para remover a PSU SG1000]
+
+. Pressione o trinco azul e puxe a fonte de alimentação para fora.
++
+image::../media/sg6000_cn_remove_power_supply.gif[Remoção de uma fonte de alimentação SG1000]
+
+. Faça deslizar a fonte de alimentação de substituição para o chassis.
++
+Certifique-se de que o trinco azul se encontra no lado direito ao deslizar a unidade para dentro.
+
++
+image::../media/sg6000_cn_insert_power_supply.gif[Fonte de alimentação deslizante em SG1000]
+
+. Empurre o manípulo do came para baixo para fixar a fonte de alimentação.
+. Ligue o cabo de alimentação à fonte de alimentação e certifique-se de que o LED verde se acende.
+

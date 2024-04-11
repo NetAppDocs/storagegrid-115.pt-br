@@ -1,0 +1,45 @@
+---
+permalink: fabricpool/using-storagegrid-ilm-with-fabricpool-data.html 
+sidebar: sidebar 
+keywords: FabricPool, requirements, ILM, information lifecycle management, ILM rule, ILM rules, ILM policy, erasure-coding, replication, cloud storage pool, glacier 
+summary: Se você estiver usando o FabricPool para categorizar dados no StorageGRID, você deve entender os requisitos para criar regras de gerenciamento de ciclo de vida de informações do StorageGRID e uma política de ILM para gerenciar dados do FabricPool. Você deve garantir que as regras de ILM que se aplicam aos dados do FabricPool não sejam disruptivas. 
+---
+= Uso do gerenciamento do ciclo de vida das informações do StorageGRID com dados do FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você estiver usando o FabricPool para categorizar dados no StorageGRID, entenda os requisitos para criar regras de gerenciamento do ciclo de vida das informações (ILM) do StorageGRID e uma política de ILM para gerenciar dados do FabricPool. Você deve garantir que as regras de ILM que se aplicam aos dados do FabricPool não sejam disruptivas.
+
+[IMPORTANT]
+====
+A FabricPool não tem conhecimento das regras ou políticas do StorageGRID ILM. A perda de dados pode ocorrer se a política ILM do StorageGRID estiver mal configurada.
+
+Para saber mais: link:../ilm/index.html["Gerenciar objetos com ILM"]
+
+====
+
+
+== Diretrizes de ILM para dados FabricPool
+
+Revise essas diretrizes para garantir que suas regras de ILM e sua política de ILM sejam adequadas para dados do FabricPool e seus requisitos de negócios. Se você já estiver usando o StorageGRID ILM, talvez seja necessário atualizar sua política ILM ativa para atender a essas diretrizes.
+
+* Você pode usar qualquer combinação de regras de replicação e codificação de apagamento para proteger os dados de categorias de nuvem.
++
+A prática recomendada é usar a codificação de apagamento 2-1 em um site para proteção de dados econômica. A codificação de apagamento usa mais CPU, mas significativamente menos capacidade de storage, do que a replicação. Os esquemas 4-1 e 6-1 usam menos capacidade do que 2-1, mas ao custo de menor taxa de transferência e menos flexibilidade quando você adiciona nós de storage durante a expansão da grade.
+
+* Cada regra aplicada a dados do FabricPool deve usar codificação de apagamento ou criar pelo menos duas cópias replicadas.
++
+
+IMPORTANT: Uma regra de ILM que cria apenas uma cópia replicada para qualquer período de tempo coloca os dados em risco de perda permanente. Se houver apenas uma cópia replicada de um objeto, esse objeto será perdido se um nó de armazenamento falhar ou tiver um erro significativo. Você também perde temporariamente o acesso ao objeto durante procedimentos de manutenção, como atualizações.
+
+* Não use uma regra de ILM que expirará ou excluirá dados de nível de nuvem do FabricPool. Defina o período de retenção em cada regra ILM como "Forever" para garantir que os objetos FabricPool não sejam excluídos pelo StorageGRID ILM.
+* Não crie regras que movam os dados da camada de nuvem do FabricPool do bucket para outro local. Você não pode usar regras de ILM para arquivar dados do FabricPool em fita usando um nó de arquivamento ou usar um pool de armazenamento em nuvem para mover dados do FabricPool para o Glacier.
++
+
+NOTE: O uso de pools de armazenamento em nuvem com FabricPool não é suportado devido à latência adicional para recuperar um objeto do destino de pool de armazenamento em nuvem.
+
+* A partir do ONTAP 9.8, você pode, opcionalmente, criar tags de objeto para ajudar a classificar e classificar dados em camadas para facilitar o gerenciamento. Por exemplo, você pode definir tags apenas em volumes FabricPool anexados ao StorageGRID. Em seguida, quando você cria regras ILM no StorageGRID, você pode usar o filtro avançado Etiqueta de Objeto para selecionar e colocar esses dados.
+

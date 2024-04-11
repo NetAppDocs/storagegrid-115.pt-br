@@ -1,0 +1,23 @@
+---
+permalink: expand/index.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Expanda sua grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Saiba como expandir um sistema StorageGRID sem interromper as operações do sistema.
+
+* link:planning-expansion.html["Planejando uma expansão do StorageGRID"]
+* link:preparing-for-expansion.html["Preparando-se para uma expansão"]
+* link:overview-of-expansion-procedure.html["Visão geral do procedimento de expansão"]
+* link:adding-storage-volumes-to-storage-nodes.html["Adição de volumes de storage aos nós de storage"]
+* link:adding-grid-nodes-to-existing-site-or-adding-new-site.html["Adicionar nós de grade a um site existente ou adicionar um novo site"]
+* link:configuring-expanded-storagegrid-system.html["Configurando seu sistema StorageGRID expandido"]
+* link:contacting-technical-support.html["Contactar o suporte técnico"]
+

@@ -1,0 +1,40 @@
+---
+permalink: fabricpool/creating-ha-group-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, high availability group, HA group, create, creating, virtual IP, VIP, preferred master, backup interface 
+summary: Ao configurar o StorageGRID para uso com o FabricPool, você pode, opcionalmente, criar um ou mais grupos de alta disponibilidade. Um grupo de HA consiste em uma ou mais interfaces de rede em nós de administração, nós de gateway ou ambos. 
+---
+= Criação de um grupo de alta disponibilidade (HA) para o FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ao configurar o StorageGRID para uso com o FabricPool, você pode, opcionalmente, criar um ou mais grupos de alta disponibilidade (HA). Um grupo de HA consiste em uma ou mais interfaces de rede em nós de administração, nós de gateway ou ambos.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter a permissão de acesso root.
+
+
+.Sobre esta tarefa
+Cada grupo de HA usa endereços IP virtuais (VIPs) para fornecer acesso altamente disponível aos serviços compartilhados nos nós associados.
+
+Para obter detalhes sobre esta tarefa. link:../admin/managing-high-availability-groups.html["Gerenciamento de grupos de alta disponibilidade"]Consulte .
+
+.Passos
+. Selecione *Configuração* > *Configurações de rede* > *grupos de alta disponibilidade*.
+. Selecione uma ou mais interfaces de rede. As interfaces de rede devem pertencer à mesma sub-rede na rede de Grade (eth0) ou na rede de Cliente (eth2).
+. Atribua um nó para ser o mestre preferido.
++
+O Master preferencial é a interface ativa, a menos que ocorra uma falha que faça com que os endereços VIP sejam reatribuídos a uma interface de backup.
+
+. Introduza até dez endereços IPv4 para o grupo HA.
++
+Os endereços devem estar dentro da sub-rede IPv4 compartilhada por todas as interfaces membros.
+
++
+image::../media/create_ha_group_for_fabricpool.png[Criar grupo HA para FabricPool]
+
+

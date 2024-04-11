@@ -1,0 +1,23 @@
+---
+permalink: network/network-topology-examples.html 
+sidebar: sidebar 
+keywords: storagegrid, network topology 
+summary: Além da rede de Grade necessária, você pode escolher se deseja configurar as interfaces de rede de administração e rede de cliente ao projetar a topologia de rede para uma implantação de um ou vários locais. 
+---
+= Exemplos de topologia de rede
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Além da rede de Grade necessária, você pode escolher se deseja configurar as interfaces de rede de administração e rede de cliente ao projetar a topologia de rede para uma implantação de um ou vários locais.
+
+As portas internas só são acessíveis através da rede de Grade. As portas externas são acessíveis a partir de todos os tipos de rede. Essa flexibilidade oferece várias opções para projetar uma implantação do StorageGRID e configurar o IP externo e a filtragem de portas em switches e firewalls. Para obter mais informações sobre portas internas e externas, consulte a referência da porta de rede.
+
+Se você especificar que a interface de rede do cliente de um nó não é confiável, configure um ponto de extremidade do balanceador de carga para aceitar o tráfego de entrada. Para obter informações sobre como configurar redes de clientes não confiáveis e pontos de extremidade do balanceador de carga, consulte as instruções para administrar o StorageGRID.
+
+.Informações relacionadas
+link:../admin/index.html["Administrar o StorageGRID"]
+
+link:network-port-reference.html["Referência da porta de rede"]

@@ -1,0 +1,14 @@
+---
+permalink: monitor/using-charts-and-reports.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode usar gráficos e relatórios para monitorar o estado do sistema StorageGRID e solucionar problemas. Os tipos de gráficos e relatórios disponíveis no Gerenciador de Grade incluem gráficos de pizza, gráficos e relatórios de texto. 
+---
+= Usando gráficos e relatórios
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar gráficos e relatórios para monitorar o estado do sistema StorageGRID e solucionar problemas. Os tipos de gráficos e relatórios disponíveis no Gerenciador de Grade incluem gráficos de pizza (apenas no Painel de instrumentos), gráficos e relatórios de texto.

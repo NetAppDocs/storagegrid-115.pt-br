@@ -1,0 +1,25 @@
+---
+permalink: monitor/index.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Monitorar um sistema StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Saiba como monitorar um sistema StorageGRID e como avaliar problemas que possam ocorrer. Lista todos os alertas do sistema.
+
+* link:using-grid-manager-for-monitoring.html["Usando o Gerenciador de Grade para monitoramento"]
+* link:information-you-should-monitor-regularly.html["Informações que você deve monitorar regularmente"]
+* link:managing-alerts-and-alarms.html["Gerenciamento de alertas e alarmes"]
+* link:using-snmp-monitoring.html["Utilizar a monitorização SNMP"]
+* link:collecting-additional-storagegrid-data.html["A recolher dados StorageGRID adicionais"]
+* link:../troubleshoot/troubleshooting-storagegrid-system.html["Solução de problemas de um sistema StorageGRID"]
+* link:alerts-reference.html["Referência de alertas"]
+* link:alarms-reference.html["Referência de alarmes (sistema legado)"]
+* link:../monitor/logs-files-reference.html["Referência de ficheiros de registo"]
+

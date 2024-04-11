@@ -1,0 +1,24 @@
+---
+permalink: primer/using-storagegrid.html 
+sidebar: sidebar 
+keywords:  
+summary: Depois de instalar nós de grade e redes StorageGRID, você pode começar a configurar e usar o StorageGRID. Algumas das tarefas que você executará incluem controlar o acesso do usuário às funções de administração do sistema, configurar contas de locatários , gerenciar conexões de clientes, definir opções de configuração, gerenciar locais de objetos com ILM, monitorar a integridade e as atividades diárias do seu sistema StorageGRID e realizar atividades de manutenção rotineiras e não rotineiras. 
+---
+= Usando o StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de instalar nós de grade e redes StorageGRID, você pode começar a configurar e usar o StorageGRID. Algumas das tarefas que você executará incluem controlar o acesso do usuário às funções de administração do sistema, configurar contas de locatários , gerenciar conexões de clientes, definir opções de configuração, gerenciar locais de objetos com ILM, monitorar a integridade e as atividades diárias do seu sistema StorageGRID e realizar atividades de manutenção rotineiras e não rotineiras.
+
+* link:controlling-storagegrid-access.html["Controlar o acesso à StorageGRID"]
+* link:managing-tenants-and-client-connections.html["Gerenciamento de locatários e conexões de clientes"]
+* link:configuring-network-settings.html["Configurar definições de rede"]
+* link:configuring-system-settings.html["Configurar as definições do sistema"]
+* link:using-information-lifecycle-management.html["Uso do gerenciamento do ciclo de vida das informações"]
+* link:monitoring-storagegrid-operations.html["Monitoramento das operações do StorageGRID"]
+* link:performing-maintenance-procedures.html["Executar procedimentos de manutenção"]
+* link:using-storagegrid-support-options.html["Usando as opções de suporte do StorageGRID"]
+

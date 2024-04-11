@@ -1,0 +1,58 @@
+---
+permalink: primer/viewing-nodes-page.html 
+sidebar: sidebar 
+keywords: nodes page, connection state, unknown, administratively down, critical, major, minor, icon 
+summary: Quando você precisar de informações mais detalhadas sobre seu sistema StorageGRID do que o Painel fornece, você pode usar a página nós para exibir as métricas de toda a grade, cada local na grade e cada nó em um local. 
+---
+= Exibindo a página de nós
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando você precisar de informações mais detalhadas sobre seu sistema StorageGRID do que o Painel fornece, você pode usar a página nós para exibir as métricas de toda a grade, cada local na grade e cada nó em um local.
+
+image::../media/nodes_menu.png[Menu de nós]
+
+Na exibição em árvore à esquerda, você pode ver todos os sites e todos os nós no seu sistema StorageGRID. O ícone de cada nó indica se o nó está conetado ou se há alertas ativos.
+
+
+
+== Ícones de estado da ligação
+
+Se um nó for desconetado da grade, a exibição em árvore mostrará um ícone de estado de conexão azul ou cinza, e não o ícone de alertas subjacentes.
+
+* *Não conetado - desconhecido* image:../media/icon_alarm_blue_unknown.png["ícone de ponto de interrogação azul"]: o nó não está conetado à grade por um motivo desconhecido. Por exemplo, a conexão de rede entre nós foi perdida ou a energia está inativa. O alerta *não é possível se comunicar com o nó* também pode ser acionado. Outros alertas também podem estar ativos. Esta situação requer atenção imediata.
++
+
+NOTE: Um nó pode aparecer como desconhecido durante operações de desligamento gerenciado. Nesses casos, você pode ignorar o estado desconhecido.
+
+* *Não conetado - administrativamente para baixo* image:../media/icon_alarm_gray_administratively_down.png["ícone de marca de interrogação cinzenta"]: o nó não está conetado à grade por um motivo esperado. Por exemplo, o nó, ou serviços no nó, foi desligado graciosamente, o nó está reiniciando ou o software está sendo atualizado. Um ou mais alertas também podem estar ativos.
+
+
+
+
+== Ícones de alerta
+
+Se um nó estiver conetado à grade, a exibição em árvore mostrará um dos ícones a seguir, dependendo se houver algum alerta atual para o nó.
+
+* *Crítico* image:../media/icon_alert_red_critical.png["Ícone Alerta Vermelho crítico"]: existe uma condição anormal que interrompeu as operações normais de um nó ou serviço StorageGRID. Você deve abordar o problema subjacente imediatamente. A interrupção do serviço e a perda de dados podem resultar se o problema não for resolvido.
+* *Major* image:../media/icon_alert_orange_major.png["Ícone Alerta Laranja maior"]: existe uma condição anormal que está afetando as operações atuais ou se aproximando do limite para um alerta crítico. Você deve investigar os principais alertas e resolver quaisquer problemas subjacentes para garantir que a condição anormal não pare a operação normal de um nó ou serviço StorageGRID.
+* *Minor* image:../media/icon_alert_yellow_miinor.png["Ícone Alerta Amarelo menor"]: o sistema está operando normalmente, mas existe uma condição anormal que pode afetar a capacidade do sistema de operar se ele continuar. Você deve monitorar e resolver alertas menores que não sejam claros por conta própria para garantir que eles não resultem em um problema mais sério.
+* *Normal* image:../media/icon_alert_green_checkmark.png["ícone alerta verde marca de verificação"]: nenhum alerta está ativo e o nó está conetado à grade.
+
+
+
+
+== Exibindo detalhes de um sistema, site ou nó
+
+Para visualizar as informações disponíveis, clique nos links apropriados à esquerda, como segue:
+
+* Selecione o nome da grade para ver um resumo agregado das estatísticas de todo o seu sistema StorageGRID. (A captura de tela mostra um sistema chamado implantação do StorageGRID.)
+* Selecione um local específico do data center para ver um resumo agregado das estatísticas de todos os nós nesse local.
+* Selecione um nó específico para exibir informações detalhadas para esse nó.
+
+
+.Informações relacionadas
+link:../monitor/index.html["Monitorizar  Resolução de problemas"]

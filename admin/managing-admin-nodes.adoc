@@ -1,0 +1,23 @@
+---
+permalink: admin/managing-admin-nodes.html 
+sidebar: sidebar 
+keywords:  
+summary: Cada local em uma implantação do StorageGRID pode ter um ou mais nós de administração. 
+---
+= Gerenciando nós de administração
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cada local em uma implantação do StorageGRID pode ter um ou mais nós de administração.
+
+* link:what-admin-node-is.html["O que é um nó Admin"]
+* link:using-multiple-admin-nodes.html["Usando vários nós de administração"]
+* link:identifying-primary-admin-node.html["Identificando o nó de administração principal"]
+* link:selecting-preferred-sender.html["Selecionar um remetente preferido"]
+* link:viewing-notification-status-and-queues.html["Exibindo status de notificação e filas"]
+* link:how-admin-nodes-show-acknowledged-alarms.html["Como os nós de administração mostram alarmes reconhecidos (sistema legado)"]
+* link:configuring-audit-client-access.html["Configurando o acesso de cliente de auditoria"]
+

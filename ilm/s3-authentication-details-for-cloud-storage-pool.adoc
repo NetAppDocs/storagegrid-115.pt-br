@@ -1,0 +1,138 @@
+---
+permalink: ilm/s3-authentication-details-for-cloud-storage-pool.html 
+sidebar: sidebar 
+keywords:  
+summary: Ao criar um pool de armazenamento em nuvem para S3, você deve selecionar o tipo de autenticação necessário para o ponto de extremidade do pool de armazenamento em nuvem. Você pode especificar anônimo ou inserir um ID de chave de acesso e chave de acesso secreta. 
+---
+= S3: Especificando detalhes de autenticação para um pool de armazenamento em nuvem
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ao criar um pool de armazenamento em nuvem para S3, você deve selecionar o tipo de autenticação necessário para o ponto de extremidade do pool de armazenamento em nuvem. Você pode especificar anônimo ou inserir um ID de chave de acesso e chave de acesso secreta.
+
+.O que você vai precisar
+* Você deve ter inserido as informações básicas do Cloud Storage Pool e especificado *Amazon S3* como o tipo de provedor.
++
+image::../media/cloud_storage_pool_create_s3.png[Cloud Storage Pool Create S3]
+
+* Se você estiver usando a autenticação da chave de acesso, você deve saber o ID da chave de acesso e a chave de acesso secreta para o bucket externo do S3.
+
+
+.Passos
+. Na seção *Service Endpoint*, forneça as seguintes informações:
++
+.. Selecione qual protocolo usar ao se conetar ao pool de armazenamento em nuvem.
++
+O protocolo padrão é HTTPS.
+
+.. Insira o nome do host do servidor ou o endereço IP do pool de armazenamento em nuvem.
++
+Por exemplo:
+
++
+`s3-_aws-region_.amazonaws.com`
+
++
+
+NOTE: Não inclua o nome do intervalo neste campo. Você inclui o nome do bucket no campo *Bucket ou Container*.
+
+.. Opcionalmente, especifique a porta que deve ser usada ao se conetar ao Cloud Storage Pool.
++
+Deixe este campo em branco para usar a porta padrão: Porta 443 para HTTPS ou porta 80 para HTTP.
+
+
+
+. Na seção *Autenticação*, selecione o tipo de autenticação necessário para o endpoint Cloud Storage Pool.
++
+[cols="1a,2a"]
+|===
+| Opção | Descrição 
+
+
+ a| 
+Chave de acesso
+ a| 
+Um ID de chave de acesso e chave de acesso secreta são necessários para acessar o intervalo do pool de armazenamento em nuvem.
+
+
+
+ a| 
+Anônimo
+ a| 
+Todos têm acesso ao bucket do Cloud Storage Pool. Não é necessário um ID de chave de acesso e uma chave de acesso secreta.
+
+
+
+ a| 
+CAP (Portal de Acesso C2S)
+ a| 
+Usado apenas para C2S S3. Vá para link:c2s-s3-authentication-details-for-cloud-storage-pool.html["C2S S3: Especificando detalhes de autenticação para um pool de armazenamento em nuvem"].
+
+|===
+. Se tiver selecionado a chave de acesso, introduza as seguintes informações:
++
+[cols="1a,2a"]
+|===
+| Opção | Descrição 
+
+
+ a| 
+ID da chave de acesso
+ a| 
+O ID da chave de acesso para a conta que possui o intervalo externo.
+
+
+
+ a| 
+Chave de Acesso secreta
+ a| 
+A chave de acesso secreto associada.
+
+|===
+. Na seção Verificação do servidor, selecione qual método deve ser usado para validar o certificado para conexões TLS com o pool de armazenamento em nuvem:
++
+[cols="1a,2a"]
+|===
+| Opção | Descrição 
+
+
+ a| 
+Use o certificado CA do sistema operacional
+ a| 
+Use os certificados de CA padrão instalados no sistema operacional para proteger conexões.
+
+
+
+ a| 
+Use certificado CA personalizado
+ a| 
+Use um certificado de CA personalizado. Clique em *Select New* (Selecionar novo) e carregue o certificado CA codificado em PEM.
+
+
+
+ a| 
+Não verifique o certificado
+ a| 
+O certificado usado para a conexão TLS não é verificado.
+
+|===
+. Clique em *Salvar*.
+
+
+Quando você salva um pool de storage de nuvem, o StorageGRID faz o seguinte:
+
+* Valida que o intervalo e o endpoint de serviço existem e que eles podem ser alcançados usando as credenciais que você especificou.
+* Grava um arquivo de marcador no bucket para identificar o bucket como um Cloud Storage Pool. Nunca remova esse arquivo, que é `x-ntap-sgws-cloud-pool-uuid` chamado .
+
+
+Se a validação do Cloud Storage Pool falhar, você receberá uma mensagem de erro que explica por que a validação falhou. Por exemplo, um erro pode ser relatado se houver um erro de certificado ou se o intervalo especificado ainda não existir.
+
+image::../media/cloud_storage_pool_create_error.gif[Erro de criação do pool de armazenamento na nuvem]
+
+Consulte as instruções para solucionar problemas de pools de armazenamento em nuvem, resolver o problema e, em seguida, tente salvar o pool de armazenamento em nuvem novamente.
+
+.Informações relacionadas
+link:troubleshooting-cloud-storage-pools.html["Solução de problemas de Cloud Storage Pools"]

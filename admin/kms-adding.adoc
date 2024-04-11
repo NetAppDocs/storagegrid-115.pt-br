@@ -1,0 +1,32 @@
+---
+permalink: admin/kms-adding.html 
+sidebar: sidebar 
+keywords:  
+summary: Você usa o assistente do servidor de gerenciamento de chaves do StorageGRID para adicionar cada cluster KMS ou KMS. 
+---
+= Adicionar um servidor de gerenciamento de chaves (KMS)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você usa o assistente do servidor de gerenciamento de chaves do StorageGRID para adicionar cada cluster KMS ou KMS.
+
+.O que você vai precisar
+* Tem de ter revisto a link:kms-considerations-and-requirements.html["considerações e requisitos para usar um servidor de gerenciamento de chaves"].
+* Você deve ter link:kms-configuring-storagegrid-as-client.html["Configurado o StorageGRID como um cliente no KMS"], e você deve ter as informações necessárias para cada cluster KMS ou KMS
+* Você deve ter a permissão de acesso root.
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+
+
+.Sobre esta tarefa
+Se possível, configure qualquer servidor de gerenciamento de chaves específico do site antes de configurar um KMS padrão que se aplique a todos os sites não gerenciados por outro KMS. Se você criar o KMS padrão primeiro, todos os dispositivos criptografados por nó na grade serão criptografados pelo KMS padrão. Se você quiser criar um KMS específico do site mais tarde, primeiro copie a versão atual da chave de criptografia do KMS padrão para o novo KMS.
+
+link:kms-considerations-for-changing-for-site.html["Considerações para alterar o KMS para um site"]
+
+.Passos
+. link:kms-adding-enter-kms-details.html["Passo 1: Insira os detalhes do KMS"]
+. link:kms-adding-upload-server-certificate.html["Passo 2: Carregar certificado de servidor"]
+. link:kms-adding-upload-client-certificates.html["Passo 3: Faça o upload de certificados de cliente"]
+

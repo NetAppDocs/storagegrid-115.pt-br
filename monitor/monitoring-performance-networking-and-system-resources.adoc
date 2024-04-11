@@ -1,0 +1,14 @@
+---
+permalink: monitor/monitoring-performance-networking-and-system-resources.html 
+sidebar: sidebar 
+keywords:  
+summary: Você deve monitorar o desempenho, a rede e os recursos do sistema para determinar se o StorageGRID pode lidar com sua carga atual e garantir que o desempenho do cliente não diminua ao longo do tempo. 
+---
+= Monitoramento de desempenho, rede e recursos do sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve monitorar o desempenho, a rede e os recursos do sistema para determinar se o StorageGRID pode lidar com sua carga atual e garantir que o desempenho do cliente não diminua ao longo do tempo.

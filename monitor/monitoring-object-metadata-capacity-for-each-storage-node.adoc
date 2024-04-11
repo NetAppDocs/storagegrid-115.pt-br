@@ -1,0 +1,92 @@
+---
+permalink: monitor/monitoring-object-metadata-capacity-for-each-storage-node.html 
+sidebar: sidebar 
+keywords: object, metadata, monitoring, monitoring object metadata, metadata, metadata capacity 
+summary: 'Você deve monitorar o uso dos metadados de cada nó de storage para garantir que o espaço adequado permaneça disponível para operações essenciais do banco de dados. É necessário adicionar novos nós de storage em cada local antes que os metadados do objeto excedam 100% do espaço permitido dos metadados.' 
+---
+= Monitoramento da capacidade dos metadados de objetos para cada nó de storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve monitorar o uso dos metadados de cada nó de storage para garantir que o espaço adequado permaneça disponível para operações essenciais do banco de dados. É necessário adicionar novos nós de storage em cada local antes que os metadados do objeto excedam 100% do espaço permitido dos metadados.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+
+
+.Sobre esta tarefa
+O StorageGRID mantém três cópias de metadados de objetos em cada local para fornecer redundância e proteger os metadados de objetos da perda. As três cópias são distribuídas uniformemente por todos os nós de storage em cada local, usando o espaço reservado para metadados no volume de storage 0 de cada nó de storage.
+
+Em alguns casos, a capacidade de metadados de objetos da grade pode ser consumida mais rápido do que sua capacidade de armazenamento de objetos. Por exemplo, se você costuma ingerir um grande número de objetos pequenos, talvez seja necessário adicionar nós de storage para aumentar a capacidade dos metadados, mesmo que haja capacidade suficiente de storage de objetos.
+
+Alguns dos fatores que podem aumentar o uso de metadados incluem o tamanho e a quantidade de metadados e tags do usuário, o número total de peças em um upload de várias partes e a frequência de alterações nos locais de armazenamento de ILM.
+
+.Passos
+. Selecione *nós* *_Storage Node_* *Storage*.
+. Passe o cursor sobre o gráfico Storage Used - Object Metadata (armazenamento usado - metadados de objetos) para ver os valores de um tempo específico.
++
+image::../media/storage_used_object_metadata.png[Armazenamento usado - metadados Objeto]
+
++
+|===
+| Valor | Descrição | Métrica Prometheus 
+
+
+ a| 
+Usado (%)
+ a| 
+A porcentagem do espaço de metadados permitido que foi usado neste nó de storage.
+ a| 
+`storagegrid_storage_utilization_metadata_bytes/ storagegrid_storage_utilization_metadata_allowed_bytes`
+
+
+
+ a| 
+Usado
+ a| 
+Os bytes do espaço de metadados permitido que foram usados neste nó de armazenamento.
+ a| 
+`storagegrid_storage_utilization_metadata_bytes`
+
+
+
+ a| 
+Permitido
+ a| 
+O espaço permitido para metadados de objetos neste nó de storage. Para saber como este valor é determinado para cada nó de armazenamento, consulte as instruções para administrar o StorageGRID.
+ a| 
+`storagegrid_storage_utilization_metadata_allowed_bytes`
+
+
+
+ a| 
+Real reservado
+ a| 
+O espaço real reservado para metadados neste nó de storage. Inclui o espaço permitido e o espaço necessário para operações essenciais de metadados. Para saber como esse valor é calculado para cada nó de armazenamento, consulte as instruções para administrar o StorageGRID.
+ a| 
+`storagegrid_storage_utilization_metadata_reserved_bytes`
+
+|===
++
+
+NOTE: Os valores totais de um site ou da grade não incluem nós que não relataram métricas por pelo menos cinco minutos, como nós off-line.
+
+. Se o valor *usado (%)* for 70% ou mais, expanda o sistema StorageGRID adicionando nós de storage a cada local.
++
+
+IMPORTANT: O alerta *armazenamento de metadados baixo* é acionado quando o valor *usado (%)* atinge determinados limites. Resultados indesejáveis podem ocorrer se os metadados de objetos usarem mais de 100% do espaço permitido.
+
++
+Quando você adiciona os novos nós, o sistema reequilibra automaticamente os metadados de objetos em todos os nós de storage no local. Consulte as instruções para expandir um sistema StorageGRID.
+
+
+
+.Informações relacionadas
+link:../troubleshoot/troubleshooting-storagegrid-system.html["Solução de problemas do alerta de armazenamento de metadados baixos"]
+
+link:../admin/index.html["Administrar o StorageGRID"]
+
+link:../expand/index.html["Expanda sua grade"]

@@ -1,0 +1,24 @@
+---
+permalink: admin/migrating-data-into-storagegrid.html 
+sidebar: sidebar 
+keywords:  
+summary: É possível migrar grandes quantidades de dados para o sistema StorageGRID e, simultaneamente, usar o sistema StorageGRID para operações diárias. 
+---
+= Migração de dados para o StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+É possível migrar grandes quantidades de dados para o sistema StorageGRID e, simultaneamente, usar o sistema StorageGRID para operações diárias.
+
+A seção a seguir é um guia para entender e Planejar uma migração de grandes quantidades de dados para o sistema StorageGRID. Ele não é um guia geral para a migração de dados e não inclui etapas detalhadas para a execução de uma migração. Siga as diretrizes e instruções nesta seção para garantir que os dados sejam migrados com eficiência para o sistema StorageGRID sem interferir nas operações diárias e que os dados migrados sejam tratados adequadamente pelo sistema StorageGRID.
+
+* link:confirming-capacity-of-storagegrid-system.html["Confirmar a capacidade do sistema StorageGRID"]
+* link:determining-ilm-policy-for-migrated-data.html["Determinando a política de ILM para dados migrados"]
+* link:impact-of-migration-on-operations.html["Impacto da migração nas operações"]
+* link:scheduling-data-migration.html["Agendamento da migração de dados"]
+* link:monitoring-data-migration.html["Monitoramento da migração de dados"]
+* link:creating-custom-notifications-for-migration-alarms.html["Criação de notificações personalizadas para alarmes de migração"]
+

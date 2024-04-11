@@ -1,0 +1,55 @@
+---
+permalink: admin/testing-relying-party-trusts.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Antes de aplicar o uso de single sign-on (SSO) para o StorageGRID, confirme que single sign-on e single sloout estão configurados corretamente. Se você criou uma confiança de parte confiável para cada nó Admin, confirme que você pode usar SSO e SLO para cada nó Admin.' 
+---
+= Testando confianças de parte de confiança
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de aplicar o uso de logon único (SSO) para StorageGRID, confirme se o logon único e o logout único (SLO) estão configurados corretamente. Se você criou uma confiança de parte confiável para cada nó Admin, confirme que você pode usar SSO e SLO para cada nó Admin.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+* Você configurou uma ou mais confianças de parte confiáveis no AD FS.
+
+
+.Passos
+. Selecione *Configuração* > *Controle de Acesso* > *Início de sessão único*.
++
+A página Single Sign-On (Início de sessão único) é exibida, com a opção *Sandbox Mode* selecionada.
+
+. Nas instruções para o modo sandbox, localize o link para a página de logon do provedor de identidade.
++
+O URL é derivado do valor inserido no campo *Nome do serviço federado*.
+
++
+image::../media/sso_sandbox_mode_url.gif[URL para a página de logon do provedor de identidade]
+
+. Clique no link ou copie e cole o URL em um navegador para acessar a página de logon do provedor de identidade.
+. Para confirmar que você pode usar o SSO para entrar no StorageGRID, selecione *entrar em um dos seguintes sites*, selecione o identificador de parte confiável para seu nó de administrador principal e clique em *entrar*.
++
+image::../media/sso_sandbox_mode_testing.gif[Testando confianças de parte confiáveis no modo SSO Sandbox]
+
++
+Você é solicitado a digitar seu nome de usuário e senha.
+
+. Introduza o seu nome de utilizador federado e a palavra-passe.
++
+** Se as operações de login e logout SSO forem bem-sucedidas, uma mensagem de sucesso será exibida.
++
+image::../media/sso_sandbox_mode_sign_in_success.gif[Mensagem de sucesso de teste de autenticação SSO e logout]
+
+** Se a operação SSO não for bem-sucedida, será exibida uma mensagem de erro. Corrija o problema, limpe os cookies do navegador e tente novamente.
+
+
+. Repita as etapas anteriores para confirmar que você pode entrar em qualquer outro nó Admin.
++
+Se todas as operações de login e logout SSO forem bem-sucedidas, você estará pronto para ativar o SSO.
+
+

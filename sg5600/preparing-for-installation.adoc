@@ -1,0 +1,24 @@
+---
+permalink: sg5600/preparing-for-installation.html 
+sidebar: sidebar 
+keywords: storagegrid, sg5600, storage node, storage appliance, install, installation, preparation, get ready, prepare 
+summary: Preparar a instalação de um dispositivo StorageGRID implica preparar o local e obter todo o hardware, cabos e ferramentas necessários. Você também deve coletar endereços IP e informações de rede. 
+---
+= Preparando-se para a instalação
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Preparar a instalação de um dispositivo StorageGRID implica preparar o local e obter todo o hardware, cabos e ferramentas necessários. Você também deve coletar endereços IP e informações de rede.
+
+.Passos
+* link:preparing-site-sg5600.html["Preparação do local (SG5600)"]
+* link:unpacking-boxes-sg5600.html["Desembalar as caixas (SG5600)"]
+* link:obtaining-additional-equipment-and-tools-sg5600.html["Obtenção de equipamentos e ferramentas adicionais (SG5600)"]
+* link:service-laptop-requirements-sg5600.html["Requisitos de manutenção do laptop"]
+* link:web-browser-requirements.html["Requisitos do navegador da Web"]
+* link:reviewing-appliance-network-connections-sg5600.html["Rever as ligações de rede do dispositivo"]
+* link:gathering-installation-information-sg5600.html["Recolha de informações de instalação (SG5600)"]
+

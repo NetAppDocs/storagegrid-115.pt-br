@@ -1,0 +1,26 @@
+---
+permalink: network/linux-deployments.html 
+sidebar: sidebar 
+keywords:  
+summary: Para eficiência, confiabilidade e segurança, o sistema StorageGRID é executado no Linux como uma coleção de contentores Docker. A configuração de rede relacionada ao Docker não é necessária em um sistema StorageGRID. 
+---
+= Implantações Linux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para eficiência, confiabilidade e segurança, o sistema StorageGRID é executado no Linux como uma coleção de contentores Docker. A configuração de rede relacionada ao Docker não é necessária em um sistema StorageGRID.
+
+Use um dispositivo não-bond, como um par VLAN ou Ethernet virtual (vete), para a interface de rede do contentor. Especifique este dispositivo como a interface de rede no arquivo de configuração do nó.
+
+
+IMPORTANT: Não use dispositivos bond ou bridge diretamente como a interface de rede do contentor. Fazer isso pode impedir a inicialização do nó por causa de um problema de kernel com o uso de macvlan com dispositivos de ligação e ponte no namespace do contentor.
+
+Veja as instruções de instalação para implantações Red Hat Enterprise Linux/CentOS ou Ubuntu/Debian.
+
+.Informações relacionadas
+link:../rhel/index.html["Instale o Red Hat Enterprise Linux ou CentOS"]
+
+link:../ubuntu/index.html["Instale Ubuntu ou Debian"]

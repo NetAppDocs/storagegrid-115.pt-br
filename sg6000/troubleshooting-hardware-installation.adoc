@@ -1,0 +1,19 @@
+---
+permalink: sg6000/troubleshooting-hardware-installation.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, troubleshoot, troubleshooting, hardware, install, installation 
+summary: Se você encontrar problemas durante a instalação, talvez seja útil revisar informações de solução de problemas relacionadas a problemas de configuração de hardware e conetividade. 
+---
+= Solução de problemas da instalação do hardware
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você encontrar problemas durante a instalação, talvez seja útil revisar informações de solução de problemas relacionadas a problemas de configuração de hardware e conetividade.
+
+.Informações relacionadas
+link:hardware-setup-appears-to-hang.html["A configuração do hardware parece travar"]
+
+link:troubleshooting-connection-issues.html["Solução de problemas de conexão"]

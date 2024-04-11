@@ -1,0 +1,84 @@
+---
+permalink: tenant/changing-consistency-level.html 
+sidebar: sidebar 
+keywords: storagegrid, tenant, consistency level, read after new write, read-after-new-write, strong site, strong-site, strong global, strong-global 
+summary: Se você estiver usando um locatário do S3, poderá usar o Gerenciador do Locatário ou a API de Gerenciamento do Locatário para alterar o controle de consistência para operações executadas nos objetos nos buckets do S3. 
+---
+= Alterar o nível de consistência
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você estiver usando um locatário do S3, poderá usar o Gerenciador do Locatário ou a API de Gerenciamento do Locatário para alterar o controle de consistência para operações executadas nos objetos nos buckets do S3.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador do Locatário usando um navegador compatível.
+* Você deve pertencer a um grupo de usuários que tenha a permissão Gerenciar todos os buckets ou acesso root. Essas permissões substituem as configurações de permissões em políticas de grupo ou bucket.
+
+
+.Sobre esta tarefa
+O nível de consistência faz uma troca entre a disponibilidade dos objetos e a consistência desses objetos em diferentes nós e sites de storage. Em geral, você deve usar o nível de consistência *Read-after-novo-write* para seus buckets. Se o nível de consistência *Read-after-new-write* não atender aos requisitos do aplicativo cliente, você pode alterar o nível de consistência definindo o nível de consistência do bucket ou usando o `Consistency-Control` cabeçalho. O `Consistency-Control` colhedor substitui o nível de consistência do balde.
+
+
+NOTE: Quando você altera o nível de consistência de um balde, apenas os objetos que são ingeridos após a alteração são garantidos para atender ao nível revisado.
+
+.Passos
+. Selecione *STORAGE (S3)* > *Buckets*.
+. Selecione o nome do intervalo na lista.
++
+É apresentada a página de detalhes do balde.
+
+. Selecione *Opções de balde* *nível de consistência*.
++
+image::../media/bucket_change_consistency_level.png[Nível de consistência de alteração do balde]
+
+. Selecione um nível de consistência para as operações realizadas nos objetos neste intervalo.
++
+[cols="1a,3a"]
+|===
+| Nível de consistência | Descrição 
+
+
+ a| 
+Tudo
+ a| 
+Todos os nós recebem os dados imediatamente, ou a solicitação falhará.
+
+
+
+ a| 
+Forte-global
+ a| 
+Garante consistência de leitura após gravação para todas as solicitações de clientes em todos os sites.
+
+
+
+ a| 
+Forte local
+ a| 
+Garante consistência de leitura após gravação para todas as solicitações de clientes dentro de um site.
+
+
+
+ a| 
+Leitura-após-nova-gravação (padrão)
+ a| 
+Fornece consistência de leitura após gravação para novos objetos e consistência para atualizações de objetos. Oferece alta disponibilidade e garantias de proteção de dados. Corresponde às garantias de consistência do Amazon S3.
+
+*Observação:* se o aplicativo tentar operações DE CABEÇA em chaves que não existem, defina o nível de consistência como *disponível*, a menos que você exija garantias de consistência do Amazon S3. Caso contrário, um grande número de erros de servidor interno do 500 pode resultar se um ou mais nós de storage não estiverem disponíveis.
+
+
+
+ a| 
+Disponível (eventual consistência para OPERAÇÕES DE CABEÇA)
+ a| 
+Comporta-se da mesma forma que o nível de consistência *Read-after-new-write*, mas fornece apenas consistência para operações HEAD. Oferece maior disponibilidade para OPERAÇÕES PRINCIPAIS do que *leitura após nova gravação* se os nós de storage não estiverem disponíveis. Difere das garantias de consistência do Amazon S3 apenas para operações PRINCIPAIS.
+
+|===
+. Selecione *Salvar alterações*.
+
+
+.Informações relacionadas
+link:tenant-management-permissions.html["Permissões de gerenciamento do locatário"]

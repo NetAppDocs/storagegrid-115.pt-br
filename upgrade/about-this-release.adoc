@@ -1,0 +1,20 @@
+---
+permalink: upgrade/about-this-release.html 
+sidebar: sidebar 
+keywords:  
+summary: Antes de iniciar uma atualização, revise esta seção para saber mais sobre os novos recursos e aprimoramentos no StorageGRID 11,5, determinar se algum recurso foi obsoleto ou removido e saber mais sobre alterações nas APIs do StorageGRID. 
+---
+= Sobre o StorageGRID 11,5
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de iniciar uma atualização, revise esta seção para saber mais sobre os novos recursos e aprimoramentos no StorageGRID 11,5, determinar se algum recurso foi obsoleto ou removido e saber mais sobre alterações nas APIs do StorageGRID.
+
+* link:whats-new.html["Novidades do StorageGRID 11,5"]
+* link:removed-or-deprecated-features.html["Recursos removidos ou obsoletos"]
+* link:changes-to-grid-management-api.html["Alterações na API Grid Management"]
+* link:changes-to-tenant-management-api.html["Alterações na API de gerenciamento do locatário"]
+

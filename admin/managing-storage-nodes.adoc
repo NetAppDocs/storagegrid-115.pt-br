@@ -1,0 +1,22 @@
+---
+permalink: admin/managing-storage-nodes.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Os nós de storage fornecem capacidade e serviços de storage em disco. O gerenciamento de nós de storage envolve o monitoramento da quantidade de espaço utilizável em cada nó, usando configurações de marca d"água e aplicando configurações de nó de storage.' 
+---
+= Gerenciando nós de storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os nós de storage fornecem capacidade e serviços de storage em disco. O gerenciamento de nós de storage envolve o monitoramento da quantidade de espaço utilizável em cada nó, usando configurações de marca d'água e aplicando configurações de nó de storage.
+
+* link:what-storage-node-is.html["O que é um nó de storage"]
+* link:managing-storage-options.html["Gerenciando Opções de armazenamento"]
+* link:managing-object-metadata-storage.html["Gerenciamento do storage de metadados de objetos"]
+* link:configuring-global-settings-for-stored-objects.html["Configuração de configurações globais para objetos armazenados"]
+* link:storage-node-configuration-settings.html["Configurações do nó de storage"]
+* link:managing-full-storage-nodes.html["Gerenciamento de nós de storage completos"]
+

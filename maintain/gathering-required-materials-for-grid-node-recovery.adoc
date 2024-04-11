@@ -1,0 +1,71 @@
+---
+permalink: maintain/gathering-required-materials-for-grid-node-recovery.html 
+sidebar: sidebar 
+keywords: storagegrid, recovery, grid node recovery, node recovery 
+summary: Antes de executar os procedimentos de manutenção, você deve garantir que você tenha os materiais necessários para recuperar um nó de grade com falha. 
+---
+= Recolha de materiais necessários para a recuperação do nó da grelha
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de executar os procedimentos de manutenção, você deve garantir que você tenha os materiais necessários para recuperar um nó de grade com falha.
+
+[cols="1a,2a"]
+|===
+| Item | Notas 
+
+
+ a| 
+Arquivo de instalação do StorageGRID
+ a| 
+Se você precisar recuperar um nó de grade, precisará do arquivo de instalação do StorageGRID para sua plataforma.
+
+*Observação:* você não precisa baixar arquivos se estiver recuperando volumes de armazenamento com falha em um nó de armazenamento.
+
+
+
+ a| 
+Arquivo do pacote de recuperação `.zip`
+ a| 
+Obtenha uma cópia do arquivo mais recente do Pacote de recuperação `.zip`:
+`sgws-recovery-package-_id-revision_.zip`
+
+O conteúdo do `.zip` arquivo é atualizado sempre que o sistema é modificado. Você é direcionado para armazenar a versão mais recente do Pacote de recuperação em um local seguro depois de fazer tais alterações. Use a cópia mais recente para recuperar de falhas na grade.
+
+Se o nó Admin principal estiver operando normalmente, você poderá fazer o download do Pacote de recuperação do Gerenciador de Grade. Selecione *Manutenção* *sistema* *Pacote de recuperação*.
+
+Se você não puder acessar o Gerenciador de Grade, poderá encontrar cópias criptografadas do Pacote de recuperação em alguns nós de armazenamento que contêm o serviço ADC. Em cada nó de armazenamento, examine este local para o pacote de recuperação: `/var/local/install/sgws-recovery-package-_grid-id_-_revision_.zip.gpg` Use o pacote de recuperação com o número de revisão mais alto.
+
+
+
+ a| 
+`Passwords.txt` ficheiro
+ a| 
+Contém as senhas necessárias para acessar os nós de grade na linha de comando. Incluído no Pacote de recuperação.
+
+
+
+ a| 
+Frase-passe do aprovisionamento
+ a| 
+A frase-passe é criada e documentada quando o sistema StorageGRID é instalado pela primeira vez. A senha de provisionamento não está no `Passwords.txt` arquivo.
+
+
+
+ a| 
+Documentação atual para a sua plataforma
+ a| 
+Para obter as versões suportadas atuais da sua plataforma, consulte a ferramenta de Matriz de interoperabilidade.
+
+https://mysupport.netapp.com/matrix["Ferramenta de Matriz de interoperabilidade do NetApp"]
+
+Vá para o site do fornecedor da plataforma para obter documentação.
+
+|===
+.Informações relacionadas
+link:downloading-and-extracting-storagegrid-installation-files.html["Transferir e extrair os ficheiros de instalação do StorageGRID"]
+
+link:web-browser-requirements.html["Requisitos do navegador da Web"]

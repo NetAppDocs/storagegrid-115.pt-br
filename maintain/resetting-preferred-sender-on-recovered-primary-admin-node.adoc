@@ -1,0 +1,29 @@
+---
+permalink: maintain/resetting-preferred-sender-on-recovered-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, primary admin node, reset preferred sender, resetting preferred sender 
+summary: Se o nó de administração principal que está a recuperar estiver atualmente definido como o remetente preferido de notificações de alerta, notificações de alarme e mensagens AutoSupport, tem de reconfigurar esta definição. 
+---
+= Redefinindo o remetente preferido no nó de administração principal recuperado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se o nó de administração principal que está a recuperar estiver atualmente definido como o remetente preferido de notificações de alerta, notificações de alarme e mensagens AutoSupport, tem de reconfigurar esta definição.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Você deve ter permissões de acesso específicas.
+* O Admin Node recuperado deve ser instalado e em execução.
+
+
+.Passos
+. Selecione *Configuração* > *Configurações do sistema* > *Opções de exibição*.
+. Selecione o Admin Node recuperado na lista suspensa *Preferred Sender*.
+. Clique em *aplicar alterações*.
+
+
+.Informações relacionadas
+link:../admin/index.html["Administrar o StorageGRID"]

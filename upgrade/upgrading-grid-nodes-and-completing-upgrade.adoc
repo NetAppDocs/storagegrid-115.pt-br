@@ -1,0 +1,141 @@
+---
+permalink: upgrade/upgrading-grid-nodes-and-completing-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, grid nodes, recovery package 
+summary: Depois que o nó de administração principal tiver sido atualizado, você deve atualizar todos os outros nós de grade em seu sistema StorageGRID. Você pode personalizar a sequência de atualização selecionando para atualizar nós de grade individuais, grupos de nós de grade ou todos os nós de grade. 
+---
+= Atualizando nós de grade e completando a atualização
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois que o nó de administração principal tiver sido atualizado, você deve atualizar todos os outros nós de grade em seu sistema StorageGRID. Você pode personalizar a sequência de atualização selecionando para atualizar nós de grade individuais, grupos de nós de grade ou todos os nós de grade.
+
+.Passos
+. Revise a seção progresso da atualização na página Atualização de software, que fornece informações sobre cada tarefa de atualização principal.
++
+.. *Start Upgrade Service* é a primeira tarefa de atualização. Durante esta tarefa, o arquivo de software é distribuído para os nós de grade e o serviço de atualização é iniciado.
+.. Quando a tarefa *Start Upgrade Service* estiver concluída, a tarefa *Upgrade Grid Nodes* será iniciada.
+.. Enquanto a tarefa *Upgrade Grid Nodes* está em andamento, a tabela Grid Node Status (Status do nó de grade) é exibida e mostra a etapa de atualização para cada nó de grade em seu sistema.
+
+
+. Depois que os nós de grade aparecerem na tabela Status do nó de grade, mas antes de aprovar qualquer nó de grade, faça o download de uma nova cópia do Pacote de recuperação.
++
+
+IMPORTANT: Você deve baixar uma nova cópia do arquivo do pacote de recuperação depois de atualizar a versão do software no nó de administração principal. O arquivo do Pacote de recuperação permite restaurar o sistema se ocorrer uma falha.
+
+. Revise as informações na tabela Status do nó de grade. Os nós de grade são organizados em seções por tipo: Nós de administrador, nós de gateway de API, nós de storage e nós de arquivamento.
++
+image::../media/software_upgrade_start_grid_node_status.gif[Captura de tela de Upgrade Grid Nodes após Admin Node concluído]
+
++
+Um nó de grade pode estar em um desses estágios quando esta página aparecer pela primeira vez:
+
++
+** Concluído (somente nó de administração principal)
+** A preparar a atualização
+** Transferência de software na fila
+** A transferir
+** A aguardar aprovação
+
+
+. Aprove os nós de grade que você está pronto para adicionar à fila de atualização. Nós aprovados do mesmo tipo são atualizados um de cada vez.
++
+Se a ordem em que os nós são atualizados for importante, aprove nós ou grupos de nós um de cada vez e aguarde até que a atualização seja concluída em cada nó antes de aprovar o próximo nó ou grupo de nós.
+
++
+
+IMPORTANT: Quando a atualização começa em um nó de grade, os serviços nesse nó são interrompidos. Mais tarde, o nó de grade é reinicializado. Essas operações podem causar interrupções de serviço para clientes que estão se comunicando com o nó. Não aprove a atualização para um nó a menos que você tenha certeza de que o nó está pronto para ser interrompido e reinicializado.
+
++
+** Selecione um ou mais botões *Approve* para adicionar um ou mais nós individuais à fila de atualização.
+** Selecione o botão *Approve All* em cada seção para adicionar todos os nós do mesmo tipo à fila de atualização.
+** Selecione o botão de nível superior *Approve All* para adicionar todos os nós na grade à fila de atualização.
+
+
+. Se precisar remover um nó ou todos os nós da fila de atualização, selecione *Remover* ou *Remover tudo*.
++
+Como mostrado no exemplo, quando o Stage atinge *parando serviços*, o botão *Remover* fica oculto e você não pode mais remover o nó.
+
++
+image::../media/software_upgrade_two_nodes_queued.gif[Captura de tela mostrando o Stage está parando os serviços]
+
+. Aguarde que cada nó prossiga pelos estágios de atualização, que incluem fila de espera, parada de serviços, parada de contentor, limpeza de imagens do Docker, atualização de pacotes base do SO, reinicialização e inicialização de serviços.
++
+
+NOTE: Quando um nó de appliance atinge a fase de atualização dos pacotes base do SO, o software Instalador de appliance StorageGRID no appliance é atualizado. Esse processo automatizado garante que a versão do instalador do StorageGRID Appliance permaneça sincronizada com a versão do software StorageGRID.
+
++
+Quando todos os nós da grade tiverem sido atualizados, a tarefa *Atualizar nós da grade* é mostrada como concluída. As restantes tarefas de atualização são executadas automaticamente e em segundo plano.
+
+. Assim que a tarefa *Ativar recursos* estiver concluída (o que ocorre rapidamente), você pode começar a usar os novos recursos na versão atualizada do StorageGRID.
++
+Por exemplo, se você estiver atualizando para o StorageGRID 11,5, agora poderá ativar o bloqueio de objetos S3, configurar um servidor de gerenciamento de chaves ou aumentar a configuração espaço reservado de metadados.
+
++
+link:increasing-metadata-reserved-space-setting.html["Aumentando a configuração espaço reservado metadados"]
+
+. Monitorize periodicamente o progresso da tarefa *Atualizar base de dados*.
++
+Durante esta tarefa, o banco de dados Cassandra é atualizado em cada nó de armazenamento.
+
++
+
+NOTE: A tarefa *Upgrade Database* pode levar dias para ser concluída. À medida que esta tarefa em segundo plano é executada, você pode aplicar hotfixes ou recuperar nós. No entanto, você deve esperar que a tarefa *etapas de atualização final* seja concluída antes de executar um procedimento de expansão ou desativação.
+
++
+Pode rever o gráfico para monitorizar o progresso de cada nó de armazenamento.
+
++
+image::../media/software_upgrade_upgrade_database.png[Banco de dados de atualização de software]
+
+. Quando a tarefa *Atualizar base de dados* estiver concluída, aguarde alguns minutos para que a tarefa *etapas finais de atualização* seja concluída.
++
+image::../media/software_upgrade_final_upgrade_steps.png[Etapas finais da atualização]
+
++
+Quando a tarefa etapas de atualização final estiver concluída, a atualização será concluída.
+
+. Confirme se a atualização foi concluída com êxito.
++
+.. Faça login no Gerenciador de Grade usando um navegador compatível.
+.. Selecione *Ajuda* *sobre*.
+.. Confirme se a versão exibida é o que você esperaria.
+.. Selecione *Manutenção* *sistema* *Atualização de Software*. Em seguida, selecione *Atualização StorageGRID*.
+.. Confirme se o banner verde mostra que a atualização de software foi concluída na data e hora esperadas.
++
+image::../media/software_upgrade_done.png[Atualização de software concluída]
+
+
+
+. Verifique se as operações da grade voltaram ao normal:
++
+.. Verifique se os serviços estão a funcionar normalmente e se não existem alertas inesperados.
+.. Confirme se as conexões do cliente com o sistema StorageGRID estão operando conforme esperado.
+
+
+. Verifique a página de downloads do NetApp para StorageGRID para ver se há algum hotfixes disponível para a versão do StorageGRID que você acabou de instalar.
++
+https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["NetApp Downloads: StorageGRID"^]
+
++
+No número da versão do StorageGRID 11,5._x.y_:
+
++
+** A versão principal tem um valor _x_ de 0 (11,5.0).
+** Uma versão menor, se disponível, tem um valor _x_ diferente de 0 (por exemplo, 11,5.1).
+** Um hotfix, se disponível, tem um valor _y_ (por exemplo, 11,5.0,1).
+
+
+. Se disponível, transfira e aplique a correção mais recente para a sua versão do StorageGRID.
++
+Consulte as instruções de recuperação e manutenção para obter informações sobre a aplicação de hotfixes.
+
+
+
+.Informações relacionadas
+link:downloading-recovery-package.html["Transferir o pacote de recuperação"]
+
+link:../maintain/index.html["Manter  recuperar"]

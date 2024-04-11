@@ -1,0 +1,22 @@
+---
+permalink: network/index.html 
+sidebar: sidebar 
+keywords:  
+summary: Saiba mais sobre a arquitetura e as topologias de rede do StorageGRID. Familiarize-se com os requisitos de configuração e provisionamento de rede. 
+---
+= Diretrizes de rede
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Saiba mais sobre a arquitetura e as topologias de rede do StorageGRID. Familiarize-se com os requisitos de configuração e provisionamento de rede.
+
+* link:storagegrid-networking-overview.html["Visão geral da rede StorageGRID"]
+* link:networking-requirements-and-guidelines.html["Requisitos e diretrizes de rede"]
+* link:deployment-specific-networking-requirements.html["Considerações de rede específicas da implantação"]
+* link:network-installation-and-provisioning.html["Instalação e provisionamento de rede"]
+* link:post-installation-guidelines.html["Diretrizes de pós-instalação"]
+* link:network-port-reference.html["Referência da porta de rede"]
+

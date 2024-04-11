@@ -1,0 +1,48 @@
+---
+permalink: maintain/rebooting-grid-node-from-grid-manager.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, reboot node, grid manager 
+summary: 'Reiniciar um nó de grade a partir do Gerenciador de Grade emite o `reboot` comando no nó de destino.' 
+---
+= Reiniciar um nó de grade a partir do Gerenciador de Grade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Reiniciar um nó de grade a partir do Gerenciador de Grade emite o `reboot` comando no nó de destino.
+
+.O que você vai precisar
+* Você deve estar conetado ao Gerenciador de Grade usando um navegador compatível.
+* Tem de ter a permissão Manutenção ou Acesso root.
+* Você deve ter a senha de provisionamento.
+
+
+.Passos
+. Selecione *nós*.
+. Selecione o nó de grade que deseja reinicializar.
+. Selecione a guia *tarefas*.
++
+image::../media/nodes_tasks_reboot.gif[Botão de reinicialização das tarefas dos nós]
+
+. Clique em *Reboot*.
++
+É apresentada uma caixa de diálogo de confirmação.
+
++
+image::../media/reboot_node_confirmation.gif[Caixa de diálogo de confirmação para o nó da grade de reinicialização]
+
++
+
+NOTE: Se você estiver reinicializando o nó Admin principal, a caixa de diálogo de confirmação lembra que a conexão do seu navegador com o Gerenciador de Grade será perdida temporariamente quando os serviços forem interrompidos.
+
+. Digite a senha de provisionamento e clique em *OK*.
+. Aguarde até que o nó seja reiniciado.
++
+Pode levar algum tempo para que os serviços sejam desativados.
+
++
+Quando o nó é reinicializado, o ícone cinza (administrativamente para baixo) aparece no lado esquerdo da página nós. Quando todos os serviços tiverem sido iniciados novamente, o ícone muda novamente para a cor original.
+
+

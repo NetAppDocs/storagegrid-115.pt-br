@@ -1,0 +1,21 @@
+---
+permalink: monitor/monitoring-storage-capacity.html 
+sidebar: sidebar 
+keywords:  
+summary: Você deve monitorar o espaço utilizável total disponível nos nós de storage para garantir que o sistema StorageGRID não fique sem espaço de storage para objetos ou metadados de objetos. 
+---
+= Monitoramento da capacidade de armazenamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve monitorar o espaço utilizável total disponível nos nós de storage para garantir que o sistema StorageGRID não fique sem espaço de storage para objetos ou metadados de objetos.
+
+O StorageGRID armazena os dados de objeto e os metadados de objeto separadamente e reserva uma quantidade específica de espaço para um banco de dados Cassandra distribuído que contém metadados de objeto. Monitore a quantidade total de espaço consumida para objetos e metadados de objetos, bem como tendências na quantidade de espaço consumida para cada um. Isso permitirá que você se Planeje com antecedência para a adição de nós e evite interrupções de serviço.
+
+Você pode visualizar as informações de capacidade de storage de toda a grade, de cada local e de cada nó de storage em seu sistema StorageGRID.
+
+.Informações relacionadas
+link:viewing-storage-tab.html["Visualizar o separador armazenamento"]

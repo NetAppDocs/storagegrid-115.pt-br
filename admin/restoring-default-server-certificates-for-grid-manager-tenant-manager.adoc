@@ -1,0 +1,24 @@
+---
+permalink: admin/restoring-default-server-certificates-for-grid-manager-tenant-manager.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode reverter para o uso dos certificados de servidor padrão para o Gerenciador de Grade e o Gerenciador de locatário. 
+---
+= Restaurando os certificados de servidor padrão para o Gerenciador de Grade e o Gerenciador de locatário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode reverter para o uso dos certificados de servidor padrão para o Gerenciador de Grade e o Gerenciador de locatário.
+
+.Passos
+. Selecione *Configuração* > *Configurações de rede* > *certificados de servidor*.
+. Na seção Gerenciar certificado do servidor de interface, clique em *usar certificados padrão*.
+. Clique em *OK* na caixa de diálogo de confirmação.
++
+Quando você restaura os certificados de servidor padrão, os arquivos de certificado de servidor personalizado configurados são excluídos e não podem ser recuperados do sistema. Os certificados de servidor padrão são usados para todas as novas conexões de cliente subsequentes.
+
+. Atualize a página para garantir que o navegador da Web seja atualizado.
+

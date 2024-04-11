@@ -1,0 +1,23 @@
+---
+permalink: admin/configuring-sso.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Quando o logon único (SSO) está ativado, os usuários só podem acessar o Gerenciador de Grade, o Gerenciador de Locatário, a API de gerenciamento de grade ou a API de gerenciamento de locatário se suas credenciais forem autorizadas usando o processo de login SSO implementado pela sua organização.' 
+---
+= Configurando logon único
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando o logon único (SSO) está ativado, os usuários só podem acessar o Gerenciador de Grade, o Gerenciador de Locatário, a API de gerenciamento de grade ou a API de gerenciamento de locatário se suas credenciais forem autorizadas usando o processo de login SSO implementado pela sua organização.
+
+* link:confirming-federated-users-can-sign-in.html["Confirmar que usuários federados podem entrar"]
+* link:using-sandbox-mode.html["Usando o modo sandbox"]
+* link:creating-relying-party-trusts-in-ad-fs.html["Criando confianças de parte confiáveis no AD FS"]
+* link:testing-relying-party-trusts.html["Testando confianças de parte de confiança"]
+* link:enabling-single-sign-on.html["Ativar o início de sessão único"]
+* link:disabling-single-sign-on.html["Desativação do logon único"]
+* link:temporarily-disabling-and-reenabling-sso-for-admin-node.html["Desativando e rehabilitando temporariamente o logon único para um nó de administração"]
+

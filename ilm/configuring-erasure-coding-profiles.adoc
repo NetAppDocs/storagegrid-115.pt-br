@@ -1,0 +1,19 @@
+---
+permalink: ilm/configuring-erasure-coding-profiles.html 
+sidebar: sidebar 
+keywords:  
+summary: Você configura os perfis de codificação de apagamento associando um pool de storage a um esquema de codificação de apagamento, como 6-3. Em seguida, ao configurar as instruções de colocação para uma regra ILM, você pode selecionar o perfil de codificação de apagamento. Se um objeto corresponder à regra, os dados e fragmentos de paridade serão criados e distribuídos para os locais de storage no pool de storage de acordo com o esquema de codificação de apagamento. 
+---
+= Configurando perfis de codificação de apagamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você configura os perfis de codificação de apagamento associando um pool de storage a um esquema de codificação de apagamento, como 6-3. Em seguida, ao configurar as instruções de colocação para uma regra ILM, você pode selecionar o perfil de codificação de apagamento. Se um objeto corresponder à regra, os dados e fragmentos de paridade serão criados e distribuídos para os locais de storage no pool de storage de acordo com o esquema de codificação de apagamento.
+
+* link:creating-erasure-coding-profile.html["Criando um perfil de codificação de apagamento"]
+* link:renaming-erasure-coding-profile.html["Renomeando um perfil de codificação de apagamento"]
+* link:deactivating-erasure-coding-profile.html["Desativar um perfil de codificação de apagamento"]
+

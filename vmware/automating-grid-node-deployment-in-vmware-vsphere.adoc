@@ -1,0 +1,78 @@
+---
+permalink: vmware/automating-grid-node-deployment-in-vmware-vsphere.html 
+sidebar: sidebar 
+keywords:  
+summary: Você pode automatizar a implantação de nós de grade do StorageGRID no VMware vSphere. 
+---
+= Automatizando a implantação de nó de grade no VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode automatizar a implantação de nós de grade do StorageGRID no VMware vSphere.
+
+.O que você vai precisar
+* Você tem acesso a um sistema Linux/Unix com o Bash 3,2 ou posterior.
+* Você tem o VMware OVF Tool 4,1 instalado e configurado corretamente.
+* Você sabe o nome de usuário e a senha necessários para acessar o VMware vSphere usando a ferramenta OVF.
+* Você conhece o URL da infraestrutura virtual (VI) para o local no vSphere onde deseja implantar as máquinas virtuais do StorageGRID. Esse URL normalmente será um vApp ou pool de recursos. Por exemplo: `vi://vcenter.example.com/vi/sgws`
++
+
+NOTE: Você pode usar o utilitário VMware `ovftool` para determinar esse valor (consulte `ovftool` a documentação para obter detalhes).
+
++
+
+NOTE: Se você estiver implantando em um vApp, as máquinas virtuais não serão iniciadas automaticamente pela primeira vez e você deverá ligá-las manualmente.
+
+* Recolheu todas as informações necessárias para o ficheiro de configuração. Consulte link:collecting-information-about-your-deployment-environment.html["Coletando informações sobre seu ambiente de implantação"] para obter informações.
+* Você tem acesso aos seguintes arquivos do arquivo de instalação do VMware para StorageGRID:
+
+
+[cols="1a,1a"]
+|===
+| Nome do ficheiro | Descrição 
+
+
+| NetApp-SG-version-SHA.vmdk  a| 
+O arquivo de disco da máquina virtual que é usado como um modelo para criar máquinas virtuais de nó de grade.
+
+*Nota:* este ficheiro tem de estar na mesma pasta que os `.ovf` ficheiros e `.mf`.
+
+
+
+| vsphere-primary-admin.ovf vsphere-primary-admin.mf  a| 
+O arquivo de modelo Open Virtualization Format (`.ovf`) e o arquivo de manifesto (`.mf`) para implantar o nó de administração principal.
+
+
+
+| vsphere-non-primary-admin.ovf vsphere-non-primary-admin.mf  a| 
+O arquivo de (`.ovf`modelo ) e o arquivo de manifesto (`.mf`) para implantar nós de administração não primários.
+
+
+
+| vsphere-archive.ovf vsphere-archive.mf  a| 
+O arquivo de (`.ovf`modelo ) e o arquivo de manifesto (`.mf`) para implantar nós de arquivamento.
+
+
+
+| vsphere-gateway.ovf vsphere-gateway.mf  a| 
+O arquivo de (`.ovf`modelo ) e o arquivo de manifesto (`.mf`) para implantar nós do Gateway.
+
+
+
+| vsphere-storage.ovf vsphere-storage.mf  a| 
+O arquivo de (`.ovf`modelo ) e o arquivo de manifesto (`.mf`) para implantar nós de storage baseados em máquina virtual.
+
+
+
+| deploy-vsphere-ovftool.sh  a| 
+O script de shell Bash usado para automatizar a implantação de nós de grade virtual.
+
+
+
+| deploy-vsphere-ovftool-sample.ini  a| 
+O arquivo de configuração de exemplo para uso com o `deploy-vsphere-ovftool.sh` script.
+
+|===

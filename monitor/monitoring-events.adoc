@@ -1,0 +1,49 @@
+---
+permalink: monitor/monitoring-events.html 
+sidebar: sidebar 
+keywords: monitor, monitoring events, events, storageGRID events 
+summary: Você pode monitorar eventos que são detetados por um nó de grade, incluindo eventos personalizados que você criou para rastrear eventos registrados no servidor syslog. A mensagem último evento mostrada no Gerenciador de Grade fornece mais informações sobre o evento mais recente. 
+---
+= Monitoramento de eventos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode monitorar eventos que são detetados por um nó de grade, incluindo eventos personalizados que você criou para rastrear eventos registrados no servidor syslog. A mensagem último evento mostrada no Gerenciador de Grade fornece mais informações sobre o evento mais recente.
+
+As mensagens de evento também são listadas no `/var/local/log/bycast-err.log` arquivo de log.
+
+O alarme SMTT (Total de eventos) pode ser repetidamente acionado por problemas como problemas de rede, interrupções de energia ou atualizações. Esta seção tem informações sobre a investigação de eventos para que você possa entender melhor por que esses alarmes ocorreram. Se um evento ocorreu devido a um problema conhecido, é seguro redefinir os contadores de eventos.
+
+
+
+== Rever eventos a partir da página de nós
+
+A página nós lista os eventos do sistema para cada nó de grade.
+
+. Selecione *nós*.
+. Selecione *_grid node_* *Eventos*.
+. Na parte superior da página, determine se um evento é mostrado para *último evento*, que descreve o último evento detetado pelo nó da grade.
++
+O evento é transmitido verbalmente a partir do nó da grade e inclui quaisquer mensagens de log com um nível de gravidade DE ERRO ou CRÍTICO.
+
+. Revise a tabela para ver se a contagem de qualquer evento ou erro não é zero.
+. Depois de resolver problemas, clique em *Redefinir contagens de eventos* para retornar as contagens a zero.
+
+
+
+
+== Rever eventos a partir da página Grid Topology (topologia de grelha)
+
+A página topologia de Grade também lista os eventos do sistema para cada nó de grade.
+
+. Selecione *Support* > *Tools* > *Grid Topology*.
+. Selecione *_site_* *_grid node_* *SSM* *Eventos* *Visão geral* *Principal*.
+
+
+.Informações relacionadas
+link:resetting-event-counts.html["Repor contagens de eventos"]
+
+link:../monitor/logs-files-reference.html["Referência de ficheiros de registo"]

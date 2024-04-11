@@ -1,0 +1,33 @@
+---
+permalink: primer/storagegrid-attributes.html 
+sidebar: sidebar 
+keywords: attributes 
+summary: Atributos reportam valores e status para muitas das funções do sistema StorageGRID. Os valores de atributo estão disponíveis para cada nó de grade, cada local e toda a grade. 
+---
+= Atributos do StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Atributos reportam valores e status para muitas das funções do sistema StorageGRID. Os valores de atributo estão disponíveis para cada nó de grade, cada local e toda a grade.
+
+Os atributos do StorageGRID são usados em vários locais no Gerenciador de Grade:
+
+* *Página de nós*: Muitos dos valores mostrados na página de nós são atributos StorageGRID. (As métricas Prometheus também são mostradas nas páginas de nós.)
+* *Alarmes*: Quando os atributos atingem valores de limite definidos, os alarmes StorageGRID (sistema legado) são acionados em níveis de gravidade específicos.
+* *Grid Topology tree*: Os valores de atributo são mostrados na árvore Grid Topology (*Support* *Tools* *Grid Topology*).
+* *Eventos*: Os eventos do sistema ocorrem quando certos atributos Registram uma condição de erro ou falha para um nó, incluindo erros como erros de rede.
+
+
+
+
+== Valores de atributo
+
+Os atributos são reportados com o melhor esforço e estão aproximadamente corretos. As atualizações de atributos podem ser perdidas em algumas circunstâncias, como a falha de um serviço ou a falha e reconstrução de um nó de grade.
+
+Além disso, os atrasos de propagação podem retardar o relatório de atributos. Os valores atualizados para a maioria dos atributos são enviados para o sistema StorageGRID em intervalos fixos. Pode demorar vários minutos até que uma atualização seja visível no sistema, e dois atributos que mudam mais ou menos simultaneamente podem ser reportados em momentos ligeiramente diferentes.
+
+.Informações relacionadas
+link:../monitor/index.html["Monitorizar  Resolução de problemas"]
